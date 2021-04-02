@@ -1,0 +1,36 @@
+/* .container {
+    position: relative;
+    margin: 0 auto;
+    width: 320px;
+    padding-top: 14px;
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      width: 768px;
+    }
+  
+    .bg {
+      height: 1024px;
+      background: url('../../images/Home/Layer-9.png') right bottom no-repeat,
+        url('../../images/Home/Layer-4\ 1.png') left bottom no-repeat,
+        url('../../images/Home/Strawberry-Big-PNG.png') right 30px bottom 180px
+          no-repeat,
+        url('../../images/Home/Vector\ 3.png') right bottom no-repeat;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .container {
+      width: 1280px;
+      padding-top: 0;
+    }
+  
+    .bg {
+      background-image: url('../../images/Home/BG.png');
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size: contain;
+      height: 100vh;
+    }
+  } */
