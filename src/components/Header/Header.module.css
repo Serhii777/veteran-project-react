@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  
+  background-color: rgb(248, 212, 212);
+}
+
+.headerWrapper {
+    display: flex;
+    flex-direction: row;
+}

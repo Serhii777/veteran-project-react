@@ -1,36 +1,63 @@
-/* .container {
-    position: relative;
-    margin: 0 auto;
-    width: 320px;
-    padding-top: 14px;
+.container {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 320px;
+  min-height: 100vh;
+  /* padding-top: 10px; */
+  background-color: rgb(249, 253, 236);
+  /* background-image: url("../../images/122771152_1217855951913757_6473893867410910954_n.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover; */
+}
+
+.headerWtapper{
+
+}
+
+.mainWtapper{
+flex-grow: 1;
+}
+
+.footerWtapper{
+
+}
+
+
+
+
+@media (min-width: 768px) {
+  .container {
+    width: 728px;
+    /* background-size: contain; */
+    /* background-size: 728px; */
   }
-  
-  @media (min-width: 768px) {
-    .container {
-      width: 768px;
-    }
-  
-    .bg {
+
+  /* .bg {
       height: 1024px;
       background: url('../../images/Home/Layer-9.png') right bottom no-repeat,
         url('../../images/Home/Layer-4\ 1.png') left bottom no-repeat,
         url('../../images/Home/Strawberry-Big-PNG.png') right 30px bottom 180px
           no-repeat,
         url('../../images/Home/Vector\ 3.png') right bottom no-repeat;
-    }
+    } */
+}
+
+@media (min-width: 1280px) {
+  .container {
+    width: 1240px;
+    padding-top: 0;
+    /* background-size: contain; */
+
   }
-  
-  @media (min-width: 1280px) {
-    .container {
-      width: 1280px;
-      padding-top: 0;
-    }
-  
-    .bg {
+
+  /* .bg {
       background-image: url('../../images/Home/BG.png');
       background-repeat: no-repeat;
       background-position: right;
       background-size: contain;
       height: 100vh;
-    }
-  } */
+    } */
+}
