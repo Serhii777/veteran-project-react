@@ -1,6 +1,6 @@
 import React from "react";
-import HomePage from "../components/HomePage/HomePage";
+import OurServices from "../components/OurServices/OurServices";
 
-const HomeView = () => <HomePage />;
+const OurServicesView = () => <OurServices />;
 
-export default HomeView;
+export default OurServicesView;

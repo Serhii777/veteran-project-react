@@ -1,3 +1,24 @@
-.headerTitle{
-background-color: rgb(183, 245, 170);
+.headerTitleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  margin: 0px auto;
+  background-color: rgb(244, 248, 227);
+}
+
+.headerTitle {
+}
+
+.headerTextWrapper {
+  text-align: center;
+}
+.headerText {
+}
+.headerDescription {
+}
+
+@media (min-width: 768px) {
+}
+@media (min-width: 1280px) {
 }

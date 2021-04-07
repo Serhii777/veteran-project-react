@@ -1,13 +1,14 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './Logo.module.css';
+import logo from '../../images/116353144_change-1.jpg';
 
-import styles from "./Logo.module.css";
-
-const Logo = () => {
+export default function Logo() {
   return (
     <div className={styles.logo}>
-      <h1>Hello from Logo</h1>
+      <Link to="/" className={styles.headerLogo}>
+        <img src={logo} alt="" className={styles.imgLogo} />
+      </Link>
     </div>
   );
-};
-
-export default Logo;
+}

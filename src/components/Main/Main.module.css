@@ -1,4 +1,39 @@
-.main{
-    background-color: rgb(204, 243, 203);
-    /* height: 100%; */
+.main {
+  /* margin: 0px auto; */
+  text-align: center;
+  background-color: rgb(201, 252, 199);
+}
+
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .mainWrapper {
+    flex-direction: row;
+  }
+
+.navigationWrapper {
+  flex-basis: 32%;
+}
+
+.childrenWrapper {
+  flex-basis: 68%;
+}
+  
+}
+
+@media (min-width: 1280px) {
+  .mainWrapper {
+    display: flex;
+  }
+
+  .navigationWrapper {
+    flex-basis: 22%;
+  }
+  
+  .childrenWrapper {
+    flex-basis: 78%;
+  }
 }

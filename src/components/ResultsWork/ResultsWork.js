@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./OurServices.module.css";
+import styles from "./ResultsWork.module.css";
 
 const ResultsWork = () => {
   return (

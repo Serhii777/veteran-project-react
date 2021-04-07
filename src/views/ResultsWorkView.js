@@ -1,6 +1,6 @@
 import React from "react";
-import HomePage from "../components/HomePage/HomePage";
+import ResultsWork from "../components/ResultsWork/ResultsWork";
 
-const HomeView = () => <HomePage />;
+const ResultsWorkView = () => <ResultsWork />;
 
-export default HomeView;
+export default ResultsWorkView;

@@ -1,0 +1,95 @@
+.socialNetworksListWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  background-color: rgb(251, 251, 240);
+}
+
+.socialNetworksList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 80px;
+}
+
+/* li */
+.socialNetworksItem {
+  cursor: pointer;
+}
+
+/* a */
+.socialNetworksLink {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  text-decoration: none;
+  border: 1px solid rgb(232, 236, 238);
+  transition: all 0.3s linear;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, box-shadow 0.3s, opacity 0.3s, color 0.3s;
+}
+
+.socialNetworksItemWrapper {
+  width: 30px;
+  height: 30px;
+}
+
+.linkFacebook {
+  fill: #2441fd;
+}
+
+.linkViber {
+  fill: #665cac;
+}
+
+.linkFacebook:hover {
+  fill: #ffffff;
+  background-color: #2441fd;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.linkViber:hover {
+  fill: #ffffff;
+  background-color: #665cac;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.socialNetworksIconImg {
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+/* svg */
+.socialNetworksIcon {
+  width: 30px;
+  height: 30px;
+  fill: black;
+}
+
+.visuallyHidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: 1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

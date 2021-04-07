@@ -1,9 +1,10 @@
 import { lazy } from "react";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default [
   {
     path: "/",
-    label: "HomePage",
+    label: "Про наш центр",
     exact: true,
     public: true,
     restricted: false,
@@ -13,56 +14,134 @@ export default [
   },
   {
     path: "/legaldocuments",
-    label: "LegalDocuments",
+    label: "Важливо знати",
     exact: true,
     public: true,
     restricted: true,
     component: lazy(() =>
-      import(
-        "./views/LegalDocumentsView.js" /* webpackChunkName: "home-view" */
-      )
+      import("./views/LegalDocumentsView" /* webpackChunkName: "home-view" */)
     ),
   },
   {
     path: "/ourservices",
-    label: "OurServices",
-    exact: true,
+    label: "Послуги центру",
+    exact: false,
     public: true,
     restricted: true,
     component: lazy(() =>
-      import("./views/OurServicesView.js" /* webpackChunkName: "home-view" */)
+      import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
     ),
+    routes: [
+      {
+        path: "/ourservices/psychologicalhelp",
+        component: lazy(() =>
+          import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
+        ),
+      },
+      {
+        path: "/ourservices/legalaid",
+        component: lazy(() =>
+          import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
+        ),
+      },
+      {
+        path: "/ourservices/socioadvice",
+        component: lazy(() =>
+          import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
+        ),
+      },
+      {
+        path: "/ourservices/rehabilitation",
+        component: lazy(() =>
+          import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
+        ),
+      },
+      {
+        path: "/ourservices/creativeworkshop",
+        component: lazy(() =>
+          import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
+        ),
+      },
+      {
+        path: "/ourservices/womenclub",
+        component: lazy(() =>
+          import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
+        ),
+      },
+    ],
   },
   {
     path: "/announcementnews",
-    label: "AnnouncementNews",
-    exact: true,
+    label: "Анонси заходів та новини",
+    exact: false,
     public: true,
     restricted: true,
     component: lazy(() =>
-      import(
-        "./views/AnnouncementNewsView.js" /* webpackChunkName: "home-view" */
-      )
+      import("./views/AnnouncementNewsView" /* webpackChunkName: "home-view" */)
     ),
+    routes: [
+      {
+        path: "/announcementnews/announcement",
+        component: lazy(() =>
+          import("./views/AnnouncementView" /* webpackChunkName: "home-view" */)
+        ),
+      },
+      {
+        path: "/announcementnews/news",
+        component: lazy(() =>
+          import("./views/NewsView" /* webpackChunkName: "home-view" */)
+        ),
+      },
+    ],
   },
   {
     path: "/ResultsWork",
-    label: "ResultsWork",
+    label: "Результати роботи",
     exact: true,
     public: true,
     restricted: true,
     component: lazy(() =>
-      import("./views/ResultsWorkView.js" /* webpackChunkName: "home-view" */)
+      import("./views/ResultsWorkView" /* webpackChunkName: "home-view" */)
     ),
   },
   {
     path: "/contacts",
-    label: "Contacts",
+    label: "Наші контакти",
     exact: true,
     public: true,
     restricted: true,
     component: lazy(() =>
-      import("./views/ContactsView.js" /* webpackChunkName: "home-view" */)
+      import("./views/ContactsView" /* webpackChunkName: "home-view" */)
+    ),
+  },
+  {
+    path: "/admin",
+    label: "Admin-Home page",
+    exact: true,
+    public: true,
+    restricted: false,
+    component: lazy(() =>
+      import("./views/AdminView" /* webpackChunkName: "home-view" */)
+    ),
+  },
+  {
+    path: "/login",
+    label: "Вход",
+    exact: true,
+    public: true,
+    restricted: true,
+    component: lazy(() =>
+      import("./views/LoginView" /* webpackChunkName: "login-view" */)
+    ),
+  },
+  {
+    path: "/register",
+    label: "Регистрация",
+    exact: true,
+    public: true,
+    restricted: true,
+    component: lazy(() =>
+      import("./views/RegisterView" /* webpackChunkName: "register-view" */)
     ),
   },
 
@@ -77,34 +156,3 @@ export default [
   //     ),
   //   },
 ];
-
-// {
-//     path: '/login',
-//     label: 'Вход',
-//     exact: true,
-//     pablic: true,
-//     restricted: true,
-//     component: lazy(() =>
-//       import('./view/LoginView' /* webpackChunkName: "login-view" */),
-//     ),
-//   },
-//   {
-//     path: '/register',
-//     label: 'Регистрация',
-//     exact: true,
-//     pablic: true,
-//     restricted: true,
-//     component: lazy(() =>
-//       import('./view/RegisterView' /* webpackChunkName: "register-view" */),
-//     ),
-//   },
-//   {
-//     path: '/dairy',
-//     label: 'Дневник',
-//     exact: true,
-//     pablic: false,
-//     restricted: false,
-//     component: lazy(() =>
-//       import('./view/DiaryView' /* webpackChunkName: "dairy-view" */),
-//     ),
-//   },

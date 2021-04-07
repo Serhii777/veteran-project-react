@@ -1,60 +1,39 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import routes from "../../routes";
+
 import styles from "./Navigation.module.css";
+
+{
+  /* <Route exact path="/">
+  {loggedIn ? <Redirect to="/dashboard" /> : <PublicHomePage />}
+</Route> */
+}
 
 const Navigation = () => {
   return (
-    <nav className={styles.navigationList}>
-      <h1>Hello from Navigation</h1>
-      <NavLink
-        to="/"
-        exact
-        className={styles.link}
-        activeClassName={styles.activelink}>
-        Home Page
-      </NavLink>
-
-      <NavLink
-        to="/legaldocuments"
-        exact
-        className={styles.link}
-        activeClassName={styles.activelink}>
-        Legal Documents
-      </NavLink>
-
-      <NavLink
-        to="/ourservices"
-        exact
-        className={styles.link}
-        activeClassName={styles.activelink}>
-        Our Services
-      </NavLink>
-
-      <NavLink
-        to="/AnnouncementNews"
-        exact
-        className={styles.link}
-        activeClassName={styles.activelink}>
-        Announcement News
-      </NavLink>
-
-      <NavLink
-        to="/resultswork"
-        exact
-        className={styles.link}
-        activeClassName={styles.activelink}>
-        Results Work
-      </NavLink>
-
-      <NavLink
-        to="/contacts"
-        exact
-        className={styles.link}
-        activeClassName={styles.activelink}>
-        Contacts
-      </NavLink>
-
+    <nav className={styles.navigationWrapper}>
+      <h3 className={styles.navigationTitle}>Hello from Navigation</h3>
+      {/* <Router> */}
+      <div>
+        <ul className={styles.navigationList}>
+          {routes.map((route) => (
+            <li className={styles.navigationItem}>
+              <NavLink
+                key={route.label}
+                to={route.path}
+                exact={route.exact}
+                className={styles.link}
+                activeClassName={styles.activelink}>
+                {route.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </div>
+      {/* </Router> */}
+      {/* ))} */}
       {/* <NavLink
         to="/admin"
         exact

@@ -1,0 +1,51 @@
+.announcementWrapper {
+  background-color: rgb(244, 252, 252);
+  padding: 20px;
+}
+
+.announcementTitle {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.announcementListWrapper {
+}
+
+.announcementList {
+}
+
+/* li */
+.announcementItem {
+}
+
+.announcementItemWrapper {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  justify-content: start;
+  text-align: left;
+}
+.itemTitle {
+  text-align: center;
+  font-size: 21px;
+  margin-bottom: 20px;
+}
+
+.itemDescription {
+  /* font-size: 16px; */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.itemImage {
+  width: 260px;
+  height: 200px;
+  margin: 0px auto;
+}
+
+.itemText {
+  margin-bottom: 10px;
+}
+
+.itemData {
+}

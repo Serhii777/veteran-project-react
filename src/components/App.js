@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Switch } from "react-router";
+import { Route, Switch } from "react-router";
 
 import Layout from "./Layout/Layout";
 // import Main from "./Main/Main";
@@ -7,8 +7,8 @@ import Layout from "./Layout/Layout";
 // import Footer from "./Footer/Footer";
 import routes from "../routes";
 
-import PrivateRoute from "./Routes/PrivateRoute";
-import PublicRoute from "./Routes/PublicRoute";
+// import PrivateRoute from "./Routes/PrivateRoute";
+// import PublicRoute from "./Routes/PublicRoute";
 
 function App() {
   return (
@@ -16,13 +16,14 @@ function App() {
         <Suspense fallback={<h1>Loading...</h1>}>
           {/* <Suspense fallback={<Spinner />}> */}
           <Switch>
-            {/* {routes.map((route) =>
-            route.public ? (
-              <PrivateRoute key={route.label} {...route} />
-            ) : (
-              <PublicRoute key={route.label} {...route} />
-            )
-          )} */}
+            {routes.map((route) =>
+            (<Route key={route.label} {...route} />)
+            // route.public ? (
+            //   <PrivateRoute key={route.label} {...route} />
+            // ) : (
+            //   <PublicRoute key={route.label} {...route} />
+            // )
+          )}
           </Switch>
         </Suspense>
     </Layout>

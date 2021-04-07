@@ -6,6 +6,7 @@ const Attention = () => {
   return (
     <div className={styles.attention}>
       <h1>Hello from Attention</h1>
+      
     </div>
   );
 };

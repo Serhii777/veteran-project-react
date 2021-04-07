@@ -25,6 +25,7 @@ export default function Layout({ children }) {
       </header>
       <main className={styles.mainWtapper}>
         <Main>{children}</Main>
+        {/* {children} */}
       </main>
       <footer className={styles.footerWtapper}>
         <Footer />

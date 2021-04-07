@@ -1,54 +1,113 @@
-.navigationList {
+.navigationWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgb(133, 221, 241);
+  background-color: rgb(210, 243, 250);
   text-transform: uppercase;
+  padding: 20px 10px 30px;
 }
 
-.link {
+.navigationTitle {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.navigationList {
+}
+
+.navigationItem {
   display: flex;
-  /* align-items: center; */
   justify-content: center;
-  /* position: relative; */
-  /* display: inline-block; */
-  /* border: none; */
+  align-items: center;
 
-  min-width: 150px;
+  min-width: 265px;
   border-radius: 3px;
-  padding: 0 1.5em;
-  /* vertical-align: top; */
-  /* text-align: center;
-  vertical-align: center; */
-
+  /* padding: 10px 20px; */
   font-size: 16px;
-  line-height: 2.8;
+  line-height: 1.6;
   font-family: inherit;
   font-weight: 700;
-  /* white-space: nowrap; */
-
-  color: #222222;
   background-color: #ffffff;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s, box-shadow 0.3s, opacity 0.3s, color 0.3s;
   cursor: pointer;
-
-  margin: 0px 0px 10px 0px;
+  /* margin: 0px 0px 10px 0px; */
+  margin-bottom: 14px;
 }
 
-.link:hover {
-  background-color: #daf5f8;
+.link {
+  padding: 10px 10px;
+  width: 100%;
+  color: #222222;
+  /* min-width: 265px; */
+}
+
+.navigationItem:last-child {
+  margin: 0px 0px 0px 0px;
+}
+
+.navigationItem:hover {
+  background-color: #95eaf3;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .activelink {
   color: #ffffff;
-  background-color: #5454fb;
+  background-color: #2258f8;
 }
 
 .activelink:hover {
-  /* color: #ff0000; */
-  background-color: #5454fb;
-  /* box-shadow: inherit; */
+  background-color: #2258f8;
+}
+
+@media (min-width: 768px) {
+  .navigationWrapper {
+    padding: 20px 10px 30px;
+  }
+
+  .navigationList {
+  }
+
+  .navigationTitle {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .navigationItem {
+    min-width: 200px;
+    max-width: 200px;
+  }
+  
+  .link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 0px 0px 0px;
+    line-height: 1.4;
+    min-height: 52px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .navigationWrapper {
+    padding: 20px 10px;
+  }
+
+  .navigationList {
+  }
+
+  .navigationTitle {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .navigationItem {
+    min-width: 240px;
+  }
+  
+  .link {
+    min-height: 56px;
+    line-height: 1.4;
+  }
 }
