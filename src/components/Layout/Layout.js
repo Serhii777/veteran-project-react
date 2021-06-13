@@ -2,6 +2,10 @@ import React from "react";
 // import { useSelector } from 'react-redux';
 // import { authSelectors } from '../../redux/auth';
 
+import ReactNotification from 'react-notifications-component'
+// import 'react-notifications-component/dist/theme.css'
+
+
 import Main from "../Main/Main";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -20,12 +24,12 @@ export default function Layout({ children }) {
     // </div>
 
     <div className={styles.container}>
+      <ReactNotification />
       <header className={styles.headerWtapper}>
         <Header />
       </header>
       <main className={styles.mainWtapper}>
         <Main>{children}</Main>
-        {/* {children} */}
       </main>
       <footer className={styles.footerWtapper}>
         <Footer />

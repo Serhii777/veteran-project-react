@@ -1,3 +1,69 @@
-.attention{
-    background-color: rgb(241, 234, 133);
+.attention {
+  padding: 20px 16px;
+  background-color: rgb(255, 255, 255);
 }
+
+.attentionWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid red;
+    padding: 14px;
+    text-align: left;
+    background-color: rgb(252, 233, 220);
+}
+
+.attentionTitle {
+  font-size: 18px;
+  color: rgb(228, 12, 12);
+  margin-bottom: 14px;
+}
+
+.attentionNoteWrapper{
+
+}
+
+.attentionNoteTitle {
+  margin-bottom: 10px;
+}
+
+.attentionDescription {
+}
+.attentionText {
+  /* margin-right: 10px; */
+}
+
+.attentionLink {
+  font-size: 13.5px;
+  padding: 0px 4px;
+  /* min-width: 200px;
+height: 10px; */
+  /* background-color: rgb(250, 44, 44); */
+  border: 1px solid #dc6611;
+  background: #fc842d;
+  box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.3);
+  margin-left: 4px;
+}
+
+.attentionLink:hover {
+  background: #e16710;
+  box-shadow: 1px 6px 10px rgba(252, 132, 45, 0.7);
+  box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.5);
+}
+
+.attentionSpan {
+  color: rgb(253, 252, 251);
+}
+
+
+/* @media (min-width: 768px) {
+}
+
+@media (min-width: 980px) {
+}
+
+@media (min-width: 1180px) {
+}
+
+@media (min-width: 1380px) {
+} */

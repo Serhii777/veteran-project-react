@@ -1,37 +1,37 @@
 .contacts {
+  /* display: flex; */
   background-color: rgb(192, 219, 233);
+  height: auto;
 }
-
+.contactsTitle {
+}
 .contactsWrapper {
   display: flex;
   flex-direction: column;
 
   background-color: rgba(235, 230, 198, 0.4);
 }
+.addressSection {
+}
+.addressTitle {
+}
+.addressWrapper {
+}
+
+.mapSection {
+}
+
+.mapTitle {
+}
 
 .mapWrapper {
   width: 100%;
-  height: 400px;
+  height: 450px;
   background-color: rgba(236, 193, 193, 0.4);
 }
 
-/* @media (min-width: 768px) {
+@media (min-width: 768px) {
   .contactsWrapper {
-    align-items: center;
-  }
-
-  .addressWrapper {
-    flex-basis: 40%;
-  }
-
-  .mapWrapper {
-    flex-basis: 60%;
-  }
-} */
-
-@media (min-width: 1280px) {
-  .contactsWrapper {
-    flex-direction: row;
     /* align-items: center; */
   }
 
@@ -43,3 +43,34 @@
     flex-basis: 60%;
   }
 }
+
+/* @media (min-width: 980px) {
+} */
+
+@media (min-width: 1180px) {
+  .contactsWrapper {
+    flex-direction: row;
+    /* align-items: center; */
+  }
+
+  .addressWrapper {
+    flex-basis: 33%;
+  }
+
+  .mapSection {
+    flex-basis: 67%;
+    width: 100%;
+  }
+
+  .mapTitle {
+  }
+
+  .mapWrapper {
+    width: 100%;
+    height: 450px;
+    background-color: rgba(236, 193, 193, 0.4);
+  }
+}
+
+/* @media (min-width: 1380px) {
+} */

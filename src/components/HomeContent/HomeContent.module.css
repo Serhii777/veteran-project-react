@@ -1,3 +1,189 @@
-.homeContent{
-    background-color: rgb(243, 138, 208);
+.homeContent {
+  display: flex;
+  flex-direction: column;
+  /* background-color: rgb(247, 228, 240); */
+  margin-bottom: 30px;
 }
+
+.homeContentTitle {
+  font-family: Arial, sans-serif;
+  /* font-family: Roboto, sans-serif; */
+  font-size: 32px;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+.homeContentWrapper {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.homeMainContent {
+  display: flex;
+  flex-basis: 73%;
+}
+
+.homeContentList {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  /* border: 1px solid rgb(8, 38, 147); */
+  /* background-color: rgb(201, 203, 248); */
+}
+
+.homeContentItem {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(150, 152, 150, 0.4);
+  background-color: rgb(217, 245, 219);
+  transition: all 200ms ease-in-out;
+  margin-bottom: 16px;
+}
+
+.homeContentItemWrapper {
+}
+
+.homeContentItemTitle {
+  font-family: Arial, sans-serif;
+  /* font-family: Roboto, sans-serif; */
+  font-size: 24px;
+  font-weight: 600;
+  /* font-style: normal; */
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.homeItemList {
+  display: flex;
+  flex-direction: column;
+}
+
+.homeTextItem {
+  background-color: rgb(249, 250, 236);
+  padding: 10px;
+}
+
+.homeItemImageWrapper {
+  float: right;
+  margin: 6px 6px 6px 0px;
+  background-color: rgb(253, 208, 150);
+}
+
+.homeTextItemWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.homeTextItemTitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  width: 100%;
+}
+
+.toppings {
+  margin-right: 10px;
+}
+
+.text {
+  text-align: left;
+  white-space: normal;
+  white-space: pre-wrap;
+}
+
+.imageWrapper {
+  flex-basis: 27%;
+}
+
+.itemImage {
+  /* width: 300px; */
+  width: 150px;
+  /* height: 200px; */
+  height: 100px;
+}
+
+/*! button */
+.buttonWrapper {
+  margin: 20px 10px;
+}
+
+.buttonRemove {
+  width: 48%;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.6;
+  vertical-align: middle;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  border: 0;
+  outline: 0;
+  transition: all 200ms ease-in-out;
+  color: #ffffff;
+  border: 1px solid #d8340b;
+  border-radius: 3px;
+  background: #ee451b;
+  box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.3);
+  padding: 6px 6px;
+  /* position: relative; */
+}
+
+.buttonRemove:hover {
+  background: #cc3712;
+  box-shadow: 1px 2px 10px 3px #ee451bd2;
+}
+
+.homeContentItem:hover {
+  border: 1px solid #f7bdad;
+  box-shadow: 2px 3px 8px 4px #fac6b8;
+}
+
+/*! form for admin */
+.formAdminWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #f88383;
+
+  background-color: #fdb7b7;
+  padding: 10px;
+}
+
+.formContentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(232, 250, 235);
+  margin-bottom: 30px;
+}
+
+.appUploadFileWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(219, 250, 217);
+}
+
+
+/* @media (min-width: 768px) {
+}
+
+@media (min-width: 980px) {
+}
+
+@media (min-width: 1180px) {
+}
+
+@media (min-width: 1380px) {
+} */

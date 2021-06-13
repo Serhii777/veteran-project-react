@@ -1,3 +1,142 @@
-.adminPage{
-    background-color: rgb(252, 226, 203);
+.adminPage {
+  /* background-color: rgb(252, 226, 203); */
 }
+
+.adminPageWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px 30px;
+  background-color: rgb(251, 243, 251);
+}
+
+.adminPageTitle {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: rgb(253, 7, 7);
+}
+
+.adminPageListWrapper {
+  /* max-width: 265px; */
+}
+
+.adminPageList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.adminPageItem {
+  display: flex;
+  align-items: center;
+  min-width: 220px;
+  max-height: 44px;
+
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #ffffff;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, box-shadow 0.3s, opacity 0.3s, color 0.3s;
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+
+.link {
+  padding: 10px 10px;
+  width: 100%;
+  max-height: 44px;
+  color: #222222;
+}
+
+.adminPageItem:last-child {
+  margin: 0px 0px 0px 0px;
+}
+
+.adminPageItem:hover {
+  background-color: #95eaf3;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* 2px 3px 8px 2px */
+}
+
+.activelink {
+  color: #ffffff;
+  background-color: #2258f8;
+}
+
+.activelink:hover {
+  background-color: #2258f8;
+}
+
+@media (min-width: 768px) {
+  .adminPageWrapper {
+    /* padding: 20px 10px 30px; */
+  }
+
+  .adminPageList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(57, 56, 56);
+    border-top: 1px solid rgb(57, 56, 56);
+    padding: 20px 40px;
+  }
+
+  .adminPageTitle {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .adminPageItem {
+    min-width: 180px;
+    max-width: 180px;
+    margin: 0px;
+    min-height: 44px;
+  }
+
+  .link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 0px 0px 0px;
+    line-height: 1.4;
+    min-height: 44px;
+  }
+}
+
+/* @media (min-width: 980px) {
+} */
+
+@media (min-width: 1180px) {
+  .adminPageWrapper {
+    padding: 0px 10px;
+  }
+
+  .adminPageList {
+    padding: 20px 230px;
+  }
+
+  .adminPageTitle {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .adminPageItem {
+    min-width: 200px;
+    min-height: 50px;
+    line-height: 1.4;
+    margin: 0px 0px 0px 0px;
+  }
+
+  .link {
+    min-height: 50px;
+  }
+}
+
+/* @media (min-width: 1380px) {
+}  */

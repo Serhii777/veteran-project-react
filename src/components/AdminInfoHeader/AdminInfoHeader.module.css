@@ -1,0 +1,73 @@
+.adminInfo {
+  padding: 10px 20px 10px;
+}
+
+.adminInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid rgb(238, 43, 43);
+  color: rgb(0, 0, 0);
+  background-color: rgb(250, 214, 214);
+  padding: 10px 20px 16px;
+}
+
+.adminInfoTitle{
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: rgb(253, 7, 7);
+  text-align: center;
+}
+
+.adminInfoWelcome{
+  margin-bottom: 10px;
+}
+
+.adminInfoSpan {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.adminInfoText {
+  color: rgb(255, 0, 0);
+  margin-bottom: 16px;
+}
+
+.adminInfoHeaderWrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.buttonHeaderWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.buttonHeader {
+  width: 120px;
+  height: 30px;
+}
+
+/* @media (min-width: 768px) {
+
+}
+
+@media (min-width: 980px) {
+} */
+
+@media (min-width: 1180px) {
+  .adminInfoWrapper{
+    padding: 10px 150px 16px;
+  
+  }
+}
+
+/* @media (min-width: 1380px) {
+} */

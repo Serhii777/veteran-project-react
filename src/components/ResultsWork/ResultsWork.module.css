@@ -1,3 +1,22 @@
 .resultsWork{
     background-color: rgb(250, 206, 140);
 }
+
+.loader{
+    /* width: 100px;
+    height: 10px; */
+    font-size: 22px;
+    color: #3942fa;
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 980px) {
+}
+
+@media (min-width: 1180px) {
+}
+
+@media (min-width: 1380px) {
+}

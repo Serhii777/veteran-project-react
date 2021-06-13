@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 
 import SvgFacebook from "../SvgFacebook";
@@ -12,7 +13,7 @@ const SocialNetworks = () => {
         <li className={styles.socialNetworksItem}>
           <a
             href="#"
-            //   target="_blank"
+              // target="_blank"
             rel="noopener noreferrer"
             className={`${styles.socialNetworksLink} ${styles.linkFacebook}`}>
             <div className={styles.socialNetworksItemWrapper}>

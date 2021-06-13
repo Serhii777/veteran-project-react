@@ -1,5 +1,6 @@
 import React from "react";
-import { Router, Switch, Route, NavLink, Link } from "react-router-dom";
+// import { Router, Switch, Route, NavLink, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 import PsychologicalHelp from "./PsychologicalHelp/PsychologicalHelp";
 import LegalAid from "./LegalAid/LegalAid";

@@ -1,0 +1,42 @@
+.fas {
+  color: rgb(62, 70, 214);
+}
+
+.fa-bars {
+  /* color: #fff; */
+  color: rgb(77, 103, 199);
+}
+
+/* .fab {
+} */
+
+.fa-firstdraft {
+  margin-left: 0.5rem;
+  font-size: 1.6rem;
+}
+
+@media screen and (max-width: 980px) {
+  .fa-times {
+    /* color: #fff; */
+    color: rgb(66, 147, 69);
+    font-size: 2rem;
+  }
+}
+
+/* @media screen and (max-width: 960px) {
+  .fa-caret-down {
+    display: none;
+  }
+} */
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 980px) {
+}
+
+@media (min-width: 1180px) {
+}
+
+@media (min-width: 1380px) {
+}

@@ -6,7 +6,7 @@ const LegalAid = () => {
   return (
     <div className={styles.legalAid}>
       <h2>Hello from LegalAid</h2>
-      
+
     </div>
   );
 };

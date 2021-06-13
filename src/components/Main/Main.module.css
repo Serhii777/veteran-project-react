@@ -1,7 +1,7 @@
 .main {
   /* margin: 0px auto; */
   text-align: center;
-  background-color: rgb(201, 252, 199);
+  background-color: rgb(239, 250, 238);
 }
 
 .mainWrapper {
@@ -24,11 +24,16 @@
   
 }
 
-@media (min-width: 1280px) {
+
+
+@media (min-width: 980px) {
+}
+
+@media (min-width: 1180px) {
   .mainWrapper {
     display: flex;
   }
-
+  
   .navigationWrapper {
     flex-basis: 22%;
   }
@@ -36,4 +41,7 @@
   .childrenWrapper {
     flex-basis: 78%;
   }
+}
+
+@media (min-width: 1380px) {
 }

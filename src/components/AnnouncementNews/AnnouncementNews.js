@@ -24,14 +24,14 @@ const AnnouncementNews = () => {
       Анонси заходів та новини
       </h2>
 
-      <div className={styles.announcementNewsListWrapper}></div>
+      {/* <div className={styles.announcementNewsListWrapper}></div> */}
       <ul className={styles.announcementNewsList}>
         <li className={styles.announcementNewsItem}>
           <NavLink
             to="/announcementnews/announcement"
             className={styles.link}
             activeClassName={styles.activelink}>
-            Анонси заходів
+            Анонси
           </NavLink>
         </li>
         <li className={styles.announcementNewsItem}>

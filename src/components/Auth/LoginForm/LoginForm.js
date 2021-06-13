@@ -1,170 +1,186 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
+import { css } from "@emotion/core";
+import { ScaleLoader } from "react-spinners";
+// import { loadingSelectors } from '../../../redux/loading';
+import { authOperations } from '../../../redux/auth';
+import { loadingSelectors } from '../../../redux/loading';
+import Button from "../../Button/Button";
+import { FormErrors } from "../FormErrors";
+import styles from "../RegistrationForm/RegistrationForm.module.css";
+// import stylesLogin from "./LoginForm.module.css";
 
-import styles from './LoginForm.module.css';
+// import styles from './LoginForm.module.css';
 
-const LoginForm = () => {
-  return (
-    <div className={styles.loginForm}>
-      <h1>Hello from LoginForm</h1>
-      
-    </div>
-  );
+// const LoginForm = () => {
+//   return (
+//     <div className={styles.loginForm}>
+//       <h2>Hello from LoginForm</h2>
+//     </div>
+//   );
+// };
+// export default LoginForm;
+
+console.log("authOperations:", authOperations);
+
+const override = css`
+  display: block;
+  margin: -13px auto 0;
+`;
+
+class LoginForm extends Component {
+  state = {
+    email: "",
+    password: "",
+    formErrors: { email: "", password: "" },
+    emailValid: false,
+    passwordValid: false,
+  };
+
+  handleChange = ({ target: { name, value } }) => {
+    this.setState({ [name]: value });
+    this.validateField(name, value);
+  };
+
+  handleSubmit = (e) => {
+    // const { onLogin, onRefresh } = this.props;
+    const { onLogin } = this.props;
+    e.preventDefault();
+
+    onLogin({ ...this.state });
+  };
+
+  validateField(fieldName, value) {
+    let fieldValidationErrors = this.state.formErrors;
+    // let nameValid = this.state.nameValid;
+    let emailValid = this.state.emailValid;
+    let passwordValid = this.state.passwordValid;
+
+    const inputColor = (fieldName, color) => {
+      return (document.getElementById(
+        `${fieldName}`
+      ).style.borderColor = `${color}`);
+    };
+
+    switch (fieldName) {
+      case "email":
+        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+
+        fieldValidationErrors.email = emailValid
+          ? (inputColor("email", "green"), "")
+          : (inputColor("email", "red"), "Поштова адреса введена невірно");
+
+        break;
+      case "password":
+        passwordValid = value.length >= 6;
+        fieldValidationErrors.password = passwordValid
+          ? (inputColor("password", "green"), "")
+          : (inputColor("password", "red"), "Занадто короткий пароль");
+        break;
+      default:
+        break;
+    }
+    this.setState(
+      {
+        formErrors: fieldValidationErrors,
+        emailValid: emailValid,
+        passwordValid: passwordValid,
+      },
+      this.validateForm
+    );
+  }
+
+  validateForm() {
+    this.setState({
+      formValid: this.state.emailValid && this.state.passwordValid,
+    });
+  }
+
+  render() {
+    const { email, password } = this.state;
+    const { loading } = this.props;
+    return (
+      <div className={styles.loginFormWrapper}>
+        <h3 className={styles.registerFormTitle}>
+          Вхід до адміністративної частини сайту
+        </h3>
+        <form onSubmit={this.handleSubmit} className={styles.registerForm}>
+          <label className={styles.loginFormLabel}>
+            <input
+              className={styles.registerFormInput}
+              id="email"
+              required
+              placeholder="Пошта *"
+              type="email"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+              autocomplete="on"
+            />
+            <FormErrors formErrors={this.state.formErrors.email} />
+          </label>
+
+          <label className={styles.loginFormLabel}>
+            <input
+              className={styles.registerFormInput}
+              id="password"
+              required
+              placeholder="Пароль *"
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+              autocomplete="on"
+            />
+            <FormErrors formErrors={this.state.formErrors.password} />
+          </label>
+          <div className={styles.buttonWrapper}>
+            <div className={styles.buttonRegistrationWrapper}>
+              {/* <Link to={`/`} className={styles.buttonLoginLink}> */}
+                <Button
+                  className={styles.buttonLogin}
+                  title={
+                    loading ? (
+                      <ScaleLoader
+                        color={"#fff"}
+                        loading={true}
+                        css={override}
+                      />
+                    ) : (
+                      "Вхід"
+                    )
+                  }
+                  type={"submit"}
+                  disabled={!this.state.formValid}
+                  // role={"link"}
+                />
+              {/* </Link> */}
+            </div>
+            <div className={styles.buttonLoginWrapper}>
+              <Link
+                to={`/admin/register`}
+                className={styles.buttonRegistration}>
+                <Button title={"Реєстрація"} role={"link"} />
+              </Link>
+            </div>
+          </div>
+        </form>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  loading: loadingSelectors(state),
+});
+
+const mapDispatchToProps = {
+  
+  onLogin: authOperations.login,
+  // onRefresh: authOperations.refresh,
 };
 
-export default LoginForm;
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
 
-
-
-
-
-
-
-// import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-// import { connect } from 'react-redux';
-// import { css } from '@emotion/core';
-// import { ScaleLoader } from 'react-spinners';
-// import { loadingSelectors } from '../../../redux/loading';
-// import { authOperations } from '../../../redux/auth';
-// import Button from '../../Button/Button';
-// import { FormErrors } from '../RegistrationForm/FormErrors';
-// import styles from '../RegistrationForm/form.module.css';
-
-// const override = css`
-//   display: block;
-//   margin: -13px auto 0;
-// `;
-
-// class LoginForm extends Component {
-//   state = {
-//     email: '',
-//     password: '',
-//     formErrors: { email: '', password: '' },
-//     emailValid: false,
-//     passwordValid: false,
-//   };
-
-//   handleChange = ({ target: { name, value } }) => {
-//     this.setState({ [name]: value });
-//     this.validateField(name, value);
-//   };
-
-//   handleSubmit = e => {
-//     const { onLogin, onRefresh } = this.props;
-//     e.preventDefault();
-
-//     onLogin({ ...this.state });
-//   };
-
-//   validateField(fieldName, value) {
-//     let fieldValidationErrors = this.state.formErrors;
-//     let nameValid = this.state.nameValid;
-//     let emailValid = this.state.emailValid;
-//     let passwordValid = this.state.passwordValid;
-
-//     const inputColor = (fieldName, color) => {
-//       return (document.getElementById(
-//         `${fieldName}`,
-//       ).style.borderColor = `${color}`);
-//     };
-
-//     switch (fieldName) {
-//       case 'email':
-//         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-
-//         fieldValidationErrors.email = emailValid
-//           ? (inputColor('email', 'green'), '')
-//           : (inputColor('email', 'red'), ' Неправильная почта');
-
-//         break;
-//       case 'password':
-//         passwordValid = value.length >= 6;
-//         fieldValidationErrors.password = passwordValid
-//           ? (inputColor('password', 'green'), '')
-//           : (inputColor('password', 'red'), ' Слишком короткий пароль');
-//         break;
-//       default:
-//         break;
-//     }
-//     this.setState(
-//       {
-//         formErrors: fieldValidationErrors,
-//         emailValid: emailValid,
-//         passwordValid: passwordValid,
-//       },
-//       this.validateForm,
-//     );
-//   }
-
-//   validateForm() {
-//     this.setState({
-//       formValid: this.state.emailValid && this.state.passwordValid,
-//     });
-//   }
-
-//   render() {
-//     const { email, password } = this.state;
-//     const { loading } = this.props;
-//     return (
-//       <div className={styles.registrationForm}>
-//         <form onSubmit={this.handleSubmit} className={styles.form}>
-//           <h3 className={styles.title}>Вход</h3>
-//           <label className={styles.label}>
-//             <input
-//               className={styles.input}
-//               id="email"
-//               required
-//               placeholder="Почта *"
-//               type="email"
-//               name="email"
-//               value={email}
-//               onChange={this.handleChange}
-//             />
-//             <FormErrors formErrors={this.state.formErrors.email} />
-//           </label>
-
-//           <label className={styles.label}>
-//             <input
-//               className={styles.input}
-//               id="password"
-//               required
-//               placeholder="Пароль *"
-//               type="password"
-//               name="password"
-//               value={password}
-//               onChange={this.handleChange}
-//             />
-//             <FormErrors formErrors={this.state.formErrors.password} />
-//           </label>
-//           <div className={styles.buttons}>
-//             <Button
-//               className={styles.buttonLogin}
-//               title={
-//                 loading ? (
-//                   <ScaleLoader color={'#fff'} loading={true} css={override} />
-//                 ) : (
-//                   'Вход'
-//                 )
-//               }
-//               type={'submit'}
-//               disabled={!this.state.formValid}
-//             />
-
-//             <Link to={`/register`} className={styles.buttonRegistration}>
-//               <Button title={'Регистрация'} role={'link'} />
-//             </Link>
-//           </div>
-//         </form>
-//       </div>
-//     );
-//   }
-// }
-
-// const mapStateToProps = state => ({
-//   loading: loadingSelectors(state),
-// });
-
-// export default connect(mapStateToProps, {
-//   onLogin: authOperations.logIn,
-//   onRefresh: authOperations.refresh,
-// })(LoginForm);
+// export default LoginForm;
