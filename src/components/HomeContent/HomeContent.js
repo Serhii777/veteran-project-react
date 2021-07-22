@@ -10,31 +10,26 @@ import { Link } from "react-router-dom";
 
 // import Spinner from "../Spinner";
 
-// import { Form, Field } from "react-final-form";
-// import arrayMutators from "final-form-arrays";
-// import { FieldArray } from "react-final-form-arrays";
-
 import authContext from "../../services/authContext";
 import {
+  createItem,
   getAllItems,
-  // createItem,
-  // createImage,
   deleteItem,
-} from "../../services/useFetchArray";
+} from "../../services/useFetchHomeitem";
 
-// TODO: Розкидати по файлам та зробити імпортиrmAdmin/FormLogin";
-import FormContent from "./FormContent";
+import FormContent from "../Form/FormContent";
+// import SvgLaws from "../SvgComponents/SvgLaws";
 
-import Message from "../Message/Message";
+// import Message from "../Message/Message";
 
-import AppUploadFile from "../UploadFileMain/AppUploadFile";
+import AppUploadFile from "../Form/MainFormUploadFile/AppUploadFile";
 
-import image1 from "../../images/rehabilitation-specialist.jpg";
-import image2 from "../../images/yoga.jpg";
+import image1 from "../../images/rehabilitation-specialist-1624479221668.jpg";
+import image2 from "../../images/150199392_234037011696938_4418853326113702292_n-1624479265986.jpg";
 
-import { imagesUrl } from "../../services/apiUrl";
+import { IMAGES_URL } from "../../services/apiUrl";
 
-// import FormUploadImage from "../Form/FormUploadImage/FormUploadImage";
+import { store } from "react-notifications-component";
 
 import styles from "./HomeContent.module.css";
 
@@ -45,7 +40,7 @@ const HomeContent = ({ props }) => {
 
   const [alert, setAlert] = useState(false);
   const [list, setList] = useState([]);
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
 
   const mounted = useRef(true);
 
@@ -83,55 +78,75 @@ const HomeContent = ({ props }) => {
 
     let answer = window.confirm("Are you sure?");
 
-    setMessage("Are you sure?");
+    // setMessage("Are you sure?");
 
     if (answer) {
       deleteItem(itemId).then((items) => {
         if (mounted.current) {
           setList(items);
           setAlert(true);
+
+          store.addNotification({
+            title: "Wonderful!",
+            type: "success",
+            message: "Блок успішно видалено.",
+            container: "top-left",
+            animationIn: ["animate__animated animate__zoomIn"],
+            animationOut: ["animate__animated animate__zoomOut"],
+            dismiss: {
+              duration: 3000,
+              onScreen: true,
+              showIcon: true,
+            },
+          });
         }
       });
     }
   };
 
   // useEffect(() => {
-  //   removeItem()
+  //   removeItem();
   // }, []);
 
   // let imageName = "";
 
-  console.log("list:", list);
+  // console.log("list:", list);
 
   return (
     <Fragment>
-      {message ? <Message msg={message} /> : null}
-      <div className={styles.homeContent}>
-        <h2>Hello from HomeContent</h2>
-        <div className={styles.homeContentWrapper}>
-          {/* {error && <h2>{handleError(error)}</h2>}
-        {!error && loading && <Spinner />} */}
-          <div className={styles.homeMainContent}>
-            <ul className={styles.homeContentList}>
+      <div className={styles.сontentPage}>
+        <div className={styles.сontentPageTitleWrapper}>
+          {/* <div className={styles.svgWrapper}>
+            <SvgLaws />
+          </div> */}
+          <h2 className={styles.сontentPageTitle}>Про наш центр</h2>
+        </div>
+        <div className={styles.сontentPageWrapper}>
+          {/* {!error && loading && <Spinner />} */}
+          <div className={styles.сontentPageMain}>
+            <ul className={styles.сontentPageList}>
               {/* <li>From li</li> */}
 
               {list && list.length > 0 ? (
                 list.map((item) => (
-                  // console.log("stateListUl11111111:", list),
-                  <li key={item.id} className={styles.homeContentItem}>
-                    {/* <a href={item.url}>{item.title}</a> */}
-                    <div className={styles.homeContentItemWrapper}>
-                      <h3 className={styles.homeContentItemTitle}>
-                        {item.hometitle}
+                  <li key={item.id} className={styles.сontentPageItem}>
+                    <div className={styles.сontentItemWrapper}>
+                      <h3 className={styles.сontentPageItemTitle}>
+                        {item.title}
                       </h3>
                       {/* <span>{item._id}</span> */}
 
-                      <ul className={styles.homeItemList}>
-                        {item.hometext.map((homeitem) => (
+                      <ul className={styles.сontentPageItemList}>
+                        {item.contentText.map((homeitem) => (
                           // console.log("homeitemUl222222:", homeitem),
-                          <li key={homeitem.id} className={styles.homeTextItem}>
-                            <div className={styles.homeTextItemWrapper}>
-                              <h4>{homeitem.textTitle}</h4>
+                          <li key={homeitem.id} className={styles.textItem}>
+                            <div className={styles.textItemWrapper}>
+                              {homeitem.textTitle ? (
+                                <h4 className={styles.textItemTitle}>
+                                  {homeitem.textTitle}
+                                </h4>
+                              ) : null}
+
                               <div className={styles.textWrapper}>
                                 {homeitem.toppings ? (
                                   <span className={styles.toppings}>
@@ -139,14 +154,16 @@ const HomeContent = ({ props }) => {
                                   </span>
                                 ) : null}
 
-                                <p className={styles.text}>{homeitem.text}</p>
+                                {homeitem.text ? (
+                                  <p className={styles.text}>{homeitem.text}</p>
+                                ) : null}
                               </div>
                               {/* image: "C:\\fakepath\\10331679ed0600eef6b3d330c65c1159.png" */}
                               {homeitem.image ? (
-                                <div className={styles.homeItemImageWrapper}>
+                                <div className={styles.imageWrapper}>
                                   <img
                                     src={
-                                      `${imagesUrl}/` +
+                                      `${IMAGES_URL}/` +
                                       `${homeitem.image}`
                                         .split("")
                                         .slice(12)
@@ -159,13 +176,18 @@ const HomeContent = ({ props }) => {
                                 </div>
                               ) : null}
                               {homeitem.link ? (
-                                <a
-                                  href={homeitem.link}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className={styles.contactsLink}>
-                                  {homeitem.link}
-                                </a>
+                                <div className={styles.contentLinkWrapper}>
+                                  <p className={styles.contentLinkText}>
+                                    Посилання на джерело:
+                                  </p>
+                                  <a
+                                    href={homeitem.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.contentLink}>
+                                    перейти...
+                                  </a>
+                                </div>
                               ) : null}
                             </div>
                           </li>
@@ -191,38 +213,43 @@ const HomeContent = ({ props }) => {
             </ul>
           </div>
 
-          <div className={styles.imageWrapper}>
-            <Link
-              to="/ourservices/rehabilitation"
-              className={styles.imageWrapper}>
-              <div className={styles.rehabilitationWrapper}>
+          <div className={styles.blockImageWrapper}>
+            <h3 className={styles.blockImageTitle}>Наша родзинка</h3>
+            <Link to="/ourservices/rehabilitation" className={styles.imageLink}>
+              <div className={styles.imageWrapper}>
                 {/* <h4>Title</h4> */}
                 <img
                   src={image1}
                   alt="Реабілітолог"
                   className={styles.itemImage}
                 />
-                <p>Наш реабілітолог</p>
+                <h5 className={styles.tileImage}>Реабілітолог</h5>
               </div>
             </Link>
-            <Link to="/ourservices/womenclub" className={styles.imageWrapper}>
-              <div className={styles.womenClubWrapper}>
+            <Link to="/ourservices/womenclub" className={styles.imageLink}>
+              <div className={styles.imageWrapper}>
                 {/* <h4>Title</h4> */}
                 <img
                   src={image2}
                   alt="Жіночий клуб"
                   className={styles.itemImage}
                 />
-                <p>Наш жіночий клуб</p>
+                <h5 className={styles.tileImage}>Жіночий клуб</h5>
               </div>
             </Link>
           </div>
         </div>
 
         {auth.isAuthenticated ? (
-          <div className={styles.formAdminWrapper}>
+          <div className={styles.formContentBlockWrapper}>
+            <div className={styles.formContentBlockTitleWrapper}>
+              <h2 className={styles.formContentBlockTitle}>
+                Форми наповнення сторінки
+              </h2>
+            </div>
+
             <div className={styles.formContentWrapper}>
-              <FormContent />
+              <FormContent onCreateItem={createItem} />
             </div>
             <div className={styles.appUploadFileWrapper}>
               <AppUploadFile />

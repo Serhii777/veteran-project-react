@@ -1,17 +1,62 @@
 .contacts {
-  /* display: flex; */
-  background-color: rgb(192, 219, 233);
-  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 15px;
 }
+
+.сontentPageTitleWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-items: center; */
+  padding-top: 16px;
+  margin-bottom: 20px;
+  /* text-align: center; */
+}
+
+/* .svgWrapper {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  fill: #000000;
+} */
+
 .contactsTitle {
+  font-size: 28px;
+  font-weight: bold;
+  font-style: normal;
+  text-transform: uppercase;
+  text-align: center;
 }
+
+.contactsTitle::before {
+  content: "";
+  display: inline-block;
+  height: 34px;
+  width: 34px;
+  transform: translateY(20%);
+  background: url(../../images/images-png/mail_contacts.png) center no-repeat;
+  background-size: contain;
+  margin-right: 26px;
+}
+
 .contactsWrapper {
   display: flex;
   flex-direction: column;
-
-  background-color: rgba(235, 230, 198, 0.4);
 }
+
 .addressSection {
+}
+
+.itemTitle {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
 }
 .addressTitle {
 }
@@ -27,7 +72,7 @@
 .mapWrapper {
   width: 100%;
   height: 450px;
-  background-color: rgba(236, 193, 193, 0.4);
+  /* background-color: rgba(236, 193, 193, 0.4); */
 }
 
 @media (min-width: 768px) {
@@ -35,13 +80,29 @@
     /* align-items: center; */
   }
 
-  .addressWrapper {
+  .сontentPageTitleWrapper {
+    padding-top: 0px;
+  }
+
+  .addressSection {
+    flex-basis: 40%;
+  }
+
+  .mapSection {
+    flex-basis: 60%;
+  }
+
+  .itemTitle {
+    margin-bottom: 16px;
+  }
+
+  /* .addressWrapper {
     flex-basis: 40%;
   }
 
   .mapWrapper {
     flex-basis: 60%;
-  }
+  } */
 }
 
 /* @media (min-width: 980px) {
@@ -53,13 +114,21 @@
     /* align-items: center; */
   }
 
-  .addressWrapper {
+  /* .addressWrapper {
     flex-basis: 33%;
+  } */
+
+  .addressSection {
+    flex-basis: 40%;
   }
 
   .mapSection {
-    flex-basis: 67%;
+    flex-basis: 62%;
     width: 100%;
+  }
+
+  .addressTitle {
+    margin-bottom: 60px;
   }
 
   .mapTitle {

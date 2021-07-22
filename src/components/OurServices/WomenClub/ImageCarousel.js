@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Carousel } from "react-bootstrap";
+// import { Carousel } from "react-bootstrap";
 import axios from "axios";
 
 // const baseImagesUrl = "http://localhost:4001/images";
@@ -16,10 +16,9 @@ const ImageCarousel = () => {
 
   const getImage = async () => {
     try {
-      // let { data } = await axios.get("http://localhost:4001/files/photos");
       let { data } = await axios.get("http://localhost:4001/files/files");
 
-        console.log("dataGetImage:", data);
+        // console.log("dataGetImage:", data);
 
       // setImages(data.photos);
       setImages(data);
@@ -33,7 +32,7 @@ const ImageCarousel = () => {
     getImage();
   }, []);
 
-  console.log("images:", images);
+  // console.log("images:", images);
   return (
     <>
       <div>
@@ -58,7 +57,7 @@ const ImageCarousel = () => {
         </ul>
       </div>
 
-      <Carousel>
+      {/* <Carousel>
         {images
           ? images.map((image) => {
               //   console.log("image.imagePath:", image.imagePath);
@@ -84,7 +83,7 @@ const ImageCarousel = () => {
               );
             })
           : null}
-      </Carousel>
+      </Carousel> */}
     </>
   );
 };

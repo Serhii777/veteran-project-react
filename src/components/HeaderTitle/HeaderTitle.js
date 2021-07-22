@@ -1,70 +1,156 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, {
+  Fragment,
+  useCallback,
+  useContext,
+  useState,
+  useEffect,
+  useRef,
+} from "react";
 
 import authContext from "../../services/authContext";
 
-// import { submit } from "redux-form";
+import {
+  getHeaderitem,
+  deleteHeaderitem,
+} from "../../services/useFetchHeader";
 
+import FormHeader from "../Form/FormHeader";
+
+import { store } from "react-notifications-component";
 import styles from "./HeaderTitle.module.css";
-
 
 const HeaderTitle = () => {
   const auth = useContext(authContext);
 
-  const [title, setTitle] = useState(() =>
-    window.localStorage.getItem("title" || "")
-  );
-  // const [title, setTitle] = useState("Це основний заголовок шапки");
-  const [description, setDescription] = useState(() =>
-    window.localStorage.getItem("description" || "")
-  );
+  const [alert, setAlert] = useState(false);
+  const [headeritems, setHeaderitems] = useState(null);
 
-  const [text, setText] = useState(() =>
-    window.localStorage.getItem("text" || "")
-  );
+  const mounted = useRef(true);
 
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
+  const getItems = useCallback(() => {
+    mounted.current = true;
+    // if (headeritems.length && !alert) {
+    if (headeritems && !alert) {
+      return;
+    }
 
-  const handleDescriptionChange = (e) => {
-    setDescription(e.target.value);
-  };
+    getHeaderitem().then((items) => {
+      if (mounted.current && items) {
+        setHeaderitems(items);
+      }
+    });
 
-  const handleTextChange = (e) => {
-    setText(e.target.value);
-  };
+    return () => (mounted.current = false);
+  }, [alert, headeritems]);
 
   useEffect(() => {
-    window.localStorage.setItem("title", title);
-    window.localStorage.setItem("description", description);
-    window.localStorage.setItem("text", text);
-  });
+    if (alert) {
+      setTimeout(() => {
+        if (mounted.current) {
+          setAlert(false);
+        }
+      }, 100);
+    }
+  }, [alert]);
+
+  useEffect(() => {
+    getItems();
+  }, [getItems]);
+
+  const removeItem = useCallback(
+    (itemId) => {
+      deleteHeaderitem(itemId).then((items) => {
+        if (mounted.current) {
+          setHeaderitems(items);
+          setAlert(true);
+
+          store.addNotification({
+            title: "Wonderful!",
+            type: "success",
+            message: "Блок успішно видалено.",
+            container: "top-left",
+            animationIn: ["animate__animated animate__zoomIn"],
+            animationOut: ["animate__animated animate__zoomOut"],
+            // slidingExit: {
+            //   duration: 800,
+            //   timingFunction: 'ease-out',
+            //   delay: 0
+            // }
+            dismiss: {
+              duration: 3000,
+              onScreen: true,
+              showIcon: true,
+            },
+            // touchSlidingExit: {
+            //   swipe: {
+            //     duration: 400,
+            //     timingFunction: 'ease-out',
+            //     delay: 0,
+            //   },
+            //   fade: {
+            //     duration: 400,
+            //     timingFunction: 'ease-out',
+            //     delay: 0
+            //   }
+            // }
+          });
+        }
+      });
+    },
+    [setHeaderitems]
+  );
+
+  // useEffect(() => {
+  //   removeItem();
+  // }, [removeItem]);
+
+  // console.log("headeritemsHeaderTitle:", headeritems);
 
   return (
-    <div className={styles.headerTitleWrapper}>
-      <div className={styles.headerTextWrapper}>
-        <h3 className={styles.headerTitle}>{title}</h3>
-        <p className={styles.headerDescription}>{description}</p>
-        <p className={styles.headerText}>{text}</p>
-      </div>
+    <div className={styles.blockHeaderitemWrapper}>
+      <ul className={styles.headeritemList}>
+        {headeritems && headeritems.length > 0 ? (
+          headeritems.map(
+            (item) => (
+              // console.log("stateListUl11111111:", item),
+              (
+                <li key={item._id} className={styles.headeritemItem}>
+                  <div className={styles.headeritemWrapper}>
+                    {item.title ? (
+                      <h4 className={styles.headeritemTitle}>{item.title}</h4>
+                    ) : null}
+                    {item.description ? (
+                      <p className={styles.headeritemDescription}>
+                        {item.description}
+                      </p>
+                    ) : null}
+                    {item.text ? (
+                      <p className={styles.headeritemText}>{item.text}</p>
+                    ) : null}
+                  </div>
+                  <Fragment>
+                    {auth.isAuthenticated ? (
+                      <div className={styles.buttonWrapper}>
+                        <button
+                          onClick={() => removeItem(item._id)}
+                          className={styles.buttonRemove}>
+                          Видалити елемент
+                        </button>
+                      </div>
+                    ) : null}
+                  </Fragment>
+                </li>
+              )
+            )
+          )
+        ) : (
+          <div>"Enter your data"</div>
+        )}
+      </ul>
 
       {auth.isAuthenticated ? (
-        <div className={styles.formAdminWrapper}>
-          <form>
-            <label>
-              Змінити заголовок:
-              <input value={title} onChange={handleTitleChange} />
-            </label>
-            <label>
-              Змінити короткий опис:
-              <input value={description} onChange={handleDescriptionChange} />
-            </label>
-            <label>
-              Змінити текст:
-              <input value={text} onChange={handleTextChange} />
-            </label>
-            {/* <button type={submit}>Зберегти зміни</button> */}
-          </form>
+        <div className={styles.formHeaderWrapper}>
+          <FormHeader />
         </div>
       ) : null}
     </div>

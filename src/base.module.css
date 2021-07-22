@@ -1,3 +1,6 @@
+@import-normalize;
+/* bring in normalize.css styles */
+
 *,
 *::before,
 *::after {
@@ -5,23 +8,25 @@
   margin: 0;
   border: 0;
   box-sizing: border-box;
+  /* outline: 1px solid red; */
 }
 
 html,
 body {
   /* height: 100%; */
   min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;  
+  -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.2;
   color: #000000;
   background-color: #ffffff;
-  
-  word-wrap: break-word;
-  white-space: pre-wrap;
+
+  /* word-wrap: break-word;
+  white-space: pre-wrap; */
 }
 
 h1,
@@ -36,6 +41,8 @@ p {
 
 a {
   text-decoration: none;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 ul,

@@ -4,7 +4,8 @@ import { lazy } from "react";
 export default [
   {
     path: "/",
-    label: "Про наш центр",
+    label: "home-content",
+    title: "Про наш центр",
     exact: true,
     public: true,
     restricted: false,
@@ -14,7 +15,8 @@ export default [
   },
   {
     path: "/legaldocuments",
-    label: "Важливо знати",
+    label: "legaldocuments",
+    title: "Важливо знати",
     exact: true,
     public: true,
     restricted: true,
@@ -24,7 +26,8 @@ export default [
   },
   {
     path: "/ourservices",
-    label: "Послуги центру",
+    label: "ourservices",
+    title: "Послуги центру  ►",
     exact: false,
     public: true,
     restricted: true,
@@ -34,48 +37,50 @@ export default [
     routes: [
       {
         path: "/ourservices/psychologicalhelp",
-        value: "psychologicalhelp",
-        label: "Психологічна допомога",
+        label: "psychologicalhelp",
+        title: "Психологічна допомога",
         component: lazy(() =>
-          import("./components/OurServices/PsychologicalHelp/PsychologicalHelp.js" /* webpackChunkName: "home-view" */)
+          import(
+            "./components/OurServices/PsychologicalHelp/PsychologicalHelp.js" /* webpackChunkName: "home-view" */
+          )
         ),
       },
       {
         path: "/ourservices/legalaid",
-        value: "legalaid",
-        label: "Правова допомога",
+        label: "legalaid",
+        title: "Правова допомога",
         component: lazy(() =>
           import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
         ),
       },
       {
         path: "/ourservices/socioadvice",
-        value: "socioadvice",
-        label: "Соціально-правова консультація",
+        label: "socioadvice",
+        title: "Соціально-правова консультація",
         component: lazy(() =>
           import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
         ),
       },
       {
         path: "/ourservices/rehabilitation",
-        value: "rehabilitation",
-        label: "Реабілітолог",
+        label: "rehabilitation",
+        title: "Реабілітолог",
         component: lazy(() =>
           import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
         ),
       },
       {
         path: "/ourservices/creativeworkshop",
-        value: "creativeworkshop",
-        label: "Творча майстерня",
+        label: "creativeworkshop",
+        title: "Творча майстерня",
         component: lazy(() =>
           import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
         ),
       },
       {
         path: "/ourservices/womenclub",
-        value: "womenclub",
-        label: "Жіночий клуб",
+        label: "womenclub",
+        title: "Жіночий клуб",
         component: lazy(() =>
           import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
         ),
@@ -84,7 +89,9 @@ export default [
   },
   {
     path: "/announcementnews",
-    label: "Анонси заходів та новини",
+    label: "announcementnews",
+    // title: "Анонси заходів та новини  ►",
+    title: "Анонси та новини  ►",
     exact: false,
     public: true,
     restricted: true,
@@ -94,14 +101,16 @@ export default [
     routes: [
       {
         path: "/announcementnews/announcement",
-        label: "Анонси",
+        label: "announcement",
+        title: "Анонси",
         component: lazy(() =>
-        import("./views/AnnouncementView" /* webpackChunkName: "home-view" */)
+          import("./views/AnnouncementView" /* webpackChunkName: "home-view" */)
         ),
       },
       {
         path: "/announcementnews/news",
-        label: "Новини",
+        label: "news",
+        title: "Новини",
         component: lazy(() =>
           import("./views/NewsView" /* webpackChunkName: "home-view" */)
         ),
@@ -109,8 +118,9 @@ export default [
     ],
   },
   {
-    path: "/ResultsWork",
-    label: "Результати роботи",
+    path: "/resultswork",
+    label: "news",
+    title: "Результати роботи",
     exact: true,
     public: true,
     restricted: true,
@@ -120,17 +130,19 @@ export default [
   },
   {
     path: "/contacts",
-    label: "Наші контакти",
+    label: "contacts",
+    title: "Наші контакти",
     exact: true,
     public: true,
     restricted: true,
     component: lazy(() =>
-      import("./views/ContactsView" /* webpackChunkName: "home-view" */)
+    import("./views/ContactsView" /* webpackChunkName: "home-view" */)
     ),
   },
   {
     path: "/admin",
     label: "Admin-Home page",
+    title: "Наші контакти",
     exact: false,
     public: true,
     restricted: false,
@@ -140,7 +152,8 @@ export default [
     routes: [
       {
         path: "/admin/login",
-        label: "Вхід",
+        label: "login",
+        title: "Вхід",
         exact: true,
         public: true,
         restricted: true,
@@ -150,7 +163,8 @@ export default [
       },
       {
         path: "/admin/register",
-        label: "Реєстрація",
+        label: "register",
+        title: "Реєстрація",
         exact: true,
         public: true,
         restricted: true,

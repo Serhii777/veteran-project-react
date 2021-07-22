@@ -1,6 +1,6 @@
 .logo {
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
 }
 
 @media (min-width: 768px) {
@@ -14,10 +14,10 @@
 } */
 
 @media (min-width: 1180px) {
-  .logo {
+  /* .logo {
     width: 150px;
     height: 150px;
-  }
+  } */
 }
 
 /* @media (min-width: 1380px) {

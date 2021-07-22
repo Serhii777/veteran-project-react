@@ -3,6 +3,7 @@ import { Route, NavLink } from "react-router-dom";
 // import { Router, Switch, Route, NavLink, Link } from "react-router-dom";
 // import routes from "../../routes";
 
+import SvgMegaphoneBlack from "../SvgComponents/SvgMegaphoneBlack";
 import Announcement from "./Announcement/Announcement";
 import News from "./News/News";
 
@@ -20,9 +21,12 @@ const AnnouncementNews = () => {
 
   return (
     <div className={styles.announcementNewsWrapper}>
-      <h2 className={styles.announcementNewsTitle}>
-      Анонси заходів та новини
-      </h2>
+      <div className={styles.сontentPageTitleWrapper}>
+        <div className={styles.svgWrapper}>
+          <SvgMegaphoneBlack />
+        </div>
+        <h2 className={styles.announcementNewsTitle}>Анонси та новини</h2>
+      </div>
 
       {/* <div className={styles.announcementNewsListWrapper}></div> */}
       <ul className={styles.announcementNewsList}>

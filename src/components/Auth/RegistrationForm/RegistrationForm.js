@@ -6,16 +6,20 @@ import { css } from "@emotion/core";
 import { ScaleLoader } from "react-spinners";
 import { loadingSelectors } from "../../../redux/loading";
 import { authOperations, authSelectors } from "../../../redux/auth";
-// import { authOperations } from "../../../redux/auth";
-import Button from "../../Button/Button";
-import { FormErrors } from "../FormErrors";
-// import styles from './form.module.css';
 
+import Button from "../../Button/Button";
+import SvgEnvelopEmail from "../../SvgComponents/SvgEnvelopEmail";
+import SvgKey from "../../SvgComponents/SvgKey";
+import SvgNameBlack from "../../SvgComponents/SvgNameBlack";
+
+import { FormErrors } from "../FormErrors";
+import { store } from "react-notifications-component";
 import styles from "./RegistrationForm.module.css";
 
 const override = css`
   display: block;
-  margin: -13px auto 0;
+  /* margin: -13px auto 0; */
+  margin: 13px auto 0;
 `;
 
 // const RegistrationForm = () => {
@@ -40,6 +44,8 @@ class RegistrationForm extends Component {
   };
 
   handleChange = ({ target: { name, value } }) => {
+    // console.log("valueRegistrationForm:", value);
+
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
     });
@@ -48,18 +54,47 @@ class RegistrationForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    
-    this.props.onRegister({ ...this.state }).then((res) => {
-      console.log("this.state:", this.state);
-      console.log("resOnRegister:", res);
+    // console.log("e:", e);
+    // console.log("this.state:", this.state);
 
+    const useradminParams = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+    };
 
-      if (!res) {
-        throw new Error(`Реєстрація завершилась невдало: ${res}!`);
-        // return console.log(`Реєстрація завершилась невдало: ${res}!`);
-        // console.log(`Реєстрація завершилась невдало: ${res}!`);
+    // console.log("useradminParams:", useradminParams);
+
+    const { onRegister } = this.props;
+
+    onRegister(useradminParams).then((data) => {
+    // onRegister({...this.state}).then((data) => {
+
+      console.log("dataRegisterForm:", data);
+      if (!data) {
+        throw new Error(`Реєстрація завершилась невдало: ${data}!`);
       } else {
-        return this.setState({ name: "", email: "", password: "" });
+        return (
+          this.setState({ name: "", email: "", password: "" }),
+          setTimeout(() => {
+            this.props.history.push("/admin/login");
+
+            store.addNotification({
+              title: "Wonderful!",
+              type: "success",
+              message:
+                "Поздоровляємо, реєстрація пройшла успішно! Щоб зайти до адміністративної частини сайту, введіть Вашу електронну пошту і пароль та натисніть кнопку «Вхід»",
+              container: "center",
+              animationIn: ["animate__animated animate__zoomIn"],
+              animationOut: ["animate__animated animate__zoomOut"],
+              dismiss: {
+                duration: 0,
+                onScreen: true,
+                showIcon: true,
+              },
+            });
+          }, 10000)
+        );
       }
     });
     // return
@@ -126,6 +161,7 @@ class RegistrationForm extends Component {
   render() {
     const { name, email, password } = this.state;
     const { loading } = this.props;
+
     return (
       <div className={styles.registrationFormWrapper}>
         <h3 className={styles.registerFormTitle}>
@@ -133,6 +169,9 @@ class RegistrationForm extends Component {
         </h3>
         <form onSubmit={this.handleSubmit} className={styles.registerForm}>
           <label className={styles.registerFormLabel}>
+            <div className={styles.svgWrapper}>
+              <SvgNameBlack />
+            </div>
             <input
               className={styles.registerFormInput}
               id="name"
@@ -147,6 +186,9 @@ class RegistrationForm extends Component {
             <FormErrors formErrors={this.state.formErrors.name} />
           </label>
           <label className={styles.registerFormLabel}>
+            <div className={styles.svgWrapper}>
+              <SvgEnvelopEmail />
+            </div>
             <input
               className={styles.registerFormInput}
               id="email"
@@ -161,6 +203,9 @@ class RegistrationForm extends Component {
             <FormErrors formErrors={this.state.formErrors.email} />
           </label>
           <label className={styles.registerFormLabel}>
+            <div className={styles.svgWrapper}>
+              <SvgKey />
+            </div>
             <input
               className={styles.registerFormInput}
               id="password"
@@ -175,26 +220,22 @@ class RegistrationForm extends Component {
             <FormErrors formErrors={this.state.formErrors.password} />
           </label>
           <div className={styles.buttonWrapper}>
+            {/* <Link to={`/admin/login`} className={styles.buttonLoginLink}> */}
             <div className={styles.buttonRegistrationWrapper}>
-              <Link to={`/admin/login`} className={styles.buttonLoginLink}>
-                <Button
-                  title={
-                    loading ? (
-                      <ScaleLoader
-                        color={"#fff"}
-                        loading={true}
-                        css={override}
-                      />
-                    ) : (
-                      "Реєстрація"
-                    )
-                  }
-                  type={"submit"}
-                  disabled={!this.state.formValid}
-                  className={styles.buttonRegistration}
-                />
-              </Link>
+              <Button
+                title={
+                  loading ? (
+                    <ScaleLoader color={"#fff"} loading={true} css={override} />
+                  ) : (
+                    "Реєстрація"
+                  )
+                }
+                type={"submit"}
+                disabled={!this.state.formValid}
+                className={styles.buttonRegistration}
+              />
             </div>
+            {/* </Link> */}
             <div className={styles.buttonLoginWrapper}>
               <Link to={`/admin/login`} className={styles.buttonLogin}>
                 <Button title={"Вхід"} role={"link"} />

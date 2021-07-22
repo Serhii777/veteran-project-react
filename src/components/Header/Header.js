@@ -1,7 +1,5 @@
-import React from "react";
-import { connect } from "react-redux";
-// import { authOperations, authSelectors } from '../../redux/auth';
-import { authSelectors } from '../../redux/auth';
+import React, {useContext} from "react";
+import authContext from "../../services/authContext";
 
 
 import AdminInfoHeader from "../AdminInfoHeader/AdminInfoHeader";
@@ -11,13 +9,14 @@ import HeaderTitle from "../HeaderTitle/HeaderTitle";
 
 import styles from "./Header.module.css";
 
-const Header = ({ isAuthenticated }) => {
+const Header = () => {
+  const auth = useContext(authContext);
+
   return (
     <div className={styles.header}>
       <div className={styles.headerWrapper}>
-        {/* <h1>Hello from Header</h1> */}
 
-        {isAuthenticated ? (
+        {auth.isAuthenticated ? (
           <div className={styles.adminInfoWrapper}>
             <AdminInfoHeader />
           </div>
@@ -35,8 +34,4 @@ const Header = ({ isAuthenticated }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: authSelectors.isAuthenticatedToken(state),
-});
-
-export default connect(mapStateToProps)(Header);
+export default Header;

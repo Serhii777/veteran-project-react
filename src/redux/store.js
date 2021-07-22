@@ -55,6 +55,6 @@ export const store = configureStore({
 // const store = createStore(reducers, applyMiddleware(thunkMiddleware));
 // const store = createStore(reducers);
 
-store.subscribe(() => console.log(store.getState()));
+//* store.subscribe(() => console.log(store.getState()));
 
 export const persistor = persistStore(store);

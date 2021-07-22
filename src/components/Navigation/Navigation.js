@@ -1,51 +1,36 @@
 // import React from "react";
-import React, { useEffect, useState } from "react";
-import { 
-  // Route, 
-  NavLink, 
-  // Link, 
-  useHistory } from "react-router-dom";
-
-// import PsychologicalHelp from "../OurServices/PsychologicalHelp/PsychologicalHelp";
-// import LegalAid from "../OurServices/LegalAid/LegalAid";
-// import SocioAdvice from "../OurServices/SocioAdvice/SocioAdvice";
-// import Rehabilitation from "../OurServices/Rehabilitation/Rehabilitation";
-// import CreativeWorkshop from "../OurServices/CreativeWorkshop/CreativeWorkshop";
-// import WomenClub from "../OurServices/WomenClub/WomenClub";
+import React from "react";
+// import React, { useEffect, useState } from "react";
+import { NavLink, useHistory } from "react-router-dom";
 
 import routes from "../../routes";
 
 import styles from "./Navigation.module.css";
 
-const Navigation = () => {
-  const [value, setValue] = useState("psychologicalhelp");
+const Navigation = (props) => {
+  // const [value, setValue] = useState("psychologicalhelp");
   let history = useHistory();
 
-  useEffect(() => {
-    setValue();
-  }, []);
-
   const handleOnClick = (event) => {
-    console.log("valueNavigation:", event.target.value);
+    // console.log("valueNavigation:", event.target.value); //* valueNavigation: creativeworkshop7
+    // console.log("history:", history); //* history: {length: 50, action: "PUSH", location: {…}, createHref: ƒ, push: ƒ, …}
+    // console.log("history.location:", history.location); //* history.location: {pathname: "/ourservices/creativeworkshop", search: "", hash: "", state: undefined, key: "tigphh"}
+    // console.log("history.location.pathname:", history.location.pathname); //* /ourservices
 
-    history.push(`/?location=${event.target.value}`);
-    // history.push(`/ourservices/${value}`);
-
-    console.log("history:", history.location);
-    // history.push(`/location=${e.target.value}`);
+    setTimeout(() => {
+      history.push(`${history.location.pathname}/${event.target.value}`);
+    }, 300);
   };
 
   return (
-    <nav className={styles.navigationWrapper}>
-      <h3 className={styles.navigationTitle}>Навігація по сайту</h3>
-      <div>
+    <nav className={styles.navigation}>
+      <div className={styles.navigationWrapper}>
+        <h3 className={styles.navigationTitle}>Навігація по сайту</h3>
         <ul className={styles.navigationList}>
           {routes.filter((route) => route.path !== "/admin") ? (
             routes
               .filter((route) => route.path !== "/admin")
               .map((route) => {
-                // console.log("routeNav:", route);
-                //* console.log("routeNavRouters:", route.routes); routeNavRouters: (6) [{…}, {…}, {…}, {…}, {…}, {…}]
                 return (
                   <li className={styles.navigationItem}>
                     <NavLink
@@ -54,31 +39,31 @@ const Navigation = () => {
                       exact={route.exact}
                       className={styles.link}
                       activeClassName={styles.activelink}>
-                      {route.label}
+                      {route.title}
                       {route.routes ? (
-                        <select onChange={handleOnClick}>
-                          {/* <select */}
-                          {/* onChange={(e) => setValue(e.currentTarget.value)}> */}
-                          {route.routes.map((nestedRoute) => {
-                            return (
-                              <option
-                                key={nestedRoute.label}
-                                // to={nestedRoute.path}
-                                value={nestedRoute.value}
-                                // value={nestedRoute.label}
-                                // value={nestedRoute.path}
-                                className={styles.link}
-                                activeClassName={styles.activelink}>
-                                {nestedRoute.label}
-                                {/* {
-                                  <Link to="/ourservices/psychologicalhelp">
-                                    Психологічна допомога
-                                  </Link>
-                                } */}
-                              </option>
-                            );
-                          })}
-                        </select>
+                        <div className={styles.selectLinkWrapper}>
+                          <select
+                            aria-label="State"
+                            onChange={handleOnClick}
+                            className={styles.selectLink}>
+                            {route.routes.map((nestedRoute) => {
+                              return (
+                                <option
+                                  key={nestedRoute.label}
+                                  to={nestedRoute.path}
+                                  value={nestedRoute.label}
+                                  disabled={nestedRoute.disabled}
+                                  className={styles.optionLink}
+                                  activeClassName={styles.optionActivelink}>
+                                  {document.documentElement.clientWidth < 768 &&
+                                  nestedRoute.title.length > 29
+                                    ? nestedRoute.title.slice(0, 24) + "."
+                                    : nestedRoute.title}
+                                </option>
+                              );
+                            })}
+                          </select>
+                        </div>
                       ) : null}
                     </NavLink>
                   </li>
@@ -98,19 +83,6 @@ const Navigation = () => {
           )}
         </ul>
       </div>
-
-      {/* <Route
-        path="/ourservices/psychologicalhelp"
-        component={PsychologicalHelp}
-      />
-      <Route path="/ourservices/legalaid" component={LegalAid} />
-      <Route path="/ourservices/socioadvice" component={SocioAdvice} />
-      <Route path="/ourservices/rehabilitation" component={Rehabilitation} />
-      <Route
-        path="/ourservices/creativeworkshop"
-        component={CreativeWorkshop}
-      />
-      <Route path="/ourservices/womenclub" component={WomenClub} /> */}
     </nav>
   );
 };

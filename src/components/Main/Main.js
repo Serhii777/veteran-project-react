@@ -24,11 +24,9 @@ import styles from "./Main.module.css";
 const Main = ({ children }) => {
   return (
     <div className={styles.main}>
-      {/* <h1>Hello from Main</h1> */}
-      <div className={styles.mainWrapper}>
-        <div className={styles.navigationWrapper}>
-            <Navigation />
-          {/* <Router>
+      <div className={styles.navigationWrapper}>
+        <Navigation />
+        {/* <Router>
             <NavigationHooks />
             <Switch>
               <Route path="/" exact component={HomeView} />
@@ -40,9 +38,8 @@ const Main = ({ children }) => {
               <Route path="/sign-up" component={AdminView} />
             </Switch>
           </Router> */}
-        </div>
-        <div className={styles.childrenWrapper}>{children}</div>
       </div>
+      <div className={styles.childrenWrapper}>{children}</div>
     </div>
   );
 };

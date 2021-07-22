@@ -1,17 +1,11 @@
-.socialNetworksListWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  min-height: 50px;
-  background-color: rgb(251, 251, 240);
-}
-
 .socialNetworksList {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  min-width: 80px;
+  /* min-width: 86px; */
+  width: 88px;
+  padding: 0px 0px 0px 0px;
+  /* margin: 0px auto; */
 }
 
 /* li */
@@ -29,7 +23,7 @@
   height: 36px;
   text-decoration: none;
   border: 1px solid rgb(232, 236, 238);
-  transition: all 0.3s linear;
+  border-radius: 3px;
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -39,28 +33,35 @@
 .socialNetworksItemWrapper {
   width: 30px;
   height: 30px;
+  
 }
 
 .linkFacebook {
   fill: #2441fd;
+  transition: all 300ms ease-in-out;
+
 }
 
 .linkViber {
   fill: #665cac;
+  transition: all 300ms ease-in-out;
+
 }
 
 .linkFacebook:hover {
   fill: #ffffff;
   background-color: #2441fd;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: all 300ms ease-in-out;
 }
 
 .linkViber:hover {
   fill: #ffffff;
   background-color: #665cac;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: all 300ms ease-in-out;
 }
 
 .socialNetworksIconImg {
@@ -92,4 +93,23 @@ input[type="radio"].visually-hidden {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .socialNetworksList {
+    /* width: 21%; */
+  }
+
+}
+
+@media (min-width: 980px) {
+}
+
+@media (min-width: 1180px) {
+  .socialNetworksList {
+    width: 90px;
+  }
+}
+
+@media (min-width: 1380px) {
 }

@@ -1,25 +1,23 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 
-import SvgFacebook from "../SvgFacebook";
-import SvgViber from "../SvgViber";
+import SvgFacebook from "../../SvgComponents/SvgFacebook";
+import SvgViber from "../../SvgComponents/SvgViber";
 
 import styles from "./SocialNetworks.module.css";
 
 const SocialNetworks = () => {
   return (
-    <div className={styles.socialNetworksListWrapper}>
       <ul className={styles.socialNetworksList}>
         <li className={styles.socialNetworksItem}>
           <a
-            href="#"
-              // target="_blank"
+            href="https://www.facebook.com/vtprostir"
+            target="_blank"
             rel="noopener noreferrer"
             className={`${styles.socialNetworksLink} ${styles.linkFacebook}`}>
             <div className={styles.socialNetworksItemWrapper}>
               <SvgFacebook />
             </div>
-
             <span className={styles.visuallyHidden}>Facebook</span>
           </a>
         </li>
@@ -27,7 +25,7 @@ const SocialNetworks = () => {
         <li className={styles.socialNetworksItem}>
           <a
             href="#"
-            //   target="_blank"
+            target="_blank"
             rel="noopener noreferrer"
             className={`${styles.socialNetworksLink} ${styles.linkViber}`}>
             <div className={styles.socialNetworksItemWrapper}>
@@ -37,7 +35,6 @@ const SocialNetworks = () => {
           </a>
         </li>
       </ul>
-    </div>
   );
 };
 

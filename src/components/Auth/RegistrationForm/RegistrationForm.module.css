@@ -49,15 +49,42 @@
 }
 
 .registerFormLabel {
-  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 96%;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-.loginFormLabel {
-  width: 90%;
-  position: relative;
+/* .registerFormLabel::before {
+  content: "";
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  transform: translateY(30%);
+  background: url(../../../images/images-png/folder_system_15426.png) center
+  no-repeat;
+  background-size: contain;
   margin-bottom: 20px;
+} */
+
+.loginFormLabel {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 96%;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.svgWrapper {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  fill: #666667;
 }
 
 .registerFormLabel:nth-last-child(3n-1) {
@@ -86,7 +113,7 @@
   position: absolute;
   min-width: 240px;
   text-align: start;
-  /* bottom: -20px; */
+  bottom: -22px;
   color: rgb(223, 71, 71);
 }
 
@@ -120,7 +147,9 @@
 .buttonWrapper {
   display: flex;
   flex-direction: column;
-  padding-top: 50px;
+  align-items: center;
+  min-width: 124px;
+  padding-top: 40px;
 }
 
 .buttonRegistrationWrapper {
@@ -128,7 +157,11 @@
 }
 
 .buttonLoginWrapper {
+  width: 100%;
   /* margin-bottom: 20px; */
+}
+
+.buttonLogin {
 }
 
 .red {
@@ -147,27 +180,38 @@
 
   .registerFormTitle {
     padding: 0px 30px;
-    /* text-align: left; */
   }
 
   .registerForm {
+    /* align-items: center; */
     /* width: 50%; */
     /* align-items: baseline; */
     /* padding-top: 150px; */
     /* padding-left: 45px; */
   }
 
+
   .registerFormInput {
-    width: 340px;
+    /* width: 340px; */
+  }
+
+  .buttonWrapper {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding: 40px 60px;
   }
 
   .buttonRegistrationWrapper {
     width: 150px;
     height: 40px;
+    margin: 0px 40px 0px 0px;
   }
+
   .buttonLoginWrapper {
     width: 150px;
     height: 40px;
+    text-align: center;
   }
 
   .buttonLogin,
@@ -175,21 +219,27 @@
     /* margin: 20px 30px 0; */
   }
 
+}
+
+@media (min-width: 980px) {
+  .registerFormInput {
+    width: 90%;
+  }
+
   .buttonWrapper {
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    padding: 40px 60px;
+    justify-content: space-around;
+    /* padding: 40px 60px; */
   }
 }
 
-/* @media (min-width: 980px) {
-} */
-
 @media (min-width: 1180px) {
   .buttonWrapper {
-    padding: 60px 230px 20px;
+    /* padding: 60px 230px 20px; */
   }
+
+  /* .registerFormInput {
+    width: 340px;
+  } */
 }
 
 /* @media (min-width: 1380px) {

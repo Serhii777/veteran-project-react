@@ -3,8 +3,8 @@ import Address from "./Address/Address";
 import WrapperdMap from "../Map/Map";
 // import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
-// require("dotenv").config();
-// import moduleName from 'module'
+// import SvgResult from "../SvgComponents/SvgResult";
+
 
 import styles from "./Contacts.module.css";
 
@@ -13,16 +13,27 @@ const Contacts = () => {
 
   return (
     <div className={styles.contacts}>
-      <h2 className={styles.contactsTitle}>Наші контакти</h2>
+      <div className={styles.сontentPageTitleWrapper}> 
+        {/* <div className={styles.svgWrapper}> */}
+          {/* <SvgResult /> */}
+        {/* </div> */}
+
+        <h2 className={styles.contactsTitle}>Наші контакти</h2>
+      </div>
+
       <div className={styles.contactsWrapper}>
         <div className={styles.addressSection}>
-          <h3 className={styles.addressTitle}>Чекаємо Вас за адресою:</h3>
+          <h4 className={`${styles.itemTitle} ${styles.addressTitle}`}>
+            Чекаємо Вас за адресою:
+          </h4>
           <div className={styles.addressWrapper}></div>
           <Address />
         </div>
 
         <div className={styles.mapSection}>
-          <h3 className={styles.mapTitle}>Наше місцезнаходження</h3>
+          <h4 className={`${styles.itemTitle} ${styles.mapTitle}`}>
+            Наше місцезнаходження:
+          </h4>
           <div className={styles.mapWrapper}>
             {/* map here */}
             <WrapperdMap

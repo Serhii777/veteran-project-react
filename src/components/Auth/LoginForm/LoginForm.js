@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
+// import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import { css } from "@emotion/core";
 import { ScaleLoader } from "react-spinners";
 // import { loadingSelectors } from '../../../redux/loading';
-import { authOperations } from '../../../redux/auth';
-import { loadingSelectors } from '../../../redux/loading';
+import { authOperations } from "../../../redux/auth";
+import { loadingSelectors } from "../../../redux/loading";
 import Button from "../../Button/Button";
+import SvgEnvelopEmail from "../../SvgComponents/SvgEnvelopEmail";
+import SvgKey from "../../SvgComponents/SvgKey";
 import { FormErrors } from "../FormErrors";
 import styles from "../RegistrationForm/RegistrationForm.module.css";
 // import stylesLogin from "./LoginForm.module.css";
@@ -22,7 +24,7 @@ import styles from "../RegistrationForm/RegistrationForm.module.css";
 // };
 // export default LoginForm;
 
-console.log("authOperations:", authOperations);
+// console.log("authOperations:", authOperations);
 
 const override = css`
   display: block;
@@ -107,6 +109,9 @@ class LoginForm extends Component {
         </h3>
         <form onSubmit={this.handleSubmit} className={styles.registerForm}>
           <label className={styles.loginFormLabel}>
+            <div className={styles.svgWrapper}>
+              <SvgEnvelopEmail />
+            </div>
             <input
               className={styles.registerFormInput}
               id="email"
@@ -122,6 +127,9 @@ class LoginForm extends Component {
           </label>
 
           <label className={styles.loginFormLabel}>
+            <div className={styles.svgWrapper}>
+              <SvgKey />
+            </div>
             <input
               className={styles.registerFormInput}
               id="password"
@@ -136,34 +144,30 @@ class LoginForm extends Component {
             <FormErrors formErrors={this.state.formErrors.password} />
           </label>
           <div className={styles.buttonWrapper}>
-            <div className={styles.buttonRegistrationWrapper}>
+            <div className={styles.buttonLoginWrapper}>
               {/* <Link to={`/`} className={styles.buttonLoginLink}> */}
-                <Button
-                  className={styles.buttonLogin}
-                  title={
-                    loading ? (
-                      <ScaleLoader
-                        color={"#fff"}
-                        loading={true}
-                        css={override}
-                      />
-                    ) : (
-                      "Вхід"
-                    )
-                  }
-                  type={"submit"}
-                  disabled={!this.state.formValid}
-                  // role={"link"}
-                />
+              <Button
+                className={styles.buttonLogin}
+                title={
+                  loading ? (
+                    <ScaleLoader color={"#fff"} loading={true} css={override} />
+                  ) : (
+                    "Вхід"
+                  )
+                }
+                type={"submit"}
+                disabled={!this.state.formValid}
+                // role={"link"}
+              />
               {/* </Link> */}
             </div>
-            <div className={styles.buttonLoginWrapper}>
-              <Link
+            {/* <div className={styles.buttonLoginWrapper}> */}
+              {/* <Link
                 to={`/admin/register`}
                 className={styles.buttonRegistration}>
                 <Button title={"Реєстрація"} role={"link"} />
-              </Link>
-            </div>
+              </Link> */}
+            {/* </div> */}
           </div>
         </form>
       </div>
@@ -171,12 +175,11 @@ class LoginForm extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   loading: loadingSelectors(state),
 });
 
 const mapDispatchToProps = {
-  
   onLogin: authOperations.login,
   // onRefresh: authOperations.refresh,
 };

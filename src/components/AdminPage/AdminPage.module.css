@@ -1,19 +1,64 @@
 .adminPage {
   /* background-color: rgb(252, 226, 203); */
+  font-family: Arial, sans-serif;
 }
 
 .adminPageWrapper {
   display: flex;
   flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
   padding: 20px 10px 30px;
   background-color: rgb(251, 243, 251);
 }
 
 .adminPageTitle {
   font-size: 24px;
-  margin-bottom: 16px;
+  text-align: center;
   color: rgb(253, 7, 7);
+  margin-bottom: 16px;
 }
+
+.adminPageTitle::before {
+  content: "";
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  transform: translateY(30%);
+  background: url(../../images/images-png/folder_system_15426.png) center
+    no-repeat;
+  background-size: contain;
+  margin-right: 30px;
+}
+
+/* .button::before {
+  content: '';
+  display: block;
+  height: 16px;
+  width: 16px;
+  background-image: url(../../images/Header/exit.svg);
+  fill: #79879a;
+} */
+
+/* .footerSpan {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url("../../images/icons/artage-io-404907_1625007410.png")
+    center/100% no-repeat;
+  background-color: rgb(93, 89, 89);
+  left: 18px;
+} */
+
+/* height: 1024px;
+background: url('../../images/Home/Layer-9.png') right bottom no-repeat,
+  url('../../images/Home/Layer-4\ 1.png') left bottom no-repeat,
+  url('../../images/Home/Strawberry-Big-PNG.png') right 30px bottom 180px
+    no-repeat,
+  url('../../images/Home/Vector\ 3.png') right bottom no-repeat;
+} */
 
 .adminPageListWrapper {
   /* max-width: 265px; */
@@ -29,7 +74,7 @@
 
 .adminPageItem {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   min-width: 220px;
   max-height: 44px;
 
@@ -38,6 +83,7 @@
   line-height: 1.6;
   font-family: inherit;
   font-weight: 700;
+  text-align: center;
   text-transform: uppercase;
   background-color: #ffffff;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -109,16 +155,24 @@
   }
 }
 
-/* @media (min-width: 980px) {
-} */
+@media (min-width: 980px) {
+  .adminPageList {
+    justify-content: space-around;
+    padding: 20px 40px;
+  }
+
+  .adminPageTitle {
+    line-height: 30px;
+  }
+}
 
 @media (min-width: 1180px) {
   .adminPageWrapper {
-    padding: 0px 10px;
+    /* padding: 20px 10px 30px; */
   }
 
   .adminPageList {
-    padding: 20px 230px;
+    /* padding: 20px 230px; */
   }
 
   .adminPageTitle {
@@ -138,5 +192,5 @@
   }
 }
 
-/* @media (min-width: 1380px) {
-}  */
+@media (min-width: 1380px) {
+}

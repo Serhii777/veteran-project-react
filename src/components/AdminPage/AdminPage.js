@@ -12,8 +12,6 @@ import styles from "./AdminPage.module.css";
 const AdminPage = () => {
   const auth = useContext(authContext);
 
-  // console.log("authAdminPage:", auth);
-
   return (
     <div className={styles.adminPage}>
       {auth.isAuthenticated ? (

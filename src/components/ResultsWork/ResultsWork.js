@@ -1,48 +1,56 @@
-import React, { 
-  // useContext,
-   useState, useEffect, useRef } from "react";
-// import authContext from "../../services/authContext";
+import React, {
+  Fragment,
+  useCallback,
+  useContext,
+  useState,
+  useEffect,
+  useRef,
+} from "react";
+import authContext from "../../services/authContext";
+import {
+  createItem,
+  getAllItems,
+  deleteItem,
+} from "../../services/useFetchResultwork";
 
-// import SwiftSlider from 'react-swift-slider'
+import FormContent from "../Form/FormContent";
+import SvgResult from "../SvgComponents/SvgResult";
 
-// import { useFetchGet, useFetchPost } from "../../services/useFetch";
-import { getList, setItem } from "../../services/useFetch";
+import { IMAGES_URL } from "../../services/apiUrl";
 
-import styles from "./ResultsWork.module.css";
-
-// const url = "http://localhost:4000/results";
-
-// const data =  [
-//   {'id':'1','src':'https://media.mfbproject.co.za/repos/2017_alfa-romeo_stelvio_leaked_02.jpg'},
-//   {'id':'2','src':'https://media.mfbproject.co.za/repos/2017_alfa_romeo_stelvioquadrifoglio_official_09.jpg'},
-//   {'id':'3','src':'https://media.mfbproject.co.za/repos/2018-alfa-romeo-stelvio-quadrifoglio-specs-photos-speed-2.jpg'},
-//   {'id':'4','src':'https://media.mfbproject.co.za/repos/alfa-romeo-giulia-quadrifoglio-2017-us-wallpapers-and-hd-images-13.jpg'},
-//   {'id':'5','src':'https://media.mfbproject.co.za/repos/ARWP_Infra_Desk_1920_1080_Quad.png'}
-// ];
+import { store } from "react-notifications-component";
+// import styles from "./ResultsWork.module.css";
+import styles from "../OurServices/SocioAdvice/SocioAdvice.module.css";
 
 const ResultsWork = () => {
-  // const auth = useContext(authContext);
-  const [alert, setAlert] = useState(false);
-  const [itemInput, setItemInput] = useState("");
-  const [list, setList] = useState([]);
+  const auth = useContext(authContext);
 
-  // const { loading, data } = useFetchGet(url);
+  const [alert, setAlert] = useState(false);
+  const [resultworks, setResultworks] = useState([]);
+
   const mounted = useRef(true);
 
-  useEffect(() => {
+  const getItems = useCallback(() => {
     mounted.current = true;
-
-    if (list.length && !alert) {
+    if (resultworks.length && !alert) {
       return;
     }
 
-    getList().then((items) => {
-      if (mounted.current) {
-        setList(items);
+    getAllItems().then((items) => {
+      console.log("items:", items);
+
+      if (mounted.current && items) {
+        setResultworks(items);
       }
     });
+
     return () => (mounted.current = false);
-  }, [alert, list]);
+  }, [alert, resultworks]);
+
+  useEffect(() => {
+    getItems();
+  }, [getItems]);
+  // }, []);
 
   useEffect(() => {
     if (alert) {
@@ -50,68 +58,190 @@ const ResultsWork = () => {
         if (mounted.current) {
           setAlert(false);
         }
-      }, 1000);
+      }, 100);
     }
   }, [alert]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setItem(itemInput).then(() => {
-      if (mounted.current) {
-        setItemInput("");
-        setAlert(true);
-      }
-    });
+  const removeItem = (itemId) => {
+    let answer = window.confirm("Are you sure?");
+
+    // setMessage("Are you sure?");
+
+    if (answer) {
+      deleteItem(itemId).then((items) => {
+        if (mounted.current) {
+          setResultworks(items);
+          setAlert(true);
+
+          store.addNotification({
+            title: "Wonderful!",
+            type: "success",
+            message: "Блок успішно видалено.",
+            container: "top-left",
+            animationIn: ["animate__animated animate__zoomIn"],
+            animationOut: ["animate__animated animate__zoomOut"],
+            dismiss: {
+              duration: 3000,
+              onScreen: true,
+              showIcon: true,
+            },
+          });
+        }
+      });
+    }
   };
 
+  // useEffect(() => {
+  //   getItems();
+  // }, [getItems]);
+
+  // useEffect(() => {
+  //   removeItem();
+  // }, [removeItem()]);
+
+  // let imageName = "";
+
+  console.log("resultworks:", resultworks);
+
   return (
-    <div className={styles.resultsWork}>
-      <h1>Hello from ResultsWork</h1>
+    <Fragment>
+      <div className={styles.сontentPage}>
+        <div className={styles.сontentPageTitleWrapper}>
+          <div className={styles.svgWrapper}>
+            <SvgResult />
+          </div>
+          <h2 className={styles.сontentPageTitle}>Результати роботи</h2>
+        </div>
+        <div className={styles.сontentPageWrapper}>
+          {/* {!error && loading && <Spinner />} */}
+          <div className={styles.сontentPageMain}>
+            <ul className={styles.сontentPageList}>
+              {/* <li>From li</li> */}
 
-      <ul className={styles.resultsList}>
-        {/* {loading && <div className={styles.loader}>Loading...</div>} */}
-        {list &&
-          list.length > 0 &&
-          list.map((item, i) => (
-            // console.log("item:", item),
-            <li key={i} className={styles.resultsItem}>
-              <div className={styles.resultsItemWrapper}>
-                <h3 className={styles.resultsTitle}>{item.title}</h3>
-                {/* <div className={styles.resultsDate}>{item.date}</div>
-                <p className={styles.resultsDescription}>{item.description}</p>
-                <p className={styles.resultsText}>{item.text}</p> */}
-              </div>
-            </li>
-          ))}
-      </ul>
+              {resultworks && resultworks.length > 0 ? (
+                resultworks.map((item, index) => (
+                  // console.log("stateListUl11111111:", list),
+                  <li key={item.id} className={styles.сontentPageItem}>
+                    <div className={styles.сontentPageItemWrapper}>
+                      {/* <span className={styles.сontentPageItemNumber}>
+                        {index + 1}
+                      </span> */}
+                      <div className={styles.сontentItemWrapper}>
+                        {/* <a href={item.url}>{item.title}</a> */}
+                        <h3 className={styles.сontentPageItemTitle}>
+                          {item.title}
+                        </h3>
+                        {/* <span>{item._id}</span> */}
 
-      <div>
-      {/* <SwiftSlider data={data} height={400}/> */}
+                        <ul className={styles.сontentPageItemList}>
+                          {item.contentText.map(
+                            (item) => (
+                              console.log("itemUl222222:", item),
+                              (
+                                <li key={item.id} className={styles.textItem}>
+                                  <div className={styles.textItemWrapper}>
+                                    {item.textTitle ? (
+                                      <h4 className={styles.textItemTitle}>
+                                        {item.textTitle}
+                                      </h4>
+                                    ) : null}
+
+                                    <div className={styles.textWrapper}>
+                                      {item.toppings ? (
+                                        <span className={styles.toppings}>
+                                          {item.toppings}
+                                        </span>
+                                      ) : null}
+
+                                      {item.text ? (
+                                        <p className={styles.text}>
+                                          {item.text}
+                                        </p>
+                                      ) : null}
+                                    </div>
+
+                                    {item.image ? (
+                                      <div className={styles.imageWrapper}>
+                                        <img
+                                          src={
+                                            `${IMAGES_URL}/` +
+                                            `${item.image}`
+                                              .split("")
+                                              .slice(12)
+                                              .join("")
+                                          }
+                                          alt="Изображение с сервера."
+                                        />
+                                      </div>
+                                    ) : null}
+
+                                    {item.link ? (
+                                      <div
+                                        className={styles.contentLinkWrapper}>
+                                        <p className={styles.contentLinkText}>
+                                          Посилання на джерело:
+                                        </p>
+                                        <a
+                                          href={item.link}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className={styles.contentLink}>
+                                          перейти...
+                                        </a>
+                                      </div>
+                                    ) : null}
+                                  </div>
+                                </li>
+                              )
+                            )
+                          )}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <Fragment>
+                      {auth.isAuthenticated ? (
+                        <div className={styles.buttonWrapper}>
+                          <button
+                            onClick={() => removeItem(item._id)}
+                            className={styles.buttonRemove}>
+                            Видалити елемент
+                          </button>
+                        </div>
+                      ) : null}
+                    </Fragment>
+                  </li>
+                ))
+              ) : (
+                <div>"Enter your data"</div>
+              )}
+            </ul>
+          </div>
+        </div>
+
+        {auth.isAuthenticated ? (
+          <div className={styles.formResultsWorkWrapper}>
+            <FormContent onCreateItem={createItem} />
+            {/* <FormLegal /> */}
+          </div>
+        ) : null}
       </div>
-
-      {/* {auth.isAuthenticated ? ( */}
-      <div className={styles.formAdminWrapper}>
-        <h2>Hello from Form</h2>
-        {/* <LoginReduxForm  */}
-        {/* onSubmit={onSubmitForm} */}
-        {/* /> */}
-        {alert && <h2> Submit Successful</h2>}
-
-        <form onSubmit={handleSubmit}>
-          <label>
-            <p>New Item</p>
-            <input
-              type="text"
-              onChange={(event) => setItemInput(event.target.value)}
-              value={itemInput}
-            />
-          </label>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-      {/* // ) : null} */}
-    </div>
+    </Fragment>
   );
 };
+
+//   const [data, setData] = useState({ hits: [] });
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       const result = await axios(
+//         "https://hn.algolia.com/api/v1/search?query=redux"
+//       );
+
+//       setData(result.data);
+//     };
+
+//     fetchData();
+//   }, []);
 
 export default ResultsWork;

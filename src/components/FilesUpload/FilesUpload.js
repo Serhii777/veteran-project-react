@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import UploadService from "../../services/FileUploadService";
 
+import styles from "../OurServices/Rehabilitation/Rehabilitation.module.css";
+
 // /ourservices/psychologicalhelp
 const baseImagesUrl = "http://localhost:4001/files";
 
@@ -124,25 +126,27 @@ const UploadFiles = () => {
       )}
 
       <div className="card">
-        <div className="card-header">List of Files</div>
-        <ul className="list-group list-group-flush">
+        <div className="card-header">
+          Список картинок в папці: public/files:
+        </div>
+        <ul className={styles.imageList}>
           {/* {fileInfos.photos */}
           {fileInfos
-            // ? fileInfos.photos.map(
-            ? fileInfos.map(
-                (file, index) => (
-                  console.log("fileRehabilitation:", file),
-                  (
-                    <li className="list-group-item" key={index}>
-                      {/* <a href={file.imageUrl}>{file.imageFilename}</a> */}
-                      <img
-                        src={`${baseImagesUrl}/${file.name}`}
-                        alt={file.name}
-                      />
-                    </li>
-                  )
-                )
-              )
+            ? // ? fileInfos.photos.map(
+              fileInfos.map((file, index) => (
+                // console.log("fileRehabilitation:", file),
+                <li className={styles.imageItem} key={index}>
+                  {/* <a href={file.imageUrl}>{file.imageFilename}</a> */}
+                  <div className={styles.imageWrapper}>
+                    <img
+                      src={`${baseImagesUrl}/${file.name}`}
+                      alt={file.name}
+                      width="320px"
+                      height="280px"
+                    />
+                  </div>
+                </li>
+              ))
             : null}
         </ul>
       </div>

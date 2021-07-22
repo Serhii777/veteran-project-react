@@ -1,0 +1,53 @@
+.formUploadFile {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+}
+
+.formDataWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.formDataLabel {
+  line-height: 1.4;
+  flex-basis: 22%;
+  margin-right: 10px;
+}
+
+.formDataLabelImage {
+  line-height: 1.4;
+  flex-basis: 22%;
+  margin-right: 10px;
+}
+
+.formDataInput {
+  font-size: 14px;
+  line-height: 1.6;
+  /* flex-basis: 78%; */
+  width: 100%;
+
+  padding: 2px 16px;
+}
+
+.formImageInput {
+  font-size: 14px;
+  line-height: 1.6;
+  flex-basis: 78%;
+  padding: 2px 16px 0px 0px;
+}
+
+.buttonSubmitWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.buttonSubmit {
+  width: 180px;
+}
