@@ -3,8 +3,8 @@ import Address from "./Address/Address";
 import WrapperdMap from "../Map/Map";
 // import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
-// import SvgResult from "../SvgComponents/SvgResult";
-
+// import SvgContactUsBlack from "../SvgComponents/SvgContactUsBlack";
+import SvgContactUs from "../SvgComponents/SvgContactUs";
 
 import styles from "./Contacts.module.css";
 
@@ -13,10 +13,11 @@ const Contacts = () => {
 
   return (
     <div className={styles.contacts}>
-      <div className={styles.сontentPageTitleWrapper}> 
-        {/* <div className={styles.svgWrapper}> */}
-          {/* <SvgResult /> */}
-        {/* </div> */}
+      <div className={styles.сontentPageTitleWrapper}>
+        <div className={styles.svgWrapper}>
+          {/* <SvgContactUsBlack /> */}
+          <SvgContactUs />
+        </div>
 
         <h2 className={styles.contactsTitle}>Наші контакти</h2>
       </div>

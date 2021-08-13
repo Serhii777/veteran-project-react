@@ -1,23 +1,17 @@
 import React from "react";
 import { Route, NavLink } from "react-router-dom";
-// import { Router, Switch, Route, NavLink, Link } from "react-router-dom";
-// import routes from "../../routes";
+import routes from "../../routes";
 
 import SvgMegaphoneBlack from "../SvgComponents/SvgMegaphoneBlack";
-import Announcement from "./Announcement/Announcement";
-import News from "./News/News";
+import Announcement from "./AnnouncementNewsPages/Announcement";
+import News from "./AnnouncementNewsPages/News";
 
 import styles from "./AnnouncementNews.module.css";
 
 const AnnouncementNews = () => {
-  // function RouteWithSubRoutes(route) {
-  //   return (
-  //     <Route
-  //       path={route.path}
-  //       render={(props) => <route.component {...props} routes={route.routes} />}
-  //     />
-  //   );
-  // }
+  const routeAnnouncementNews = routes.find((route) =>
+    route.path === "/announcementnews" ? route : undefined
+  );
 
   return (
     <div className={styles.announcementNewsWrapper}>
@@ -25,37 +19,29 @@ const AnnouncementNews = () => {
         <div className={styles.svgWrapper}>
           <SvgMegaphoneBlack />
         </div>
-        <h2 className={styles.announcementNewsTitle}>Анонси та новини</h2>
+        <h2 className={styles.announcementNewsTitle}>
+          {routeAnnouncementNews.title.slice(0, -1)}
+        </h2>
       </div>
 
-      {/* <div className={styles.announcementNewsListWrapper}></div> */}
       <ul className={styles.announcementNewsList}>
-        <li className={styles.announcementNewsItem}>
-          <NavLink
-            to="/announcementnews/announcement"
-            className={styles.link}
-            activeClassName={styles.activelink}>
-            Анонси
-          </NavLink>
-        </li>
-        <li className={styles.announcementNewsItem}>
-          <NavLink
-            to="/announcementnews/news"
-            className={styles.link}
-            activeClassName={styles.activelink}>
-            Новини
-          </NavLink>
-        </li>
+        {routeAnnouncementNews.routes.map((route) => {
+          return (
+            <li className={styles.announcementNewsItem}>
+              <NavLink
+                key={route.label}
+                to={route.path}
+                className={styles.link}
+                activeClassName={styles.activelink}>
+                {route.title}
+              </NavLink>
+            </li>
+          );
+        })}
       </ul>
 
       <Route path="/announcementnews/announcement" component={Announcement} />
       <Route path="/announcementnews/news" component={News} />
-
-      {/* <Switch>
-        {routes.map((route, i) => (
-          <RouteWithSubRoutes key={i} {...route} />
-        ))}
-      </Switch> */}
     </div>
   );
 };

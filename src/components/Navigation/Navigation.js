@@ -7,25 +7,33 @@ import routes from "../../routes";
 
 import styles from "./Navigation.module.css";
 
-const Navigation = (props) => {
-  // const [value, setValue] = useState("psychologicalhelp");
+// const Navigation = (props) => {
+const Navigation = ({ open, setOpen, ...props }) => {
+  console.log("props: ", props);
+
+  const isHidden = open ? true : false;
+  const tabIndex = isHidden ? 0 : -1;
+
+  // <StyledMenu open={open} aria-hidden={!isHidden} {...props}></StyledMenu>
+
+  
   let history = useHistory();
 
   const handleOnClick = (event) => {
-    // console.log("valueNavigation:", event.target.value); //* valueNavigation: creativeworkshop7
-    // console.log("history:", history); //* history: {length: 50, action: "PUSH", location: {…}, createHref: ƒ, push: ƒ, …}
-    // console.log("history.location:", history.location); //* history.location: {pathname: "/ourservices/creativeworkshop", search: "", hash: "", state: undefined, key: "tigphh"}
-    // console.log("history.location.pathname:", history.location.pathname); //* /ourservices
-
     setTimeout(() => {
       history.push(`${history.location.pathname}/${event.target.value}`);
     }, 300);
   };
 
   return (
-    <nav className={styles.navigation}>
+    <nav
+      className={
+        open === true
+          ? `${styles.navigation} ${styles.navOpen}`
+          : `${styles.navigation} ${styles.navHide}`
+      }>
       <div className={styles.navigationWrapper}>
-        <h3 className={styles.navigationTitle}>Навігація по сайту</h3>
+        {/* <h3 className={styles.navigationTitle}>Навігація по сайту</h3> */}
         <ul className={styles.navigationList}>
           {routes.filter((route) => route.path !== "/admin") ? (
             routes
@@ -37,32 +45,39 @@ const Navigation = (props) => {
                       key={route.label}
                       to={route.path}
                       exact={route.exact}
-                      className={styles.link}
+                      className={
+                      //   open !== true
+                      //     ? `${styles.link} ${styles.navHide}`
+                      //     : `${styles.link} ${styles.navOpen}`
+                      // }
+                      styles.link}
                       activeClassName={styles.activelink}>
                       {route.title}
                       {route.routes ? (
-                        <div className={styles.selectLinkWrapper}>
-                          <select
+                        <div className={styles.selectListWrapper}>
+                          <ul
                             aria-label="State"
                             onChange={handleOnClick}
-                            className={styles.selectLink}>
+                            className={styles.selectList}>
                             {route.routes.map((nestedRoute) => {
                               return (
-                                <option
-                                  key={nestedRoute.label}
-                                  to={nestedRoute.path}
-                                  value={nestedRoute.label}
-                                  disabled={nestedRoute.disabled}
-                                  className={styles.optionLink}
-                                  activeClassName={styles.optionActivelink}>
-                                  {document.documentElement.clientWidth < 768 &&
-                                  nestedRoute.title.length > 29
-                                    ? nestedRoute.title.slice(0, 24) + "."
-                                    : nestedRoute.title}
-                                </option>
+                                <li className={styles.optionItem}>
+                                  <NavLink
+                                    key={nestedRoute.label}
+                                    to={nestedRoute.path}
+                                    value={nestedRoute.label}
+                                    disabled={nestedRoute.disabled}
+                                    className={styles.optionLink}
+                                    activeClassName={styles.optionLink}>
+                                    {document.documentElement.clientWidth <
+                                      768 && nestedRoute.title.length > 29
+                                      ? nestedRoute.title.slice(0, 24) + "."
+                                      : nestedRoute.title}
+                                  </NavLink>
+                                </li>
                               );
                             })}
-                          </select>
+                          </ul>
                         </div>
                       ) : null}
                     </NavLink>

@@ -18,18 +18,23 @@
 
 .headerBlockWrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   /* justify-content: center; */
-  padding-top: 15px;
+  /* padding-top: 15px; */
+  background-color: #5b7e07;
+
 }
 
 .logoWrapper {
-  margin-bottom: 14px;
+  padding: 8px 0px 8px 8px;
+  /* margin-bottom: 14px; */
+  /* order: 2; */
 }
 
 .headerTitleWrapper {
   width: 100%;
+  /* order: 1; */
   /* margin-bottom: 14px; */
 }
 
@@ -45,6 +50,17 @@
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
+  }
+
+  .logoWrapper {
+    margin-bottom: 14px;
+    /* order: 1; */
+  }
+  
+  .headerTitleWrapper {
+    width: 100%;
+    /* order: 2; */
+    /* margin-bottom: 14px; */
   }
 }
 

@@ -26,12 +26,12 @@
     flex-direction: row;
   } */
 
-  .navigationWrapper {
+  .navWrapper {
     flex-basis: 28%;
   }
 
   .childrenWrapper {
-    flex-basis: 72%;
+    flex-basis: 71%;
   }
 }
 
@@ -50,7 +50,7 @@
     display: flex;
   } */
 
-  .navigationWrapper {
+  .navWrapper {
     flex-basis: 21%;
   }
 
@@ -60,7 +60,7 @@
 }
 
 @media (min-width: 1380px) {
-  .navigationWrapper {
+  .navWrapper {
     flex-basis: 19%;
   }
 

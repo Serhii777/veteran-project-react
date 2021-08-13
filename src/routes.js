@@ -40,9 +40,7 @@ export default [
         label: "psychologicalhelp",
         title: "Психологічна допомога",
         component: lazy(() =>
-          import(
-            "./components/OurServices/PsychologicalHelp/PsychologicalHelp.js" /* webpackChunkName: "home-view" */
-          )
+          import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
         ),
       },
       {
@@ -136,7 +134,7 @@ export default [
     public: true,
     restricted: true,
     component: lazy(() =>
-    import("./views/ContactsView" /* webpackChunkName: "home-view" */)
+      import("./views/ContactsView" /* webpackChunkName: "home-view" */)
     ),
   },
   {

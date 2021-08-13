@@ -4,8 +4,7 @@
   padding: 20px 10px 30px;
   text-align: center;
   background-color: #ffffff;
-  background-color: #eafae9;
-
+  /* background-color: #eafae9; */
 }
 
 .сontentPageTitleWrapper {
@@ -19,10 +18,10 @@
 }
 
 .svgWrapper {
-  width: 30px;
-  height: 30px;
-  margin-right: 16px;
-  fill: #000000;
+  width: 26px;
+  height: 26px;
+  margin-right: 12px;
+  fill: #17801a;
 }
 
 .announcementNewsTitle {
@@ -32,8 +31,6 @@
   /* line-height: 1.4; */
   text-transform: uppercase;
 }
-
-
 
 /* .announcementNewsTitle {
   font-size: 26px;
@@ -61,10 +58,15 @@
   font-family: inherit;
   font-weight: 700;
   text-transform: uppercase;
-  background-color: #e5ebe5;
 
-  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+  border: 1px solid #c1c1c1;
+  background: linear-gradient(to bottom, #f8f8f8 0%, #a7d099 100%);
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.4);
+
+  /* background-color: #e5ebe5; */
+  /* box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3); */
   transition: background-color 0.3s, box-shadow 0.3s, opacity 0.3s, color 0.3s;
+  /* transition: all 300ms ease-in-out; */
   cursor: pointer;
   margin-bottom: 14px;
 }
@@ -83,13 +85,18 @@
 }
 
 .announcementNewsItem:hover {
-  background-color: #a6f1a6;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* background-color: #a6f1a6;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3); */
+  background: linear-gradient(to bottom, #dff5d7 0%, #5dae42 100%);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .activelink {
   color: #ffffff;
-  background-color: #076702;
+  /* background-color: #076702; */
+  border: 1px solid #065b02;
+  background: linear-gradient(to bottom, #5cb55c 0%, #065b02 100%);
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .activelink:hover {
@@ -101,8 +108,14 @@
   /* padding: 20px 10px 30px; */
   /* } */
 
+  .svgWrapper {
+    width: 30px;
+    height: 30px;
+    margin-right: 18px;
+    fill: #17801a;
+  }
+
   .announcementNewsList {
-    
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -177,7 +190,7 @@
   .announcementNewsItem {
     /* min-width: 200px; */
     /* min-height: 56px; */
-  font-size: 12px;
+    font-size: 12px;
     line-height: 1.4;
     margin: 0px 0px 0px 0px;
   }

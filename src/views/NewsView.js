@@ -1,5 +1,5 @@
 import React from "react";
-import News from "../components/AnnouncementNews/News/News";
+import News from "../components/AnnouncementNews/AnnouncementNewsPages/News";
 
 const NewsView = () => <News />;
 

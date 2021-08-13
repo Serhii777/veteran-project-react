@@ -3,7 +3,7 @@ import React, {
   // useContext,
   // useReducer,
   useState,
-  useEffect,
+  // useEffect,
   useRef,
 } from "react";
 import { Form, Field } from "react-final-form";
@@ -55,7 +55,6 @@ const FormContent = ({ onCreateItem }) => {
   //   onCreateItem();
   // }, [onCreateItem, setList]);
 
-
   return (
     <div className={styles.formAdminWrapper}>
       <h4 className={styles.formAdminTitle}>Форма для введення даних</h4>
@@ -87,6 +86,17 @@ const FormContent = ({ onCreateItem }) => {
                   component="input"
                   className={styles.inputFormContentTitle}
                   placeholder="Ваш заголовок *"
+                  required
+                />
+              </div>
+              <div className={styles.formContentTitleWrapper}>
+                <label className={styles.formContentLabel}>Дата проведення:</label>
+                <Field
+                  name="date"
+                  type="date"
+                  component="input"
+                  className={styles.inputFormContentTitle}
+                  placeholder="Ваша дата *"
                   required
                 />
               </div>

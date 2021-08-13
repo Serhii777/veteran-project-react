@@ -16,16 +16,15 @@
   background-size: cover; */
 }
 
-.headerWtapper {
-  background-color: rgb(249, 250, 238);
+.headerWrapper {
+  background-color: #ffffff;
   /* background: url("../../images/background1181-1772top.jpg") right 0px top 0px */
-  background: url("../../images/background1181-1293top.jpg") right 0px top 0px
-    /* background: url("../../images/background1181-1436top.jpg") right 0px top 0px */
-    no-repeat;
+  /* background: url("../../images/background1181-1436top.jpg") right 0px top 0px */
+  /* no-repeat; */
   background-size: contain;
 }
 
-.mainWtapper {
+.mainWrapper {
   flex-grow: 1;
 
   /* background: url("../../images/background1181-1772bottom.jpg") right 0px bottom */
@@ -35,7 +34,7 @@
   padding-bottom: 60px;
 }
 
-.footerWtapper {
+.footerWrapper {
   /* background-color: #393d39; */
   background-color: #25222b;
 }
@@ -45,24 +44,28 @@
     width: 500px;
   }
 
-  .headerWtapper {
+  .headerWrapper {
     padding-top: 10px;
   }
 
-  .mainWtapper {
+  .mainWrapper {
     /* padding-bottom: 100px; */
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    width: 718px;
+    width: 714px;
     /* background-size: contain; */
     /* background-size: 728px; */
   }
 
-  .headerWtapper {
-    padding-top: 40px;
+  .headerWrapper {
+    background-color: #ffffff;
+    background: url("../../images/background1181-1772top.jpg") right 0px top 0px
+      /* background: url("../../images/background1181-1436top.jpg") right 0px top 0px */
+      no-repeat;
+    background-size: contain;
   }
 
   /* .bg {
@@ -86,7 +89,7 @@
     /* background-size: 728px; */
   }
 
-  .mainWtapper {
+  .mainWrapper {
     padding-bottom: 100px;
   }
 }
@@ -98,7 +101,7 @@
     /* background-size: 728px; */
   }
 
-  .mainWtapper {
+  .mainWrapper {
     padding-bottom: 120px;
   }
 }
@@ -154,7 +157,7 @@
   background-color: #86b836;
 
   background-color: #137d03;
-  background-color: #2a6e03; 
+  background-color: #2a6e03;
   background-color: #076702; /*! Navigation active*/
   background-color: #0f6003; /*! Navigation active-hover*/
 

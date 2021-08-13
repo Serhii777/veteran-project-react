@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import Message from "../../Message/Message";
+// import Message from "../../Message/Message";
 // import Progress from "./Progress";
 import axios from "axios";
 import Button from "../../Button/Button";
@@ -80,7 +80,7 @@ const FormUploadFile = () => {
 
   return (
     <Fragment>
-      {message ? <Message msg={message} /> : null}
+      {/* {message ? <Message msg={message} /> : null} */}
       <form onSubmit={onSubmit} className={styles.formUploadFile}>
         <div className={styles.formDataWrapper}>
           <label htmlFor="titlePict" className={styles.formDataLabel}>

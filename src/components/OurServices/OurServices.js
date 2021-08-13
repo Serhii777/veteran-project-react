@@ -4,85 +4,49 @@ import { Route, NavLink } from "react-router-dom";
 
 import SvgOurServices from "../SvgComponents/SvgOurServices";
 
-import PsychologicalHelp from "./PsychologicalHelp/PsychologicalHelp";
-import LegalAid from "./LegalAid/LegalAid";
-import SocioAdvice from "./SocioAdvice/SocioAdvice";
-import Rehabilitation from "./Rehabilitation/Rehabilitation";
-import CreativeWorkshop from "./CreativeWorkshop/CreativeWorkshop";
-import WomenClub from "./WomenClub/WomenClub";
+import routes from "../../routes";
+
+import PsychologicalHelp from "./OurServicesPages/PsychologicalHelp";
+import LegalAid from "./OurServicesPages/LegalAid";
+import SocioAdvice from "./OurServicesPages/SocioAdvice";
+import Rehabilitation from "./OurServicesPages/Rehabilitation";
+import CreativeWorkshop from "./OurServicesPages/CreativeWorkshop";
+import WomenClub from "./OurServicesPages/WomenClub";
 
 import styles from "./OurServices.module.css";
 
 const OurServices = () => {
+  const routeOurService = routes.find((route) =>
+    route.path === "/ourservices" ? route : undefined
+  );
+
   return (
     <div className={styles.ourServices}>
       <div className={styles.сontentPageTitleWrapper}>
         <div className={styles.svgWrapper}>
           <SvgOurServices />
         </div>
-        <h2 className={styles.ourServicesTitle}>Послуги центру</h2>
+        {/* <h2 className={styles.ourServicesTitle}>Послуги центру</h2> */}
+        <h2 className={styles.ourServicesTitle}>
+          {routeOurService.title.slice(0, -1)}
+        </h2>
       </div>
 
-      {/* <div className={styles.ourServicesListWrapper}> */}
       <ul className={styles.ourServicesList}>
-        <li className={styles.ourServicesItem}>
-          <NavLink
-            to="/ourservices/psychologicalhelp"
-            className={styles.link}
-            activeClassName={styles.activelink}>
-            Психологічна допомога
-          </NavLink>
-        </li>
-        <li className={styles.ourServicesItem}>
-          <NavLink
-            to="/ourservices/legalaid"
-            className={styles.link}
-            activeClassName={styles.activelink}>
-            Правова допомога
-          </NavLink>
-        </li>
-        <li className={styles.ourServicesItem}>
-          <NavLink
-            to="/ourservices/socioadvice"
-            className={styles.link}
-            activeClassName={styles.activelink}>
-            Соціально-правова консультація
-          </NavLink>
-        </li>
-        <li className={styles.ourServicesItem}>
-          <NavLink
-            to="/ourservices/rehabilitation"
-            className={styles.link}
-            activeClassName={styles.activelink}>
-            Реабілітолог
-          </NavLink>
-        </li>
-        <li className={styles.ourServicesItem}>
-          <NavLink
-            to="/ourservices/creativeworkshop"
-            className={styles.link}
-            activeClassName={styles.activelink}>
-            Творча майстерня
-          </NavLink>
-        </li>
-        <li className={styles.ourServicesItem}>
-          <NavLink
-            to="/ourservices/womenclub"
-            className={styles.link}
-            activeClassName={styles.activelink}>
-            Жіночий клуб
-          </NavLink>
-        </li>
+        {routeOurService.routes.map((route) => {
+          return (
+            <li className={styles.ourServicesItem}>
+              <NavLink
+                key={route.label}
+                to={route.path}
+                className={styles.link}
+                activeClassName={styles.activelink}>
+                {route.title}
+              </NavLink>
+            </li>
+          );
+        })}
       </ul>
-      {/* </div> */}
-
-      {/* <div className={styles.selectContainer}>
-        <select className={styles.selectTest}>
-          <option value="test1" className={styles.optionTest}>Test 1</option>
-          <option value="test2" className={styles.optionTest}>Test 2</option>
-          <option value="test3" className={styles.optionTest}>Test 3</option>
-        </select>
-      </div> */}
 
       <Route
         path="/ourservices/psychologicalhelp"
