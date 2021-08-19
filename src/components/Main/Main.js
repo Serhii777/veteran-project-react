@@ -23,10 +23,12 @@ const Main = ({ children }) => {
         <FocusLock disabled={!open}>
           {/* <Navbar> */}
           {/* <Burger open={open} setOpen={setOpen} aria-controls={menuId} /> */}
+          <div className={styles.navBurgerWrapper}>
           <Burger open={open} setOpen={setOpen} />
           {/* <Navigation open={open} setOpen={setOpen} id={menuId} /> */}
           <Navigation open={open} setOpen={setOpen} />
           {/* </Navbar> */}
+          </div>
         </FocusLock>
       </div>
       <div className={styles.childrenWrapper}>{children}</div>

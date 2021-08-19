@@ -8,11 +8,15 @@ const Burger = ({ open, setOpen, ...props }) => {
   const isExpanded = open ? true : false;
 
   return (
-    <button
+      <button
       open={open}
       aria-label="Toggle menu"
       aria-expanded={isExpanded}
-      onClick={() => setOpen(!open)}
+      onClick={() => {
+        if (document.documentElement.clientWidth < 768) {
+          setOpen(!open);
+        }
+      }}
       {...props}
       className={
         open === true
@@ -40,7 +44,7 @@ const Burger = ({ open, setOpen, ...props }) => {
             : `${styles.burgerSpan} ${styles.spanStayed}`
         }
       />
-    </button>
+      </button>
   );
 };
 

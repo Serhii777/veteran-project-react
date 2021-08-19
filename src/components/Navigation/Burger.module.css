@@ -1,3 +1,9 @@
+.burgerWrapper {
+  padding: 10px;
+  border: 1px solid #fff;
+  background-color: #fff;
+}
+
 .burger {
   display: flex;
   flex-direction: column;
@@ -8,11 +14,11 @@
   background: transparent;
   /* background-color: #fff; */
   position: absolute;
-  top: 4%;
-  right: 20px;
+  top: -64px;
+  right: 24px;
+  padding: 0px;
   z-index: 10;
   cursor: pointer;
-  padding: 0px;
 }
 
 .burger:focus {
@@ -23,10 +29,11 @@
   width: 2rem;
   height: 0.25rem;
   border-radius: 10px;
-  background-color: #000000;
+  /* background-color: #000000; */
   background-color: #ffffff;
+  /* background-color: #ba4545; */
   transition: all 0.3s linear;
-  position: relative;
+  /* position: relative; */
   transform-origin: 1px;
 }
 
@@ -53,9 +60,31 @@
   transform: rotate(-45deg);
 }
 
+@media (min-width: 408px) {
+  .burger {
+    top: -54px;
+    right: 20px;
+    /* display: none; */
+    /* opacity: 0; */
+  }
+}
+@media (min-width: 540px) {
+  .burger {
+    top: -74px;
+    right: 26px;
+  }
+}
+
+@media (min-width: 616px) {
+  .burger {
+    top: -60px;
+    /* right: 20px; */
+  }
+}
+
 @media (min-width: 768px) {
   .burger {
-    /* display: none; */
+    display: none;
     /* opacity: 0; */
   }
 }

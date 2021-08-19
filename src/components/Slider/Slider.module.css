@@ -188,6 +188,10 @@
 }
 
 @media (min-width: 980px) {
+  .sliderWrapper {
+    margin-bottom: 10px;
+  }
+
     .sliderContainer {
         width: 672px;
         /* height: 50hv; */
@@ -221,6 +225,10 @@
 }
 
 @media (min-width: 1180px) {
+  /* .sliderWrapper {
+    margin-bottom: 10px;
+  } */
+
     .sliderContainer {
         width: 860px;
       }
@@ -246,6 +254,10 @@
 }
 
 @media (min-width: 1380px) {
+  /* .sliderWrapper {
+    margin-bottom: 10px;
+  } */
+
   .sliderContainer {
     width: 1000px;
   }

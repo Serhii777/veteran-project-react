@@ -18,19 +18,24 @@
 
 .headerWrapper {
   background-color: #ffffff;
+  background-color: #5b7e07;
+  /* position: fixed; */
+
   /* background: url("../../images/background1181-1772top.jpg") right 0px top 0px */
   /* background: url("../../images/background1181-1436top.jpg") right 0px top 0px */
   /* no-repeat; */
-  background-size: contain;
+  /* background-size: contain; */
 }
 
 .mainWrapper {
-  flex-grow: 1;
+  /* flex-grow: 1; */
+  
 
-  /* background: url("../../images/background1181-1772bottom.jpg") right 0px bottom */
   background: url("../../images/background1181-1436bottom.jpg") right 0px bottom
     0px no-repeat;
   background-size: contain;
+  /* background-color: #25222b; */
+
   padding-bottom: 60px;
 }
 
@@ -45,7 +50,7 @@
   }
 
   .headerWrapper {
-    padding-top: 10px;
+    /* padding-top: 10px; */
   }
 
   .mainWrapper {
@@ -66,6 +71,7 @@
       /* background: url("../../images/background1181-1436top.jpg") right 0px top 0px */
       no-repeat;
     background-size: contain;
+    /* width: 100%; */
   }
 
   /* .bg {

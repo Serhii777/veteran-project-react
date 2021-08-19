@@ -115,14 +115,20 @@
     font-size: 20px;
     font-weight: 900;
     line-height: 1.4;
-    /* margin-bottom: 10px; */
+    padding: 0px 50px 0px 0px;
+
+    margin-bottom: 6px;
   }
 
   .headeritemDescription {
     display: block;
     font-size: 16px;
     font-weight: 600;
-    margin-bottom: 10px;
+    padding: 0px 50px 0px 0px;
+    text-align: center;
+    margin-bottom: 0px;
+    color: #e3f7d4;
+
   }
 }
 
@@ -130,8 +136,22 @@
   .headeritemItem {
     border: 2px solid #045a0e;
     background-color: rgb(244, 248, 227);
-    padding: 0px 10px;
+    padding: 6px 10px;
     width: 100%;
+  }
+
+  .headeritemTitle {
+    color: #476304;
+    padding: 0px 0px 0px 0px;
+    /* text-align: center; */
+    margin-bottom: 6px;
+  }
+
+  .headeritemDescription {
+    padding: 0px 0px 0px 0px;
+    margin-bottom: 0px;
+    color: #2f4202;
+
   }
 
   .buttonRemove {
@@ -148,6 +168,11 @@
 }
 
 @media (min-width: 980px) {
+.blockHeaderitemWrapper {
+  padding: 0px 20px 0px;
+}
+
+
   .buttonRemove {
     width: 28%;
   }
@@ -157,23 +182,37 @@
   }
 
   .headeritemWrapper {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
 
-  /* .headeritemTitle {
+  
+
+  .headeritemTitle {
   }
 
   .headeritemDescription {
-  } */
+    margin-bottom: 10px;
+  }
 
   .headeritemText {
     display: block;
+    text-align: center;
+    color: #2f4202;
+
   }
 }
 
 @media (min-width: 1180px) {
+  .blockHeaderitemWrapper {
+    padding: 0px 30px 0px;
+  }
+
   .headeritemList {
     margin-bottom: 0px;
+  }
+
+  .headeritemWrapper {
+    margin-bottom: 8px;
   }
 
   .headeritemItem {
@@ -186,6 +225,10 @@
 }
 
 @media (min-width: 1380px) {
+  .blockHeaderitemWrapper {
+    padding: 0px 50px 0px;
+  }
+
   .buttonRemove {
     width: 24%;
   }

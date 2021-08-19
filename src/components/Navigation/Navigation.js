@@ -12,11 +12,10 @@ const Navigation = ({ open, setOpen, ...props }) => {
   console.log("props: ", props);
 
   const isHidden = open ? true : false;
-  const tabIndex = isHidden ? 0 : -1;
+  // const tabIndex = isHidden ? 0 : -1;
 
   // <StyledMenu open={open} aria-hidden={!isHidden} {...props}></StyledMenu>
 
-  
   let history = useHistory();
 
   const handleOnClick = (event) => {
@@ -28,7 +27,7 @@ const Navigation = ({ open, setOpen, ...props }) => {
   return (
     <nav
       className={
-        open === true
+        open === true || document.documentElement.clientWidth > 768
           ? `${styles.navigation} ${styles.navOpen}`
           : `${styles.navigation} ${styles.navHide}`
       }>
@@ -45,12 +44,18 @@ const Navigation = ({ open, setOpen, ...props }) => {
                       key={route.label}
                       to={route.path}
                       exact={route.exact}
+                      onClick={() => {
+                        if (document.documentElement.clientWidth < 768) {
+                          setOpen(!open);
+                        }
+                      }}
                       className={
-                      //   open !== true
-                      //     ? `${styles.link} ${styles.navHide}`
-                      //     : `${styles.link} ${styles.navOpen}`
-                      // }
-                      styles.link}
+                        //   open !== true
+                        //     ? `${styles.link} ${styles.navHide}`
+                        //     : `${styles.link} ${styles.navOpen}`
+                        // }
+                        styles.link
+                      }
                       activeClassName={styles.activelink}>
                       {route.title}
                       {route.routes ? (
@@ -65,6 +70,14 @@ const Navigation = ({ open, setOpen, ...props }) => {
                                   <NavLink
                                     key={nestedRoute.label}
                                     to={nestedRoute.path}
+                                    onClick={() => {
+                                      if (
+                                        document.documentElement.clientWidth <
+                                        768
+                                      ) {
+                                        setOpen(!open);
+                                      }
+                                    }}
                                     value={nestedRoute.label}
                                     disabled={nestedRoute.disabled}
                                     className={styles.optionLink}
