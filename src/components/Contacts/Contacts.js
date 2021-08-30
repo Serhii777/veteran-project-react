@@ -1,15 +1,12 @@
 import React from "react";
 import Address from "./Address/Address";
-import WrapperdMap from "../Map/Map";
-// import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-
-// import SvgContactUsBlack from "../SvgComponents/SvgContactUsBlack";
+import MapComponent from "../MapComponent/MapComponent";
 import SvgContactUs from "../SvgComponents/SvgContactUs";
+import "leaflet/dist/leaflet.css";
 
 import styles from "./Contacts.module.css";
 
 const Contacts = () => {
-  // console.log("11111", process.env.REACT_APP_GOOGLE_MAP_KEY);
 
   return (
     <div className={styles.contacts}>
@@ -36,14 +33,7 @@ const Contacts = () => {
             Наше місцезнаходження:
           </h4>
           <div className={styles.mapWrapper}>
-            {/* map here */}
-            <WrapperdMap
-              googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_MAP_KEY}`}
-              loadingElement={<div style={{ height: `100%` }} />}
-              containerElement={<div style={{ height: `100%` }} />}
-              // containerElement={<div style={{ height: `400px` }} />}
-              mapElement={<div style={{ height: `100%` }} />}
-            />
+            <MapComponent />
           </div>
         </div>
       </div>

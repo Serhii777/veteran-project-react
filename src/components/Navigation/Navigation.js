@@ -1,5 +1,7 @@
 // import React from "react";
-import React, { useState } from "react";
+import React, {
+  //  useState
+   } from "react";
 // import React, { useEffect, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 
@@ -11,7 +13,7 @@ import styles from "./Navigation.module.css";
 const Navigation = ({ open, setOpen, ...props }) => {
   // console.log("props: ", props);
 
-  const [selectOption, setSelectOption] = useState(null);
+  // const [selectOption, setSelectOption] = useState(null);
 
   // const isHidden = open ? true : false;
   // const tabIndex = isHidden ? 0 : -1;
