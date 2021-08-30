@@ -122,82 +122,82 @@ const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
                         <span className={styles.сontentPageItemNumber}>
                           {index + 1}
                         </span>
-                        <div className={styles.сontentItemWrapper}>
-                          {item.date ? (
-                            <h3 className={styles.сontentPageItemDate}>
-                              {item.date !== undefined
-                                ? new Date(item.date).toLocaleDateString(
-                                    "Uk-uk",
-                                    options
-                                  )
-                                : null}
-                            </h3>
-                          ) : null}
-                          {item.title ? (
-                            <h3 className={styles.сontentPageItemTitle}>
-                              {item.title}
-                            </h3>
-                          ) : null}
+                        {item.date ? (
+                          <h3 className={styles.сontentPageItemDate}>
+                            {item.date !== undefined
+                              ? new Date(item.date).toLocaleDateString(
+                                  "Uk-uk",
+                                  options
+                                )
+                              : null}
+                          </h3>
+                        ) : null}
+                      </div>
+                      <div className={styles.сontentItemWrapper}>
+                        {item.title ? (
+                          <h3 className={styles.сontentPageItemTitle}>
+                            {item.title}
+                          </h3>
+                        ) : null}
 
-                          <ul className={styles.сontentPageItemList}>
-                            {item.contentText.map((item) => (
-                              <li key={item.id} className={styles.textItem}>
-                                <div className={styles.textItemWrapper}>
-                                  {item.textTitle ? (
-                                    <h4 className={styles.textItemTitle}>
-                                      {item.textTitle}
-                                    </h4>
+                        <ul className={styles.сontentPageItemList}>
+                          {item.contentText.map((item) => (
+                            <li key={item.id} className={styles.textItem}>
+                              <div className={styles.textItemWrapper}>
+                                {item.textTitle ? (
+                                  <h4 className={styles.textItemTitle}>
+                                    {item.textTitle}
+                                  </h4>
+                                ) : null}
+
+                                <div className={styles.textWrapper}>
+                                  {item.toppings ? (
+                                    <span className={styles.toppings}>
+                                      {item.toppings}
+                                    </span>
                                   ) : null}
 
-                                  <div className={styles.textWrapper}>
-                                    {item.toppings ? (
-                                      <span className={styles.toppings}>
-                                        {item.toppings}
-                                      </span>
-                                    ) : null}
-
-                                    {item.text ? (
-                                      <p className={styles.text}>{item.text}</p>
-                                    ) : null}
-                                  </div>
-
-                                  {item.image ? (
-                                    <div
-                                      className={styles.homeItemImageWrapper}>
-                                      <img
-                                        src={
-                                          `${IMAGES_URL}/` +
-                                          `${item.image}`
-                                            .split("")
-                                            .slice(12)
-                                            .join("")
-                                        }
-                                        alt="Изображение с сервера."
-                                        className={styles.imageContent}
-                                      />
-                                    </div>
-                                  ) : null}
-
-                                  {item.link ? (
-                                    <div className={styles.contentLinkWrapper}>
-                                      <p className={styles.contentLinkText}>
-                                        Посилання на джерело:
-                                      </p>
-                                      <a
-                                        href={item.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={styles.contentLink}>
-                                        перейти...
-                                      </a>
-                                    </div>
+                                  {item.text ? (
+                                    <p className={styles.text}>{item.text}</p>
                                   ) : null}
                                 </div>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+
+                                {item.image ? (
+                                  <div className={styles.homeItemImageWrapper}>
+                                    <img
+                                      src={
+                                        `${IMAGES_URL}/` +
+                                        `${item.image}`
+                                          .split("")
+                                          .slice(12)
+                                          .join("")
+                                      }
+                                      alt="Изображение с сервера."
+                                      className={styles.imageContent}
+                                    />
+                                  </div>
+                                ) : null}
+
+                                {item.link ? (
+                                  <div className={styles.contentLinkWrapper}>
+                                    <p className={styles.contentLinkText}>
+                                      Посилання на джерело:
+                                    </p>
+                                    <a
+                                      href={item.link}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className={styles.contentLink}>
+                                      перейти...
+                                    </a>
+                                  </div>
+                                ) : null}
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
+                      {/* </div> */}
 
                       <Fragment>
                         {auth.isAuthenticated ? (

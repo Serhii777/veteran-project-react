@@ -41,7 +41,6 @@
   justify-content: center;
   /* width: 100%; */
   text-transform: uppercase;
-  /* background-color: #ffffff; */
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2), 0 1px 4px rgba(0, 0, 0, 0.3);
   padding: 20px 10px 30px;
 }
@@ -50,7 +49,7 @@
   font-size: 16px;
   margin-bottom: 16px;
   text-align: center;
-  color: rgb(255, 255, 255);
+  color: #ffffff;
 }
 
 .navigationList {
@@ -73,7 +72,7 @@
   font-weight: 700;
   /* background-color: #e4f8e4; */
   /* background-color: #e5ebe5; */
-  background-color: #292828;
+  /* background-color: #292828; */
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
   transition: background-color 0.2s, box-shadow 0.2s, opacity 0.2s, color 0.2s;
   cursor: pointer;
@@ -103,11 +102,19 @@
   /* transition: all 250ms ease-in-out; */
 }
 
+.selectListWrapperHidden {
+  /* hides sub-menu */
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+  /* transition: all 250ms ease-in-out; */
+}
+
 .navigationItem:hover > .link > .selectListWrapper {
   /* shows sub-menu */
   visibility: visible;
   opacity: 1;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .navigationItem:hover > .link > .selectList {
@@ -120,14 +127,13 @@
   width: 100%;
   border-radius: 3px;
   text-align: center;
-  /* color: #222222; */
   color: #ffffff;
   transition: all 300ms ease-in-out;
   text-decoration: none;
 }
 
 .link:hover {
-  color: #000;
+  color: #222222;
 }
 
 .activelink {
@@ -136,6 +142,7 @@
 }
 
 .activelink:hover {
+  color: #c4e9c7;
   background-color: #0f6003;
 }
 
@@ -156,7 +163,6 @@
   font-weight: 700;
   line-height: 1.4;
   color: #444444;
-  z-index: 20;
   border: 1px solid #aaaaaa;
   border-radius: 4px;
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
@@ -165,6 +171,8 @@
   padding: 4px 0px 2px 0px;
   text-align: left;
   transition: all 200ms ease-in-out;
+  /* opacity: 1; */
+  z-index: 20;
 }
 
 .selectList:hover {
@@ -253,7 +261,7 @@
     justify-content: center;
     padding: 0px 0px 0px 0px;
     line-height: 1.4;
-    min-height: 48px;
+    min-height: 44px;
     color: #222222;
   }
 
@@ -273,6 +281,15 @@
     font-size: 14px;
     line-height: 1.4;
     padding: 8px 0px;
+    background-color: #ffffff;
+    z-index: 26;
+    opacity: 1;
+    transition: all 200ms ease-in-out;
+  }
+
+  .selectListHidden {
+    opacity: 0;
+    /* display: none; */
   }
 }
 

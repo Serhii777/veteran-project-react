@@ -90,7 +90,7 @@
   flex-direction: row;
   align-items: flex-start;
   font-weight: 600;
-  position: relative;
+  /* position: relative; */
 }
 
 .сontentPageItemNumber {
