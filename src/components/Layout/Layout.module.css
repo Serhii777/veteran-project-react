@@ -28,20 +28,16 @@
 }
 
 .mainWrapper {
-  /* flex-grow: 1; */
-  
-
-  background: url("../../images/background1181-1436bottom.jpg") right 0px bottom
-    0px no-repeat;
+  width: 100%;
+  background: url("../../images/background/down.svg") right 0px bottom -20px
+    no-repeat;
   background-size: contain;
-  /* background-color: #25222b; */
-
   padding-bottom: 60px;
 }
 
 .footerWrapper {
-  /* background-color: #393d39; */
-  background-color: #25222b;
+  /* background-color: #25222b; */
+  background-color: #181918;
 }
 
 @media (min-width: 540px) {
@@ -67,8 +63,9 @@
 
   .headerWrapper {
     background-color: #ffffff;
-    background: url("../../images/background1181-1772top.jpg") right 0px top 0px
-      /* background: url("../../images/background1181-1436top.jpg") right 0px top 0px */
+    /* background: url("../../images/background1181-1772top.jpg") right 0px top 0px */
+    background: url("../../images/background/Header_background.svg") right 0px
+      top -17px /* background: url("../../images/background1181-1436top.jpg") right 0px top 0px */
       no-repeat;
     background-size: contain;
     /* width: 100%; */

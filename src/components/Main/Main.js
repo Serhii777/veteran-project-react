@@ -6,6 +6,7 @@ import FocusLock from "react-focus-lock";
 import { useOnClickOutside } from "../Navigation/useOnClickHooks";
 import Burger from "../Navigation/Burger";
 import Navigation from "../Navigation/Navigation";
+import ButtonGoTop from "../ButtonGoTop/ButtonGoTop";
 
 import styles from "./Main.module.css";
 
@@ -31,7 +32,10 @@ const Main = ({ children }) => {
           </div>
         </FocusLock>
       </div>
-      <div className={styles.childrenWrapper}>{children}</div>
+      <div className={styles.childrenWrapper}>
+        {children}
+        <ButtonGoTop scrollStepInPx="70" delayInMs="10.50"/>
+        </div>
     </div>
   );
 };

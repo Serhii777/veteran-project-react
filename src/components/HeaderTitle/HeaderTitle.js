@@ -9,10 +9,7 @@ import React, {
 
 import authContext from "../../services/authContext";
 
-import {
-  getHeaderitem,
-  deleteHeaderitem,
-} from "../../services/useFetchHeader";
+import { getHeaderitem, deleteHeaderitem } from "../../services/useFetchHeader";
 
 import FormHeader from "../Form/FormHeader";
 
@@ -110,25 +107,22 @@ const HeaderTitle = () => {
     <div className={styles.blockHeaderitemWrapper}>
       <ul className={styles.headeritemList}>
         {headeritems && headeritems.length > 0 ? (
-          headeritems.map(
-            (item) => (
-              // console.log("stateListUl11111111:", item),
-              (
-                <li key={item._id} className={styles.headeritemItem}>
-                  <div className={styles.headeritemWrapper}>
-                    {item.title ? (
-                      <h4 className={styles.headeritemTitle}>{item.title}</h4>
-                    ) : null}
-                    {item.description ? (
-                      <p className={styles.headeritemDescription}>
-                        {item.description}
-                      </p>
-                    ) : null}
-                    {item.text ? (
-                      <p className={styles.headeritemText}>{item.text}</p>
-                    ) : null}
-                  </div>
-                  <Fragment>
+          headeritems.map((item) => (
+            <li key={item._id} className={styles.headeritemItem}>
+              <div className={styles.headeritemWrapper}>
+                {item.title ? (
+                  <h4 className={styles.headeritemTitle}>{item.title}</h4>
+                ) : null}
+                {item.description ? (
+                  <p className={styles.headeritemDescription}>
+                    {item.description}
+                  </p>
+                ) : null}
+                {item.text ? (
+                  <p className={styles.headeritemText}>{item.text}</p>
+                ) : null}
+              </div>
+              {/* <Fragment>
                     {auth.isAuthenticated ? (
                       <div className={styles.buttonWrapper}>
                         <button
@@ -138,11 +132,9 @@ const HeaderTitle = () => {
                         </button>
                       </div>
                     ) : null}
-                  </Fragment>
-                </li>
-              )
-            )
-          )
+                  </Fragment> */}
+            </li>
+          ))
         ) : (
           <div>"Enter your data"</div>
         )}

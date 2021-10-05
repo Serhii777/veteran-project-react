@@ -12,7 +12,7 @@
   font-size: 20px;
   font-weight: 600;
   color: #80af33;
-  /* padding-left: 20px; */
+  padding-top: 10px;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -31,7 +31,7 @@
   /* color: #c9d9b4; */
   /* color: #b4c2a1; */
   color: #a6b396;
-  /* margin-bottom: 18px; */
+  margin-bottom: 10px;
 }
 
 .addressListWrapper {
@@ -64,18 +64,23 @@
   margin-bottom: 6px;
 }
 
+.scheduleWrapper {
+  margin-bottom: 6px;
+}
+
 .addressTextWrapper {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   padding-left: 20px;
+  margin-bottom: 6px;
 }
 
 .addressText {
   font-size: 14px;
   font-weight: 600;
   line-height: 1.2;
-  color: rgb(228, 238, 225);
+  color: #e4eee1;
   margin-bottom: 6px;
 }
 
@@ -87,23 +92,15 @@
   margin-right: 10px;
 }
 
-/* .footerSpan {
-  position: absolute;
-  content: "";
-  display: block;
-  width: 24px;
-  height: 24px;
-  background: url("../../images/icons/artage-io-404907_1625007410.png")
-    center/100% no-repeat;
-  background-color: rgb(93, 89, 89);
-  left: 18px;
-} */
-
 .scheduleText {
   font-size: 14px;
   line-height: 1.2;
   padding-left: 20px;
   margin-bottom: 8px;
+}
+
+.contactsList {
+  margin-bottom: 10px;
 }
 
 .contactsTime {
@@ -122,19 +119,18 @@
   font-size: 14px;
   text-decoration: none;
   color: #249df3;
-  /* color: #92d528; */
   transition: text-decoration 0.3s, color 0.3s;
-
 }
 
 .contactsLink:hover {
   text-decoration: underline;
   color: #e0e6d7;
-  /* text-shadow: 0px 0px 4px #249df3; */
 }
 
 .socialNetworksWrapper {
   padding-left: 20px;
+  margin-bottom: 10px;
+
 }
 
 /*! button */
@@ -201,13 +197,21 @@
     padding: 0px 0px 10px;
   }
 
+  .itemWrapper{
+    width: 200px;
+  }
+
   .itemTitle {
     font-size: 16px;
     margin-bottom: 6px;
   }
 
   .addressListWrapper {
-    flex-basis: 45%;
+    flex-basis: 28%;
+  }
+  
+  .scheduleListWrapper {
+    flex-basis: 28%;
   }
 
   .contactsListWrapper {
@@ -222,18 +226,20 @@
     padding-left: 0px;
   }
 
+  .addressTextWrapper{
+    padding: 0px 0px 0px 0px;
+  }
+
   .addressText {
     font-size: 15px;
-    font-weight: normal;
     line-height: 1.2;
-    padding-left: 30px;
+    padding-left: 0px;
     margin-bottom: 10px;
   }
 
   .scheduleText {
     max-width: 250px;
     font-size: 15px;
-    /* font-weight: 600; */
     line-height: 1.2;
     padding-left: 30px;
     margin-bottom: 6px;
@@ -266,11 +272,15 @@
 
   .itemTitle {
     font-size: 18px;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
   }
 
   .addressListWrapper {
-    flex-basis: 50%;
+    flex-basis: 26%;
+  }
+
+  .scheduleListWrapper {
+    flex-basis: 34%;
   }
 
   .contactsListWrapper {
@@ -278,7 +288,7 @@
   }
 
   .socialListWrapper {
-    flex-basis: 18%;
+    flex-basis: 22%;
   }
 
   .contactsList {
@@ -315,22 +325,46 @@
 }
 
 @media (min-width: 1180px) {
+  .footerTitle {
+    font-size: 24px;
+    font-weight: 600;
+    padding-top: 14px;
+    margin-bottom: 26px;
+  }
+
   .footerContentWrapper {
-    padding: 0px 40px 10px;
+    padding: 0px 20px 10px;
   }
 
   .addressListWrapper {
-    flex-basis: 45%;
+    flex-basis: 38%;
   }
 
-  .contactsListWrapper {
+  .scheduleListWrapper {
     flex-basis: 32%;
   }
 
+  .contactsListWrapper {
+    flex-basis: 30%;
+  }
+
   .socialListWrapper {
-    flex-basis: 23%;
+    flex-basis: 30%;
+  }
+
+  .footerWrapper {
+    margin-bottom: 10px;
   }
 }
 
 @media (min-width: 1380px) {
+  .footerTitle {
+    font-size: 28px;
+    padding-top: 16px;
+    margin-bottom: 30px;
+  }
+  .footerWrapper {
+    margin-bottom: 16px;
+  }
+
 }

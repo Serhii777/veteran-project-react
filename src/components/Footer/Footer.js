@@ -15,8 +15,15 @@ import {
 
 import FormFooter from "../Form/FormFooter";
 import SocialNetworks from "../Contacts/SocialNetworks/SocialNetworks";
+
+import SvgLocationBlack from "../SvgComponents/SvgLocationBlack";
+import SvgCalendar from "../SvgComponents/SvgCalendar";
+import SvgClock from "../SvgComponents/SvgClock";
+import SvgEnvelopEmail from "../SvgComponents/SvgEnvelopEmail";
+import SvgPhoneSound from "../SvgComponents/SvgPhoneSound";
+
 // import SvgLocation from "./SvgLocation";
-import SvgLocation2 from "../SvgComponents/SvgLocation2";
+// import SvgLocation2 from "../SvgComponents/SvgLocation2";
 
 // import { store } from "react-notifications-component";
 import styles from "./Footer.module.css";
@@ -59,32 +66,6 @@ const Footer = () => {
     getItems();
   }, [getItems]);
 
-  // const removeItem = useCallback(
-  //   (itemId) => {
-  //     deleteFooteritems(itemId).then((items) => {
-  //       if (mounted.current) {
-  //         setFooteritems(items);
-  //         setAlert(true);
-
-  //         store.addNotification({
-  //           title: "Wonderful!",
-  //           type: "success",
-  //           message: "Блок успішно видалено.",
-  //           container: "top-left",
-  //           animationIn: ["animate__animated animate__zoomIn"],
-  //           animationOut: ["animate__animated animate__zoomOut"],
-  //           dismiss: {
-  //             duration: 3000,
-  //             onScreen: true,
-  //             showIcon: true,
-  //           },
-  //         });
-  //       }
-  //     });
-  //   },
-  //   [setFooteritems]
-  // );
-
   return (
     <div className={styles.footer}>
       <div className={styles.footerWrapper}>
@@ -94,37 +75,38 @@ const Footer = () => {
 
         <ul className={styles.footerContentWrapper}>
           <li className={`${styles.itemWrapper} ${styles.addressListWrapper}`}>
-            <h5 className={`${styles.itemTitle} ${styles.addressTitle}`}>
-              Наша адреса:
-            </h5>
-            <div className={styles.addressTextWrapper}>
-              <div className={styles.svgLocationWrapper}>
-                {/* <SvgLocation /> */}
-                <SvgLocation2 />
+            <div className={styles.scheduleWrapper}>
+              <h5 className={`${styles.itemTitle} ${styles.addressTitle}`}>
+                Наша адреса:
+              </h5>
+              <div className={styles.addressTextWrapper}>
+                <div className={styles.svgLocationWrapper}>
+                  <SvgLocationBlack />
+                </div>
+                <p className={styles.addressText}>
+                  м. Вінниця, вул. Єрусалимка, 8
+                </p>
               </div>
-              <p className={styles.addressText}>
-                {/* <span className={styles.footerSpan}></span> */}
-                м. Вінниця, вул. Єрусалимка, 8
-              </p>
             </div>
+          </li>
 
+          <li className={`${styles.itemWrapper} ${styles.scheduleListWrapper}`}>
             <div className={styles.scheduleWrapper}>
               <h5 className={styles.itemTitle}>Графік роботи:</h5>
-              <p className={styles.scheduleText}>
-                <span className={styles.contactsSpan}>
-                  <i class="far fa-calendar-alt"></i>
-                </span>
+              <div className={styles.addressTextWrapper}>
+                <div className={styles.svgLocationWrapper}>
+                  <SvgCalendar />
+                </div>
                 <span className={styles.contactsTime}>
-                  {" "}
-                  з понеділка по пятницю{" "}
+                  з понеділка по пятницю
                 </span>
-              </p>
-              <p className={styles.scheduleText}>
-                <span className={styles.contactsSpan}>
-                  <i class="far fa-clock"></i>
-                </span>
+              </div>
+              <div className={styles.addressTextWrapper}>
+                <div className={styles.svgLocationWrapper}>
+                  <SvgClock />
+                </div>
                 <span className={styles.contactsTime}> з 9.00 до 18.00 </span>
-              </p>
+              </div>
             </div>
           </li>
 
@@ -132,8 +114,10 @@ const Footer = () => {
             <h5 className={styles.itemTitle}>Наші контактні дані:</h5>
             <ul className={styles.contactsList}>
               <li className={styles.contactsItem}>
-                {/* <span className={styles.contactsSpan}>&#128386;</span> */}
-                <span className={styles.contactsSpan}>&#x2709;</span>
+                <div className={styles.svgLocationWrapper}>
+                  {/* <SvgEnvelop /> */}
+                  <SvgEnvelopEmail />
+                </div>
                 <a
                   href="mailto:vtprostir.vn@gmail.com"
                   target="_blank"
@@ -143,7 +127,9 @@ const Footer = () => {
                 </a>
               </li>
               <li className={styles.contactsItem}>
-                <span className={styles.contactsSpan}>&#x260e;</span>
+                <div className={styles.svgLocationWrapper}>
+                  <SvgPhoneSound />
+                </div>
                 <a href="tel:+380679594065" className={styles.contactsLink}>
                   +38 (067) 959 40 65
                 </a>
@@ -197,11 +183,11 @@ const Footer = () => {
           )}
         </ul> */}
       </div>
-      {auth.isAuthenticated ? (
+      {/* {auth.isAuthenticated ? (
         <div className={styles.formAttentionWrapper}>
           <FormFooter onCreateItem={createContent} />
         </div>
-      ) : null}
+      ) : null} */}
     </div>
   );
 };

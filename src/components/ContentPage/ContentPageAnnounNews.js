@@ -7,12 +7,14 @@ import React, {
   useRef,
 } from "react";
 import authContext from "../../services/authContext";
+import Spinner from '../Spinner/Spinner'
+
 import { IMAGES_URL } from "../../services/apiUrl";
 
 import { store } from "react-notifications-component";
 import styles from "./ContentPageAnnounNews.module.css";
 
-const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
+const ContentPageAnnounNews = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
   const auth = useContext(authContext);
 
   // console.log("onTitle: ", onTitle);
@@ -213,7 +215,13 @@ const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
                     </li>
                   ))
               ) : (
-                <div>"Enter your data"</div>
+                <Fragment>
+                  {setTimeout(() => {}, 1000) ? (
+                    <Spinner />
+                  ) : (
+                    <div>"Enter your data"</div>
+                  )}
+                </Fragment>
               )}
             </ul>
           </div>
@@ -237,4 +245,4 @@ const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
 //     fetchData();
 //   }, []);
 
-export default ContentPage;
+export default ContentPageAnnounNews;

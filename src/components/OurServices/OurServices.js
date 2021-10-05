@@ -35,9 +35,8 @@ const OurServices = () => {
       <ul className={styles.ourServicesList}>
         {routeOurService.routes.map((route) => {
           return (
-            <li className={styles.ourServicesItem}>
+            <li key={route.id} className={styles.ourServicesItem}>
               <NavLink
-                key={route.label}
                 to={route.path}
                 className={styles.link}
                 activeClassName={styles.activelink}>

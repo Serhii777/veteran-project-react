@@ -27,9 +27,8 @@ const AnnouncementNews = () => {
       <ul className={styles.announcementNewsList}>
         {routeAnnouncementNews.routes.map((route) => {
           return (
-            <li className={styles.announcementNewsItem}>
+            <li key={route.label} className={styles.announcementNewsItem}>
               <NavLink
-                key={route.label}
                 to={route.path}
                 className={styles.link}
                 activeClassName={styles.activelink}>

@@ -14,7 +14,7 @@ const SocialNetworks = () => {
             href="https://www.facebook.com/vtprostir"
             target="_blank"
             rel="noopener noreferrer"
-            className={`${styles.socialNetworksLink} ${styles.linkFacebook}`}>
+            className={`${styles.socialNetworksLink} ${styles.linkFacebook} ${styles.linkSocialFooter}`}>
             <div className={styles.socialNetworksItemWrapper}>
               <SvgFacebook />
             </div>
@@ -27,7 +27,7 @@ const SocialNetworks = () => {
             href="#"
             target="_blank"
             rel="noopener noreferrer"
-            className={`${styles.socialNetworksLink} ${styles.linkViber}`}>
+            className={`${styles.socialNetworksLink} ${styles.linkViber} ${styles.linkSocialFooter}`}>
             <div className={styles.socialNetworksItemWrapper}>
               <SvgViber />
             </div>

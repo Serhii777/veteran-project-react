@@ -13,6 +13,8 @@ import authContext from "../../services/authContext";
 //   deleteItem,
 // } from "../../../services/useFetchSocioadvice";
 import { IMAGES_URL } from "../../services/apiUrl";
+import Spinner from '../Spinner/Spinner'
+
 import Slider from "../Slider/Slider";
 
 // import FormContent from "../Form/FormContent.js";
@@ -21,7 +23,7 @@ import Slider from "../Slider/Slider";
 import { store } from "react-notifications-component";
 import styles from "./ContentPage.module.css";
 
-const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
+const ContentPageResult = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
   const auth = useContext(authContext);
 
   // console.log("onTitle: ", onTitle);
@@ -205,7 +207,13 @@ const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
                   </li>
                 ))
               ) : (
-                <div>"Enter your data"</div>
+                <Fragment>
+                  {setTimeout(() => {}, 1000) ? (
+                    <Spinner />
+                  ) : (
+                    <div>"Enter your data"</div>
+                  )}
+                </Fragment>
               )}
             </ul>
             <Slider sliderImage={listItems} />
@@ -230,4 +238,4 @@ const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
 //     fetchData();
 //   }, []);
 
-export default ContentPage;
+export default ContentPageResult;

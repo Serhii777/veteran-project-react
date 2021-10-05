@@ -1,8 +1,12 @@
 import React from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
 
-import { redMarker } from "../../services/pointerIcon";
-import { defaultMapState, attribution, tileUrl } from "../../services/mapUtils";
+import { redMarker } from "../../../services/pointerIcon";
+import {
+  defaultMapState,
+  attribution,
+  tileUrl,
+} from "../../../services/mapUtils";
 import "leaflet/dist/leaflet.css";
 import styles from "./MapComponent.module.css";
 
@@ -22,11 +26,13 @@ const MapComponent = () => {
       <Marker
         position={[defaultMapState.lat, defaultMapState.lng]}
         icon={redMarker}
-        key={defaultMapState.points}>
-        <Popup
+        key={defaultMapState.id}>
+        <Tooltip
           minWidth={350}
+          direction="bottom"
+          offset={[0, 8]}
           closeButton={false}
-          className={styles.popupCustom}>
+          className={styles.tooltipCustom}>
           <div className={styles.popupCardWrapper}>
             <h4 className={styles.popupCardTitle}>Ми знаходимось тут.</h4>
             <div className={styles.popupCardText}>
@@ -36,7 +42,7 @@ const MapComponent = () => {
               </span>
             </div>
           </div>
-        </Popup>
+        </Tooltip>
       </Marker>
     </MapContainer>
   );

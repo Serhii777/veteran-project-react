@@ -34,7 +34,7 @@ export const deleteItem = async (id) => {
 
 export const getAllItems = async () => {
   const { data } = await axios.get(`${HOMEITEMS_URL}/`);
-  // console.log("data:", data);
+  console.log("data:", data);
   return data;
 };
 

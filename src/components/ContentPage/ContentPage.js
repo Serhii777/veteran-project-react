@@ -7,6 +7,7 @@ import React, {
   useRef,
 } from "react";
 import authContext from "../../services/authContext";
+import Spinner from '../Spinner/Spinner'
 // import {
 //   createItem,
 //   getAllItems,
@@ -94,7 +95,7 @@ const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
 
   // let imageName = "";
 
-  // console.log("listItems:", listItems);
+  console.log("listItems:", listItems);
 
   return (
     <Fragment>
@@ -204,7 +205,13 @@ const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
                   </li>
                 ))
               ) : (
-                <div>"Enter your data"</div>
+                <Fragment>
+                  {setTimeout(() => {}, 1000) ? (
+                    <Spinner />
+                  ) : (
+                    <div>"Enter your data"</div>
+                  )}
+                </Fragment>
               )}
             </ul>
           </div>

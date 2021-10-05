@@ -1,10 +1,11 @@
 .mapContainer {
   width: 100%;
-  height: 450px;
+  height:100%;
+  border: 1px solid #000;
 }
 
-.popupCustom {
-  background-color: #f4f8cd;
+.tooltipCustom {
+  background-color: #f9faed;
 
   border-radius: 12px;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);

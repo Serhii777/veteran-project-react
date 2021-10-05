@@ -4,7 +4,7 @@ import redFilledMarker from "../images/icons/red-filled-marker.svg";
 
 export const redMarker = L.icon({
   iconUrl: redFilledMarker,
-  iconSize: [40, 50],
+  iconSize: [40, 44],
   iconAnchor: [20, 40],
   popupAnchor: [0, -38],
   shadowSize: [68, 95],

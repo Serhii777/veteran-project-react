@@ -22,30 +22,41 @@
   width: 36px;
   height: 36px;
   text-decoration: none;
-  border: 1px solid rgb(232, 236, 238);
+  border: 1px solid #5a5b5d;
   border-radius: 3px;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s, box-shadow 0.3s, opacity 0.3s, color 0.3s;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.55);
+  transition: all 300ms ease-in-out;
 }
 
 .socialNetworksItemWrapper {
   width: 30px;
   height: 30px;
-  
 }
 
 .linkFacebook {
   fill: #2441fd;
+  /* background-color: #e6e8e9; */
   transition: all 300ms ease-in-out;
-
 }
 
 .linkViber {
   fill: #665cac;
+  /* background-color: #e6e8e9; */
   transition: all 300ms ease-in-out;
+}
 
+.linkSocialFooter {
+  /* background-color: #7b7e7f; */
+  /* background-color: #2f2b38; */
+  /* background-color: #3b3647; */
+  /* background-color: #191031; */
+  /* border: 1px solid #bcbfc1;
+  border: 1px solid #707273;
+  border: 1px solid #525454; */
+
+  transition: all 300ms ease-in-out;
 }
 
 .linkFacebook:hover {
@@ -97,9 +108,7 @@ input[type="radio"].visually-hidden {
 
 @media (min-width: 768px) {
   .socialNetworksList {
-    /* width: 21%; */
   }
-
 }
 
 @media (min-width: 980px) {

@@ -4,8 +4,9 @@ export const attribution =
 export const tileUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 
 export const defaultMapState = {
-  lat:49.2369553,
-  lng: 28.475778,
+  id: 123456789,
+  lat:49.2369453,
+  lng: 28.475768,
   zoom: 13,
   minZoom: 6,
   activeMarker: null,

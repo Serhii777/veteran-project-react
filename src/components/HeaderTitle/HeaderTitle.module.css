@@ -128,7 +128,6 @@
     text-align: center;
     margin-bottom: 0px;
     color: #e3f7d4;
-
   }
 }
 
@@ -151,7 +150,6 @@
     padding: 0px 0px 0px 0px;
     margin-bottom: 0px;
     color: #2f4202;
-
   }
 
   .buttonRemove {
@@ -168,10 +166,9 @@
 }
 
 @media (min-width: 980px) {
-.blockHeaderitemWrapper {
-  padding: 0px 20px 0px;
-}
-
+  .blockHeaderitemWrapper {
+    padding: 0px 20px 0px;
+  }
 
   .buttonRemove {
     width: 28%;
@@ -179,13 +176,31 @@
 
   .headeritemList {
     margin-bottom: 10px;
+    padding: 0px 0px 0px 0px;
+  }
+
+  .headeritemItem {
+    padding: 0px 0px 0px 68px;
+    position: relative;
+  }
+
+  .headeritemItem::before {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    top: 24px;
+    left: 20px;
+    width: 50px;
+    height: 70px;
+    background: url(../../images/images-png/Coat_of_Arms_Vinnitsia_Small.png)
+      center no-repeat;
+    background-size: contain;
+    margin-right: 16px;
   }
 
   .headeritemWrapper {
     margin-bottom: 6px;
   }
-
-  
 
   .headeritemTitle {
   }
@@ -198,7 +213,6 @@
     display: block;
     text-align: center;
     color: #2f4202;
-
   }
 }
 
@@ -216,7 +230,12 @@
   }
 
   .headeritemItem {
-    padding: 0px 20px;
+    padding: 0px 20px 0px 68px;
+  }
+
+  .headeritemItem::before {
+    top: 26px;
+    left: 20px;
   }
 
   .buttonRemove {
@@ -226,11 +245,20 @@
 
 @media (min-width: 1380px) {
   .blockHeaderitemWrapper {
-    padding: 0px 50px 0px;
+    padding: 0px 60px 0px;
   }
 
   .buttonRemove {
     width: 24%;
+  }
+
+  .headeritemItem {
+    padding: 0px 20px 0px 68px;
+  }
+
+  .headeritemItem::before {
+    top: 16px;
+    left: 20px;
   }
 }
 

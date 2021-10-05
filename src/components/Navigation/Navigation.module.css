@@ -150,7 +150,17 @@
 
 .selectListWrapper {
   width: inherit;
+
 }
+
+/* .selectListWrapperOpen {
+  display: block;
+}
+.selectListWrapperHide {
+  display: none;
+} */
+
+
 
 .selectList {
   display: block;
@@ -163,7 +173,7 @@
   font-weight: 700;
   line-height: 1.4;
   color: #444444;
-  border: 1px solid #aaaaaa;
+  border: 1px solid rgb(170, 170, 170, 0.7);
   border-radius: 4px;
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
   background-color: #d8e9d2;
@@ -174,6 +184,12 @@
   /* opacity: 1; */
   z-index: 20;
 }
+
+
+
+/* .selectListHidden{
+display: none;
+} */
 
 .selectList:hover {
   cursor: pointer;
@@ -255,6 +271,7 @@
     background-color: #e5ebe5;
   }
 
+  /* .link div[role=button]{ */
   .link {
     display: flex;
     flex-direction: column;
@@ -287,10 +304,23 @@
     transition: all 200ms ease-in-out;
   }
 
-  .selectListHidden {
-    opacity: 0;
-    /* display: none; */
+
+  .selectListOpen {
+    /* display: block; */
+    background-color: rgb(209, 100, 100);
+    visibility: visible;
+    /* opacity: 0.5; */
+    overflow: hidden;
   }
+  
+  .selectListHide {
+    /* display: none; */
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  
 }
 
 @media (min-width: 980px) {

@@ -15,8 +15,8 @@ import FormContent from "../Form/FormContent";
 import AppUploadFile from "../Form/MainFormUploadFile/AppUploadFile";
 import SvgAboutUs from "../SvgComponents/SvgAboutUs";
 
-import image1 from "../../images/rehabilitation-specialist-1624479221668.jpg";
-import image2 from "../../images/150199392_234037011696938_4418853326113702292_n-1624479265986.jpg";
+import image1 from "../../images/static/rehabilitation-specialist-1624479221668.jpg";
+import image2 from "../../images/static/150199392_234037011696938_4418853326113702292_n-1624479265986.jpg";
 
 // import styles from "../ContentPage/ContentPage.module.css";
 import styles from "./HomeContent.module.css";
