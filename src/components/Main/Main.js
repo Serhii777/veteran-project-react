@@ -6,7 +6,7 @@ import FocusLock from "react-focus-lock";
 import { useOnClickOutside } from "../Navigation/useOnClickHooks";
 import Burger from "../Navigation/Burger";
 import Navigation from "../Navigation/Navigation";
-import ButtonGoTop from "../ButtonGoTop/ButtonGoTop";
+import ButtonUp from "../ButtonGoTop/ButtonUp";
 
 import styles from "./Main.module.css";
 
@@ -25,17 +25,17 @@ const Main = ({ children }) => {
           {/* <Navbar> */}
           {/* <Burger open={open} setOpen={setOpen} aria-controls={menuId} /> */}
           <div className={styles.navBurgerWrapper}>
-          <Burger open={open} setOpen={setOpen} />
-          {/* <Navigation open={open} setOpen={setOpen} id={menuId} /> */}
-          <Navigation open={open} setOpen={setOpen} />
-          {/* </Navbar> */}
+            <Burger open={open} setOpen={setOpen} />
+            {/* <Navigation open={open} setOpen={setOpen} id={menuId} /> */}
+            <Navigation open={open} setOpen={setOpen} />
+            {/* </Navbar> */}
           </div>
         </FocusLock>
       </div>
       <div className={styles.childrenWrapper}>
         {children}
-        <ButtonGoTop scrollStepInPx="70" delayInMs="10.50"/>
-        </div>
+        <ButtonUp />
+      </div>
     </div>
   );
 };

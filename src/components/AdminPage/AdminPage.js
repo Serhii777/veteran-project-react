@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Route, NavLink } from "react-router-dom";
+import { Route, NavLink, Link } from "react-router-dom";
 
 import authContext from "../../services/authContext";
 
@@ -39,6 +39,18 @@ const AdminPage = () => {
               </NavLink>
             </li>
           </ul>
+
+          <div className={styles.linkHomeButtonWrapper}>
+            <Link to="/" className={styles.linkHome}>
+              <button type="button" className={styles.homeButton}>
+                {/* Come back to home page */}
+                &#8634;
+                <div className={styles.tooltipDiv}>
+                  Повернутись на головну сторінку.
+                </div>
+              </button>
+            </Link>
+          </div>
 
           <Route path="/admin/login" component={LoginForm} />
           <Route path="/admin/register" component={RegistrationForm} />

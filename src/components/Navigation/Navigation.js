@@ -21,7 +21,7 @@ const Navigation = ({ open, setOpen, ...props }) => {
 
       setTimeout(() => {
         setOpenSelect(true);
-      }, 2000);
+      }, 1500);
     }
   };
 

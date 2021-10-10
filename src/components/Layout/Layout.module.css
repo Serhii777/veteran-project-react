@@ -29,7 +29,7 @@
 
 .mainWrapper {
   width: 100%;
-  background: url("../../images/background/down.svg") right 0px bottom -20px
+  background: url("../../images/background/main_down-part.svg") right 0px bottom -20px
     no-repeat;
   background-size: contain;
   padding-bottom: 60px;
@@ -71,18 +71,13 @@
     /* width: 100%; */
   }
 
-  /* .bg {
-      height: 1024px;
-      background: url('../../images/Home/Layer-9.png') right bottom no-repeat,
-        url('../../images/Home/Layer-4\ 1.png') left bottom no-repeat,
-        url('../../images/Home/Strawberry-Big-PNG.png') right 30px bottom 180px
-          no-repeat,
-        url('../../images/Home/Vector\ 3.png') right bottom no-repeat;
-    } */
-
-  /* .mainWtapper { */
-  /* padding-bottom: 100px; */
-  /* } */
+  .mainWrapper {
+    /* width: 100%; */
+    background: url("../../images/background/down.svg") right 0px bottom -20px
+      no-repeat;
+    background-size: contain;
+    /* padding-bottom: 60px; */
+  }
 }
 
 @media (min-width: 980px) {

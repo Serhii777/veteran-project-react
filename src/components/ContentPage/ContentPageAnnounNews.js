@@ -216,8 +216,10 @@ const ContentPageAnnounNews = ({ onTitle, SvgContent, onGetAllItems, onDeleteIte
                   ))
               ) : (
                 <Fragment>
-                  {setTimeout(() => {}, 1000) ? (
-                    <Spinner />
+                 {setTimeout(() => {
+                    <Spinner />;
+                  }, 1000) ? (
+                    <div>"Enter your data"</div>
                   ) : (
                     <div>"Enter your data"</div>
                   )}

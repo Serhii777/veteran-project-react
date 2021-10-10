@@ -208,8 +208,10 @@ const ContentPageResult = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem })
                 ))
               ) : (
                 <Fragment>
-                  {setTimeout(() => {}, 1000) ? (
-                    <Spinner />
+                  {setTimeout(() => {
+                    <Spinner />;
+                  }, 1000) ? (
+                    <div>"Enter your data"</div>
                   ) : (
                     <div>"Enter your data"</div>
                   )}

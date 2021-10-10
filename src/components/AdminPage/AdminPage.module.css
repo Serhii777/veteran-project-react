@@ -1,6 +1,9 @@
 .adminPage {
+  display: flex;
+  flex-direction: column;
   /* background-color: rgb(252, 226, 203); */
   font-family: Arial, sans-serif;
+  padding: 0px 0px 0px 0px;
 }
 
 .adminPageWrapper {
@@ -8,8 +11,11 @@
   flex-direction: column;
   /* align-items: center; */
   justify-content: center;
-  padding: 20px 10px 30px;
-  background-color: rgb(251, 243, 251);
+  padding: 40px 10px 40px;
+  min-height: 300px;
+  margin-bottom: 80px;
+  position: relative;
+  background-color: rgb(243, 251, 247);
 }
 
 .adminPageTitle {
@@ -17,6 +23,7 @@
   text-align: center;
   color: rgb(253, 7, 7);
   margin-bottom: 16px;
+  padding-top: 24px;
 }
 
 .adminPageTitle::before {
@@ -38,26 +45,6 @@
   width: 16px;
   background-image: url(../../images/Header/exit.svg);
   fill: #79879a;
-} */
-
-/* .footerSpan {
-  position: absolute;
-  content: "";
-  display: block;
-  width: 24px;
-  height: 24px;
-  background: url("../../images/icons/artage-io-404907_1625007410.png")
-    center/100% no-repeat;
-  background-color: rgb(93, 89, 89);
-  left: 18px;
-} */
-
-/* height: 1024px;
-background: url('../../images/Home/Layer-9.png') right bottom no-repeat,
-  url('../../images/Home/Layer-4\ 1.png') left bottom no-repeat,
-  url('../../images/Home/Strawberry-Big-PNG.png') right 30px bottom 180px
-    no-repeat,
-  url('../../images/Home/Vector\ 3.png') right bottom no-repeat;
 } */
 
 .adminPageListWrapper {
@@ -118,7 +105,89 @@ background: url('../../images/Home/Layer-9.png') right bottom no-repeat,
   background-color: #2258f8;
 }
 
+.linkHomeButtonWrapper {
+  position: absolute;
+  top: 20px;
+  right: 26px;
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  margin-bottom: 14px;
+  transition: all 250ms ease-in-out;
+}
+
+.linkHomeButtonWrapper:hover {
+  background-color: #95eaf3;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* 2px 3px 8px 2px */
+}
+
+.linkHome {
+  padding: 6px 8px;
+  width: 100%;
+  color: #222222;
+  /* transition: all 300ms ease-in-out; */
+}
+
+.homeButton {
+  font-size: 26px;
+  line-height: 24px;
+  font-family: inherit;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #ffffff;
+  position: relative;
+  transition: all 250ms ease-in-out;
+}
+
+.linkHomeButtonWrapper:hover .homeButton {
+  background-color: #95eaf3;
+}
+
+.tooltipDiv {
+  font-size: 14px;
+  line-height: 14px;
+  font-family: inherit;
+  font-weight: normal;
+  text-align: center;
+  text-transform: none;
+  padding: 5px;
+  border-radius: 5px;
+  width: auto;
+  height: auto;
+  min-width: 150px;
+  transition: all 300ms ease-in-out;
+}
+
+.linkHomeButtonWrapper .tooltipDiv {
+  display: none;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.linkHomeButtonWrapper:hover .tooltipDiv {
+  display: inline;
+  position: absolute;
+  top: 6px;
+  right: 38px;
+  overflow: hidden;
+  background-color: #cce6e7;
+  z-index: 1000;
+  margin-left: 5px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 300ms ease-in-out;
+}
+
 @media (min-width: 768px) {
+  .adminPage {
+  padding: 0px 0px 0px 20px;
+
+  }
+  
   .adminPageWrapper {
     /* padding: 20px 10px 30px; */
   }
@@ -130,7 +199,7 @@ background: url('../../images/Home/Layer-9.png') right bottom no-repeat,
     align-items: center;
     border-bottom: 1px solid rgb(57, 56, 56);
     border-top: 1px solid rgb(57, 56, 56);
-    padding: 20px 40px;
+    padding: 20px 30px;
   }
 
   .adminPageTitle {
@@ -189,6 +258,11 @@ background: url('../../images/Home/Layer-9.png') right bottom no-repeat,
 
   .link {
     min-height: 50px;
+  }
+
+  .linkHomeButtonWrapper:hover .tooltipDiv {
+    top: 38px;
+    right: 8px;
   }
 }
 

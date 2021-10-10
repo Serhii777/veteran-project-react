@@ -27,7 +27,9 @@
   width: 24px;
   height: 24px;
   margin-right: 10px;
-  /* fill: #2440f3; */
+  fill: #276c1d;
+  fill: #476a3e98;
+  transition: all 200ms ease-in-out;
 }
 
 .addressAndTime {
@@ -51,14 +53,15 @@
   transition: all 200ms ease-in-out;
 }
 
-.contactsLink:hover {
+.contactsItem:hover .contactsLink {
   text-decoration: underline;
   color: #6d0bae;
-  /* text-shadow: 0px 0px 3px #162cbd; */
 }
 
-/* .socialListWrapper {
-} */
+.contactsItem:hover .svgWrapper {
+  fill: #6d0bae;
+}
+
 
 .socialNetworksWrapper {
   display: flex;

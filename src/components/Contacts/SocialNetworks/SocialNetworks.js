@@ -24,7 +24,7 @@ const SocialNetworks = () => {
 
         <li className={styles.socialNetworksItem}>
           <a
-            href="#"
+            href="https://invite.viber.com/?g2=AQAlcNBtd%2F91nEzKcfTo6pMlsb0oocy7%2Btclt5LWI5UxWdjkdkQQKE7rcnxoTO55"
             target="_blank"
             rel="noopener noreferrer"
             className={`${styles.socialNetworksLink} ${styles.linkViber} ${styles.linkSocialFooter}`}>

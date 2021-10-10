@@ -1,22 +1,23 @@
 .sliderWrapper {
   padding: 10px 10px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .sliderContainer {
   width: 100%;
-  /* height: 50vh; */
+  height: 196px;
   position: relative;
   margin: 0px auto;
   border: 1px solid #000;
   background-color: #fff;
   padding: 0px;
   overflow: hidden;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3), 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .section {
   width: 100%;
-  /* height: ; */
+  height: 100%;
   text-align: center;
   margin: 0px auto;
 }
@@ -36,11 +37,11 @@
 }
 
 .slideImage {
-  width: 270px;
+  width: 260px;
   height: 196px;
   /* position: absolute; */
   object-fit: cover;
-  margin: 0px auto 10px;
+  margin: 0px auto 0px;
 }
 
 .slideTitle,
@@ -123,6 +124,7 @@
 
   .sliderContainer {
     width: 420px;
+    height: 268px;
     /* width: 100%; */
     /* height: 50hv; */
     /* margin: 0px auto 20px; */
@@ -151,77 +153,77 @@
 @media (min-width: 768px) {
   .sliderWrapper {
     /* padding: 10px 15px; */
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
 
-    .sliderContainer {
-        width: 420px;
-        /* width: 100%; */
-        /* height: 50hv; */
-        /* margin: 0px auto 20px; */
-      }
-    
-      .section {
-      }
-    
-      .slideImage {
-        width: 420px;
-        height: 268px;
-        /* height: 456px; */
-        /* position: absolute; */
-        /* object-fit: fill; */
-        object-fit: cover;
-        margin: 0px auto 10px;
-      }
-    
-      .prev,
-      .next {
-        top: 150px;
-        padding: 0.6rem;
-        margin-top: -3rem;
-      }
-    
-      .allDots {
-        top: 230px;
-      }
+  .sliderContainer {
+    width: 420px;
+    height: 268px;
+    /* width: 100%; */
+    /* height: 50hv; */
+    /* margin: 0px auto 20px; */
+  }
 
+  .section {
+  }
+
+  .slideImage {
+    width: 420px;
+    height: 268px;
+    /* height: 456px; */
+    /* position: absolute; */
+    /* object-fit: fill; */
+    object-fit: cover;
+    margin: 0px auto;
+  }
+
+  .prev,
+  .next {
+    top: 150px;
+    padding: 0.6rem;
+    margin-top: -3rem;
+  }
+
+  .allDots {
+    top: 230px;
+  }
 }
 
 @media (min-width: 980px) {
   .sliderWrapper {
-    margin-bottom: 10px;
+    margin-bottom: 2px;
   }
 
-    .sliderContainer {
-        width: 672px;
-        /* height: 50hv; */
-        /* margin: 0px auto 20px; */
-      }
-    
-      .section {
-      }
-    
-      .slideImage {
-        width: 522px;
-        height: 368px;
-        /* height: 456px; */
-        /* position: absolute; */
-        /* object-fit: fill; */
-        /* margin: 0px auto 10px; */
-      }
-    
-      .prev,
-      .next {
-        top: 200px;
-        padding: 1rem;
-        margin-top: -3rem;
-      }
-    
-      .allDots {
-        top: 330px;
-      }
+  .sliderContainer {
+    width: 672px;
+    height: 368px;
+    /* height: 50hv; */
+    /* margin: 0px auto 20px; */
+    background-color: #fff;
+  }
 
- 
+  .section {
+  }
+
+  .slideImage {
+    width: 522px;
+    height: 368px;
+    /* height: 456px; */
+    /* position: absolute; */
+    /* object-fit: fill; */
+    /* margin: 0px auto 10px; */
+  }
+
+  .prev,
+  .next {
+    top: 200px;
+    padding: 1rem;
+    margin-top: -3rem;
+  }
+
+  .allDots {
+    top: 330px;
+  }
 }
 
 @media (min-width: 1180px) {
@@ -229,28 +231,29 @@
     margin-bottom: 10px;
   } */
 
-    .sliderContainer {
-        width: 860px;
-      }
-    
-      .section {
-      }
-    
-      .slideImage {
-        width: 680px;
-        height: 474px;
-      }
-    
-      .prev,
-      .next {
-        top: 240px;
-        padding: 1.5rem;
-        margin-top: -3rem;
-      }
-    
-      .allDots {
-        top: 430px;
-      }
+  .sliderContainer {
+    width: 860px;
+    height: 474px;
+  }
+
+  .section {
+  }
+
+  .slideImage {
+    width: 680px;
+    height: 474px;
+  }
+
+  .prev,
+  .next {
+    top: 240px;
+    padding: 1.5rem;
+    margin-top: -3rem;
+  }
+
+  .allDots {
+    top: 430px;
+  }
 }
 
 @media (min-width: 1380px) {
@@ -260,6 +263,8 @@
 
   .sliderContainer {
     width: 1000px;
+    height: 502px;
+    /* background-color: #fff; */
   }
 
   .slideImage {

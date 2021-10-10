@@ -51,6 +51,8 @@
 @media (min-width: 980px) {
   .main {
     width: 100%;
+    /* position: relative; */
+
   }
 
   .navigationWrapper {

@@ -1,10 +1,8 @@
 .header {
   display: flex;
   flex-direction: column;
-  /* width: 100%; */
   width: 100vw;
   flex-wrap: wrap;
-  /* background-color: rgb(250, 237, 237); */
   padding: 14px 16px 0px;
   margin-bottom: 14px;
 }
@@ -13,6 +11,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
 }
 
 .adminInfoWrapper {
@@ -39,17 +38,20 @@
   /* order: 1; */
   /* margin-bottom: 14px; */
 }
+
+.linkAdminButtonWrapper {
+  display: none;
+}
+
 @media (min-width: 540px) {
   .header {
     width: 100%;
     padding: 6px 16px 0px;
-    margin-bottom: 2px;
   }
 }
 
 @media (min-width: 768px) {
   .header {
-    /* margin-bottom: 14px; */
     width: 100%;
   }
 
@@ -57,6 +59,7 @@
   }
 
   .headerBlockWrapper {
+    width: 93%;
     /* flex-direction: row;
     justify-content: center;
     align-items: flex-start; */
@@ -66,19 +69,72 @@
     /* margin-bottom: 14px; */
     /* order: 1; */
   }
-  
+
   .headerTitleWrapper {
     width: 100%;
     /* order: 2; */
     /* margin-bottom: 14px; */
   }
+
+  /*! Admin button */
+  .linkAdminButtonWrapper {
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+  }
+
+  .adminButton {
+    width: 32px;
+    height: 32px;
+    background-color: #ffffff00;
+    position: relative;
+    transition: all 250ms ease-in-out;
+  }
+
+  .tooltipDiv {
+    font-size: 14px;
+    line-height: 14px;
+    font-family: inherit;
+    font-weight: normal;
+    text-align: center;
+    text-transform: none;
+    padding: 5px;
+    border-radius: 5px;
+    width: auto;
+    height: auto;
+    min-width: 150px;
+    transition: all 300ms ease-in-out;
+  }
+
+  .linkAdminButtonWrapper .tooltipDiv {
+    display: none;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+  }
+
+  .linkAdminButtonWrapper:hover .tooltipDiv {
+    display: inline;
+    position: absolute;
+    top: 36px;
+    right: 0px;
+    overflow: hidden;
+    background-color: #cce6e7;
+    background-color: #aaebce;
+    background-color: #9be19b;
+    z-index: 1000;
+    margin-left: 5px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 300ms ease-in-out;
+  }
 }
 
 @media (min-width: 980px) {
   .header {
-    /* width: 100%; */
     padding: 10px 16px 0px;
-    /* margin-bottom: 2px; */
   }
 
   .logoWrapper {
@@ -87,23 +143,66 @@
     padding: 0px 20px 0px 50px;
     margin-right: 26px;
   }
+
+  .headerBlockWrapper {
+    width: 96%;
+  }
+
+  /*! Admin button */
+  .linkAdminButtonWrapper {
+    top: 12px;
+    right: 10px;
+  }
+
+  .adminButton {
+    width: 36px;
+    height: 36px;
+  }
+
+  .linkAdminButtonWrapper:hover .tooltipDiv {
+    top: 40px;
+    right: 0px;
+  }
 }
 
 @media (min-width: 1180px) {
+  .header {
+    margin-bottom: 20px;
+  }
+
+
   .headerBlockWrapper {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
   }
-  
+
   .headerTitleWrapper {
   }
-  
+
   .logoWrapper {
-    /* margin-bottom: 14px; */
-    /* order: 1; */
     padding: 0px 20px 0px 50px;
     margin-right: 30px;
+  }
+
+  .headerBlockWrapper {
+    width: 98%;
+  }
+
+   /*! Admin button */
+   .linkAdminButtonWrapper {
+    top: 12px;
+    right: 10px;
+  }
+
+  .adminButton {
+    width: 36px;
+    height: 36px;
+  }
+
+  .linkAdminButtonWrapper:hover .tooltipDiv {
+    top: 40px;
+    right: 0px;
   }
 }
 
@@ -111,7 +210,7 @@
   .header {
     /* width: 100%; */
     padding: 6px 16px 0px;
-    /* margin-bottom: 2px; */
+    margin-bottom: 20px;
   }
 
   .headerBlockWrapper {

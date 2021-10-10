@@ -1,19 +1,16 @@
-import React, {
-  // Fragment,
-  useCallback,
-  useContext,
-  useState,
-  useEffect,
-  useRef,
-} from "react";
-import authContext from "../../services/authContext";
-import {
-  createContent,
-  getContent,
-  // deleteFooteritems,
-} from "../../services/useFetchContact";
+import React from // useContext, // useCallback, // Fragment,
+// useState,
+// useEffect,
+// useRef,
+"react";
+// import authContext from "../../services/authContext";
+// import {
+//   createContent,
+//   getContent,
+// deleteFooteritems,
+// } from "../../services/useFetchContact";
 
-import FormFooter from "../Form/FormFooter";
+// import FormFooter from "../Form/FormFooter";
 import SocialNetworks from "../Contacts/SocialNetworks/SocialNetworks";
 
 import SvgLocationBlack from "../SvgComponents/SvgLocationBlack";
@@ -29,42 +26,42 @@ import SvgPhoneSound from "../SvgComponents/SvgPhoneSound";
 import styles from "./Footer.module.css";
 
 const Footer = () => {
-  const auth = useContext(authContext);
+  // const auth = useContext(authContext);
 
-  const [alert, setAlert] = useState(false);
-  const [footeritems, setFooteritems] = useState(null);
+  // const [alert, setAlert] = useState(false);
+  // const [footeritems, setFooteritems] = useState(null);
 
-  const mounted = useRef(true);
+  // const mounted = useRef(true);
 
-  const getItems = useCallback(() => {
-    mounted.current = true;
-    // if (headeritems.length && !alert) {
-    if (footeritems && !alert) {
-      return;
-    }
+  // const getItems = useCallback(() => {
+  //   mounted.current = true;
+  //   // if (headeritems.length && !alert) {
+  //   if (footeritems && !alert) {
+  //     return;
+  //   }
 
-    getContent().then((items) => {
-      if (mounted.current && items) {
-        setFooteritems(items);
-      }
-    });
+  //   getContent().then((items) => {
+  //     if (mounted.current && items) {
+  //       setFooteritems(items);
+  //     }
+  //   });
 
-    return () => (mounted.current = false);
-  }, [alert, footeritems]);
+  //   return () => (mounted.current = false);
+  // }, [alert, footeritems]);
 
-  useEffect(() => {
-    if (alert) {
-      setTimeout(() => {
-        if (mounted.current) {
-          setAlert(false);
-        }
-      }, 100);
-    }
-  }, [alert]);
+  // useEffect(() => {
+  //   if (alert) {
+  //     setTimeout(() => {
+  //       if (mounted.current) {
+  //         setAlert(false);
+  //       }
+  //     }, 100);
+  //   }
+  // }, [alert]);
 
-  useEffect(() => {
-    getItems();
-  }, [getItems]);
+  // useEffect(() => {
+  //   getItems();
+  // }, [getItems]);
 
   return (
     <div className={styles.footer}>
@@ -182,6 +179,17 @@ const Footer = () => {
             <div>"Enter your data"</div>
           )}
         </ul> */}
+
+        <div className={styles.footerText}>
+          <div className={styles.copyrightWrapper}>
+            <span className={styles.copyright}>
+              Ветеранський простір &copy;
+            </span>
+            <p className={styles.year}>2021</p>
+          </div>
+          <p className={styles.text}>Усі права захищено</p>
+          {/* <p className={styles.text}>Veterans Space</p> */}
+        </div>
       </div>
       {/* {auth.isAuthenticated ? (
         <div className={styles.formAttentionWrapper}>
