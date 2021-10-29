@@ -20,6 +20,7 @@
   flex-direction: row;
   align-items: center;
   margin-bottom: 10px;
+  text-decoration: none;
   transition: all 200ms ease-in-out;
 }
 
@@ -27,7 +28,7 @@
   width: 24px;
   height: 24px;
   margin-right: 10px;
-  fill: #276c1d;
+  /* fill: #276c1d; */
   fill: #476a3e98;
   transition: all 200ms ease-in-out;
 }

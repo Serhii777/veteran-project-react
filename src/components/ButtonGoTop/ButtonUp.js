@@ -1,8 +1,4 @@
 import React, { useRef, useEffect } from "react";
-// import SvgArrowUp from "../SvgComponents/SvgArrowUp";
-// import SvgArrowUpLarge from "../SvgComponents/SvgArrowUpLarge";
-// import SvgArrowUpMouse from "../SvgComponents/SvgArrowUpMouse";
-// import SvgArrowUp1 from "../SvgComponents/SvgArrowUp1";
 import SvgArrowUp2 from "../SvgComponents/SvgArrowUp2";
 
 import styles from "./ButtonUp.module.css";
@@ -20,6 +16,7 @@ const ButtonUp = (props) => {
             document.documentElement.scrollTop <
             document.documentElement.clientHeight / 3
           ) {
+            scrollElement.classList.remove("hide");
             scrollElement.className = `${styles.buttonWrapper} ${styles.isHidden}`;
           } else {
             scrollElement.className = `${styles.buttonWrapper}`;
@@ -31,7 +28,7 @@ const ButtonUp = (props) => {
 
       function goToUp() {
         window.scrollTo({
-          top: scrollElement.scrollHeight,
+          top: scrollElement.scrollHeight -53,
           behavior: "smooth",
         });
       }
@@ -41,23 +38,14 @@ const ButtonUp = (props) => {
       checkIsBottomOfPage();
 
       return () => {
-        return (
-           document.removeEventListener(
-            "scroll",
-            checkIsBottomOfPage)
-        //   (scrollElement.className = `${styles.scrollTop}`)
-        );
+        return document.removeEventListener("scroll", checkIsBottomOfPage);
       };
     }
   }, []);
 
   return (
-    <div ref={refElem} >
+    <div ref={refElem} className={styles.hide}>
       <button className={styles.scrollTop}>
-        {/* <SvgArrowUp /> */}
-        {/* <SvgArrowUpLarge /> */}
-        {/* <SvgArrowUpMouse /> */}
-        {/* <SvgArrowUp1 /> */}
         <SvgArrowUp2 />
       </button>
     </div>

@@ -16,6 +16,7 @@ import SocialNetworks from "../Contacts/SocialNetworks/SocialNetworks";
 import SvgLocationBlack from "../SvgComponents/SvgLocationBlack";
 import SvgCalendar from "../SvgComponents/SvgCalendar";
 import SvgClock from "../SvgComponents/SvgClock";
+import SvgLunch from "../SvgComponents/SvgLunch";
 import SvgEnvelopEmail from "../SvgComponents/SvgEnvelopEmail";
 import SvgPhoneSound from "../SvgComponents/SvgPhoneSound";
 
@@ -103,6 +104,12 @@ const Footer = () => {
                   <SvgClock />
                 </div>
                 <span className={styles.contactsTime}> з 9.00 до 18.00 </span>
+              </div>
+              <div className={styles.addressTextWrapper}>
+                <div className={styles.svgLocationWrapper}>
+                  <SvgLunch />
+                </div>
+                <span className={styles.contactsTime}> з 12.00 до 13.00 </span>
               </div>
             </div>
           </li>

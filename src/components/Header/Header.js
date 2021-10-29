@@ -25,7 +25,6 @@ const Header = () => {
             <Logo />
           </div>
           <div className={styles.headerTitleWrapper}>
-            {/* <HeaderTitle /> */}
             <HeaderTitleNoChange />
           </div>
 

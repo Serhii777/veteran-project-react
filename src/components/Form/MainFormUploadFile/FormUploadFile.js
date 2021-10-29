@@ -21,7 +21,6 @@ const FormUploadFile = () => {
   const [descriptionImage, setDescriptionImage] = useState("");
   const [uploadedFile, setUploadedFile] = useState({});
   const [message, setMessage] = useState("");
-  // const [uploadPercentage, setUploadPercentage] = useState(0);
 
   const onChange = (e) => {
     // console.log("setFile:", e.target.files[0]);
@@ -49,21 +48,13 @@ const FormUploadFile = () => {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-        // onUploadProgress: (progressEvent) => {
-        //   setUploadPercentage(
-        //     parseInt(
-        //       Math.round((progressEvent.loaded * 100) / progressEvent.total)
-        //     )
-        //   );
-        // },
       });
 
-      // Clear percentage
-      // setTimeout(() => setUploadPercentage(0), 10000);
+      // console.log("res.data: ", res.data);
 
-      const { imageFilename, imagePath } = res.data.image;
+      const { imageFilename, imagePath, imageInitialSize } = res.data.image;
 
-      setUploadedFile({ imageFilename, imagePath });
+      setUploadedFile({ imageFilename, imagePath, imageInitialSize });
 
       setMessage("File Uploaded");
     } catch (err) {
@@ -76,12 +67,24 @@ const FormUploadFile = () => {
     }
   };
 
-  // console.log("uploadedFile:", uploadedFile);
+  console.log("uploadedFile:", uploadedFile);
 
   return (
     <Fragment>
       {/* {message ? <Message msg={message} /> : null} */}
       <form onSubmit={onSubmit} className={styles.formUploadFile}>
+        <div className={styles.formDataWrapper}>
+          <label className={styles.formDataLabelImage} htmlFor="customFile">
+            Вибір світлини:
+          </label>
+          <input
+            type="file"
+            className={styles.formImageInput}
+            id="customFile"
+            onChange={onChange}
+          />
+        </div>
+
         <div className={styles.formDataWrapper}>
           <label htmlFor="titlePict" className={styles.formDataLabel}>
             Назва картинки:
@@ -111,18 +114,6 @@ const FormUploadFile = () => {
           />
         </div>
 
-        <div className={styles.formDataWrapper}>
-          <label className={styles.formDataLabelImage} htmlFor="customFile">
-            Вибір картинки:
-          </label>
-          <input
-            type="file"
-            className={styles.formImageInput}
-            id="customFile"
-            onChange={onChange}
-          />
-        </div>
-
         {/* <Progress percentage={uploadPercentage} /> */}
 
         <div className={styles.buttonSubmitWrapper}>
@@ -136,15 +127,23 @@ const FormUploadFile = () => {
         </div>
       </form>
       {uploadedFile ? (
-        <div className="row mt-5">
-          <div className="col-md-6 m-auto">
-            <p>Завантажено в базу даних:</p>
-            <h3 className="text-center">{uploadedFile.imageFilename}</h3>
-            <img
-              style={{ width: "100%" }}
-              src={`${IMAGES_URL}/${uploadedFile.imageFilename}`}
-              alt=""
-            />
+        <div className={styles.uploadedFileWrapper}>
+          <div className={styles.imageContentWrapper}>
+            <p className={styles.imageText}>Завантажено в базу даних:</p>
+            <h3 className={styles.imageTitle}>{uploadedFile.imageFilename}</h3>
+            {uploadedFile.imageFilename ? (
+              <img
+                style={{ width: "50%" }}
+                src={`${IMAGES_URL}/${uploadedFile.imageFilename}`}
+                alt={`${uploadedFile.imageFilename}`}
+                className={styles.imageContent}
+              />
+            ) : null}
+            {uploadedFile.imageInitialSize ? (
+              <p className={styles.imageText}>
+                {uploadedFile.imageInitialSize} байт
+              </p>
+            ) : null}
           </div>
         </div>
       ) : null}

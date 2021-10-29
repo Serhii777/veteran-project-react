@@ -1,0 +1,127 @@
+.ImagesPageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 10px;
+}
+.imagePageTitle {
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 1.4;
+  color: #045a0e;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.4;
+  color: #045a0e;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+}
+.text {
+  text-indent: 5em;
+  margin-bottom: 6px;
+}
+
+.imageListWrapper {
+  width: 100%;
+  padding: 6px 10px;
+}
+
+.imageList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.imageItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* order: 2; */
+  width: 250px;
+  background-color: #f0f5e5;
+  background-color: #f5f5ed;
+  position: relative;
+  transition: all 200ms ease-in-out;
+  border: 1px solid rgba(150, 152, 150, 0.4);
+  box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.3);
+  padding: 10px 10px 6px 10px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.imageItemWrapper {
+  width: 230px;
+  /* height: 150px; */
+  overflow: hidden;
+}
+.imageDescriptionWrapper {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.4;
+  color: #045a0e;
+  /* text-transform: uppercase; */
+  margin-bottom: 6px;
+}
+.textDescription {
+}
+
+.buttonRemoveWrapper {
+  background-color: #f0f5e5;
+  border-radius: 50%;
+  position: absolute;
+  padding: 4px 4px 4px 4px;
+  top: 1px;
+  right: 1px;
+}
+
+.buttonRemove {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  vertical-align: middle;
+  flex-shrink: 0;
+  flex-grow: 0;
+  font-weight: 700;
+  font-size: 16px;
+  border: 2px solid #ce1212;
+  border: 2px solid #df7c7c;
+  color: #df7c7c;
+  border-radius: 50%;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.imageItem:hover {
+  background-color: #ffffff;
+  border: 1px solid #846f6990;
+  box-shadow: 2px 3px 8px 4px rgba(78, 75, 75, 0.7);
+}
+
+.buttonRemove:hover {
+  background: #f7d2d2;
+  color: #dd3333;
+  border: 2px solid #dd3333;
+  box-shadow: 0px 0px 10px 4px rgba(111, 54, 54, 0.4);
+}
+
+
+.appUploadFileWrapper{
+  width: 80%;
+}

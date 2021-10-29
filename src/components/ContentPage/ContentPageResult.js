@@ -61,8 +61,6 @@ const ContentPageResult = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem })
   const removeItem = (itemId) => {
     let answer = window.confirm("Are you sure?");
 
-    // setMessage("Are you sure?");
-
     if (answer) {
       onDeleteItem(itemId).then((items) => {
         if (mounted.current) {

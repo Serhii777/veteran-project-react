@@ -85,6 +85,12 @@
     width: 940px;
     /* background-size: contain; */
     /* background-size: 728px; */
+    
+  }
+  
+  .headerWrapper {
+    /* background-color: rgb(201, 225, 206); */
+
   }
 
   .mainWrapper {

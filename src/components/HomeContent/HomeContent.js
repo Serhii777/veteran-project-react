@@ -14,6 +14,7 @@ import ContentPage from "../ContentPage/ContentPage.js";
 import FormContent from "../Form/FormContent";
 import AppUploadFile from "../Form/MainFormUploadFile/AppUploadFile";
 import SvgAboutUs from "../SvgComponents/SvgAboutUs";
+import ImagesPage from '../PagesComponent/ImagesPage/ImagesPage'
 
 import image1 from "../../images/static/rehabilitation-specialist-1624479221668.jpg";
 import image2 from "../../images/static/150199392_234037011696938_4418853326113702292_n-1624479265986.jpg";
@@ -83,7 +84,8 @@ const HomeContent = (props) => {
               <FormContent onCreateItem={createItem} />
             </div>
             <div className={styles.appUploadFileWrapper}>
-              <AppUploadFile />
+              <ImagesPage />
+              {/* <AppUploadFile /> */}
             </div>
           </div>
         ) : null}

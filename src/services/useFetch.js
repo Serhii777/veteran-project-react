@@ -1,13 +1,15 @@
-export function getList() {
-  return fetch("http://localhost:4000/posts").then((data) => data.json());
+export async function getList() {
+  const data = await fetch("http://localhost:4000/posts");
+  return await data.json();
 }
 
-export function setItem(title) {
-  return fetch("http://localhost:4000/posts", {
+export async function setItem(title) {
+  const data = await fetch("http://localhost:4000/posts", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ title }),
-  }).then((data) => data.json());
+  });
+  return await data.json();
 }

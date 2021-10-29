@@ -13,7 +13,7 @@
 .headeritemList {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 
   width: 100%;
   padding: 0px 0px;
@@ -167,7 +167,7 @@
 
 @media (min-width: 980px) {
   .blockHeaderitemWrapper {
-    padding: 0px 20px 0px;
+    padding: 0px 20px 0px 10px;
   }
 
   .buttonRemove {
@@ -189,7 +189,7 @@
     content: "";
     display: inline-block;
     top: 24px;
-    left: 20px;
+    left: 10px;
     width: 50px;
     height: 70px;
     background: url(../../images/images-png/Coat_of_Arms_Vinnitsia_Small.png)
@@ -218,7 +218,7 @@
 
 @media (min-width: 1180px) {
   .blockHeaderitemWrapper {
-    padding: 0px 30px 0px;
+    padding: 0px 60px 0px 0px;
   }
 
   .headeritemList {
@@ -235,7 +235,7 @@
 
   .headeritemItem::before {
     top: 26px;
-    left: 20px;
+    left: 16px;
   }
 
   .buttonRemove {
@@ -245,16 +245,19 @@
 
 @media (min-width: 1380px) {
   .blockHeaderitemWrapper {
-    padding: 0px 60px 0px;
+    padding: 0px 70px 0px 10px;
   }
 
   .buttonRemove {
     width: 24%;
   }
 
+  .headeritemItem {
+    padding: 0px 20px 0px 80px;
+  }
+
   .headeritemItem::before {
     top: 16px;
-    left: 20px;
   }
 }
 

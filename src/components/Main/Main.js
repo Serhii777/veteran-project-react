@@ -1,6 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, {
+  //  useContext,
+   useState, useRef } from "react";
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FocusLock from "react-focus-lock";
+// import authContext from "../../services/authContext";
+
 
 // import Navbar from "../Navbar/Navbar";
 import { useOnClickOutside } from "../Navigation/useOnClickHooks";
@@ -11,6 +15,8 @@ import ButtonUp from "../ButtonGoTop/ButtonUp";
 import styles from "./Main.module.css";
 
 const Main = ({ children }) => {
+  // const auth = useContext(authContext);
+
   const [open, setOpen] = useState(false);
   const node = useRef();
 
@@ -20,6 +26,8 @@ const Main = ({ children }) => {
 
   return (
     <div className={styles.main}>
+{}
+
       <div ref={node} className={styles.navWrapper}>
         <FocusLock disabled={!open}>
           {/* <Navbar> */}
@@ -34,7 +42,9 @@ const Main = ({ children }) => {
       </div>
       <div className={styles.childrenWrapper}>
         {children}
-        <ButtonUp />
+        <div className={styles.buttonUpWrapper}>
+          <ButtonUp />
+        </div>
       </div>
     </div>
   );

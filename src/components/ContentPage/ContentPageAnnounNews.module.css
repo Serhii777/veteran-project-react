@@ -71,11 +71,18 @@
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2), 0 1px 4px rgba(0, 0, 0, 0.3);
   padding: 14px 6px 0px;
   margin-bottom: 12px;
-  background-color: #fff;
+  background-color: rgb(231, 245, 233);
+  background-color: rgb(222, 247, 226);
 }
 
 .сontentPageItem:last-child {
   margin-bottom: 0px;
+}
+
+.сontentPageItem:nth-child(even) {
+  background-color: rgb(215, 238, 213);
+  background-color: rgb(198, 238, 194);
+  background-color: rgb(244, 250, 242);
 }
 
 .сontentPageItemWrapper {
@@ -165,6 +172,7 @@
 
 .text {
   font-weight: normal;
+  text-indent: 4em;
   text-align: left;
   white-space: normal;
   white-space: pre-wrap;
@@ -292,7 +300,7 @@
 
   .сontentPageItem {
     padding: 16px 10px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
 
   .сontentPageItemNumber {
@@ -306,20 +314,20 @@
 @media (min-width: 980px) {
   .сontentPageItem {
     padding: 18px 18px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
 }
 
 @media (min-width: 1180px) {
   .сontentPageItem {
     padding: 22px 24px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
 }
 
 @media (min-width: 1380px) {
   .сontentPageItem {
     padding: 26px 24px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
 }

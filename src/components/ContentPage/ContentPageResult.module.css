@@ -170,6 +170,7 @@
 
 .text {
   font-weight: normal;
+  text-indent: 4em;
   text-align: left;
   white-space: normal;
   white-space: pre-wrap;

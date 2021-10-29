@@ -8,7 +8,7 @@ import {
 } from "../../services/useFetchResultwork";
 
 // import { getTitle } from "../../services/getTitle";
-import ContentPage from "../ContentPage/ContentPageResult";
+import ContentPageResult from "../ContentPage/ContentPageResult";
 import FormContent from "../Form/FormContent";
 import SvgResult from "../SvgComponents/SvgResult";
 
@@ -29,7 +29,7 @@ const ResultsWork = (props) => {
   return (
     <Fragment>
       <div className={styles.сontentComponentWrapper}>
-        <ContentPage
+        <ContentPageResult
           onTitle={titleName}
           SvgContent={SvgResult}
           onGetAllItems={getAllItems}

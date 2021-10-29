@@ -4,17 +4,15 @@
   /* background-color: rgb(252, 226, 203); */
   font-family: Arial, sans-serif;
   padding: 0px 0px 0px 0px;
+  /* position: relative; */
 }
 
 .adminPageWrapper {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
-  padding: 40px 10px 40px;
-  min-height: 300px;
-  margin-bottom: 80px;
-  position: relative;
+  padding: 40px 10px 20px;
+  margin-bottom: 30px;
   background-color: rgb(243, 251, 247);
 }
 
@@ -22,8 +20,8 @@
   font-size: 24px;
   text-align: center;
   color: rgb(253, 7, 7);
-  margin-bottom: 16px;
-  padding-top: 24px;
+  margin-bottom: 32px;
+  padding-top: 36px;
 }
 
 .adminPageTitle::before {
@@ -56,7 +54,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .adminPageItem {
@@ -105,17 +103,25 @@
   background-color: #2258f8;
 }
 
+.homeButtonWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 20px;
+}
+
 .linkHomeButtonWrapper {
-  position: absolute;
-  top: 20px;
-  right: 26px;
   display: flex;
   align-items: center;
+  width: 37px;
+  height: 38px;
   border-radius: 3px;
   background-color: #ffffff;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   margin-bottom: 14px;
+  margin: 0px left;
   transition: all 250ms ease-in-out;
 }
 
@@ -184,22 +190,33 @@
 
 @media (min-width: 768px) {
   .adminPage {
-  padding: 0px 0px 0px 20px;
-
+    padding: 0px 0px 0px 20px;
+    position: relative;
   }
-  
+
   .adminPageWrapper {
-    /* padding: 20px 10px 30px; */
+    position: absolute;
+    padding: 30px 10px 20px;
+    margin-bottom: 10px;
+    top: 0;
+    left: -228px;
+    width: 714px;
+    min-height: 400px;
+  }
+
+  .adminPageTitle {
+    margin-bottom: 32px;
+    padding-top: 10px;
   }
 
   .adminPageList {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     border-bottom: 1px solid rgb(57, 56, 56);
     border-top: 1px solid rgb(57, 56, 56);
-    padding: 20px 30px;
+    padding: 20px 50px;
   }
 
   .adminPageTitle {
@@ -225,9 +242,16 @@
 }
 
 @media (min-width: 980px) {
+  .adminPageWrapper {
+    left: -248px;
+    width: 940px;
+    min-height: 410px;
+
+  }
+
+
   .adminPageList {
-    justify-content: space-around;
-    padding: 20px 40px;
+    padding: 20px 80px;
   }
 
   .adminPageTitle {
@@ -237,11 +261,14 @@
 
 @media (min-width: 1180px) {
   .adminPageWrapper {
-    /* padding: 20px 10px 30px; */
+    left: -239px;
+    width: 1140px;
+    min-height: 450px;
+
   }
 
   .adminPageList {
-    /* padding: 20px 230px; */
+    padding: 20px 180px;
   }
 
   .adminPageTitle {
@@ -267,4 +294,13 @@
 }
 
 @media (min-width: 1380px) {
+  .adminPageWrapper {
+    top: 0;
+    left: -268px;
+    width: 1340px;
+  }
+
+  .adminPageList {
+    padding: 20px 180px;
+  }
 }

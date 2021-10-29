@@ -15,11 +15,11 @@ const Slider = ({ sliderImage }) => {
       return [...commonObj, ...slide];
     }, []);
 
-  console.log("slideImage: ", newListImages);
+  // console.log("slideImage: ", newListImages);
 
   const leng = newListImages.length - 1;
 
-  console.log("leng: ", leng);
+  // console.log("leng: ", leng);
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -30,7 +30,7 @@ const Slider = ({ sliderImage }) => {
     return () => clearInterval(interval);
   }, [activeIndex, leng]);
 
-  console.log("activeIndex: ", activeIndex);
+  // console.log("activeIndex: ", activeIndex);
 
   return (
     <div className={styles.sliderWrapper}>

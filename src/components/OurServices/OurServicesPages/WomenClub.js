@@ -32,9 +32,9 @@ const WomenClub = (props) => {
         onDeleteItem={deleteItem}
       />
 
-      <div className={styles.imageCarouselWrapper}>
+      {/* <div className={styles.imageCarouselWrapper}>
         <ImageCarousel />
-      </div>
+      </div> */}
       {auth.isAuthenticated ? (
         <div className={styles.formResultsWorkWrapper}>
           <FormContent onCreateItem={createItem} />

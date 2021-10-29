@@ -4,7 +4,7 @@ import SocialNetworks from "../SocialNetworks/SocialNetworks";
 import SvgLocationBlack from "../../SvgComponents/SvgLocationBlack";
 import SvgCalendar from "../../SvgComponents/SvgCalendar";
 import SvgClock from "../../SvgComponents/SvgClock";
-// import SvgEnvelop from "../../SvgComponents/SvgEnvelop";
+import SvgLunch from "../../SvgComponents/SvgLunch";
 import SvgEnvelopEmail from "../../SvgComponents/SvgEnvelopEmail";
 import SvgPhoneSound from "../../SvgComponents/SvgPhoneSound";
 
@@ -33,6 +33,12 @@ const Address = () => {
             <SvgClock />
           </div>
           <span className={styles.addressAndTime}> з 9.00 до 18.00 </span>
+        </div>
+         <div className={styles.scheduleItemWrapper}>
+          <div className={styles.svgWrapper}>
+            <SvgLunch />
+          </div>
+          <span className={styles.addressAndTime}> з 12.00 до 13.00 </span>
         </div>
       </div>
 

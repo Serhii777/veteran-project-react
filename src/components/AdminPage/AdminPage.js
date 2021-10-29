@@ -18,6 +18,19 @@ const AdminPage = () => {
         <HomePage />
       ) : (
         <div className={styles.adminPageWrapper}>
+          <div className={styles.homeButtonWrapper}>
+            <div className={styles.linkHomeButtonWrapper}>
+              <Link to="/" className={styles.linkHome}>
+                <button type="button" className={styles.homeButton}>
+                  &#8634;
+                  <div className={styles.tooltipDiv}>
+                    Повернутись на головну сторінку.
+                  </div>
+                </button>
+              </Link>
+            </div>
+          </div>
+
           <h2 className={styles.adminPageTitle}>
             Адміністративна частина сайту
           </h2>
@@ -39,18 +52,6 @@ const AdminPage = () => {
               </NavLink>
             </li>
           </ul>
-
-          <div className={styles.linkHomeButtonWrapper}>
-            <Link to="/" className={styles.linkHome}>
-              <button type="button" className={styles.homeButton}>
-                {/* Come back to home page */}
-                &#8634;
-                <div className={styles.tooltipDiv}>
-                  Повернутись на головну сторінку.
-                </div>
-              </button>
-            </Link>
-          </div>
 
           <Route path="/admin/login" component={LoginForm} />
           <Route path="/admin/register" component={RegistrationForm} />

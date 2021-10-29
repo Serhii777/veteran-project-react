@@ -4,7 +4,7 @@ import React from "react";
 
 import ReactNotification from "react-notifications-component";
 // import 'react-notifications-component/dist/theme.css'
-import mainDownPart from '../../images/background/main_down-part.svg'
+import mainDownPart from "../../images/background/main_down-part.svg";
 
 import Main from "../Main/Main";
 import Header from "../Header/Header";
@@ -22,7 +22,6 @@ export default function Layout({ children }) {
         </div>
       </header>
       <main className={styles.mainWrapper}>
-        {/* <img src={mainDownPart} alt="background" className={styles.imageWrapper}/> */}
         <div className={styles.container}>
           <Main>{children}</Main>
         </div>

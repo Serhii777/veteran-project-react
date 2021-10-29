@@ -1,5 +1,6 @@
 .adminInfo {
   padding: 10px 20px 10px;
+  background-color: #fff;
 }
 
 .adminInfoWrapper {
@@ -16,34 +17,52 @@
   padding: 10px 20px 16px;
 }
 
-.adminInfoTitle{
+.adminInfoTitle {
   font-size: 20px;
-  margin-bottom: 10px;
   color: rgb(253, 7, 7);
   text-align: center;
+  padding: 10px;
 }
 
-.adminInfoWelcome{
+.adminInfoWelcome {
   margin-bottom: 10px;
+}
+
+.adminInfoHello {
+  margin-right: 10px;
 }
 
 .adminInfoSpan {
   font-size: 18px;
   text-transform: uppercase;
+  color: #0e7638;
 }
 
-.adminInfoText {
+.adminInfoList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 10px 10px 0px 10px;
+}
+
+.adminInfoItem {
+  text-align: left;
+}
+
+.adminInfoTextOut {
   color: rgb(255, 0, 0);
   margin-bottom: 16px;
 }
 
-.adminInfoHeaderWrapper{
+.adminInfoHeaderWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
 
 .buttonHeaderWrapper {
   display: flex;
@@ -55,19 +74,12 @@
   height: 30px;
 }
 
-/* @media (min-width: 768px) {
-
-}
-
-@media (min-width: 980px) {
-} */
-
 @media (min-width: 1180px) {
-  .adminInfoWrapper{
-    padding: 10px 150px 16px;
-  
+  .adminInfo {
+    padding: 10px 70px 10px;
+  }
+
+  .adminInfoWrapper {
+    padding: 10px 30px 16px;
   }
 }
-
-/* @media (min-width: 1380px) {
-} */

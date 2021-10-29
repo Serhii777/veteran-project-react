@@ -18,10 +18,19 @@
 
 .navWrapper {
   position: relative;
+  /* background-color: rgb(201, 225, 206); */
 }
 
 .navBurgerWrapper {
   /* position: relative; */
+}
+
+.buttonUpWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 10px;
 }
 
 @media (min-width: 768px) {
@@ -52,7 +61,6 @@
   .main {
     width: 100%;
     /* position: relative; */
-
   }
 
   .navigationWrapper {
@@ -61,7 +69,6 @@
 
   .navWrapper {
     padding: 14px 0px 0px;
-
   }
 
   .childrenWrapper {
@@ -77,7 +84,6 @@
   .navWrapper {
     flex-basis: 21%;
     padding: 20px 0px 0px;
-
   }
 
   .childrenWrapper {
