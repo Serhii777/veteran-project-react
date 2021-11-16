@@ -29,3 +29,23 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps)(AuthProvider);
+
+//! Переробити на HOOKS (без HOC) ============================
+// const LanguageProvider = ({ children, props }) => {
+//   const [language, setLanguage] = useState("english");
+
+//   const updateLanguage = (e) => setLanguage(e.target.value);
+
+//   return (
+//     <LanguageContext.Provider
+//       value={{
+//         language: language,
+//         updateLanguage: updateLanguage,
+//       }}>
+//       {children}
+//     </LanguageContext.Provider>
+//   );
+// };
+
+// export default LanguageProvider;
+

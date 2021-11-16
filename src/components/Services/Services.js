@@ -6,18 +6,18 @@ import SvgOurServices from "../SvgComponents/SvgOurServices";
 
 import routes from "../../routes";
 
-import PsychologicalHelp from "./OurServicesPages/PsychologicalHelp";
-import LegalAid from "./OurServicesPages/LegalAid";
-import SocioAdvice from "./OurServicesPages/SocioAdvice";
-import Rehabilitation from "./OurServicesPages/Rehabilitation";
-import CreativeWorkshop from "./OurServicesPages/CreativeWorkshop";
-import WomenClub from "./OurServicesPages/WomenClub";
+import PsychologicalHelp from "./ServicesPages/PsychologicalHelp";
+import LegalAid from "./ServicesPages/LegalAid";
+import SocioAdvice from "./ServicesPages/SocioAdvice";
+import Rehabilitation from "./ServicesPages/Rehabilitation";
+import CreativeWorkshop from "./ServicesPages/CreativeWorkshop";
+import WomenClub from "./ServicesPages/WomenClub";
 
-import styles from "./OurServices.module.css";
+import styles from "./Services.module.css";
 
-const OurServices = () => {
+const Services = () => {
   const routeOurService = routes.find((route) =>
-    route.path === "/ourservices" ? route : undefined
+    route.path === "/services" ? route : undefined
   );
 
   return (
@@ -48,19 +48,19 @@ const OurServices = () => {
       </ul>
 
       <Route
-        path="/ourservices/psychologicalhelp"
+        path="/services/psychologicalhelp"
         component={PsychologicalHelp}
       />
-      <Route path="/ourservices/legalaid" component={LegalAid} />
-      <Route path="/ourservices/socioadvice" component={SocioAdvice} />
-      <Route path="/ourservices/rehabilitation" component={Rehabilitation} />
+      <Route path="/services/legalaid" component={LegalAid} />
+      <Route path="/services/socioadvice" component={SocioAdvice} />
+      <Route path="/services/rehabilitation" component={Rehabilitation} />
       <Route
-        path="/ourservices/creativeworkshop"
+        path="/services/creativeworkshop"
         component={CreativeWorkshop}
       />
-      <Route path="/ourservices/womenclub" component={WomenClub} />
+      <Route path="/services/womenclub" component={WomenClub} />
     </div>
   );
 };
 
-export default OurServices;
+export default Services;

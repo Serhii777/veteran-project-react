@@ -4,7 +4,7 @@ import authContext from "../../services/authContext";
 
 import AdminInfoHeader from "../AdminInfoHeader/AdminInfoHeader";
 import Logo from "../Logo/Logo";
-import HeaderTitleNoChange from "../HeaderTitle/HeaderTitleNoChange";
+import HeaderTitle from "../HeaderTitle/HeaderTitle";
 import SvgGoToAdmin4Color from "../SvgComponents/SvgGoToAdmin4Color";
 
 import styles from "./Header.module.css";
@@ -25,7 +25,7 @@ const Header = () => {
             <Logo />
           </div>
           <div className={styles.headerTitleWrapper}>
-            <HeaderTitleNoChange />
+            <HeaderTitle />
           </div>
 
           {document.documentElement.clientWidth > 768 && (

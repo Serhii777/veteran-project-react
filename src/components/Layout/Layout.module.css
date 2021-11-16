@@ -57,24 +57,24 @@
 @media (min-width: 768px) {
   .container {
     width: 714px;
-    /* background-size: contain; */
-    /* background-size: 728px; */
   }
 
   .headerWrapper {
     background-color: #ffffff;
-    /* background: url("../../images/background1181-1772top.jpg") right 0px top 0px */
     background: url("../../images/background/Header_background.svg") right 0px
-      top -17px /* background: url("../../images/background1181-1436top.jpg") right 0px top 0px */
-      no-repeat;
+      top -17px no-repeat;
     background-size: contain;
-    /* width: 100%; */
+
+    /* position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    border-color: red;
+    z-index: 20; */
   }
 
   .mainWrapper {
     /* width: 100%; */
-    background: url("../../images/background/down.svg") right 0px bottom -20px
-      no-repeat;
+    background: url("../../images/background/down.svg") right 0px bottom -20px no-repeat;
     background-size: contain;
     /* padding-bottom: 60px; */
   }
@@ -85,12 +85,10 @@
     width: 940px;
     /* background-size: contain; */
     /* background-size: 728px; */
-    
   }
-  
+
   .headerWrapper {
     /* background-color: rgb(201, 225, 206); */
-
   }
 
   .mainWrapper {

@@ -5,7 +5,7 @@ export default [
   {
     path: "/",
     label: "home-content",
-    title: "Про наш центр",
+    title: "Про наш Простір",
     id: 123410,
     exact: true,
     public: true,
@@ -27,69 +27,69 @@ export default [
     ),
   },
   {
-    path: "/ourservices",
-    label: "ourservices",
-    title: "Послуги центру  ►",
+    path: "/services",
+    label: "services",
+    title: "Послуги Простору",
     id: 123430,
     exact: false,
     public: true,
     restricted: true,
     component: lazy(() =>
-      import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
+      import("./views/ServicesView" /* webpackChunkName: "home-view" */)
     ),
     routes: [
       {
-        path: "/ourservices/psychologicalhelp",
+        path: "/services/psychologicalhelp",
         label: "psychologicalhelp",
         title: "Психологічна допомога",
         id: 123431,
         component: lazy(() =>
-          import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
+          import("./views/ServicesView" /* webpackChunkName: "home-view" */)
         ),
       },
       {
-        path: "/ourservices/legalaid",
+        path: "/services/legalaid",
         label: "legalaid",
         title: "Правова допомога",
         id: 1234302,
         component: lazy(() =>
-          import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
+          import("./views/ServicesView" /* webpackChunkName: "home-view" */)
         ),
       },
       {
-        path: "/ourservices/socioadvice",
+        path: "/services/socioadvice",
         label: "socioadvice",
         title: "Соціально-правова консультація",
         id: 123433,
         component: lazy(() =>
-          import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
+          import("./views/ServicesView" /* webpackChunkName: "home-view" */)
         ),
       },
       {
-        path: "/ourservices/rehabilitation",
+        path: "/services/rehabilitation",
         label: "rehabilitation",
         title: "Реабілітолог",
         id: 123434,
         component: lazy(() =>
-          import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
+          import("./views/ServicesView" /* webpackChunkName: "home-view" */)
         ),
       },
       {
-        path: "/ourservices/creativeworkshop",
+        path: "/services/creativeworkshop",
         label: "creativeworkshop",
         title: "Творча майстерня",
         id: 123435,
         component: lazy(() =>
-          import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
+          import("./views/ServicesView" /* webpackChunkName: "home-view" */)
         ),
       },
       {
-        path: "/ourservices/womenclub",
+        path: "/services/womenclub",
         label: "womenclub",
         title: "Жіночий клуб",
         id: 123436,
         component: lazy(() =>
-          import("./views/OurServicesView" /* webpackChunkName: "home-view" */)
+          import("./views/ServicesView" /* webpackChunkName: "home-view" */)
         ),
       },
     ],
@@ -97,8 +97,7 @@ export default [
   {
     path: "/announcementnews",
     label: "announcementnews",
-    // title: "Анонси заходів та новини  ►",
-    title: "Анонси та новини  ►",
+    title: "Анонси та новини",
     id: 123440,
     exact: false,
     public: true,
@@ -154,7 +153,7 @@ export default [
   {
     path: "/admin",
     label: "Admin-Home page",
-    title: "Наші контакти",
+    title: "Адміністративна сторінка",
     id: 123470,
     exact: false,
     public: true,

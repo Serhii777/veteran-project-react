@@ -12,7 +12,7 @@ import {
 
 import ContentPage from "../ContentPage/ContentPage.js";
 import FormContent from "../Form/FormContent";
-import AppUploadFile from "../Form/MainFormUploadFile/AppUploadFile";
+// import AppUploadFile from "../Form/MainFormUploadFile/AppUploadFile";
 import SvgAboutUs from "../SvgComponents/SvgAboutUs";
 import ImagesPage from '../PagesComponent/ImagesPage/ImagesPage'
 
@@ -27,10 +27,7 @@ const HomeContent = (props) => {
 
   console.log("props: ", props);
 
-  // const localPath = props.location.pathname;
-  // const titleNested = getTitle(localPath);
-
-  const titleName = "Про наш центр";
+  const titleName = "Про наш простір";
 
   return (
     <Fragment>
