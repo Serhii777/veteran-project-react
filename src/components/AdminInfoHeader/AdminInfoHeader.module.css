@@ -25,6 +25,9 @@
 }
 
 .adminInfoWelcome {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   margin-bottom: 10px;
 }
 
@@ -49,6 +52,7 @@
 }
 
 .adminInfoItem {
+  width: 100%;
   text-align: left;
 }
 

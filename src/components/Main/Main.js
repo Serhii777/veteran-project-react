@@ -5,13 +5,13 @@ import React, {
   useRef,
 } from "react";
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import FocusLock from "react-focus-lock";
+// import FocusLock from "react-focus-lock";
 // import authContext from "../../services/authContext";
 
 // import Navbar from "../Navbar/Navbar";
 import { useOnClickOutside } from "../Navigation/useOnClickHooks";
 import Burger from "../Navigation/Burger";
-import Navigation from "../Navigation/Navigation";
+// import Navigation from "../Navigation/Navigation";
 import NavigationJeka from "../Navigation/NavigationJeka";
 import ButtonUp from "../ButtonGoTop/ButtonUp";
 
@@ -69,7 +69,8 @@ const Main = ({ children }) => {
       {}
 
       <div ref={node} className={styles.navWrapper}>
-        <FocusLock disabled={!open}>
+        {/* <FocusLock disabled={!open}> */}
+        {/* <FocusLock > */}
           {/* <Navbar> */}
           {/* <Burger open={open} setOpen={setOpen} aria-controls={menuId} /> */}
           <div className={styles.navBurgerWrapper}>
@@ -79,7 +80,7 @@ const Main = ({ children }) => {
             <NavigationJeka open={open} setOpen={setOpen} />
             {/* </Navbar> */}
           </div>
-        </FocusLock>
+        {/* </FocusLock> */}
       </div>
       <div className={styles.childrenWrapper}>
         {children}

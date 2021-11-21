@@ -113,6 +113,7 @@ const ContentPageAnnounNews = ({ onTitle, SvgContent, onGetAllItems, onDeleteIte
                 listItems
                   .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
                   .map((item, index) => (
+                    console.log("item: ", item),
                     <li
                       key={item.id}
                       className={

@@ -1,0 +1,80 @@
+.inputWrap {
+  position: relative;
+}
+
+.form {
+  position: relative;
+  width: 100%;
+  background: white;
+  margin-bottom: 38px;
+}
+
+.inputPanelWrapperModal {
+  position: relative;
+  margin: 0 auto;
+  height: 100vh;
+  width: 320px;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputPanelWrapperUsual {
+  position: relative;
+  margin: 0 auto;
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.datePickerWrapper {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.buttonUsual {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .form {
+    width: 589px;
+    padding-top: 0;
+    padding-left: 0;
+    margin-left: 92px;
+    margin-bottom: 0;
+  }
+
+  .inputPanelWrapperModal {
+    display: block;
+  }
+
+  .inputPanelWrapperUsual {
+    display: flex;
+    width: 100%;
+  }
+
+  .buttonUsual {
+    display: flex;
+  }
+}
+
+@media (min-width: 1280px) {
+  .form {
+    margin-left: 92px;
+    width: 595px;
+  }
+
+  .buttonModal {
+    display: block;
+  }
+}

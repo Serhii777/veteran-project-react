@@ -1,12 +1,6 @@
 import React, { Fragment, useState } from "react";
-// import Message from "../../Message/Message";
-// import Progress from "./Progress";
 import axios from "axios";
 import Button from "../../Button/Button";
-
-// import { store } from "react-notifications-component";
-// import "react-notifications-component/dist/theme.css";
-// import "animate.css";
 
 import { UPLOAD_IMAGE_URL, IMAGES_URL } from "../../../services/apiUrl";
 
@@ -113,8 +107,6 @@ const FormUploadFile = () => {
             id="desc"
           />
         </div>
-
-        {/* <Progress percentage={uploadPercentage} /> */}
 
         <div className={styles.buttonSubmitWrapper}>
           <div className={styles.buttonSubmit}>

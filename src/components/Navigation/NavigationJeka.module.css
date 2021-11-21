@@ -300,8 +300,20 @@
   }
 
   .subMenu {
-    top: 0;
+    top: 30%;
     left: 100%;
+    width: 300px;
+    /* z-index: 40; */
+    background-color: #d7ebde;
+  }
+
+  .subMenuItem {
+    background-color: #d7ebde;
+  }
+
+  .subLink { 
+    background-color: #d7ebde;
+    color: #012205;
   }
 
   .activelink + .arrowRight {
@@ -348,6 +360,11 @@
   .link {
     min-height: 50px;
     line-height: 1.4;
+  }
+
+  .arrowRight {
+    top: 15px;
+    right: 8px;
   }
 }
 

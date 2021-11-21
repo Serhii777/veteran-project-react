@@ -1,0 +1,64 @@
+.inputDate {
+  margin-right: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  display: block;
+  height: 20px;   
+  font-weight: bold;  
+  font-family: Verdana;
+  font-style: normal; 
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;  
+  color: #212121;
+  text-align: left;  
+}
+
+.inputDate:focus {
+  /* border: 2px solid #ff3333; */
+  outline: none;
+}
+
+.webkit-datetime-edit-text {
+  /* border: 2px solid #ff3333; */
+}
+
+.inputDate::-webkit-calendar-picker-indicator {
+  /* margin: 0; */
+  /* border: none;
+    border: 2px solid #ffffff; */
+}
+.inputDate::-webkit-calendar-picker-indicator:hover {
+  cursor: pointer;
+  /* border: none; */
+  /* border: 2px solid #ffffff; */
+}
+.inputDate::-webkit-calendar-picker-indicator:active {
+  /* border: none;
+    border: 2px solid #ff3333; */
+}
+.inputDate::-webkit-calendar-picker-indicator:focus {
+  /* border: none; */
+  /* border: 2px solid #ff3333; */
+}
+
+@media (min-width: 768px) {
+  .inputDate {
+    font-size: 34px;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    line-height: 41px;
+    height: 38px; 
+    width: 320px;
+    margin-bottom: 50px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .inputDate {
+    height: 38px; 
+  }
+}

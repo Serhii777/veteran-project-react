@@ -63,7 +63,7 @@ const FormHeader = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.formAttention}>
-      <h4 className={styles.formAttentionTitle}>Форма для введення даних</h4>
+      <h4 className={styles.formAttentionTitle}>Форма для введення даних для блоку Термінової інформації</h4>
 
       <div className={styles.formDataWrapper}>
         <label htmlFor="titlePict" className={styles.formDataLabel}>

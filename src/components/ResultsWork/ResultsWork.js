@@ -8,8 +8,11 @@ import {
 } from "../../services/useFetchResultwork";
 
 // import { getTitle } from "../../services/getTitle";
-import ContentPageResult from "../ContentPage/ContentPageResult";
-import FormContent from "../Form/FormContent";
+// import ContentPageResult from "../ContentPage/ContentPageResult";
+import ContentPageAnnounNews from "../ContentPage/ContentPageAnnounNews";
+// import FormContent from "../Form/FormContent";
+import FormContentAnnounNews from "../Form/FormContentAnnounNews";
+import ListHistory from "./ListHistory";
 import SvgResult from "../SvgComponents/SvgResult";
 
 // import Slider from "../Slider/Slider";
@@ -19,17 +22,19 @@ import styles from "../ContentPage/ContentPageResult.module.css";
 const ResultsWork = (props) => {
   const auth = useContext(authContext);
 
-  // console.log("props: ", props);
+  console.log("propsResultsWork: ", props);
 
   // const localPath = props.location.pathname;
   // const titleNested = getTitle(localPath);
+
+  // console.log("titleNestedResultsWork: ", titleNested);
 
   const titleName = "Результати роботи";
 
   return (
     <Fragment>
       <div className={styles.сontentComponentWrapper}>
-        <ContentPageResult
+        <ContentPageAnnounNews
           onTitle={titleName}
           SvgContent={SvgResult}
           onGetAllItems={getAllItems}
@@ -38,7 +43,14 @@ const ResultsWork = (props) => {
         {/* <Slider /> */}
         {auth.isAuthenticated ? (
           <div className={styles.formResultsWorkWrapper}>
-            <FormContent onCreateItem={createItem} />
+            {/* <FormContent onCreateItem={createItem} /> */}
+            <FormContentAnnounNews onCreateItem={createItem} />
+            <ListHistory
+              onTitle={titleName}
+              SvgContent={SvgResult}
+              onGetAllItems={getAllItems}
+              onDeleteItem={deleteItem}
+            />
           </div>
         ) : null}
       </div>

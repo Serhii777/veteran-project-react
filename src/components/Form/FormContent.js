@@ -96,7 +96,7 @@ const FormContent = ({ onCreateItem }) => {
                     type="button"
                     onClick={() => push("contentText", undefined)}
                     className={styles.formButton}>
-                    Добавити новий блок тексту
+                    Додати новий блок тексту
                   </button>
                 </div>
                 <div className={styles.formButtonDelete}>

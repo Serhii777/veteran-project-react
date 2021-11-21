@@ -16,9 +16,12 @@ import styles from "../../ContentPage/ContentPageAnnounNews.module.css";
 const News = (props) => {
   const auth = useContext(authContext);
 
+  console.log("propsNews: ", props);
+  
   const localPath = props.location.pathname;
-
+  
   const titleNested = getTitle(localPath);
+  console.log("titleNestedNews: ", titleNested);
 
   return (
     <Fragment>

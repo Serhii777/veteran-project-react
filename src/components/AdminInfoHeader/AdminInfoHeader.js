@@ -28,8 +28,9 @@ const AdminInfoHeader = ({ showName, onLogout, isAuthenticated }) => {
       <h4 className={styles.adminInfoTitle}>Адміністративна частина сайту</h4>
       <div className={styles.adminInfoWrapper}>
         <div className={styles.adminInfoWelcome}>
-          <span className={styles.adminInfoHello}>Привіт</span>
-          <span className={styles.adminInfoSpan}>{adminName}!</span>
+          <p className={styles.adminInfoHello}>Привіт
+          <span className={styles.adminInfoSpan}> {adminName}!</span>
+          </p>
           <p className={styles.adminInfoWelcomeText}>
             Що, хочеться попрацювати? Ну тоді вперед до роботи!
           </p>
@@ -60,7 +61,7 @@ const AdminInfoHeader = ({ showName, onLogout, isAuthenticated }) => {
               завантажити в базу даних.
             </li>
             <li className={styles.adminInfoItem}>
-              8. Для цього внизу сторінки "Про наш центр" створено розділ
+              8. Для цього внизу сторінки "Про наш простір" створено розділ
               завантаження світлин. У Формі завантаження зображення вибери
               потрібну світлину, заповни (по необхідності інформаційні дані по
               світлині) та натисни кнопку "Завантажити зображення". Світлина

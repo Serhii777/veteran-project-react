@@ -112,7 +112,7 @@ const Navigation = ({ open, setOpen }) => {
                           // event.target.nextElementSibling.classList.toggle(
                           // "open"
                           // );
-                          event.target.classList.toggle("arrowActive");
+                          // event.target.classList.toggle("arrowActive");
                         }}></span>
                     ) : null}
 

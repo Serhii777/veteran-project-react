@@ -3,7 +3,7 @@ import { API_URL_REHABILITATIONS } from "./apiUrl";
 
 
 export const createItem = async (value) => {
-//   console.log("valuePsychologicals:", value);
+  console.log("valuePsychologicals:", value);
 
   const { data: newItem } = await axios.post(
     `${API_URL_REHABILITATIONS}/`,
@@ -14,7 +14,7 @@ export const createItem = async (value) => {
 
 export const getAllItems = async () => {
   const { data } = await axios.get(`${API_URL_REHABILITATIONS}/`);
-//   console.log("data:", data);
+  console.log("data:", data);
   return data;
 };
 
