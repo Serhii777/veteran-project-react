@@ -1,12 +1,13 @@
 import React, { useCallback, useState, useEffect } from "react";
 
 import Button from "../Button/Button";
-import { createAttentionitem } from "../../services/useFetchAttention";
 
 import { store } from "react-notifications-component";
 import styles from "./FormAttention.module.css";
 
-const FormHeader = () => {
+const FormHeader = ({ URL, onCreateAttentionitem }) => {
+
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [text, setText] = useState("");
@@ -35,7 +36,12 @@ const FormHeader = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createAttentionitem({ title, description, text }).then(() => {
+
+let attentionitems = {
+  title, description, text
+}
+
+  onCreateAttentionitem({URL, attentionitems }).then(() => {
       store.addNotification({
         title: "Wonderful!",
         type: "success",
@@ -48,11 +54,6 @@ const FormHeader = () => {
           onScreen: true,
           showIcon: true,
         },
-        // slidingExit: {
-        //   duration: 800,
-        //   timingFunction: "ease-out",
-        //   delay: 0,
-        // },
       });
     });
   };

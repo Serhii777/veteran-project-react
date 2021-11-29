@@ -7,6 +7,10 @@ import React, {
   useRef,
 } from "react";
 import authContext from "../../services/authContext";
+import Pagination from "@material-ui/lab/Pagination";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import contactFade from "../Animation/ContactFade.module.css";
+
 // import {
 //   createItem,
 //   getAllItems,
@@ -24,9 +28,10 @@ import Picker from "../Picker/Picker";
 import { store } from "react-notifications-component";
 import styles from "./ListHistory.module.css";
 
-const ContentPageResult = ({
-  onTitle,
-  SvgContent,
+const ListHistory = ({
+  // onTitle,
+  // SvgContent,
+  URL,
   onGetAllItems,
   onDeleteItem,
 }) => {
@@ -34,48 +39,100 @@ const ContentPageResult = ({
 
   // console.log("onTitle: ", onTitle);
 
-  const [alert, setAlert] = useState(false);
+  // const [alert, setAlert] = useState(false);
+
   const [listItems, setListItems] = useState([]);
+
   const [openDetails, setOpenDetails] = useState(false);
-  const [itemIdClick, setItemIdClick] = useState('');
-  const [page, setPage] = React.useState(1);
-  
+  const [itemIdClick, setItemIdClick] = useState("");
 
-  const mounted = useRef(true);
+  // const [tutorials, setTutorials] = useState([]);
+  const [currentResultItem, setCurrentResultItem] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(-1);
+  const [searchTitle, setSearchTitle] = useState("");
 
-  const getItems = useCallback(() => {
-    mounted.current = true;
-    if (listItems.length && !alert) {
-      return;
+  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(0);
+  const [pageSize, setPageSize] = useState(5);
+
+  const pageSizes = [1, 3, 5, 10];
+
+  const onChangeSearchTitle = (e) => {
+    const searchTitle = e.target.value;
+    setSearchTitle(searchTitle);
+  };
+
+  const getRequestParams = (searchTitle, page, pageSize) => {
+    let params = {};
+
+    if (searchTitle) {
+      params["title"] = searchTitle;
     }
 
-    onGetAllItems().then((items) => {
-      if (mounted.current && items) {
-        setListItems(items);
-      }
-    });
-
-    return () => (mounted.current = false);
-  }, [alert, listItems.length, onGetAllItems]);
-
-  useEffect(() => {
-    if (alert) {
-      setTimeout(() => {
-        if (mounted.current) {
-          setAlert(false);
-        }
-      }, 100);
+    if (page) {
+      params["page"] = page - 1;
     }
-  }, [alert]);
 
-  const removeItem = (itemId) => {
-    let answer = window.confirm("Are you sure?");
+    if (pageSize) {
+      params["size"] = pageSize;
+    }
+
+    return params;
+  };
+
+  const handleClick = (itemId) => {
+    setOpenDetails(!openDetails);
+    setItemIdClick(itemId);
+  };
+
+  //! Pagination =============================================
+
+  // const retrieveTutorials = useCallback(() => {
+  const retrieveResultItem = () => {
+    const params = getRequestParams(searchTitle, page, pageSize);
+    onGetAllItems( URL, params)
+      .then((response) => {
+        // console.log("response: ", response);
+        const { resultWorks, totalPages } = response;
+
+        setListItems(resultWorks);
+        setCount(totalPages);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    // },[onGetAllItems, page, pageSize, searchTitle]);
+  };
+
+  useEffect(retrieveResultItem, [URL, onGetAllItems, page, pageSize, searchTitle]);
+
+  // useEffect(() => {
+  //   retrieveTutorials();
+  // }, [retrieveTutorials]);
+
+  // const refreshList = useCallback(() => {
+  const refreshList = () => {
+    retrieveResultItem();
+    setCurrentResultItem(null);
+    setCurrentIndex(-1);
+    // },[getItems]);
+  };
+
+  const setActiveResultItem = (itemli, index) => {
+    setCurrentResultItem(itemli);
+    setCurrentIndex(index);
+  };
+
+  const removeAllItems = (itemId) => {
+    let answer = window.confirm(
+      "Ви дійсно хочете видалити цей об'єкт? Подумайте ще раз, адже відновити його вже буде неможливо!"
+    );
 
     if (answer) {
-      onDeleteItem(itemId).then((items) => {
-        if (mounted.current) {
-          setListItems(items);
-          setAlert(true);
+      onDeleteItem( URL, itemId)
+        .then((response) => {
+          console.log(response.data);
+          refreshList();
 
           store.addNotification({
             title: "Wonderful!",
@@ -90,42 +147,24 @@ const ContentPageResult = ({
               showIcon: true,
             },
           });
-        }
-      });
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     }
   };
 
-  useEffect(() => {
-    getItems();
-  }, [getItems, listItems]);
-
-  const handleClick = (itemId) => {
-    setOpenDetails(!openDetails);
-    setItemIdClick(itemId);
-  };
-
-
-  const handleChange = (event, value) => {
+  const handlePageChange = (event, value) => {
     setPage(value);
   };
 
-  const handlerChangeDate = async (e) => {
-    const date = e.target.value.split("-");
-    const transformedDate = [date[2], date[1], date[0]].join("-");
-
-    this.setState({
-      date: e.target.value,
-      transformedDate,
-    });
-
-    await this.props.onGetInfo(transformedDate);
+  const handlePageSizeChange = (event) => {
+    setPageSize(event.target.value);
+    setPage(1);
   };
 
-  // useEffect(() => {
-  //   removeItem();
-  // }, [removeItem()]);
+  //! Pagination =============================================
 
-  // let imageName = "";
 
   const options = {
     // weekday: 'long',
@@ -137,7 +176,7 @@ const ContentPageResult = ({
     // minute: '2-digit',
   };
 
-  // console.log("listItems:", listItems);
+  console.log("listItems:", listItems);
 
   return (
     <Fragment>
@@ -148,186 +187,195 @@ const ContentPageResult = ({
             Список результатів роботи
           </h2>
         </div>
-        <div className={styles.сontentPageWrapper}>
-          <div className={styles.inputDateWrapper}>{/* <Picker /> */}</div>
 
-          {/* {!error && loading && <Spinner />} */}
+        <div className={styles.blockSearchTitleWrapper}>
+          <div className={styles.inputTitleWrapper}>
+            <input
+              type="text"
+              className={styles.inputTitle}
+              placeholder="Пошук по титульній назві"
+              value={searchTitle}
+              onChange={onChangeSearchTitle}
+            />
+          </div>
+          <div className={styles.buttonTitleWrapper}>
+            <button
+              className={styles.buttonShow}
+              style={{ background: "#1334ae" }}
+              type="button"
+              onClick={retrieveResultItem}>
+              Пошук
+            </button>
+          </div>
+        </div>
+        <div className={styles.сontentPageWrapper}>
+          <div className={styles.blockPaginationWrapper}>
+            <div className={styles.blockSelect}>
+              <p className={styles.textSelect}>Кількість блоків на сторінці:</p>
+              <select
+                onChange={handlePageSizeChange}
+                value={pageSize}
+                className={styles.selectSize}>
+                {pageSizes.map((size) => (
+                  <option key={size} value={size}>
+                    {size}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <Pagination
+              className={styles.blockPagination}
+              count={count}
+              page={page}
+              // color="#ffffff"
+              // color="green"
+              color="secondary"
+              // color="primary"
+              siblingCount={1}
+              boundaryCount={2}
+              defaultPage={4}
+              variant="outlined"
+              shape="rounded"
+              onChange={handlePageChange}
+            />
+          </div>
+
+          {/* <div className={styles.inputDateWrapper}><Picker /></div> */}
+
           <div className={styles.сontentPageMain}>
-            <ul className={styles.сontentPageList}>
-              {listItems && listItems.length > 0 ? (
+            <TransitionGroup component="ul" className={styles.сontentPageLis}>
+              {/* <ul className={styles.сontentPageList}> */}
+              {listItems ? (
                 listItems
                   .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
-                  .map(
-                    (itemli, index) => (
-                      console.log("itemResult: ", itemli),
-                      (
-                        <li
-                          key={itemli.id}
-                          className={
-                            auth.isAuthenticated
-                              ? `${styles.сontentPageItem} ${styles.сontentPageItemHover}`
-                              : styles.сontentPageItem
-                          }>
-                          <div className={styles.сontentPageItemWrapper}>
-                            <div className={styles.сontentPageItemDateWrapper}>
-                              <span className={styles.сontentPageItemNumber}>
-                                {index + 1}
-                              </span>
-                              {itemli.date ? (
-                                <h3 className={styles.сontentPageItemDate}>
-                                  {itemli.date !== undefined
-                                    ? new Date(itemli.date).toLocaleDateString(
-                                        "Uk-uk",
-                                        options
-                                      )
-                                    : null}
-                                </h3>
-                              ) : null}
-                            </div>
-                            <div className={styles.сontentItemWrapper}>
-                              <h3 className={styles.сontentPageItemTitle}>
-                                {itemli.title}
-                              </h3>
-
-                              <ul className={styles.сontentPageItemList}>
-                                {itemli.contentText.map(
-                                  (item) => (
-                                    // console.log(
-                                    //   "psychologicalsUl222222:",
-                                    //   item
-                                    // ),
-                                    console.log(
-                                      "itemli.id22222222:",
-                                      itemli._id
-                                    ),
-                                    console.log(
-                                      "itemIdClick22222222:",
-                                      itemIdClick
-                                    ),
-                                    (
-                                      <li
-                                        key={item.id}
-                                        className={styles.textItem}>
-                                        {openDetails &&
-                                          itemli._id === itemIdClick && (
-                                            <div
-                                              className={
-                                                styles.textItemWrapper
-                                              }>
-                                              {item.textTitle ? (
-                                                <h4
-                                                  className={
-                                                    styles.textItemTitle
-                                                  }>
-                                                  {item.textTitle}
-                                                </h4>
-                                              ) : null}
-
-                                              <div
-                                                className={styles.textWrapper}>
-                                                {item.toppings ? (
-                                                  <span
-                                                    className={styles.toppings}>
-                                                    {item.toppings}
-                                                  </span>
-                                                ) : null}
-
-                                                {item.text ? (
-                                                  <p className={styles.text}>
-                                                    {item.text}
-                                                  </p>
-                                                ) : null}
-                                              </div>
-
-                                              {item.image ? (
-                                                <div
-                                                  className={
-                                                    styles.homeItemImageWrapper
-                                                  }>
-                                                  <img
-                                                    src={
-                                                      `${IMAGES_URL}/` +
-                                                      `${item.image}`
-                                                        .split("")
-                                                        .slice(12)
-                                                        .join("")
-                                                    }
-                                                    alt="Изображение с сервера."
-                                                  />
-                                                </div>
-                                              ) : null}
-
-                                              {item.link ? (
-                                                <div
-                                                  className={
-                                                    styles.contentLinkWrapper
-                                                  }>
-                                                  <p
-                                                    className={
-                                                      styles.contentLinkText
-                                                    }>
-                                                    Посилання на джерело:
-                                                  </p>
-                                                  <a
-                                                    href={item.link}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className={
-                                                      styles.contentLink
-                                                    }>
-                                                    перейти...
-                                                  </a>
-                                                </div>
-                                              ) : null}
-                                            </div>
-                                          )}
-                                      </li>
+                  .map((itemli, index) => (
+                    // console.log("itemResult: ", itemli),
+                    // console.log("indexitemResult: ", index),
+                    // console.log("currentIndex: ", currentIndex),
+                    <CSSTransition
+                      key={itemli._id}
+                      timeout={700}
+                      classNames={contactFade}>
+                      <li
+                        key={itemli.id}
+                        className={
+                          index === currentIndex
+                            ? `${styles.сontentPageItem} ${styles.сontentPageItemActive}`
+                            : `${styles.сontentPageItem}`
+                        }
+                        onClick={() => setActiveResultItem(itemli, index)}>
+                        <div className={styles.сontentPageItemWrapper}>
+                          <div className={styles.сontentPageItemDateWrapper}>
+                            <span className={styles.сontentPageItemNumber}>
+                              {index + 1}
+                            </span>
+                            {itemli.date ? (
+                              <h3 className={styles.сontentPageItemDate}>
+                                {itemli.date !== undefined
+                                  ? new Date(itemli.date).toLocaleDateString(
+                                      "Uk-uk",
+                                      options
                                     )
-                                  )
-                                )}
-                              </ul>
-                            </div>
-                          </div>
-
-                          <Fragment>
-                            {auth.isAuthenticated ? (
-                              <div className={styles.buttonWrapper}>
-                                {/* <div className={styles.buttonRemoveWrapper}> */}
-                                <button
-                                  onClick={() => removeItem(itemli._id)}
-                                  className={styles.buttonRemove}>
-                                  ❌
-                                </button>
-                                {/* </div> */}
-
-                                <div className={styles.buttonOpenWrapper}>
-                                  <button
-                                    onClick={() => handleClick(itemli._id)}
-                                    className={styles.buttonShow}>
-                                    {openDetails
-                                      ? "Сховати"
-                                      : "Показати деталі..."}
-                                  </button>
-                                </div>
-                              </div>
+                                  : null}
+                              </h3>
                             ) : null}
-                          </Fragment>
+                          </div>
+                          <div className={styles.сontentItemWrapper}>
+                            <h3 className={styles.сontentPageItemTitle}>
+                              {itemli.title}
+                            </h3>
 
-                          {/* <Fragment>
+                            <ul className={styles.сontentPageItemList}>
+                              {itemli.contentText.map((item) => (
+                                <li key={item.id} className={styles.textItem}>
+                                  {openDetails && itemli._id === itemIdClick && (
+                                    <div className={styles.textItemWrapper}>
+                                      {item.textTitle ? (
+                                        <h4 className={styles.textItemTitle}>
+                                          {item.textTitle}
+                                        </h4>
+                                      ) : null}
+
+                                      <div className={styles.textWrapper}>
+                                        {item.toppings ? (
+                                          <span className={styles.toppings}>
+                                            {item.toppings}
+                                          </span>
+                                        ) : null}
+
+                                        {item.text ? (
+                                          <p className={styles.text}>
+                                            {item.text}
+                                          </p>
+                                        ) : null}
+                                      </div>
+
+                                      {item.image ? (
+                                        <div
+                                          className={
+                                            styles.homeItemImageWrapper
+                                          }>
+                                          <img
+                                            src={
+                                              `${IMAGES_URL}/` +
+                                              `${item.image}`
+                                                .split("")
+                                                .slice(12)
+                                                .join("")
+                                            }
+                                            alt="Изображение с сервера."
+                                          />
+                                        </div>
+                                      ) : null}
+
+                                      {item.link ? (
+                                        <div
+                                          className={styles.contentLinkWrapper}>
+                                          <p className={styles.contentLinkText}>
+                                            Посилання на джерело:
+                                          </p>
+                                          <a
+                                            href={item.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={styles.contentLink}>
+                                            перейти...
+                                          </a>
+                                        </div>
+                                      ) : null}
+                                    </div>
+                                  )}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+
+                        <Fragment>
                           {auth.isAuthenticated ? (
                             <div className={styles.buttonWrapper}>
                               <button
-                                onClick={() => removeItem(item._id)}
+                                onClick={() => removeAllItems(itemli._id)}
                                 className={styles.buttonRemove}>
-                                Видалити елемент
+                                ❌
                               </button>
+
+                              <div className={styles.buttonOpenWrapper}>
+                                <button
+                                  onClick={() => handleClick(itemli._id)}
+                                  className={styles.buttonShow}>
+                                  {openDetails
+                                    ? "Сховати"
+                                    : "Показати деталі..."}
+                                </button>
+                              </div>
                             </div>
                           ) : null}
-                        </Fragment> */}
-                        </li>
-                      )
-                    )
-                  )
+                        </Fragment>
+                      </li>
+                    </CSSTransition>
+                  ))
               ) : (
                 <Fragment>
                   {setTimeout(() => {
@@ -339,8 +387,8 @@ const ContentPageResult = ({
                   )}
                 </Fragment>
               )}
-            </ul>
-            {/* <Slider sliderImage={listItems} /> */}
+              {/* </ul> */}
+            </TransitionGroup>
           </div>
         </div>
       </div>
@@ -348,18 +396,4 @@ const ContentPageResult = ({
   );
 };
 
-//   const [data, setData] = useState({ hits: [] });
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       const result = await axios(
-//         "https://hn.algolia.com/api/v1/search?query=redux"
-//       );
-
-//       setData(result.data);
-//     };
-
-//     fetchData();
-//   }, []);
-
-export default ContentPageResult;
+export default ListHistory;

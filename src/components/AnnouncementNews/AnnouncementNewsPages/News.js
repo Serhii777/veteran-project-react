@@ -1,10 +1,13 @@
 import React, { Fragment, useContext } from "react";
 import authContext from "../../../services/authContext";
+
+import { API_URL_NEWS } from "../../../services/apiUrl";
+
 import {
   createItem,
   getAllItems,
   deleteItem,
-} from "../../../services/useFetchNews.js";
+} from "../../../services/useFetchItems";
 
 import { getTitle } from "../../../services/getTitle";
 import ContentPageAnnounNews from "../../ContentPage/ContentPageAnnounNews";
@@ -16,24 +19,22 @@ import styles from "../../ContentPage/ContentPageAnnounNews.module.css";
 const News = (props) => {
   const auth = useContext(authContext);
 
-  console.log("propsNews: ", props);
-  
   const localPath = props.location.pathname;
-  
+
   const titleNested = getTitle(localPath);
-  console.log("titleNestedNews: ", titleNested);
 
   return (
     <Fragment>
       <ContentPageAnnounNews
         onTitle={titleNested}
         SvgContent={SvgNews}
+        URL={API_URL_NEWS}
         onGetAllItems={getAllItems}
         onDeleteItem={deleteItem}
       />
       {auth.isAuthenticated ? (
         <div className={styles.formResultsWorkWrapper}>
-          <FormContentAnnounNews onCreateItem={createItem} />
+          <FormContentAnnounNews onCreateItem={createItem} URL={API_URL_NEWS}/>
         </div>
       ) : null}
     </Fragment>

@@ -1,7 +1,6 @@
 import React, {
   Fragment,
   useContext,
-  useCallback,
   useState,
   useEffect,
   useRef,
@@ -12,33 +11,24 @@ import {
   createItem,
   getAllItems,
   deleteItem,
-} from "../../../services/useFetchImages";
-import { IMAGES_URL, IMAGES_URL_DB } from "../../../services/apiUrl";
+} from "../../../services/useFetchItems";
 
 import AppUploadFile from "../../Form/MainFormUploadFile/AppUploadFile";
-
-// import { getTitle } from "../../services/getTitle";
-// import ContentPage from "../ContentPage/ContentPageResult";
-// import FormContent from "../Form/FormContent";
-// import SvgResult from "../SvgComponents/SvgResult";
-
-// import Slider from "../Slider/Slider";
 
 import { store } from "react-notifications-component";
 import styles from "./ImagesPage.module.css";
 
-const ImagesPage = (props) => {
+const ImagesPage = ({ URL_IMAGES, URL_IMAGES_DB, URL_UPLOAD_IMAGE }) => {
   const auth = useContext(authContext);
 
-  //   const [alert, setAlert] = useState(false);
   const [imagesItems, setImagesItems] = useState([]);
 
   const mounted = useRef(true);
 
   useEffect(() => {
-    if ((IMAGES_URL_DB)) {
+    if (URL_IMAGES_DB) {
       const abortController = new AbortController();
-      getAllItems(IMAGES_URL_DB, { signal: abortController.signal }).then(
+      getAllItems(URL_IMAGES_DB, { signal: abortController.signal }).then(
         (data) => {
           setImagesItems(data.images);
         }
@@ -48,54 +38,17 @@ const ImagesPage = (props) => {
         abortController.abort();
       };
     }
-  }, []);
+  }, [URL_IMAGES_DB]);
 
-
-  // getAllItems(IMAGES_URL_DB).then(
-  //   (data) => {
-  //     setImagesItems(data.images);
-  //   }
-  // );
-
-
-
-  //   const getItems = useCallback(() => {
-  //     mounted.current = true;
-  //     if (imagesItems.length && !alert) {
-  //       return;
-  //     }
-
-  // getAllItems(IMAGES_URL).then((items) => {
-  //     getAllItems(UPLOAD_IMAGE_URL).then((items) => {
-  //       if (mounted.current && items) {
-  //         setImagesItems(items);
-  //       }
-  //     });
-
-  //     return () => (mounted.current = false);
-  //   }, [alert, imagesItems.length]);
-
-  //   useEffect(() => {
-  //     if (alert) {
-  //       setTimeout(() => {
-  //         if (mounted.current) {
-  //           setAlert(false);
-  //         }
-  //       }, 100);
-  //     }
-  //   }, [alert]);
-
-  // const removeItem = (itemId, IMAGES_URL_DB ) => {
   const removeItem = (itemId) => {
-    // console.log("IMAGES_URL: ", IMAGES_URL);
-
-    let answer = window.confirm("Are you sure?");
+    let answer = window.confirm(
+      "Ви дійсно хочете видалити цей об'єкт? Подумайте ще раз, адже відновити його вже буде неможливо!"
+    );
 
     if (answer) {
-      deleteItem(IMAGES_URL, itemId).then((items) => {
+      deleteItem(URL_IMAGES, itemId).then((items) => {
         if (mounted.current) {
           setImagesItems(items);
-          //   setAlert(true);
 
           store.addNotification({
             title: "Wonderful!",
@@ -114,13 +67,6 @@ const ImagesPage = (props) => {
       });
     }
   };
-  // }, []);
-
-  // useEffect(() => {
-  //   removeItem();
-  // }, []);
-
-  console.log("imagesItems: ", imagesItems);
 
   return (
     <Fragment>
@@ -150,17 +96,15 @@ const ImagesPage = (props) => {
             <ul className={styles.imageList}>
               {imagesItems && imagesItems.length > 0
                 ? imagesItems.map((item, index) => (
-                    // console.log("item: ", item),
                     <li key={item._id} className={styles.imageItem}>
                       {item.imageFilename ? (
                         <div className={styles.imageItemWrapper}>
                           <img
                             src={
-                              `${IMAGES_URL}/` +
+                              `${URL_IMAGES}/` +
                               `${item.imageUrl}`.split("").slice(14).join("")
                             }
                             alt={`${item.imageFilename}`}
-                            // width={200} height={140}
                           />
                           <div className={styles.imageDescriptionWrapper}>
                             <p className={styles.textDescription}>
@@ -178,7 +122,6 @@ const ImagesPage = (props) => {
 
                       <Fragment>
                         {auth.isAuthenticated ? (
-                          // console.log("item._id: ", item._id),
                           <div className={styles.buttonRemoveWrapper}>
                             <button
                               onClick={() => removeItem(item._id)}
@@ -194,9 +137,12 @@ const ImagesPage = (props) => {
             </ul>
           </div>
 
-          {/* <Slider /> */}
           <div className={styles.appUploadFileWrapper}>
-            <AppUploadFile onCreateItem={createItem} />
+            <AppUploadFile
+              onCreateItem={createItem}
+              URL_IMAGES={URL_IMAGES}
+              URL_UPLOAD_IMAGE={URL_UPLOAD_IMAGE}
+            />
           </div>
         </div>
       ) : null}

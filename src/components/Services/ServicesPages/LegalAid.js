@@ -1,10 +1,12 @@
 import React, { Fragment, useContext } from "react";
 import authContext from "../../../services/authContext";
+import { API_URL_LEGALAIDS, IMAGES_URL } from "../../../services/apiUrl";
+
 import {
   createItem,
   getAllItems,
   deleteItem,
-} from "../../../services/useFetchLegalaids";
+} from "../../../services/useFetchItems";
 
 import { getTitle } from "../../../services/getTitle";
 import ContentPage from "../../ContentPage/ContentPage.js";
@@ -25,12 +27,14 @@ const LegalAid = (props) => {
       <ContentPage
         onTitle={titleNested}
         SvgContent={SvgLawHalmet}
+        URL={API_URL_LEGALAIDS}
+        URL_IMAGES={IMAGES_URL}
         onGetAllItems={getAllItems}
         onDeleteItem={deleteItem}
       />
       {auth.isAuthenticated ? (
         <div className={styles.formResultsWorkWrapper}>
-          <FormContent onCreateItem={createItem} />
+          <FormContent onCreateItem={createItem} URL={API_URL_LEGALAIDS} />
         </div>
       ) : null}
     </Fragment>

@@ -1,5 +1,4 @@
 import React from "react";
-// import { Router, Switch, Route, NavLink, Link } from "react-router-dom";
 import { Route, NavLink } from "react-router-dom";
 
 import SvgOurServices from "../SvgComponents/SvgOurServices";
@@ -26,7 +25,6 @@ const Services = () => {
         <div className={styles.svgWrapper}>
           <SvgOurServices />
         </div>
-        {/* <h2 className={styles.ourServicesTitle}>Послуги центру</h2> */}
         <h2 className={styles.ourServicesTitle}>
           {routeOurService.title.slice(0, -1)}
         </h2>
@@ -47,17 +45,11 @@ const Services = () => {
         })}
       </ul>
 
-      <Route
-        path="/services/psychologicalhelp"
-        component={PsychologicalHelp}
-      />
+      <Route path="/services/psychologicalhelp" component={PsychologicalHelp} />
       <Route path="/services/legalaid" component={LegalAid} />
       <Route path="/services/socioadvice" component={SocioAdvice} />
       <Route path="/services/rehabilitation" component={Rehabilitation} />
-      <Route
-        path="/services/creativeworkshop"
-        component={CreativeWorkshop}
-      />
+      <Route path="/services/creativeworkshop" component={CreativeWorkshop} />
       <Route path="/services/womenclub" component={WomenClub} />
     </div>
   );

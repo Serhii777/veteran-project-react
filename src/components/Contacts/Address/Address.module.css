@@ -28,7 +28,6 @@
   width: 24px;
   height: 24px;
   margin-right: 10px;
-  /* fill: #276c1d; */
   fill: #476a3e98;
   transition: all 200ms ease-in-out;
 }
@@ -63,7 +62,6 @@
   fill: #6d0bae;
 }
 
-
 .socialNetworksWrapper {
   display: flex;
   justify-content: center;
@@ -73,10 +71,6 @@
   .addressWrapper {
     padding: 0px 36px;
   }
-
-  /* .itemTitle { */
-  /* text-align: left; */
-  /* } */
 
   .addressAndTime {
     font-size: 17px;

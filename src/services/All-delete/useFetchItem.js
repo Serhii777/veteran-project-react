@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_BASE_URL, HOMEITEMS_URL, API_URL_IMAGES } from "./apiUrl";
+import { API_BASE_URL, HOMEITEMS_URL, API_URL_IMAGES } from "../apiUrl";
 
 
 export const createItem = async (homeitems) => {

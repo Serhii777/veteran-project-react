@@ -1,8 +1,6 @@
-.сontentComponentWrapper{
+.сontentComponentWrapper {
   width: inherit;
 }
-
-
 
 .сontentPage {
   display: flex;
@@ -18,16 +16,13 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* padding-top: 16px; */
   margin-bottom: 16px;
-  /* text-align: center; */
 }
 
 .svgWrapper {
   width: 24px;
   height: 24px;
   margin-right: 10px;
-  /* fill: #000000; */
   fill: #17801a;
 }
 
@@ -35,7 +30,6 @@
   font-size: 28px;
   font-weight: bold;
   font-style: normal;
-  /* line-height: 1.4; */
   text-transform: uppercase;
 }
 
@@ -44,29 +38,15 @@
   line-height: 1.2;
 }
 
-/* .сontentPageTitle::before {
-    content: "";
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    transform: translateY(20%);
-    background: url(../../../images/icons/bell-empty-sound.svg) center no-repeat;
-    background-size: contain;
-    margin-right: 16px;
-  } */
-
 .сontentPageWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   background-color: #d37070;
-  /* margin-bottom: 20px; */
 }
 
 .сontentPageMain {
-  /* display: flex; */
-  /* flex-basis: 73%; */
   width: 100%;
   margin-bottom: 10px;
 }
@@ -76,8 +56,6 @@
   flex-direction: column;
   padding: 0px 0px 0px 0px;
   width: 100%;
-  /* border: 1px solid rgb(8, 38, 147); */
-  /* background-color: rgb(201, 203, 248); */
 }
 
 .сontentPageItem {
@@ -140,7 +118,6 @@
   font-size: 16px;
   line-height: 1.4;
   padding: 2px 8px;
-  /* margin-bottom: 6px; */
 }
 
 .textItemWrapper {
@@ -153,8 +130,6 @@
   font-size: 16px;
   line-height: 1.4;
   margin-bottom: 8px;
-  /*    font-weight: 600; */
-  /*    text-transform: uppercase; */
 }
 
 .textWrapper {
@@ -175,10 +150,6 @@
   white-space: normal;
   white-space: pre-wrap;
 }
-
-/* .imageWrapper {
-    padding: 12px 6px;
-  } */
 
 .homeItemImageWrapper {
   display: flex;
@@ -246,7 +217,6 @@
   background: #ee451b;
   box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.3);
   padding: 6px 16px;
-  /* position: relative; */
 }
 
 .buttonRemove:hover {
@@ -289,8 +259,8 @@
   .сontentPageItemNumber {
     width: 24px;
     height: 24px;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 500;
   }
 }
 

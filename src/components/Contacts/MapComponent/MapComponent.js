@@ -1,5 +1,5 @@
 import React from "react";
-import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
 
 import { redMarker } from "../../../services/pointerIcon";
 import {
@@ -11,8 +11,6 @@ import "leaflet/dist/leaflet.css";
 import styles from "./MapComponent.module.css";
 
 const MapComponent = () => {
-  console.log("defaultMapState: ", defaultMapState);
-
   return (
     <MapContainer
       center={[defaultMapState.lat, defaultMapState.lng]}

@@ -6,10 +6,10 @@
   padding: 0px;
   margin-bottom: 14px;
   position: absolute;
-  top: 0px;
+  top: 94px;
   left: 0px;
   z-index: 10;
-  transition: all 800ms ease-in-out;
+  transition: all 600ms ease-in-out;
 }
 
 .navOpen {
@@ -206,6 +206,29 @@
   margin: 0px 0px 0px 0px;
 }
 
+@media (min-width: 380px) {
+  .navigation {
+    top: 78px;
+  }
+
+  
+}
+
+@media (min-width: 540px) {
+  .navigation {
+    top: 118px;
+  }
+
+  
+}
+@media (min-width: 616px) {
+  .navigation {
+    top: 106px;
+  }
+
+  
+}
+
 @media (max-width: 768px) {
   .navigation {
     width: 100%;
@@ -231,6 +254,10 @@
     position: static;
     left: 20px;
     top: 160px;
+    /* position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    background-color: rgb(235, 71, 71); */
   }
 
   .navigationWrapper {

@@ -28,6 +28,10 @@ const Header = () => {
             <HeaderTitle />
           </div>
 
+          {document.documentElement.clientWidth <= 768 && (
+            <div className={styles.burgerWrapper}></div>
+          )}
+
           {document.documentElement.clientWidth > 768 && (
             <div className={styles.linkAdminButtonWrapper}>
               <Link to="/admin" className={styles.linkHome}>

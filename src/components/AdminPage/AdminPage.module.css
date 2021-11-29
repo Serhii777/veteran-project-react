@@ -1,19 +1,28 @@
 .adminPage {
   display: flex;
   flex-direction: column;
-  /* background-color: rgb(252, 226, 203); */
   font-family: Arial, sans-serif;
+  width: 100%;
+
   padding: 0px 0px 0px 0px;
-  /* position: relative; */
+  min-height: 100vh;
 }
 
 .adminPageWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   padding: 40px 10px 20px;
   margin-bottom: 30px;
   background-color: rgb(243, 251, 247);
+  /* min-height: 100vh; */
+}
+
+.adminPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #606060;
 }
 
 .adminPageTitle {
@@ -36,33 +45,19 @@
   margin-right: 30px;
 }
 
-/* .button::before {
-  content: '';
-  display: block;
-  height: 16px;
-  width: 16px;
-  background-image: url(../../images/Header/exit.svg);
-  fill: #79879a;
-} */
-
-.adminPageListWrapper {
-  /* max-width: 265px; */
-}
-
 .adminPageList {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: space-between;
+  width: 80%;
   margin-bottom: 40px;
 }
 
 .adminPageItem {
   display: flex;
-  /* align-items: center; */
   min-width: 220px;
   max-height: 44px;
-
   border-radius: 3px;
   font-size: 16px;
   line-height: 1.6;
@@ -91,7 +86,6 @@
 .adminPageItem:hover {
   background-color: #95eaf3;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
-  /* 2px 3px 8px 2px */
 }
 
 .activelink {
@@ -108,6 +102,7 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  width: 100%;
   padding-right: 20px;
 }
 
@@ -128,14 +123,12 @@
 .linkHomeButtonWrapper:hover {
   background-color: #95eaf3;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
-  /* 2px 3px 8px 2px */
 }
 
 .linkHome {
   padding: 6px 8px;
   width: 100%;
   color: #222222;
-  /* transition: all 300ms ease-in-out; */
 }
 
 .homeButton {
@@ -188,20 +181,31 @@
   transition: all 300ms ease-in-out;
 }
 
+@media (min-width: 540px) {
+  .adminPageList {
+    width: 50%;
+  }
+}
+
 @media (min-width: 768px) {
   .adminPage {
     padding: 0px 0px 0px 20px;
-    position: relative;
   }
 
   .adminPageWrapper {
     position: absolute;
+    /* padding: 30px 10px 20px;
+    margin-bottom: 10px; */
+    top: 140px;
+    left: 10px;
+    width: 100vw;
+    min-height: 100vh;
+  }
+
+  .adminPageContainer {
+    width: 80%;
     padding: 30px 10px 20px;
     margin-bottom: 10px;
-    top: 0;
-    left: -228px;
-    width: 714px;
-    min-height: 400px;
   }
 
   .adminPageTitle {
@@ -214,9 +218,10 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    width: 80%;
     border-bottom: 1px solid rgb(57, 56, 56);
     border-top: 1px solid rgb(57, 56, 56);
-    padding: 20px 50px;
+    padding: 20px 30px;
   }
 
   .adminPageTitle {
@@ -225,10 +230,10 @@
   }
 
   .adminPageItem {
-    min-width: 180px;
-    max-width: 180px;
+    min-width: 140px;
+    max-width: 140px;
+    min-height: 40px;
     margin: 0px;
-    min-height: 44px;
   }
 
   .link {
@@ -243,44 +248,55 @@
 
 @media (min-width: 980px) {
   .adminPageWrapper {
-    left: -248px;
-    width: 940px;
-    min-height: 410px;
-
+    top: 156px;
+    left: 0px;
+    width: 100vw;
   }
 
+  .adminPageContainer {
+    width: 70%;
+  }
 
   .adminPageList {
-    padding: 20px 80px;
+    padding: 20px 50px;
   }
 
   .adminPageTitle {
-    line-height: 30px;
+    font-size: 26px;
+    margin-bottom: 22px;
+  }
+
+  .adminPageItem {
+    min-width: 160px;
+    max-width: 160px;
+    min-height: 40px;
   }
 }
 
 @media (min-width: 1180px) {
   .adminPageWrapper {
-    left: -239px;
-    width: 1140px;
-    min-height: 450px;
+    top: 156px;
+    left: 0px;
+    width: 100vw;
+  }
 
+  .adminPageContainer {
+    width: 60%;
   }
 
   .adminPageList {
-    padding: 20px 180px;
+    /* padding: 20px 100px; */
   }
 
   .adminPageTitle {
-    font-size: 24px;
-    margin-bottom: 16px;
+    font-size: 28px;
+    margin-bottom: 26px;
   }
 
   .adminPageItem {
-    min-width: 200px;
-    min-height: 50px;
-    line-height: 1.4;
-    margin: 0px 0px 0px 0px;
+    min-width: 180px;
+    max-width: 180px;
+    min-height: 44px;
   }
 
   .link {
@@ -293,14 +309,23 @@
   }
 }
 
-@media (min-width: 1380px) {
+@media (min-width: 1480px) {
   .adminPageWrapper {
-    top: 0;
-    left: -268px;
-    width: 1340px;
+    top: 160px;
+    left: 0px;
+    width: 100vw;
+  }
+
+  .adminPageContainer {
+    width: 50%;
   }
 
   .adminPageList {
-    padding: 20px 180px;
+    padding: 20px 60px;
+  }
+
+  .adminPageTitle {
+    font-size: 30px;
+    margin-bottom: 30px;
   }
 }

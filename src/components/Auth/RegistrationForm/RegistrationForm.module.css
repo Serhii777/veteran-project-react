@@ -16,8 +16,6 @@
   padding: 30px 10px 18px;
 }
 
-/* @import url(//db.onlinewebfonts.com/c/07a38bbad54db72a40b406bed1c72f53?family=Gotham+Pro); */
-
 .input:-webkit-autofill,
 .input:-webkit-autofill:hover,
 .input:-webkit-autofill:focus {
@@ -31,15 +29,9 @@
   width: 100%;
 }
 
-/* .registerForm:last-child {
-  margin-bottom: 0px;
-
-} */
-
 .registerFormTitle {
   font-family: Arial, sans-serif;
   font-style: normal;
-  /* font-weight: bold; */
   font-size: 24px;
   line-height: 1.2;
   text-align: center;
@@ -57,18 +49,6 @@
   position: relative;
   margin-bottom: 22px;
 }
-
-/* .registerFormLabel::before {
-  content: "";
-  display: inline-block;
-  height: 40px;
-  width: 40px;
-  transform: translateY(30%);
-  background: url(../../../images/images-png/folder_system_15426.png) center
-  no-repeat;
-  background-size: contain;
-  margin-bottom: 20px;
-} */
 
 .loginFormLabel {
   display: flex;
@@ -138,7 +118,6 @@
 }
 
 .registrationForm {
-  /* padding: 5px; */
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -158,7 +137,6 @@
 
 .buttonLoginWrapper {
   width: 100%;
-  /* margin-bottom: 20px; */
 }
 
 .buttonLogin {
@@ -174,25 +152,11 @@
 
 @media screen and (min-width: 768px) {
   .registrationFormWrapper {
-    /* width: inherit; */
-    /* padding-left: 70px; */
+    width: 80%;
   }
 
   .registerFormTitle {
     padding: 0px 30px;
-  }
-
-  .registerForm {
-    /* align-items: center; */
-    /* width: 50%; */
-    /* align-items: baseline; */
-    /* padding-top: 150px; */
-    /* padding-left: 45px; */
-  }
-
-
-  .registerFormInput {
-    /* width: 340px; */
   }
 
   .buttonWrapper {
@@ -213,34 +177,27 @@
     height: 40px;
     text-align: center;
   }
-
-  .buttonLogin,
-  .buttonRegistration {
-    /* margin: 20px 30px 0; */
-  }
-
 }
 
 @media (min-width: 980px) {
+  registrationFormWrapper {
+    width: 70%;
+  }
+
   .registerFormInput {
     width: 90%;
   }
 
   .buttonWrapper {
     justify-content: space-around;
-    /* padding: 40px 60px; */
   }
 }
 
-@media (min-width: 1180px) {
-  .buttonWrapper {
-    /* padding: 60px 230px 20px; */
+/* @media (min-width: 1180px) {
+} */
+
+@media (min-width: 1480px) {
+  .registrationFormWrapper {
+    width: 60%;
   }
-
-  /* .registerFormInput {
-    width: 340px;
-  } */
 }
-
-/* @media (min-width: 1380px) {
-}  */

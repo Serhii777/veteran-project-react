@@ -19,10 +19,12 @@ export const API_URL_ANNOUNCEMENTS = `${API_BASE_URL}/announcements`;
 export const API_URL_NEWS = `${API_BASE_URL}/news`;
 
 export const UPLOAD_IMAGE_URL = `${API_BASE_URL}/images/upload`;
-// export const UPLOAD_IMAGE_URL = `${API_BASE_URL}/images/uploads`;
-export const API_URL_IMAGES = `${API_BASE_URL}/files/files`;
 export const IMAGES_URL = `${API_BASE_URL}/images`;
 export const IMAGES_URL_DB = `${API_BASE_URL}/images/photos`;
+
+
+// export const UPLOAD_IMAGE_URL = `${API_BASE_URL}/images/uploads`;
+// export const API_URL_IMAGES = `${API_BASE_URL}/files/files`;
 
 export const changeimagesUrl = `${API_BASE_URL}/changeimages`;
 

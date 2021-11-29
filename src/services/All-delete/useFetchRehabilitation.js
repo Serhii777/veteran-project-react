@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL_REHABILITATIONS } from "./apiUrl";
+import { API_URL_REHABILITATIONS } from "../apiUrl";
 
 
 export const createItem = async (value) => {

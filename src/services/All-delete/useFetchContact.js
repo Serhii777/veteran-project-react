@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL_CONTACT } from "./apiUrl";
+import { API_URL_CONTACT } from "../apiUrl";
 
 
 export const createContent = async (data) => {

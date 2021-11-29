@@ -18,43 +18,45 @@ const AdminPage = () => {
         <HomePage />
       ) : (
         <div className={styles.adminPageWrapper}>
-          <div className={styles.homeButtonWrapper}>
-            <div className={styles.linkHomeButtonWrapper}>
-              <Link to="/" className={styles.linkHome}>
-                <button type="button" className={styles.homeButton}>
-                  &#8634;
-                  <div className={styles.tooltipDiv}>
-                    Повернутись на головну сторінку.
-                  </div>
-                </button>
-              </Link>
+          <div className={styles.adminPageContainer}>
+            <div className={styles.homeButtonWrapper}>
+              <div className={styles.linkHomeButtonWrapper}>
+                <Link to="/" className={styles.linkHome}>
+                  <button type="button" className={styles.homeButton}>
+                    &#8634;
+                    <div className={styles.tooltipDiv}>
+                      Повернутись на головну сторінку.
+                    </div>
+                  </button>
+                </Link>
+              </div>
             </div>
+
+            <h2 className={styles.adminPageTitle}>
+              Адміністративна частина сайту
+            </h2>
+            <ul className={styles.adminPageList}>
+              <li className={styles.adminPageItem}>
+                <NavLink
+                  to="/admin/login"
+                  className={styles.link}
+                  activeClassName={styles.activelink}>
+                  Вхід
+                </NavLink>
+              </li>
+              <li className={styles.adminPageItem}>
+                <NavLink
+                  to="/admin/register"
+                  className={styles.link}
+                  activeClassName={styles.activelink}>
+                  Реєстрація
+                </NavLink>
+              </li>
+            </ul>
+
+            <Route path="/admin/login" component={LoginForm} />
+            <Route path="/admin/register" component={RegistrationForm} />
           </div>
-
-          <h2 className={styles.adminPageTitle}>
-            Адміністративна частина сайту
-          </h2>
-          <ul className={styles.adminPageList}>
-            <li className={styles.adminPageItem}>
-              <NavLink
-                to="/admin/login"
-                className={styles.link}
-                activeClassName={styles.activelink}>
-                Вхід
-              </NavLink>
-            </li>
-            <li className={styles.adminPageItem}>
-              <NavLink
-                to="/admin/register"
-                className={styles.link}
-                activeClassName={styles.activelink}>
-                Реєстрація
-              </NavLink>
-            </li>
-          </ul>
-
-          <Route path="/admin/login" component={LoginForm} />
-          <Route path="/admin/register" component={RegistrationForm} />
         </div>
       )}
     </div>

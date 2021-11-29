@@ -31,6 +31,7 @@
     "react-scripts": "4.0.1",
     "react-select": "^4.3.1",
     "react-spinners": "^0.10.6",
+    "react-transition-group": "^4.4.2",
     "react-use-form-state": "^0.13.2",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",

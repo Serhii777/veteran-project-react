@@ -2,13 +2,9 @@ import React, { Fragment, useState } from "react";
 import axios from "axios";
 import Button from "../../Button/Button";
 
-import { UPLOAD_IMAGE_URL, IMAGES_URL } from "../../../services/apiUrl";
-
 import styles from "./FormUploadFile.module.css";
 
-// const uploadImagesUrl = "http://localhost:4001/images/upload";
-
-const FormUploadFile = () => {
+const FormUploadFile = ({ URL_IMAGES, URL_UPLOAD_IMAGE }) => {
   const [file, setFile] = useState("");
   const [filename, setFilename] = useState("Choose File");
   const [titleImage, setTitleImage] = useState("");
@@ -17,15 +13,6 @@ const FormUploadFile = () => {
   const [message, setMessage] = useState("");
 
   const onChange = (e) => {
-    // console.log("setFile:", e.target.files[0]);
-    // console.log("setTitleImage:", e.target); //* <input type="file"class="" id="">
-    // console.log("setTitleImage:", e.target.input); //* <input type="file"class="" id="">
-    // console.log("setTitleImage.Value:", e.target.value); //* setNameImage.Value: C:\fakepath\img-02.jpg
-
-    // console.log("titleImage:", titleImage);
-    // console.log("descriptionImage:", descriptionImage);
-    // console.log("uploadedFile:", uploadedFile);
-
     setFile(e.target.files[0]);
     setFilename(e.target.files[0].name);
   };
@@ -38,13 +25,11 @@ const FormUploadFile = () => {
     formData.append("titleImage", titleImage);
 
     try {
-      const res = await axios.post(`${UPLOAD_IMAGE_URL}`, formData, {
+      const res = await axios.post(`${URL_UPLOAD_IMAGE}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-
-      // console.log("res.data: ", res.data);
 
       const { imageFilename, imagePath, imageInitialSize } = res.data.image;
 
@@ -57,15 +42,11 @@ const FormUploadFile = () => {
       } else {
         setMessage(err.response.data.msg);
       }
-      // setUploadPercentage(0);
     }
   };
 
-  console.log("uploadedFile:", uploadedFile);
-
   return (
     <Fragment>
-      {/* {message ? <Message msg={message} /> : null} */}
       <form onSubmit={onSubmit} className={styles.formUploadFile}>
         <div className={styles.formDataWrapper}>
           <label className={styles.formDataLabelImage} htmlFor="customFile">
@@ -99,7 +80,6 @@ const FormUploadFile = () => {
           </label>
           <input
             onChange={(e) => setDescriptionImage(e.target.value)}
-            // onChange={onChange}
             type="text"
             value={descriptionImage}
             className={styles.formDataInput}
@@ -126,7 +106,7 @@ const FormUploadFile = () => {
             {uploadedFile.imageFilename ? (
               <img
                 style={{ width: "50%" }}
-                src={`${IMAGES_URL}/${uploadedFile.imageFilename}`}
+                src={`${URL_IMAGES}/${uploadedFile.imageFilename}`}
                 alt={`${uploadedFile.imageFilename}`}
                 className={styles.imageContent}
               />

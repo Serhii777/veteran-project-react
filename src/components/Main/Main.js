@@ -32,18 +32,18 @@ const Main = ({ children }) => {
     // Метрики элементов на странице
 
     // Получаем объект
-    const divNavWrapper = document.getElementsByTagName("nav")[0];
-    const blockNavWrapper = document.querySelector(".Main_navWrapper__3SYqt");
-    const blockNavBurgerWrapper = document.querySelector(
-      ".Main_navBurgerWrapper__3iQNN"
-    );
+    // const divNavWrapper = document.getElementsByTagName("nav")[0];
+    // const blockNavWrapper = document.querySelector(".Main_navWrapper__3SYqt");
+    // const blockNavBurgerWrapper = document.querySelector(
+    //   ".Main_navBurgerWrapper__3iQNN"
+    // );
 
     // Позиция объекта
     // Свойства offsetParent, offsetLeft и offsetTop
 
     // Получаем родительский элемент
     // относительно которого позицианирован наш объект
-    const elementOffsetParent = divNavWrapper.offsetParent;
+    // const elementOffsetParent = divNavWrapper.offsetParent;
 
     /*
   Это будет ближайший предок, который
@@ -78,7 +78,6 @@ const Main = ({ children }) => {
             {/* <Navigation open={open} setOpen={setOpen} id={menuId} /> */}
             {/* <Navigation open={open} setOpen={setOpen} /> */}
             <NavigationJeka open={open} setOpen={setOpen} />
-            {/* </Navbar> */}
           </div>
         {/* </FocusLock> */}
       </div>

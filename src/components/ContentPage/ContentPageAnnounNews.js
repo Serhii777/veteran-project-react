@@ -7,17 +7,20 @@ import React, {
   useRef,
 } from "react";
 import authContext from "../../services/authContext";
-import Spinner from '../Spinner/Spinner'
-
-import { IMAGES_URL } from "../../services/apiUrl";
+import Spinner from "../Spinner/Spinner";
 
 import { store } from "react-notifications-component";
 import styles from "./ContentPageAnnounNews.module.css";
 
-const ContentPageAnnounNews = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
+const ContentPageAnnounNews = ({
+  onTitle,
+  SvgContent,
+  onGetAllItems,
+  onDeleteItem,
+  URL,
+  URL_IMAGES,
+}) => {
   const auth = useContext(authContext);
-
-  // console.log("onTitle: ", onTitle);
 
   const [alert, setAlert] = useState(false);
   const [listItems, setListItems] = useState([]);
@@ -30,14 +33,14 @@ const ContentPageAnnounNews = ({ onTitle, SvgContent, onGetAllItems, onDeleteIte
       return;
     }
 
-    onGetAllItems().then((items) => {
+    onGetAllItems(URL).then((items) => {
       if (mounted.current && items) {
         setListItems(items);
       }
     });
 
     return () => (mounted.current = false);
-  }, [alert, listItems.length, onGetAllItems]);
+  }, [URL, alert, listItems.length, onGetAllItems]);
 
   useEffect(() => {
     if (alert) {
@@ -50,12 +53,12 @@ const ContentPageAnnounNews = ({ onTitle, SvgContent, onGetAllItems, onDeleteIte
   }, [alert]);
 
   const removeItem = (itemId) => {
-    let answer = window.confirm("Are you sure?");
-
-    // setMessage("Are you sure?");
+    let answer = window.confirm(
+      "Ви дійсно хочете видалити цей об'єкт? Подумайте ще раз, адже відновити його вже буде неможливо!"
+    );
 
     if (answer) {
-      onDeleteItem(itemId).then((items) => {
+      onDeleteItem(URL, itemId).then((items) => {
         if (mounted.current) {
           setListItems(items);
           setAlert(true);
@@ -80,18 +83,13 @@ const ContentPageAnnounNews = ({ onTitle, SvgContent, onGetAllItems, onDeleteIte
 
   useEffect(() => {
     getItems();
-  }, [getItems, listItems]);
+  }, [getItems]);
 
   const options = {
-    // weekday: 'long',
     year: "numeric",
     month: "long",
     day: "numeric",
-    // hour: '2-digit',
-    // minute: '2-digit',
   };
-
-  // console.log("listItems2: ", listItems);
 
   return (
     <Fragment>
@@ -106,14 +104,12 @@ const ContentPageAnnounNews = ({ onTitle, SvgContent, onGetAllItems, onDeleteIte
           </h2>
         </div>
         <div className={styles.сontentPageWrapper}>
-          {/* {!error && loading && <Spinner />} */}
           <div className={styles.сontentPageMain}>
             <ul className={styles.сontentPageList}>
               {listItems && listItems.length > 0 ? (
                 listItems
-                  .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+                  // .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
                   .map((item, index) => (
-                    console.log("item: ", item),
                     <li
                       key={item.id}
                       className={
@@ -169,7 +165,7 @@ const ContentPageAnnounNews = ({ onTitle, SvgContent, onGetAllItems, onDeleteIte
                                   <div className={styles.homeItemImageWrapper}>
                                     <img
                                       src={
-                                        `${IMAGES_URL}/` +
+                                        `${URL_IMAGES}/` +
                                         `${item.image}`
                                           .split("")
                                           .slice(12)
@@ -200,7 +196,6 @@ const ContentPageAnnounNews = ({ onTitle, SvgContent, onGetAllItems, onDeleteIte
                           ))}
                         </ul>
                       </div>
-                      {/* </div> */}
 
                       <Fragment>
                         {auth.isAuthenticated ? (
@@ -217,7 +212,7 @@ const ContentPageAnnounNews = ({ onTitle, SvgContent, onGetAllItems, onDeleteIte
                   ))
               ) : (
                 <Fragment>
-                 {setTimeout(() => {
+                  {setTimeout(() => {
                     <Spinner />;
                   }, 1000) ? (
                     <div>"Enter your data"</div>

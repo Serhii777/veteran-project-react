@@ -19,7 +19,7 @@ import { store } from "react-notifications-component";
 
 import styles from "./FormContent.module.css";
 
-const FormContent = ({ onCreateItem }) => {
+const FormContent = ({ URL, onCreateItem }) => {
   const [alert, setAlert] = useState(false);
   const [list, setList] = useState([]);
   // const [message, setMessage] = useState("");
@@ -30,7 +30,7 @@ const FormContent = ({ onCreateItem }) => {
   const onSubmit = (values) => {
     console.log("valuesOnSubmit:", values);
 
-    onCreateItem(values).then(() => {
+    onCreateItem(URL, values).then(() => {
       if (mounted.current) {
         setList(list);
         setAlert(true);
@@ -90,7 +90,9 @@ const FormContent = ({ onCreateItem }) => {
                 />
               </div>
               <div className={styles.formContentTitleWrapper}>
-                <label className={styles.formContentLabel}>Дата проведення:</label>
+                <label className={styles.formContentLabel}>
+                  Дата проведення:
+                </label>
                 <Field
                   name="date"
                   type="date"

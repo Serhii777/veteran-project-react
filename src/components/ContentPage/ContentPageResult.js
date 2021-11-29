@@ -7,70 +7,86 @@ import React, {
   useRef,
 } from "react";
 import authContext from "../../services/authContext";
-// import {
-//   createItem,
-//   getAllItems,
-//   deleteItem,
-// } from "../../../services/useFetchSocioadvice";
-import { IMAGES_URL } from "../../services/apiUrl";
 import Spinner from "../Spinner/Spinner";
+import useFetch from "../../services/useFetchObserver";
 
-import Slider from "../Slider/Slider";
-import Picker from "../Picker/Picker";
-
-// import FormContent from "../Form/FormContent.js";
-// import SvgGroupOfPeople from "../SvgComponents/SvgGroupOfPeople";
+import { IMAGES_URL } from "../../services/apiUrl";
 
 import { store } from "react-notifications-component";
-import styles from "./ContentPage.module.css";
+import styles from "./ContentPageAnnounNews.module.css";
 
 const ContentPageResult = ({
   onTitle,
   SvgContent,
   onGetAllItems,
   onDeleteItem,
+  URL,
 }) => {
   const auth = useContext(authContext);
 
-  // console.log("onTitle: ", onTitle);
+  const mounted = useRef(true);
+  const loader = useRef(null);
 
   const [alert, setAlert] = useState(false);
-  const [listItems, setListItems] = useState([]);
+  const [listItem, setListItem] = useState([]);
+  const [query, setQuery] = useState("");
+  let [page, setPage] = useState(0);
 
-  const mounted = useRef(true);
+  let pageSize = 1;
 
-  const getItems = useCallback(() => {
-    mounted.current = true;
-    if (listItems.length && !alert) {
-      return;
+  const getRequestParams = (page, pageSize) => {
+    let params = {};
+
+    if (page) {
+      params["pageNum"] = page - 1;
     }
 
-    onGetAllItems().then((items) => {
-      if (mounted.current && items) {
-        setListItems(items);
-      }
-    });
+    if (pageSize) {
+      params["size"] = pageSize;
+    }
 
-    return () => (mounted.current = false);
-  }, [alert, listItems.length, onGetAllItems]);
+    return params;
+  };
+  const params = getRequestParams(page, pageSize);
+
+  let { loading, error, list, count } = useFetch(
+    query,
+    params.pageNum,
+    params.size,
+    URL
+  );
+
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+
+  const handleObserver = useCallback((entries) => {
+    const target = entries[0];
+
+    if (page <= count && target.isIntersecting) {
+      setPage((prev) => (page <= count ? prev + 1 : prev));
+    }
+  }, []);
 
   useEffect(() => {
-    if (alert) {
-      setTimeout(() => {
-        if (mounted.current) {
-          setAlert(false);
-        }
-      }, 100);
-    }
-  }, [alert]);
+    const option = {
+      root: null,
+      rootMargin: "-100px",
+      threshold: 0,
+    };
+    const observer = new IntersectionObserver(handleObserver, option);
+    if (loader.current) observer.observe(loader.current);
+  }, [handleObserver]);
 
   const removeItem = (itemId) => {
-    let answer = window.confirm("Are you sure?");
+    let answer = window.confirm(
+      "Ви дійсно хочете видалити цей об'єкт? Подумайте ще раз, адже відновити його вже буде неможливо!"
+    );
 
     if (answer) {
-      onDeleteItem(itemId).then((items) => {
+      onDeleteItem(URL, itemId).then((items) => {
         if (mounted.current) {
-          setListItems(items);
+          setListItem(items);
           setAlert(true);
 
           store.addNotification({
@@ -91,40 +107,11 @@ const ContentPageResult = ({
     }
   };
 
-  useEffect(() => {
-    getItems();
-  }, [getItems, listItems]);
-
-
-
-  const handlerChangeDate = async e => {
-    const date = e.target.value.split('-');
-    const transformedDate = [date[2], date[1], date[0]].join('-');
-
-    this.setState({
-      date: e.target.value,
-      transformedDate,
-    });
-
-    await this.props.onGetInfo(transformedDate);
-  };
-
-  // useEffect(() => {
-  //   removeItem();
-  // }, [removeItem()]);
-
-  // let imageName = "";
-
   const options = {
-    // weekday: 'long',
     year: "numeric",
     month: "long",
     day: "numeric",
-    // hour: '2-digit',
-    // minute: '2-digit',
   };
-
-  // console.log("listItems:", listItems);
 
   return (
     <Fragment>
@@ -139,18 +126,11 @@ const ContentPageResult = ({
           </h2>
         </div>
         <div className={styles.сontentPageWrapper}>
-        <div className={styles.inputDateWrapper}>
-
-          <Picker />
-        </div>
-
-
-          {/* {!error && loading && <Spinner />} */}
           <div className={styles.сontentPageMain}>
+            <input type="text" value={query} onChange={handleChange} />
             <ul className={styles.сontentPageList}>
-              {listItems && listItems.length > 0 ? (
-                listItems.map((item, index) => (
-                  console.log("itemResult: ", item),
+              {list && list.length > 0 ? (
+                list.map((item, index) => (
                   <li
                     key={item.id}
                     className={
@@ -159,84 +139,83 @@ const ContentPageResult = ({
                         : styles.сontentPageItem
                     }>
                     <div className={styles.сontentPageItemWrapper}>
-                      <div className={styles.сontentPageItemDateWrapper}>
-                        {/* <span className={styles.сontentPageItemNumber}>
-                          {index + 1}
-                        </span> */}
-                        {item.date ? (
-                          <h3 className={styles.сontentPageItemDate}>
-                            {item.date !== undefined
-                              ? new Date(item.date).toLocaleDateString(
-                                  "Uk-uk",
-                                  options
-                                )
-                              : null}
-                          </h3>
-                        ) : null}
-                      </div>
-                      <div className={styles.сontentItemWrapper}>
-                        {/* <a href={item.url}>{item.title}</a> */}
+                      <span className={styles.сontentPageItemNumber}>
+                        {index + 1}
+                      </span>
+                      {item.date ? (
+                        <h3 className={styles.сontentPageItemDate}>
+                          {item.date !== undefined
+                            ? new Date(item.date).toLocaleDateString(
+                                "Uk-uk",
+                                options
+                              )
+                            : null}
+                        </h3>
+                      ) : null}
+                    </div>
+                    <div className={styles.сontentItemWrapper}>
+                      {item.title ? (
                         <h3 className={styles.сontentPageItemTitle}>
                           {item.title}
                         </h3>
+                      ) : null}
 
-                        <ul className={styles.сontentPageItemList}>
-                          {item.contentText.map((item) => (
-                            // console.log("psychologicalsUl222222:", item),
-                            <li key={item.id} className={styles.textItem}>
-                              <div className={styles.textItemWrapper}>
-                                {item.textTitle ? (
-                                  <h4 className={styles.textItemTitle}>
-                                    {item.textTitle}
-                                  </h4>
+                      <ul className={styles.сontentPageItemList}>
+                        {item.contentText.map((item) => (
+                          <li key={item.id} className={styles.textItem}>
+                            <div className={styles.textItemWrapper}>
+                              {item.textTitle ? (
+                                <h4 className={styles.textItemTitle}>
+                                  {item.textTitle}
+                                </h4>
+                              ) : null}
+
+                              <div className={styles.textWrapper}>
+                                {item.toppings ? (
+                                  <span className={styles.toppings}>
+                                    {item.toppings}
+                                  </span>
                                 ) : null}
 
-                                <div className={styles.textWrapper}>
-                                  {item.toppings ? (
-                                    <span className={styles.toppings}>
-                                      {item.toppings}
-                                    </span>
-                                  ) : null}
-
-                                  {item.text ? (
-                                    <p className={styles.text}>{item.text}</p>
-                                  ) : null}
-                                </div>
-
-                                {/* {item.image ? (
-                                  <div className={styles.homeItemImageWrapper}>
-                                    <img
-                                      src={
-                                        `${IMAGES_URL}/` +
-                                        `${item.image}`
-                                          .split("")
-                                          .slice(12)
-                                          .join("")
-                                      }
-                                      alt="Изображение с сервера."
-                                    />
-                                  </div>
-                                ) : null} */}
-
-                                {item.link ? (
-                                  <div className={styles.contentLinkWrapper}>
-                                    <p className={styles.contentLinkText}>
-                                      Посилання на джерело:
-                                    </p>
-                                    <a
-                                      href={item.link}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className={styles.contentLink}>
-                                      перейти...
-                                    </a>
-                                  </div>
+                                {item.text ? (
+                                  <p className={styles.text}>{item.text}</p>
                                 ) : null}
                               </div>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+
+                              {item.image ? (
+                                <div className={styles.homeItemImageWrapper}>
+                                  <img
+                                    src={
+                                      `${IMAGES_URL}/` +
+                                      `${item.image}`
+                                        .split("")
+                                        .slice(12)
+                                        .join("")
+                                    }
+                                    alt="Изображение с сервера."
+                                    className={styles.imageContent}
+                                  />
+                                </div>
+                              ) : null}
+
+                              {item.link ? (
+                                <div className={styles.contentLinkWrapper}>
+                                  <p className={styles.contentLinkText}>
+                                    Посилання на джерело:
+                                  </p>
+                                  <a
+                                    href={item.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.contentLink}>
+                                    перейти...
+                                  </a>
+                                </div>
+                              ) : null}
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
                     <Fragment>
@@ -264,26 +243,14 @@ const ContentPageResult = ({
                 </Fragment>
               )}
             </ul>
-            <Slider sliderImage={listItems} />
+            {loading && <p>Loading...</p>}
+            {error && <p>Error!</p>}
+            <div ref={loader} />
           </div>
         </div>
       </div>
     </Fragment>
   );
 };
-
-//   const [data, setData] = useState({ hits: [] });
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       const result = await axios(
-//         "https://hn.algolia.com/api/v1/search?query=redux"
-//       );
-
-//       setData(result.data);
-//     };
-
-//     fetchData();
-//   }, []);
 
 export default ContentPageResult;

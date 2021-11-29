@@ -8,23 +8,20 @@ import React, {
 } from "react";
 import authContext from "../../services/authContext";
 import Spinner from "../Spinner/Spinner";
-// import {
-//   createItem,
-//   getAllItems,
-//   deleteItem,
-// } from "../../../services/useFetchSocioadvice";
-import { IMAGES_URL } from "../../services/apiUrl";
-
-// import FormContent from "../Form/FormContent.js";
-// import SvgGroupOfPeople from "../SvgComponents/SvgGroupOfPeople";
 
 import { store } from "react-notifications-component";
 import styles from "./ContentPage.module.css";
 
-const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
+const ContentPage = ({
+  onTitle,
+  SvgContent,
+  onGetAllItems,
+  onDeleteItem,
+  URL,
+  URL_IMAGES,
+}) => {
   const auth = useContext(authContext);
 
-  // console.log("onTitle: ", onTitle);
 
   const [alert, setAlert] = useState(false);
   const [listItems, setListItems] = useState([]);
@@ -37,14 +34,14 @@ const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
       return;
     }
 
-    onGetAllItems().then((items) => {
+    onGetAllItems(URL).then((items) => {
       if (mounted.current && items) {
         setListItems(items);
       }
     });
 
     return () => (mounted.current = false);
-  }, [alert, listItems.length, onGetAllItems]);
+  }, [URL, alert, listItems.length, onGetAllItems]);
 
   useEffect(() => {
     if (alert) {
@@ -57,12 +54,12 @@ const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
   }, [alert]);
 
   const removeItem = (itemId) => {
-    let answer = window.confirm("Are you sure?");
-
-    // setMessage("Are you sure?");
+    let answer = window.confirm(
+      "Ви дійсно хочете видалити цей об'єкт? Подумайте ще раз, адже відновити його вже буде неможливо!"
+    );
 
     if (answer) {
-      onDeleteItem(itemId).then((items) => {
+      onDeleteItem(URL, itemId).then((items) => {
         if (mounted.current) {
           setListItems(items);
           setAlert(true);
@@ -89,13 +86,7 @@ const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
     getItems();
   }, [getItems, listItems]);
 
-  // useEffect(() => {
-  //   removeItem();
-  // }, [removeItem()]);
-
-  // let imageName = "";
-
-  console.log("listItems:", listItems);
+  // console.log("listItems:", listItems);
 
   return (
     <Fragment>
@@ -110,7 +101,6 @@ const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
           </h2>
         </div>
         <div className={styles.сontentPageWrapper}>
-          {/* {!error && loading && <Spinner />} */}
           <div className={styles.сontentPageMain}>
             <ul className={styles.сontentPageList}>
               {listItems && listItems.length > 0 ? (
@@ -123,18 +113,13 @@ const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
                         : styles.сontentPageItem
                     }>
                     <div className={styles.сontentPageItemWrapper}>
-                      {/* <span className={styles.сontentPageItemNumber}>
-                          {index + 1}
-                        </span> */}
                       <div className={styles.сontentItemWrapper}>
-                        {/* <a href={item.url}>{item.title}</a> */}
                         <h3 className={styles.сontentPageItemTitle}>
                           {item.title}
                         </h3>
 
                         <ul className={styles.сontentPageItemList}>
                           {item.contentText.map((item) => (
-                            // console.log("psychologicalsUl222222:", item),
                             <li key={item.id} className={styles.textItem}>
                               <div className={styles.textItemWrapper}>
                                 {item.textTitle ? (
@@ -159,7 +144,7 @@ const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
                                   <div className={styles.homeItemImageWrapper}>
                                     <img
                                       src={
-                                        `${IMAGES_URL}/` +
+                                        `${URL_IMAGES}/` +
                                         `${item.image}`
                                           .split("")
                                           .slice(12)
@@ -220,19 +205,5 @@ const ContentPage = ({ onTitle, SvgContent, onGetAllItems, onDeleteItem }) => {
     </Fragment>
   );
 };
-
-//   const [data, setData] = useState({ hits: [] });
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       const result = await axios(
-//         "https://hn.algolia.com/api/v1/search?query=redux"
-//       );
-
-//       setData(result.data);
-//     };
-
-//     fetchData();
-//   }, []);
 
 export default ContentPage;

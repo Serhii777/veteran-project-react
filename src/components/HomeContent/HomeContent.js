@@ -1,33 +1,33 @@
 import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 
-// import Spinner from "../Spinner";
-
 import authContext from "../../services/authContext";
-import { API_BASE_URL, HOMEITEMS_URL, API_URL_IMAGES } from "../../services/apiUrl";
+import {
+  HOMEITEMS_URL,
+  // API_URL_IMAGES,
+  IMAGES_URL,
+  IMAGES_URL_DB,
+  UPLOAD_IMAGE_URL,
+} from "../../services/apiUrl";
 
 import {
   createItem,
   getAllItems,
   deleteItem,
-} from "../../services/useFetchHomeitem";
+} from "../../services/useFetchItems";
 
 import ContentPage from "../ContentPage/ContentPage.js";
 import FormContent from "../Form/FormContent";
-// import AppUploadFile from "../Form/MainFormUploadFile/AppUploadFile";
 import SvgAboutUs from "../SvgComponents/SvgAboutUs";
-import ImagesPage from '../PagesComponent/ImagesPage/ImagesPage'
+import ImagesPage from "../PagesComponent/ImagesPage/ImagesPage";
 
 import image1 from "../../images/static/rehabilitation-specialist-1624479221668.jpg";
 import image2 from "../../images/static/150199392_234037011696938_4418853326113702292_n-1624479265986.jpg";
 
-// import styles from "../ContentPage/ContentPage.module.css";
 import styles from "./HomeContent.module.css";
 
 const HomeContent = (props) => {
   const auth = useContext(authContext);
-
-  console.log("props: ", props);
 
   const titleName = "Про наш простір";
 
@@ -35,11 +35,12 @@ const HomeContent = (props) => {
     <Fragment>
       <div className={styles.сontentPage}>
         <div className={styles.сontentPageWrapper}>
-          {/* {!error && loading && <Spinner />} */}
           <div className={styles.сontentPageMain}>
             <ContentPage
               onTitle={titleName}
               SvgContent={SvgAboutUs}
+              URL={HOMEITEMS_URL}
+              URL_IMAGES={IMAGES_URL}
               onGetAllItems={getAllItems}
               onDeleteItem={deleteItem}
             />
@@ -48,7 +49,6 @@ const HomeContent = (props) => {
             <h3 className={styles.blockImageTitle}>Наша родзинка</h3>
             <Link to="/ourservices/rehabilitation" className={styles.imageLink}>
               <div className={styles.imageWrapper}>
-                {/* <h4>Title</h4> */}
                 <img
                   src={image1}
                   alt="Реабілітолог"
@@ -59,7 +59,6 @@ const HomeContent = (props) => {
             </Link>
             <Link to="/ourservices/womenclub" className={styles.imageLink}>
               <div className={styles.imageWrapper}>
-                {/* <h4>Title</h4> */}
                 <img
                   src={image2}
                   alt="Жіночий клуб"
@@ -80,11 +79,14 @@ const HomeContent = (props) => {
             </div>
 
             <div className={styles.formContentWrapper}>
-              <FormContent onCreateItem={createItem} />
+              <FormContent onCreateItem={createItem} URL={HOMEITEMS_URL} />
             </div>
             <div className={styles.appUploadFileWrapper}>
-              <ImagesPage />
-              {/* <AppUploadFile /> */}
+              <ImagesPage
+                URL_IMAGES={IMAGES_URL}
+                URL_IMAGES_DB={IMAGES_URL_DB}
+                URL_UPLOAD_IMAGE={UPLOAD_IMAGE_URL}
+              />
             </div>
           </div>
         ) : null}

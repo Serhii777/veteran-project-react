@@ -10,10 +10,6 @@ const baseImagesUrl = "http://localhost:4001/files";
 const ImageCarousel = () => {
   const [images, setImages] = useState(null);
 
-  // useEffect(() => {
-  //   getImage();
-  // }, []);
-
   const getImage = async () => {
     try {
       let { data } = await axios.get("http://localhost:4001/files/files");
@@ -26,7 +22,6 @@ const ImageCarousel = () => {
       console.error(error);
     }
   };
-  //   getImage();
 
   useEffect(() => {
     getImage();

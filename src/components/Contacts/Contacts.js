@@ -2,7 +2,6 @@ import React from "react";
 import Address from "./Address/Address";
 import MapComponent from "./MapComponent/MapComponent";
 import SvgContactUs from "../SvgComponents/SvgContactUs";
-// import picture1 from "../../images/static/20210724_131303-1635368793996.jpg";
 import picture1 from "../../images/static/20211005_154431-1635369120160.jpg";
 
 import styles from "./Contacts.module.css";
@@ -14,7 +13,6 @@ const Contacts = () => {
       <div className={styles.contactsContainer}>
         <div className={styles.сontentPageTitleWrapper}>
           <div className={styles.svgWrapper}>
-            {/* <SvgContactUsBlack /> */}
             <SvgContactUs />
           </div>
 

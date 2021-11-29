@@ -8,14 +8,16 @@ import React, {
 } from "react";
 import { Link } from "react-router-dom";
 import authContext from "../../services/authContext";
+
+import { API_URL_ATTENTIONITEM } from "../../services/apiUrl";
+
 import {
-  getAttentionitems,
-  deleteAttentionitem,
-} from "../../services/useFetchAttention.js";
+  createAttentionitem,
+  getAllItems,
+  deleteItem,
+} from "../../services/useFetchItems";
 
 import SvgBellBlack from "../SvgComponents/SvgBellBlack";
-// import SvgBellBlackSound from "../SvgComponents/SvgBellBlackSound";
-
 
 import FormAttention from "../Form/FormAttention";
 
@@ -32,12 +34,11 @@ const Attention = () => {
 
   const getItems = useCallback(() => {
     mounted.current = true;
-    // if (headeritems.length && !alert) {
     if (attentionitems && !alert) {
       return;
     }
 
-    getAttentionitems().then((items) => {
+    getAllItems(API_URL_ATTENTIONITEM).then((items) => {
       if (mounted.current && items) {
         setAttentionitems(items);
       }
@@ -62,7 +63,7 @@ const Attention = () => {
 
   const removeItem = useCallback(
     (itemId) => {
-      deleteAttentionitem(itemId).then((items) => {
+      deleteItem(API_URL_ATTENTIONITEM, itemId).then((items) => {
         if (mounted.current) {
           setAttentionitems(items);
           setAlert(true);
@@ -79,23 +80,6 @@ const Attention = () => {
               onScreen: true,
               showIcon: true,
             },
-            //  slidingExit: {
-            //   duration: 800,
-            //   timingFunction: 'ease-out',
-            //   delay: 0
-            // }
-            // touchSlidingExit: {
-            //   swipe: {
-            //     duration: 400,
-            //     timingFunction: 'ease-out',
-            //     delay: 0,
-            //   },
-            //   fade: {
-            //     duration: 400,
-            //     timingFunction: 'ease-out',
-            //     delay: 0
-            //   }
-            // }
           });
         }
       });
@@ -108,7 +92,6 @@ const Attention = () => {
       <div className={styles.attentionTitleWrapper}>
         <div className={styles.svgWrapper}>
           <SvgBellBlack />
-          {/* <SvgBellBlackSound /> */}
         </div>
         <h3 className={styles.attentionTitle}>Увага! Термінова інформація!</h3>
       </div>
@@ -116,7 +99,6 @@ const Attention = () => {
       <ul className={styles.attentionitemList}>
         {attentionitems && attentionitems.length > 0 ? (
           attentionitems.map((item) => (
-            // console.log("stateListUl11111111:", item),
             <li key={item._id} className={styles.attentionitemItem}>
               <div className={styles.attentionNoteWrapper}>
                 {item.title ? (
@@ -158,7 +140,10 @@ const Attention = () => {
 
       {auth.isAuthenticated ? (
         <div className={styles.formAttentionWrapper}>
-          <FormAttention />
+          <FormAttention
+            onCreateAttentionitem={createAttentionitem}
+            URL={API_URL_ATTENTIONITEM}
+          />
         </div>
       ) : null}
     </div>
