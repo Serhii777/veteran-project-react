@@ -11,7 +11,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* position: relative; */
 }
 
 .adminInfoWrapper {
@@ -23,39 +22,18 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* padding-top: 15px; */
-
-  /* position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-  background-color: rgb(235, 71, 71); */
-}
-
-.logoWrapper {
-  /* position: fixed; */
-  /* padding: 8px 0px 8px 8px; */
-  /* margin-bottom: 14px; */
-  /* order: 2; */
-
-  /* margin-right: 10px; */
 }
 
 .headerTitleWrapper {
   width: 100%;
   flex: 1 0 200px;
-  padding: 0px 10px ;
-
-  /* order: 1; */
-  /* margin-bottom: 14px; */
+  padding: 0px 10px;
 }
 
 .burgerWrapper {
-  /* width: 28px; */
   flex: 0 0 28px;
   height: 50px;
   padding: 8px 0px 10px 0px;
-  /* background-color: rgba(203, 60, 60, 0.489); */
-  /* position: relative; */
 }
 
 .linkAdminButtonWrapper {
@@ -71,8 +49,6 @@
 
 @media (min-width: 540px) {
   .header {
-    /* width: 100%;
-    padding: 6px 16px 0px; */
     margin-bottom: 6px;
   }
 }
@@ -97,23 +73,13 @@
     align-items: flex-start;
   }
 
-  .logoWrapper {
-    /* margin-bottom: 14px; */
-    /* order: 1; */
-  }
-
   .headerTitleWrapper {
     flex: 1 0 526px;
-    /* width: 100%; */
-    /* order: 2; */
-    /* margin-bottom: 14px; */
   }
 
- 
   /*! Admin button */
   .linkAdminButtonWrapper {
     display: block;
-    /* position: absolute; */
     top: 14px;
     right: 4px;
     display: flex;
@@ -189,21 +155,8 @@
   }
 
   .logoWrapper {
-    /* margin-bottom: 14px; */
-    /* order: 1; */
     padding: 0px 20px 0px 50px;
     margin-right: 26px;
-  }
-
-  .headerBlockWrapper {
-    /* width: 96%; */
-    /* background-color: rgb(201, 225, 206); */
-  }
-
-  /*! Admin button */
-  .linkAdminButtonWrapper {
-    /* top: 12px;
-    right: 8px; */
   }
 
   .adminButton {
@@ -222,7 +175,6 @@
     margin-bottom: 20px;
   }
 
- 
   .headerTitleWrapper {
   }
 
@@ -255,8 +207,6 @@
     padding: 20px 16px 0px;
     margin-bottom: 6px;
   }
-
-  
 
   .adminInfoWrapper {
     padding: 2px 100px;

@@ -1,6 +1,5 @@
 import React from "react";
 import { bool, func } from "prop-types";
-// import { StyledBurger } from './Burger.styled';
 
 import styles from "./Burger.module.css";
 
@@ -8,7 +7,7 @@ const Burger = ({ open, setOpen, ...props }) => {
   const isExpanded = open ? true : false;
 
   return (
-      <button
+    <button
       open={open}
       aria-label="Toggle menu"
       aria-expanded={isExpanded}
@@ -44,7 +43,7 @@ const Burger = ({ open, setOpen, ...props }) => {
             : `${styles.burgerSpan} ${styles.spanStayed}`
         }
       />
-      </button>
+    </button>
   );
 };
 
@@ -54,5 +53,3 @@ Burger.propTypes = {
 };
 
 export default Burger;
-
-

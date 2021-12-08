@@ -77,7 +77,6 @@ const AdminInfoHeader = ({ showName, onLogout, isAuthenticated }) => {
               10. Якщо виникають якісь питання стосовно сайту - дзвони: 911 😃 в
               любий час дня та ночі.
             </li>
-            {/* <li></li> */}
           </ul>
         </div>
         <div className={styles.adminInfoHeaderWrapper}>
@@ -95,15 +94,9 @@ const AdminInfoHeader = ({ showName, onLogout, isAuthenticated }) => {
   ) : null;
 };
 
-// const mapStateToProps = (state) => ({
-// // console.log("state: ",state)
-
-//   showName: authSelectors.getUserName(state),
-//   isAuthenticated: authSelectors.isAuthenticatedToken(state),
-// });
 
 const mapStateToProps = (state) => {
-  console.log("state: ", state);
+  // console.log("state: ", state);
   return {
     showName: authSelectors.getUserName(state),
     isAuthenticated: authSelectors.isAuthenticatedToken(state),

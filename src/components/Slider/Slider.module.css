@@ -23,8 +23,6 @@
 }
 
 .slides {
-  /* width: var(--widths); */
-  /* width: 80%; */
   position: relative;
 }
 
@@ -39,30 +37,24 @@
 .slideImage {
   width: 260px;
   height: 196px;
-  /* position: absolute; */
   object-fit: cover;
   margin: 0px auto 0px;
 }
 
 .slideTitle,
 .slideDescription {
-  /* width: 100%;
-  height: 100%; */
   color: rgb(3, 79, 5);
   font-size: 2rem;
-  /* position: absolute; */
   text-align: center;
-  /* top: 40%; */
   z-index: 10;
 }
 
 .slideDescription {
-  /* top: 65%; */
   font-size: 1.5rem;
 }
 
-.arrows {
-}
+/* .arrows {
+} */
 
 .prev,
 .next {
@@ -125,13 +117,10 @@
   .sliderContainer {
     width: 420px;
     height: 268px;
-    /* width: 100%; */
-    /* height: 50hv; */
-    /* margin: 0px auto 20px; */
   }
 
-  .section {
-  }
+  /* .section {
+  } */
 
   .slideImage {
     width: 420px;
@@ -152,16 +141,12 @@
 
 @media (min-width: 768px) {
   .sliderWrapper {
-    /* padding: 10px 15px; */
     margin-bottom: 0px;
   }
 
   .sliderContainer {
     width: 420px;
     height: 268px;
-    /* width: 100%; */
-    /* height: 50hv; */
-    /* margin: 0px auto 20px; */
   }
 
   .section {
@@ -170,9 +155,6 @@
   .slideImage {
     width: 420px;
     height: 268px;
-    /* height: 456px; */
-    /* position: absolute; */
-    /* object-fit: fill; */
     object-fit: cover;
     margin: 0px auto;
   }
@@ -197,8 +179,6 @@
   .sliderContainer {
     width: 672px;
     height: 368px;
-    /* height: 50hv; */
-    /* margin: 0px auto 20px; */
     background-color: #fff;
   }
 
@@ -208,10 +188,6 @@
   .slideImage {
     width: 522px;
     height: 368px;
-    /* height: 456px; */
-    /* position: absolute; */
-    /* object-fit: fill; */
-    /* margin: 0px auto 10px; */
   }
 
   .prev,
@@ -227,17 +203,13 @@
 }
 
 @media (min-width: 1180px) {
-  /* .sliderWrapper {
-    margin-bottom: 10px;
-  } */
-
   .sliderContainer {
     width: 860px;
     height: 474px;
   }
 
-  .section {
-  }
+  /* .section {
+  } */
 
   .slideImage {
     width: 680px;
@@ -257,14 +229,9 @@
 }
 
 @media (min-width: 1380px) {
-  /* .sliderWrapper {
-    margin-bottom: 10px;
-  } */
-
   .sliderContainer {
     width: 1000px;
     height: 502px;
-    /* background-color: #fff; */
   }
 
   .slideImage {

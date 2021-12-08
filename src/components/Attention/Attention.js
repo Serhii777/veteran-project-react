@@ -18,7 +18,7 @@ import {
 } from "../../services/useFetchItems";
 
 import SvgBellBlack from "../SvgComponents/SvgBellBlack";
-
+import Spinner from "../Spinner/Spinner";
 import FormAttention from "../Form/FormAttention";
 
 import { store } from "react-notifications-component";
@@ -29,6 +29,9 @@ const Attention = () => {
 
   const [alert, setAlert] = useState(false);
   const [attentionitems, setAttentionitems] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [errorText, setEerrorText] = useState("");
 
   const mounted = useRef(true);
 
@@ -42,6 +45,11 @@ const Attention = () => {
       if (mounted.current && items) {
         setAttentionitems(items);
       }
+      setLoading(false);
+    }).catch((err) => {
+      setError(err);
+      setEerrorText(err.message);
+      setLoading(false);
     });
 
     return () => (mounted.current = false);
@@ -97,44 +105,56 @@ const Attention = () => {
       </div>
 
       <ul className={styles.attentionitemList}>
-        {attentionitems && attentionitems.length > 0 ? (
-          attentionitems.map((item) => (
-            <li key={item._id} className={styles.attentionitemItem}>
-              <div className={styles.attentionNoteWrapper}>
-                {item.title ? (
-                  <h4 className={styles.attentionNoteTitle}>{item.title}</h4>
-                ) : null}
-                {item.description ? (
-                  <p className={styles.attentionDescription}>
-                    {item.description}
-                  </p>
-                ) : null}
-                {item.text ? (
-                  <p className={styles.attentionText}>
-                    {item.text}
-                    <Link
-                      to="/announcementnews/announcement"
-                      className={styles.attentionLink}>
-                      <span className={styles.attentionSpan}>Читати далі</span>
-                    </Link>
-                  </p>
-                ) : null}
-              </div>
-              <Fragment>
-                {auth.isAuthenticated ? (
-                  <div className={styles.buttonWrapper}>
-                    <button
-                      onClick={() => removeItem(item._id)}
-                      className={styles.buttonRemove}>
-                      Видалити елемент
-                    </button>
-                  </div>
-                ) : null}
-              </Fragment>
-            </li>
-          ))
-        ) : (
-          <div>"Enter your data"</div>
+        {attentionitems && attentionitems.length > 0
+          ? attentionitems.map((item) => (
+              <li key={item._id} className={styles.attentionitemItem}>
+                <div className={styles.attentionNoteWrapper}>
+                  {item.title ? (
+                    <h4 className={styles.attentionNoteTitle}>{item.title}</h4>
+                  ) : null}
+                  {item.description ? (
+                    <p className={styles.attentionDescription}>
+                      {item.description}
+                    </p>
+                  ) : null}
+                  {item.text ? (
+                    <p className={styles.attentionText}>
+                      {item.text}
+                      <Link
+                        to="/announcementnews/announcement"
+                        className={styles.attentionLink}>
+                        <span className={styles.attentionSpan}>
+                          Читати далі
+                        </span>
+                      </Link>
+                    </p>
+                  ) : null}
+                </div>
+                <Fragment>
+                  {auth.isAuthenticated ? (
+                    <div className={styles.buttonWrapper}>
+                      <button
+                        onClick={() => removeItem(item._id)}
+                        className={styles.buttonRemove}>
+                        Видалити елемент
+                      </button>
+                    </div>
+                  ) : null}
+                </Fragment>
+              </li>
+            ))
+          : null}
+
+        {loading && (
+          <div className={styles.spinnerWrapper}>
+            <Spinner type="Audio" color="#076702" height={34} width={80} />
+          </div>
+        )}
+        {error && (
+          <div className={styles.errorWrapper}>
+            <div className={styles.errorInfo}>Error!</div>
+            <p className={styles.errorText}>{errorText}</p>
+          </div>
         )}
       </ul>
 

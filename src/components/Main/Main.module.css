@@ -1,28 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* margin: 0px auto;
-  text-align: center; */
   width: 100%;
-  /* width: 100vw; */
-  /* width: 96vw; */
-
-  /* background-color: rgb(239, 250, 238); */
-  /* background: url("../../images/background1181-1772top.jpg") right 0px top 0px,
-    url("../../images/background1181-1772botton.jpg") right 0px bottom 0px;
-  background-repeat: no-repeat;
-  background-size: contain; */
-  /* position: relative; */
-}
-
-.navWrapper {
-  /* position: relative; */
-  /* background-color: rgb(201, 225, 206); */
-}
-
-.navBurgerWrapper {
-  /* position: relative; */
 }
 
 .buttonUpWrapper {
@@ -38,27 +17,14 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    /* margin: 0px auto;
-    text-align: center; */
-    /* background-color: rgb(239, 250, 238); */
   }
-
-  /* .mainWrapper {
-    flex-direction: row;
-  } */
 
   .navWrapper {
     flex-basis: 28%;
     padding: 10px 0px 0px;
-
-    /* position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    border-color: red;
-    background-color: rgb(235, 71, 71); */
   }
 
-    .childrenWrapper {
+  .childrenWrapper {
     flex-basis: 71%;
   }
 }
@@ -66,7 +32,6 @@
 @media (min-width: 980px) {
   .main {
     width: 100%;
-    /* position: relative; */
   }
 
   .navigationWrapper {
@@ -83,10 +48,6 @@
 }
 
 @media (min-width: 1180px) {
-  /* .mainWrapper {
-    display: flex;
-  } */
-
   .navWrapper {
     flex-basis: 21%;
     padding: 20px 0px 0px;

@@ -1,29 +1,17 @@
-import React, {
-  // Fragment,
-  // useContext,
-  // useReducer,
-  useState,
-  // useEffect,
-  useRef,
-} from "react";
+import React, { useState, useRef } from "react";
 import { Form, Field } from "react-final-form";
 import arrayMutators from "final-form-arrays";
 import { FieldArray } from "react-final-form-arrays";
 
-// import { createItem } from "../../services/useFetchHomeitem";
 import Button from "../Button/Button";
 
-// import "react-notifications-component/dist/theme.css";
 import { store } from "react-notifications-component";
-// import "animate.css/animate.min.css";
 
 import styles from "./FormContent.module.css";
 
 const FormContent = ({ URL, onCreateItem }) => {
   const [alert, setAlert] = useState(false);
   const [list, setList] = useState([]);
-  // const [message, setMessage] = useState("");
-  // const [image, setImage] = useState(null);
 
   const mounted = useRef(true);
 
@@ -51,10 +39,6 @@ const FormContent = ({ URL, onCreateItem }) => {
     });
   };
 
-  // useEffect(() => {
-  //   onCreateItem();
-  // }, [onCreateItem, setList]);
-
   return (
     <div className={styles.formAdminWrapper}>
       <h4 className={styles.formAdminTitle}>Форма для введення даних</h4>
@@ -69,7 +53,7 @@ const FormContent = ({ URL, onCreateItem }) => {
           handleSubmit,
           form: {
             mutators: { push, pop },
-          }, // injected from final-form-arrays above
+          },
           pristine,
           form,
           submitting,
@@ -132,7 +116,6 @@ const FormContent = ({ URL, onCreateItem }) => {
                           name={`${name}.textTitle`}
                           component="input"
                           placeholder="Ваш заголовок"
-                          // onChange={(event) => setItemInput(event.target.value)}
                           className={styles.blockTitle}
                         />
                       </div>
@@ -205,7 +188,6 @@ const FormContent = ({ URL, onCreateItem }) => {
                           placeholder="Image"
                           id="inputGroupFile01"
                           className={styles.blockImage}
-                          // onChange={onSelectImageHandler}
                         />
                       </div>
 

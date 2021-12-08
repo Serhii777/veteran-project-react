@@ -1,6 +1,5 @@
 .attention {
   padding: 10px 16px 10px;
-  /* background-color: rgb(255, 255, 255); */
 }
 
 .attentionTitleWrapper {
@@ -26,22 +25,12 @@
   fill: #eb4a0a;
 }
 
-/* .attentionWrapper { */
 .attentionitemList {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* border: 2px solid #d55d07; */
   border: 2px solid #985a0a;
   padding: 14px;
   text-align: left;
-  /* margin-bottom: 14px; */
-}
-
-.attentionitemItem {
-}
-
-.attentionNoteWrapper {
 }
 
 .attentionNoteTitle {
@@ -56,32 +45,21 @@
   font-weight: 600;
   margin-bottom: 10px;
 }
-.attentionText {
-}
 
 .attentionLink {
   font-size: 13.5px;
   padding: 0px 4px;
-  /* min-width: 200px;
-height: 10px; */
-  /* background-color: rgb(250, 44, 44); */
   border: 1px solid #dc6611;
   border-radius: 3px;
-
   background: #ee7016;
-  /* box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.3); */
-
   box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s, box-shadow 0.3s, opacity 0.3s, color 0.3s;
-
   margin-left: 6px;
   transition: all 200ms ease-in-out;
 }
 
 .attentionLink:hover {
   background: #c65607;
-  /* box-shadow: 1px 6px 10px rgba(252, 132, 45, 0.7);
-  box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.5); */
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -130,17 +108,50 @@ height: 10px; */
   align-items: center;
   width: 100%;
   padding: 0px;
-
   transition: all 200ms ease-in-out;
   border: 1px solid #045a0e;
   background-color: rgb(224, 250, 225);
   box-shadow: 2px 3px 8px 4px rgba(0, 0, 0, 0.3);
-
-  /* padding: 14px 0px; */
 }
 
 .formAttentionWrapper:hover {
   box-shadow: 2px 3px 8px 5px rgba(0, 0, 0, 0.6);
+}
+
+.spinnerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.errorWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  margin: 0px auto;
+  width: 54%;
+  border: 2px solid #dc1313;
+  border-radius: 5px;
+  background-color: #fcefef;
+  padding: 2px 12px ;
+}
+.errorInfo {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+  color: #dc1313;
+  padding: 2px 4px;
+  border-bottom: 1px solid #dc1313;
+  margin-bottom: 6px;
+  text-align: center;
+}
+.errorText {
+  font-size: 14px;
+  font-weight: 400;
+  color: #601f1f;
+  text-align: left;
 }
 
 @media (min-width: 768px) {

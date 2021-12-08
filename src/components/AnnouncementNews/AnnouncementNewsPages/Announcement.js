@@ -11,11 +11,6 @@ import {
   deleteItem,
 } from "../../../services/useFetchItems";
 
-// import {
-//   createItem,
-//   getAllItems,
-//   deleteItem,
-// } from "../../../services/useFetchAnnouncements";
 
 import { getTitle } from "../../../services/getTitle";
 import ContentPageAnnounNews from "../../ContentPage/ContentPageAnnounNews";

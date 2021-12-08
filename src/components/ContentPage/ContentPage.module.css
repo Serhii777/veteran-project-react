@@ -237,6 +237,42 @@
   box-shadow: 2px 3px 8px 5px rgba(0, 0, 0, 0.6);
 }
 
+.spinnerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.errorWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  margin: 0px auto;
+  width: 70%;
+  border: 2px solid #dc1313;
+  border-radius: 5px;
+  background-color: #fcefef;
+  padding: 2px 12px ;
+}
+.errorInfo {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+  color: #dc1313;
+  padding: 2px 4px;
+  border-bottom: 1px solid #dc1313;
+  margin-bottom: 6px;
+  text-align: center;
+}
+.errorText {
+  font-size: 14px;
+  font-weight: 400;
+  color: #601f1f;
+  text-align: left;
+}
+
 @media (min-width: 768px) {
   .svgWrapper {
     width: 28px;

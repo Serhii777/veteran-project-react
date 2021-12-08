@@ -1,10 +1,6 @@
 import React from "react";
-// import { useSelector } from 'react-redux';
-// import { authSelectors } from '../../redux/auth';
 
 import ReactNotification from "react-notifications-component";
-// import 'react-notifications-component/dist/theme.css'
-import mainDownPart from "../../images/background/main_down-part.svg";
 
 import Main from "../Main/Main";
 import Header from "../Header/Header";

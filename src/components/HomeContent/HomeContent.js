@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import authContext from "../../services/authContext";
 import {
   HOMEITEMS_URL,
-  // API_URL_IMAGES,
   IMAGES_URL,
   IMAGES_URL_DB,
   UPLOAD_IMAGE_URL,
@@ -47,7 +46,7 @@ const HomeContent = (props) => {
           </div>
           <div className={styles.blockImageWrapper}>
             <h3 className={styles.blockImageTitle}>Наша родзинка</h3>
-            <Link to="/ourservices/rehabilitation" className={styles.imageLink}>
+            <Link to="/services/rehabilitation" className={styles.imageLink}>
               <div className={styles.imageWrapper}>
                 <img
                   src={image1}
@@ -57,7 +56,7 @@ const HomeContent = (props) => {
                 <h5 className={styles.tileImage}>Реабілітолог</h5>
               </div>
             </Link>
-            <Link to="/ourservices/womenclub" className={styles.imageLink}>
+            <Link to="/services/womenclub" className={styles.imageLink}>
               <div className={styles.imageWrapper}>
                 <img
                   src={image2}

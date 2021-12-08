@@ -1,52 +1,26 @@
-import React, {
-  Fragment,
-  useCallback,
-  useContext,
-  useState,
-  useEffect,
-  useRef,
-} from "react";
+import React, { Fragment, useContext, useState, useEffect } from "react";
 import authContext from "../../services/authContext";
 import Pagination from "@material-ui/lab/Pagination";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import contactFade from "../Animation/ContactFade.module.css";
 
-// import {
-//   createItem,
-//   getAllItems,
-//   deleteItem,
-// } from "../../../services/useFetchSocioadvice";
 import { IMAGES_URL } from "../../services/apiUrl";
 import Spinner from "../Spinner/Spinner";
 
-import Slider from "../Slider/Slider";
-import Picker from "../Picker/Picker";
-
-// import FormContent from "../Form/FormContent.js";
-// import SvgGroupOfPeople from "../SvgComponents/SvgGroupOfPeople";
+// import Slider from "../Slider/Slider";
+// import Picker from "../Picker/Picker";
 
 import { store } from "react-notifications-component";
 import styles from "./ListHistory.module.css";
 
-const ListHistory = ({
-  // onTitle,
-  // SvgContent,
-  URL,
-  onGetAllItems,
-  onDeleteItem,
-}) => {
+const ListHistory = ({ URL, onGetAllItems, onDeleteItem }) => {
   const auth = useContext(authContext);
-
-  // console.log("onTitle: ", onTitle);
-
-  // const [alert, setAlert] = useState(false);
 
   const [listItems, setListItems] = useState([]);
 
   const [openDetails, setOpenDetails] = useState(false);
   const [itemIdClick, setItemIdClick] = useState("");
 
-  // const [tutorials, setTutorials] = useState([]);
   const [currentResultItem, setCurrentResultItem] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTitle, setSearchTitle] = useState("");
@@ -86,13 +60,10 @@ const ListHistory = ({
   };
 
   //! Pagination =============================================
-
-  // const retrieveTutorials = useCallback(() => {
   const retrieveResultItem = () => {
     const params = getRequestParams(searchTitle, page, pageSize);
-    onGetAllItems( URL, params)
+    onGetAllItems(URL, params)
       .then((response) => {
-        // console.log("response: ", response);
         const { resultWorks, totalPages } = response;
 
         setListItems(resultWorks);
@@ -101,21 +72,20 @@ const ListHistory = ({
       .catch((e) => {
         console.log(e);
       });
-    // },[onGetAllItems, page, pageSize, searchTitle]);
   };
 
-  useEffect(retrieveResultItem, [URL, onGetAllItems, page, pageSize, searchTitle]);
+  useEffect(retrieveResultItem, [
+    URL,
+    onGetAllItems,
+    page,
+    pageSize,
+    searchTitle,
+  ]);
 
-  // useEffect(() => {
-  //   retrieveTutorials();
-  // }, [retrieveTutorials]);
-
-  // const refreshList = useCallback(() => {
   const refreshList = () => {
     retrieveResultItem();
     setCurrentResultItem(null);
     setCurrentIndex(-1);
-    // },[getItems]);
   };
 
   const setActiveResultItem = (itemli, index) => {
@@ -129,7 +99,7 @@ const ListHistory = ({
     );
 
     if (answer) {
-      onDeleteItem( URL, itemId)
+      onDeleteItem(URL, itemId)
         .then((response) => {
           console.log(response.data);
           refreshList();
@@ -163,20 +133,11 @@ const ListHistory = ({
     setPage(1);
   };
 
-  //! Pagination =============================================
-
-
   const options = {
-    // weekday: 'long',
     year: "numeric",
-    // month: "long",
     month: "numeric",
     day: "numeric",
-    // hour: '2-digit',
-    // minute: '2-digit',
   };
-
-  console.log("listItems:", listItems);
 
   return (
     <Fragment>
@@ -228,10 +189,7 @@ const ListHistory = ({
               className={styles.blockPagination}
               count={count}
               page={page}
-              // color="#ffffff"
-              // color="green"
               color="secondary"
-              // color="primary"
               siblingCount={1}
               boundaryCount={2}
               defaultPage={4}
@@ -241,18 +199,12 @@ const ListHistory = ({
             />
           </div>
 
-          {/* <div className={styles.inputDateWrapper}><Picker /></div> */}
-
           <div className={styles.сontentPageMain}>
             <TransitionGroup component="ul" className={styles.сontentPageLis}>
-              {/* <ul className={styles.сontentPageList}> */}
               {listItems ? (
                 listItems
                   .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
                   .map((itemli, index) => (
-                    // console.log("itemResult: ", itemli),
-                    // console.log("indexitemResult: ", index),
-                    // console.log("currentIndex: ", currentIndex),
                     <CSSTransition
                       key={itemli._id}
                       timeout={700}
@@ -365,7 +317,7 @@ const ListHistory = ({
                                 <button
                                   onClick={() => handleClick(itemli._id)}
                                   className={styles.buttonShow}>
-                                  {openDetails
+                                  {openDetails && itemli._id === itemIdClick
                                     ? "Сховати"
                                     : "Показати деталі..."}
                                 </button>
@@ -387,7 +339,6 @@ const ListHistory = ({
                   )}
                 </Fragment>
               )}
-              {/* </ul> */}
             </TransitionGroup>
           </div>
         </div>

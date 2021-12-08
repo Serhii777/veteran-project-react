@@ -18,18 +18,8 @@ import styles from "./RegistrationForm.module.css";
 
 const override = css`
   display: block;
-  /* margin: -13px auto 0; */
   margin: 13px auto 0;
 `;
-
-// const RegistrationForm = () => {
-//   return (
-//     <div className={styles.registrationForm}>
-//       <h1>Hello from RegistrationForm</h1>
-//     </div>
-//   );
-// };
-// export default RegistrationForm;
 
 class RegistrationForm extends Component {
   state = {
@@ -44,8 +34,6 @@ class RegistrationForm extends Component {
   };
 
   handleChange = ({ target: { name, value } }) => {
-    // console.log("valueRegistrationForm:", value);
-
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
     });
@@ -54,23 +42,16 @@ class RegistrationForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    // console.log("e:", e);
-    // console.log("this.state:", this.state);
-
     const useradminParams = {
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
     };
 
-    // console.log("useradminParams:", useradminParams);
-
     const { onRegister } = this.props;
 
     onRegister(useradminParams).then((data) => {
-    // onRegister({...this.state}).then((data) => {
-
-      console.log("dataRegisterForm:", data);
+      // console.log("dataRegisterForm:", data);
       if (!data) {
         throw new Error(`Реєстрація завершилась невдало: ${data}!`);
       } else {
@@ -97,7 +78,6 @@ class RegistrationForm extends Component {
         );
       }
     });
-    // return
   };
 
   validateField(fieldName, value) {
@@ -117,9 +97,7 @@ class RegistrationForm extends Component {
         nameValid = value.length >= 5;
         fieldValidationErrors.name = nameValid
           ? (inputColor("name", "green"), "")
-          : (inputColor("name", "red"),
-            // 'Користувач з даним ім"ям не має доступу');
-            'Занадто коротке ім"я');
+          : (inputColor("name", "red"), 'Занадто коротке ім"я');
         break;
       case "email":
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
@@ -220,7 +198,6 @@ class RegistrationForm extends Component {
             <FormErrors formErrors={this.state.formErrors.password} />
           </label>
           <div className={styles.buttonWrapper}>
-            {/* <Link to={`/admin/login`} className={styles.buttonLoginLink}> */}
             <div className={styles.buttonRegistrationWrapper}>
               <Button
                 title={
@@ -235,7 +212,6 @@ class RegistrationForm extends Component {
                 className={styles.buttonRegistration}
               />
             </div>
-            {/* </Link> */}
             <div className={styles.buttonLoginWrapper}>
               <Link to={`/admin/login`} className={styles.buttonLogin}>
                 <Button title={"Вхід"} role={"link"} />

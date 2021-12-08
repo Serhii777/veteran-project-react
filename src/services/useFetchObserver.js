@@ -4,6 +4,7 @@ import { getAllItems } from "./useFetchResultwork";
 function useFetch(query, pageNum, pageSize, url) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [errorText, setEerrorText] = useState("");
   const [list, setList] = useState([]);
   let [count, setCount] = useState(0);
 
@@ -25,6 +26,7 @@ function useFetch(query, pageNum, pageSize, url) {
 
       setLoading(false);
     } catch (err) {
+      setEerrorText(err.message)
       setError(err);
     }
   }, [pageNum, pageSize, url]);
@@ -33,7 +35,7 @@ function useFetch(query, pageNum, pageSize, url) {
     sendQuery(query);
   }, [query, sendQuery, pageSize]);
 
-  return { loading, error, list, count };
+  return { loading, error, errorText, list, count };
 }
 
 export default useFetch;

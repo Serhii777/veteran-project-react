@@ -3,7 +3,6 @@
   flex-direction: column;
   font-family: Arial, sans-serif;
   width: 100%;
-
   padding: 0px 0px 0px 0px;
   min-height: 100vh;
 }
@@ -15,7 +14,6 @@
   padding: 40px 10px 20px;
   margin-bottom: 30px;
   background-color: rgb(243, 251, 247);
-  /* min-height: 100vh; */
 }
 
 .adminPageContainer {
@@ -194,8 +192,6 @@
 
   .adminPageWrapper {
     position: absolute;
-    /* padding: 30px 10px 20px;
-    margin-bottom: 10px; */
     top: 140px;
     left: 10px;
     width: 100vw;
@@ -282,10 +278,6 @@
 
   .adminPageContainer {
     width: 60%;
-  }
-
-  .adminPageList {
-    /* padding: 20px 100px; */
   }
 
   .adminPageTitle {

@@ -37,13 +37,10 @@
 @media (min-width: 1180px) {
   .сontentPageItem {
     padding: 20px 24px;
-    /* margin-bottom: 16px; */
   }
 }
 
-@media (min-width: 1380px) {
+/* @media (min-width: 1480px) {
   .сontentPageItem {
-    /* padding: 26px 24px 14px; */
-    /* margin-bottom: 16px; */
   }
-}
+} */

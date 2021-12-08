@@ -35,12 +35,6 @@ const Address = () => {
           </div>
           <span className={styles.addressAndTime}>з 9.00 до 18.00 (20.00)</span>
         </div>
-        {/* <div className={styles.scheduleItemWrapper}>
-          <div className={styles.svgWrapper}>
-            <SvgLunch />
-          </div>
-          <span className={styles.addressAndTime}> з 12.00 до 13.00 </span>
-        </div> */}
       </div>
 
       <div className={`${styles.itemWrapper} ${styles.contactsListWrapper}`}>

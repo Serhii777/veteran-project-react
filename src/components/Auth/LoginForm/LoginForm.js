@@ -11,20 +11,6 @@ import SvgEnvelopEmail from "../../SvgComponents/SvgEnvelopEmail";
 import SvgKey from "../../SvgComponents/SvgKey";
 import { FormErrors } from "../FormErrors";
 import styles from "../RegistrationForm/RegistrationForm.module.css";
-// import stylesLogin from "./LoginForm.module.css";
-
-// import styles from './LoginForm.module.css';
-
-// const LoginForm = () => {
-//   return (
-//     <div className={styles.loginForm}>
-//       <h2>Hello from LoginForm</h2>
-//     </div>
-//   );
-// };
-// export default LoginForm;
-
-// console.log("authOperations:", authOperations);
 
 const override = css`
   display: block;
@@ -46,7 +32,6 @@ class LoginForm extends Component {
   };
 
   handleSubmit = (e) => {
-    // const { onLogin, onRefresh } = this.props;
     const { onLogin } = this.props;
     e.preventDefault();
 
@@ -55,7 +40,6 @@ class LoginForm extends Component {
 
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors;
-    // let nameValid = this.state.nameValid;
     let emailValid = this.state.emailValid;
     let passwordValid = this.state.passwordValid;
 
@@ -145,7 +129,6 @@ class LoginForm extends Component {
           </label>
           <div className={styles.buttonWrapper}>
             <div className={styles.buttonLoginWrapper}>
-              {/* <Link to={`/`} className={styles.buttonLoginLink}> */}
               <Button
                 className={styles.buttonLogin}
                 title={
@@ -157,17 +140,8 @@ class LoginForm extends Component {
                 }
                 type={"submit"}
                 disabled={!this.state.formValid}
-                // role={"link"}
               />
-              {/* </Link> */}
             </div>
-            {/* <div className={styles.buttonLoginWrapper}> */}
-              {/* <Link
-                to={`/admin/register`}
-                className={styles.buttonRegistration}>
-                <Button title={"Реєстрація"} role={"link"} />
-              </Link> */}
-            {/* </div> */}
           </div>
         </form>
       </div>
@@ -181,9 +155,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   onLogin: authOperations.login,
-  // onRefresh: authOperations.refresh,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
-
-// export default LoginForm;

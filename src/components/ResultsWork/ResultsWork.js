@@ -17,7 +17,6 @@ import { CSSTransition } from "react-transition-group";
 import fadeItems from "../Animation/FadeItems.module.css";
 
 import { API_URL_RESULTWORK } from "../../services/apiUrl";
-import Slider from "../Slider/Slider";
 
 import styles from "../ContentPage/ContentPageAnnounNews.module.css";
 
@@ -36,8 +35,6 @@ const ResultsWork = (props) => {
           URL={API_URL_RESULTWORK}
           onDeleteItem={deleteItem}
         />
-
-        <Slider />
 
         {auth.isAuthenticated ? (
           <div className={styles.formResultsWorkWrapper}>

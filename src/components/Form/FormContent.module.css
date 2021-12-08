@@ -36,7 +36,6 @@
 }
 
 .formContentLabel {
-  /* font-size: 14px; */
   line-height: 1.4;
   flex-basis: 23%;
   margin-right: 10px;
@@ -45,7 +44,6 @@
 .inputFormContentTitle {
   font-size: 14px;
   line-height: 1.4;
-  /* flex-basis: 76%; */
   width: 100%;
   padding: 2px 0px 2px 10px;
 }
@@ -56,12 +54,10 @@
   order: 3;
   justify-content: center;
   width: 100%;
-  /* padding: 0px 160px; */
   margin-bottom: 20px;
 }
 
 .formButton {
-  /* width: 190px; */
   font-weight: 600;
   font-size: 11px;
   text-transform: uppercase;
@@ -69,12 +65,9 @@
   outline: 0;
   transition: all 200ms ease-in-out;
   color: #ffffff;
-  /* border: 1px solid #dc6611; */
   border: 1px solid #125a0c;
   border-radius: 3px;
   background: #1d8713;
-  /* background: #fc842d; */
-  /* background: #ee451b; */
   box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s, box-shadow 0.3s, opacity 0.3s, color 0.3s;
@@ -90,24 +83,15 @@
 .formButtonDelete {
   width: 146px;
   min-height: 32px;
-  /* margin-right: 20px; */
 }
 
 .formButton:hover {
-  /* background: #e16710; */
-  /* box-shadow: 1px 6px 10px rgba(252, 132, 45, 0.7); */
-  /* background: #cc3712; */
-  /* box-shadow: 1px 6px 10px #ee451bd2; */
   background: #11620a;
   box-shadow: 1px 6px 10px #125a0c;
-  /* box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3); */
 
 }
 
 /*! блок тексту */
-.blockContent {
-}
-
 .blockContentWrapper {
   display: flex;
   flex-direction: column;
@@ -129,7 +113,6 @@
   align-items: flex-start;
   margin-bottom: 6px;
   width: 100%;
-  /* padding: 0px 40px 0px 0px; */
 }
 
 .blockContentLabel {
@@ -141,7 +124,6 @@
 .blockTitle {
   font-size: 14px;
   line-height: 1.6;
-  /* flex-basis: 70%; */
   width: 100%;
   padding: 2px 2px 2px 6px;
 }
@@ -224,8 +206,6 @@
   padding: 2px 2px 2px 6px;
 }
 
-.buttonRemoveWrapper {
-}
 
 .buttonRemove {
   position: absolute;
@@ -279,10 +259,6 @@
 @media (min-width: 768px) {
   .formContentLabel {
     /* flex-basis: 20%; */
-  }
-
-  .inputFormContentTitle {
-    /* flex-basis: 78%; */
   }
 
   .formButtonAdd {

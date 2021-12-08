@@ -1,51 +1,41 @@
-// import React from "react";
-import React, { useState, useEffect } from "react"; //  useState
-// import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 
 import routes from "../../routes";
+import { isMobile } from "../../services/isMobile";
 
 import styles from "./Navigation.module.css";
 
-// const Navigation = (props) => {
-const Navigation = ({ open, setOpen, ...props }) => {
-  // console.log("props: ", props);
+const Navigation = ({ open, setOpen }) => {
+  const [openSubMenu, setOpenSubMenu] = useState(false);
 
-  // const [selectOption, setSelectOption] = useState(null);
-  const [openSelect, setOpenSelect] = useState(true);
+  const onHiddenSubMemu = useCallback(
+    (event) => {
+      if (document.documentElement.clientWidth >= 768) {
+        setOpenSubMenu(false);
+        setOpen(!open);
+        event.target.parentElement.parentElement.style = { display: "none" };
 
-  const onHiddenSelectList = (event) => {
-    if (document.documentElement.clientWidth >= 768) {
-      setOpenSelect(false);
-      event.target.parentElement.parentElement.style = { display: "none" };
-
-      setTimeout(() => {
-        setOpenSelect(true);
-      }, 1500);
-    }
-  };
+        setTimeout(() => {
+          setOpenSubMenu(true);
+        }, 1000);
+      }
+    },
+    [open, setOpen]
+  );
 
   useEffect(() => {
-    // function hiddenSelectList(event) {
-    //   console.log("event: ", event.target.parentElement);
-    //   console.log("event.class: ", event.target.parentElement.parentElement);
-    //   console.log("hiddenSelectList: ", "111111");
-    //   // event.target.parentElement.parentElement.classList.remove("selectList");
-    //   // event.target.parentElement.parentElement.classList.add("selectListHidden");
-    //   event.target.parentElement.parentElement.style = { display: "none" };
-    //   setOpenSelect(!openSelect);
-    //   //
-    //   console.log(
-    //     "event.classHidden: ",
-    //     event.target.parentElement.parentElement.className
-    //   );
-    // setSelectOption(selectOption);
-    // event.target.parentElement.parentElement(styles.selectListHidden)
-    // React.createClass={
-    // open !== true ? `${styles.selectList}` : null
-    // }
-    // : `${styles.selectListHidden} ${styles.navHide}`
-    // }
+    let body = document.querySelector("body");
+    if (isMobile.any()) {
+      body.classList.add("touch");
+    } else {
+      body.classList.add("mouse");
+      setOpenSubMenu(true);
+    }
+
+    return () => {
+      // thisArrow.classList.remove("arrowActive");
+    };
   }, []);
 
   let history = useHistory();
@@ -80,71 +70,68 @@ const Navigation = ({ open, setOpen, ...props }) => {
                       href="#x"
                       onClick={() => {
                         if (document.documentElement.clientWidth < 768) {
-                          setOpen(!open);
+                          route.routes ? setOpen(open) : setOpen(!open);
                         }
                         if (document.documentElement.clientWidth >= 768) {
                           setOpen(open);
                         }
                       }}
-                      className={styles.link}
+                      className={
+                        route.routes
+                          ? `${styles.link} ${styles.parent}`
+                          : `${styles.link}`
+                      }
                       activeClassName={styles.activelink}>
                       {route.title}
-                      {route.routes ? (
-                        <div className={styles.selectListWrapper}>
-                          {/* className={
-                            openSelect === true ||
-                            document.documentElement.clientWidth <= 768
-                              ? `${styles.selectListWrapper} ${styles.selectListWrapperOpen}`
-                              : `${styles.selectListWrapper} ${styles.selectListWrapperHide}`
-                          }> */}
-
-                          {openSelect ? (
-                            <ul
-                              aria-label="State"
-                              onChange={handleOnClick}
-                              onClick={(event) => {
-                                onHiddenSelectList(event);
-                                // setOpenSelect(!openSelect);
-                              }}
-                              className={styles.selectList}>
-                              {/* className={
-                                document.documentElement.clientWidth < 768
-                                  ? `${styles.selectList} ${styles.selectListOpen}`
-                                  : openSelect === false ||
-                                    document.documentElement.clientWidth >= 768
-                                  ? `${styles.selectList} ${styles.selectListOpen}`
-                                  : `${styles.selectList} ${styles.selectListHide}`
-                              }> */}
-                              {route.routes.map((nestedRoute) => {
-                                // console.log("nestedRoute.id: ", nestedRoute.id);
-                                return (
-                                  <li
-                                    key={nestedRoute.id}
-                                    className={styles.optionItem}>
-                                    <NavLink
-                                      to={nestedRoute.path}
-                                      id="RouterNavLink"
-                                      href="#x"
-                                      onClick={() => {
-                                        // hiddenSelect();
-                                        // setOpenSelect(!openSelect);
-                                      }}
-                                      value={nestedRoute.label}
-                                      disabled={nestedRoute.disabled}
-                                      className={styles.optionLink}>
-                                      {document.documentElement.clientWidth <
-                                        768 && nestedRoute.title.length > 29
-                                        ? nestedRoute.title.slice(0, 24) + "."
-                                        : nestedRoute.title}
-                                    </NavLink>
-                                  </li>
-                                );
-                              })}
-                            </ul>
-                          ) : null}
-                        </div>
-                      ) : null}
                     </NavLink>
+
+                    {route.routes ? (
+                      <span
+                        className={
+                          document.documentElement.clientWidth <= 768
+                            ? `${styles.arrow}`
+                            : `${styles.arrowRight}`
+                        }
+                        //* onCLick={() => setOpenSubMenu(!openSubMenu)}
+                        onClick={(event) => {
+                          setOpenSubMenu(!openSubMenu);
+                        }}></span>
+                    ) : null}
+
+                    {route.routes && openSubMenu ? (
+                      <ul
+                        aria-label="State"
+                        onChange={handleOnClick}
+                        onClick={(event) => {
+                          onHiddenSubMemu(event);
+                        }}
+                        className={styles.subMenu}>
+                        {route.routes.map((subRoute) => {
+                          return (
+                            <li
+                              key={subRoute.id}
+                              className={styles.subMenuItem}>
+                              <NavLink
+                                to={subRoute.path}
+                                id="RouterNavLink"
+                                href="#x"
+                                onClick={() => {
+                                  setOpenSubMenu(false);
+                                  setOpen(!open);
+                                }}
+                                value={subRoute.label}
+                                disabled={subRoute.disabled}
+                                className={styles.subLink}>
+                                {document.documentElement.clientWidth < 768 &&
+                                subRoute.title.length > 29
+                                  ? subRoute.title.slice(0, 24) + "."
+                                  : subRoute.title}
+                              </NavLink>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    ) : null}
                   </li>
                 );
               })

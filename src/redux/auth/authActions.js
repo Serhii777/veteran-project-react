@@ -1,9 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { createAction } from "@reduxjs/toolkit";
 
-//* Это синхронные екшен-криэйторы, кот-рые просто возвращают
-//* Об. с type и payload
-
 const registerRequest = createAction("auth/registerRequest");
 const registerSuccess = createAction("auth/registerSuccess");
 const registerError = createAction("auth/registerError");
