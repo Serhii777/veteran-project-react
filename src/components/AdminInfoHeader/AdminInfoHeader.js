@@ -7,7 +7,7 @@ import { authOperations, authSelectors } from "../../redux/auth";
 import styles from "./AdminInfoHeader.module.css";
 
 const AdminInfoHeader = ({ showName, onLogout, isAuthenticated }) => {
-  console.log("showName: ", showName);
+  // console.log("showName: ", showName);
   const [adminName, setAdminName] = useState("");
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const AdminInfoHeader = ({ showName, onLogout, isAuthenticated }) => {
     }
   }, [showName]);
 
-  console.log(("adminName: ", adminName));
+  // console.log(("adminName: ", adminName));
 
   return isAuthenticated ? (
     <div className={styles.adminInfo}>

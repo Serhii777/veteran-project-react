@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const createItem = async (URL, value) => {
-  console.log("valueresultworks:", value);
+  // console.log("valueresultworks:", value);
 
   const { data: newItem } = await axios.post(`${URL}/`, value);
   return newItem;
@@ -9,7 +9,7 @@ export const createItem = async (URL, value) => {
 
 export const getAllItemsPagin = async (URL, params) => {
   const { data } = await axios.get(`${URL}/params`, { params });
-  console.log("data:", data);
+  // console.log("data:", data);
   return data;
 };
 

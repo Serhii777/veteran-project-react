@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useOnClickOutside } from "../Navigation/useOnClickHooks";
 import Burger from "../Navigation/Burger";
 import Navigation from "../Navigation/Navigation";

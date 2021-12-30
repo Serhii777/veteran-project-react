@@ -93,6 +93,8 @@ const ListHistory = ({ URL, onGetAllItems, onDeleteItem }) => {
     setCurrentIndex(index);
   };
 
+  // console.log('currentResultItem:', currentResultItem);
+
   const removeAllItems = (itemId) => {
     let answer = window.confirm(
       "Ви дійсно хочете видалити цей об'єкт? Подумайте ще раз, адже відновити його вже буде неможливо!"

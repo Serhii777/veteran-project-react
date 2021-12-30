@@ -71,9 +71,9 @@ const ContentPageResult = ({
   useEffect(() => {
     const option = {
       root: null,
-      rootMargin: "0px",
-      // threshold: [0.1, 0.5, 1.0],
-      threshold: 1.0,
+      rootMargin: "150px",
+      threshold: [0.1, 0.5, 1.0],
+      // threshold: 1.0,
     };
 
     const observer = new IntersectionObserver(handleObserver, option);

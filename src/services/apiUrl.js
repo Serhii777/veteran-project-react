@@ -1,7 +1,5 @@
-// export default 'https://health-fsoff2.herokuapp.com';
-// export default 'https://goit-phonebook-api.herokuapp.com';
-
-export const API_BASE_URL = "http://localhost:4001";
+// export const API_BASE_URL = "http://localhost:4001";
+export const API_BASE_URL = "https://frozen-cove-14899.herokuapp.com";
 
 export const HOMEITEMS_URL = `${API_BASE_URL}/homeitems`;
 export const API_URL_ATTENTIONITEM = `${API_BASE_URL}/attentionitems`;
