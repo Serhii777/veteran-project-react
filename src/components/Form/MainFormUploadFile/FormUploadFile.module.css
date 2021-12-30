@@ -1,0 +1,95 @@
+.formUploadFile {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+}
+
+.formDataWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.formDataLabel {
+  line-height: 1.4;
+  margin-right: 10px;
+}
+
+.formDataLabelImage {
+  line-height: 1.4;
+  margin-right: 10px;
+}
+
+.formDataInput {
+  font-size: 14px;
+  line-height: 1.6;
+  width: 100%;
+  padding: 2px 16px;
+}
+
+.formImageInput {
+  font-size: 14px;
+  line-height: 1.6;
+  flex-basis: 78%;
+  padding: 2px 16px 0px 0px;
+}
+
+.buttonSubmitWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.buttonSubmit {
+  width: 180px;
+}
+
+.uploadedFileWrapper {
+  padding: 10px;
+}
+
+.imageContentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.imageText {
+  font-size: 18px;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.imageTitle {
+  font-size: 18px;
+  line-height: 1.4;
+  text-wrap: 500px;
+  margin-bottom: 6px;
+}
+
+.imageContent {
+  width: 500px;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .formDataWrapper {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .formDataLabel {
+    flex: 0 0 130px;
+  }
+  
+  .formDataLabelImage {
+    flex: 0 0 130px;
+  }
+}

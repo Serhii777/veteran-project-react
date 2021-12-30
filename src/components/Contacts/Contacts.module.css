@@ -1,0 +1,167 @@
+.contacts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 15px;
+}
+
+.contactsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6px 8px;
+  background-color: #ffffff;
+}
+
+.сontentPageTitleWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.svgWrapper {
+  width: 26px;
+  height: 26px;
+  margin-right: 10px;
+  fill: #17801a;
+}
+
+.сontentPageTitle {
+  font-size: 28px;
+  font-weight: bold;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.contactsTitle {
+  font-size: 28px;
+  font-weight: bold;
+  font-style: normal;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.contactsWrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.itemTitle {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.mapWrapper {
+  width: 100%;
+  height: 400px;
+}
+
+@media (min-width: 768px) {
+  .contactsTitle {
+    font-size: 29px;
+    line-height: 1.7;
+  }
+
+  .сontentPageTitleWrapper {
+    padding-top: 0px;
+  }
+
+  .svgWrapper {
+    width: 32px;
+    height: 32px;
+    margin-right: 18px;
+  }
+
+  .addressSection {
+    flex-basis: 40%;
+  }
+
+  .mapSection {
+    flex-basis: 60%;
+  }
+
+  .itemTitle {
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 980px) {
+  .contactsTitle {
+    font-size: 30px;
+    line-height: 1.8;
+  }
+}
+
+@media (min-width: 1180px) {
+  .contactsContainer {
+    padding: 16px 6px 16px 18px;
+  }
+
+  .contactsTitle {
+    font-size: 31px;
+  }
+
+  .addressTitle {
+    margin-bottom: 40px;
+  }
+
+  .contactsImageWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(81, 80, 80, 0.4);
+  }
+
+  .imageSection {
+    flex-basis: 65%;
+    padding: 10px;
+    border: 2px solid rgba(81, 80, 80, 0.4);
+    background-color: rgb(223, 238, 235);
+  }
+
+  .addressSection {
+    flex-basis: 35%;
+    margin-bottom: 10px;
+  }
+
+  .mapSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 62%;
+    width: 100%;
+    padding: 10px 16px;
+  }
+
+  .mapTitle {
+    margin-bottom: 30px;
+  }
+
+  .mapWrapper {
+    padding: 10px 16px;
+    width: 96%;
+    height: 430px;
+  }
+}
+
+@media (min-width: 1480px) {
+  .mapWrapper {
+    padding: 6px 10px;
+    width: 92%;
+    height: 450px;
+  }
+
+  .contactsTitle {
+    font-size: 32px;
+  }
+}

@@ -1,0 +1,69 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.buttonUpWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+  .main {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .navWrapper {
+    flex-basis: 28%;
+    padding: 10px 0px 0px;
+  }
+
+  .childrenWrapper {
+    flex-basis: 71%;
+  }
+}
+
+@media (min-width: 980px) {
+  .main {
+    width: 100%;
+  }
+
+  .navigationWrapper {
+    flex-basis: 22%;
+  }
+
+  .navWrapper {
+    padding: 14px 0px 0px;
+  }
+
+  .childrenWrapper {
+    flex-basis: 78%;
+  }
+}
+
+@media (min-width: 1180px) {
+  .navWrapper {
+    flex-basis: 21%;
+    padding: 20px 0px 0px;
+  }
+
+  .childrenWrapper {
+    flex-basis: 79%;
+  }
+}
+
+@media (min-width: 1480px) {
+  .navWrapper {
+    flex-basis: 19%;
+  }
+
+  .childrenWrapper {
+    flex-basis: 80%;
+  }
+}

@@ -1,0 +1,180 @@
+.svgWrapper {
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.gWrapper {
+  /* background-color: rgb(231, 233, 88); */
+
+}
+
+.pathWrapper {
+  opacity: 0.5;
+  transition: all 250ms ease-in-out;
+}
+
+.path1 {
+  opacity: 0.5;
+  /* fill: #0084ff; */
+  fill: #66ab06;
+  fill: #ffaf00;
+  fill: #def163;
+  fill-opacity: 0.7;
+  stroke: none;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 4.0999999;
+  stroke-dasharray: none;
+  transition: all 250ms ease-in-out;
+}
+
+.path2 {
+  opacity: 1;
+  fill: #ffaf00;
+  fill: #66ab06;
+  fill: #86b836;
+  fill-opacity: 1;
+  stroke: none;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 4.0999999;
+  stroke-dasharray: none;
+  transition: all 250ms ease-in-out;
+}
+
+.path3 {
+  opacity: 1;
+  fill: #ffaf00;
+  fill: #66ab06;
+  fill: #86b836;
+  fill-opacity: 1;
+  stroke: none;
+  stroke-width: 0.99999994;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 4.0999999;
+  stroke-dasharray: none;
+  transition: all 250ms ease-in-out;
+}
+
+.svgWrapper:hover .gWrapper .pathWrapper {
+  opacity: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.svgWrapper:hover .path1 {
+  opacity: 1;
+  fill: #cce9a2;
+  fill-opacity: 1;
+}
+
+.svgWrapper:hover .path2 .path3 {
+  opacity: 1;
+  fill: #79ac27;
+  fill-opacity: 1;
+}
+
+.path4 .path5 .path6 {
+  color: #000000;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  font-size: medium;
+  line-height: normal;
+  font-family: sans-serif;
+  text-indent: 0;
+  text-align: start;
+  text-decoration: none;
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  text-decoration-color: #000000;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  direction: ltr;
+  block-progression: tb;
+  writing-mode: lr-tb;
+  baseline-shift: baseline;
+  text-anchor: start;
+  white-space: normal;
+  clip-rule: nonzero;
+  display: inline;
+  overflow: visible;
+  visibility: visible;
+  opacity: 1;
+  isolation: auto;
+  mix-blend-mode: normal;
+  color-interpolation: sRGB;
+  color-interpolation-filters: linearRGB;
+  solid-color: #000000;
+  solid-opacity: 1;
+  fill: #000000;
+  fill-opacity: 1;
+  fill-rule: nonzero;
+  stroke: none;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 4.0999999;
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  stroke-opacity: 1;
+  color-rendering: auto;
+  image-rendering: auto;
+  shape-rendering: auto;
+  text-rendering: auto;
+  enable-background: accumulate;
+}
+
+.tooltipDiv {
+  /* display: block; */
+  font-size: 14px;
+  line-height: 14px;
+  font-family: inherit;
+  font-weight: normal;
+  text-align: center;
+  text-transform: none;
+  padding: 5px;
+  border-radius: 5px;
+  /* width: auto; */
+  width: 100px;
+  /* height: auto; */
+  height: 40px;
+  min-width: 150px;
+  transition: all 300ms ease-in-out;
+}
+
+.svgWrapper .tooltipDiv {
+  /* display: none; */
+  /* opacity: 0; */
+  /* visibility: hidden; */
+
+  transition: all 300ms ease-in-out;
+}
+
+.svgWrapper:hover .tooltipDiv {
+  display: inline;
+  /* visibility: visible; */
+  position: absolute;
+  top: 36px;
+  right: 0px;
+  overflow: hidden;
+  background-color: #cce6e7;
+  background-color: #aaebce;
+  background-color: #9be19b;
+  z-index: 1000;
+  margin-left: 5px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 300ms ease-in-out;
+
+  /* -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out; */
+}

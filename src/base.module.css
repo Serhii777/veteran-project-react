@@ -1,3 +1,6 @@
+@import-normalize;
+/* bring in normalize.css styles */
+
 *,
 *::before,
 *::after {
@@ -5,19 +8,23 @@
   margin: 0;
   border: 0;
   box-sizing: border-box;
+  /* outline: 1px solid red; */
 }
 
 html,
 body {
-  height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.2;
   color: #000000;
-  background-color: #edfaee;
+  background-color: #ffffff;
+  text-rendering: optimizeLegibility;
+  overflow-x:hidden;
 }
 
 h1,
@@ -32,6 +39,8 @@ p {
 
 a {
   text-decoration: none;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 ul,
@@ -45,4 +54,20 @@ img {
   width: 100%;
   height: auto;
   vertical-align: top;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
 }

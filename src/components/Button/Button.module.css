@@ -1,0 +1,82 @@
+.button {
+  width: 100%;
+  /* width: 180px; */
+  height: 100%;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  /* line-height: 1.6; */
+  /* vertical-align: middle; */
+  /* letter-spacing: 0.04em; */
+  text-transform: uppercase;
+  word-wrap: break-word;
+  border: 0;
+  outline: 0;
+  transition: all 200ms ease-in-out;
+  color: #ffffff;
+  /* border: 1px solid #dc6611; */
+  border: 1px solid #024704;
+  border-radius: 3px;
+  /* background: #fc842d; */
+  background: #ee451b;
+  /* background: #d83e18; */
+  /* background: rgb(49, 73, 225); */
+  box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.3);
+  padding: 6px 10px;
+  position: relative;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #ffffff;
+  /* background: #b9e2b3; */
+  /* color: #fc842d; */
+  color: #e1640b;
+  /* color: #025f05; */
+  border: 1px solid #c95a0b;
+  /* border: 1px solid #024704; */
+}
+
+.circle {
+  min-width: 0;
+  padding: 11px 16px 13px;
+}
+
+.allow {
+  cursor: not-allowed;
+}
+
+.allow:hover {
+  background: #833e0d;
+  /* background: #2e1504; */
+}
+
+.normal {
+  cursor: pointer;
+}
+
+.normal:hover {
+  /* background: #e16710; */
+  /* box-shadow: 1px 6px 10px rgba(252, 132, 45, 0.7); */
+  /* background: #cc3712; */
+  background: #a52c0e;
+  /* background: #03960f; */
+  box-shadow: 1px 6px 10px #ee451bd2;
+  /* box-shadow: 1px 6px 10px #024e08; */
+}
+
+@media (min-width: 540px) {
+  .button {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1180px) {
+  .button {
+  }
+}

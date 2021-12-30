@@ -1,0 +1,429 @@
+.footer {
+  display: flex;
+  width: 100%;
+}
+
+.footerWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 16px;
+  width: 100%;
+  margin-bottom: 10px;
+
+}
+
+.footerTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #80af33;
+  padding-top: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ul */
+.footerContentWrapper {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+
+/*! address */
+.itemWrapper {
+  color: #92a47f;
+  margin-bottom: 10px;
+}
+
+.itemTitle {
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.contactsList {
+  padding-left: 20px;
+}
+
+.contactsItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.scheduleWrapper {
+  margin-bottom: 6px;
+}
+
+.addressTextWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 20px;
+  margin-bottom: 6px;
+}
+
+.addressText {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #e4eee1;
+  margin-bottom: 6px;
+}
+
+.svgLocationWrapper {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  fill: #adb5ab;
+  fill: #8b9a7ba1;
+  fill: #92a47f;
+  margin-right: 10px;
+}
+
+.scheduleText {
+  font-size: 14px;
+  line-height: 1.2;
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+
+.contactsList {
+  margin-bottom: 10px;
+}
+
+.contactsTime {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e4eee1;
+}
+
+.contactsSpan {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.contactsLink {
+  font-size: 14px;
+  text-decoration: none;
+  color: #249df3;
+  transition: text-decoration 0.3s, color 0.3s;
+}
+
+.contactsLink:hover {
+  text-decoration: underline;
+  color: #e0e6d7;
+}
+
+.socialNetworksWrapper {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+/*! button */
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 14px;
+  margin-bottom: 14px;
+}
+
+.buttonRemove {
+  width: 32%;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.4;
+  vertical-align: middle;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  border: 0;
+  outline: 0;
+  transition: all 200ms ease-in-out;
+  color: #ffffff;
+  border: 1px solid #d8340b;
+  border-radius: 3px;
+  background: #ee451b;
+  box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.3);
+  padding: 6px 6px;
+}
+
+.buttonRemove:hover {
+  background: #cc3712;
+  box-shadow: 1px 2px 10px 3px #ee451bd2;
+}
+
+.formAttentionWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0px;
+  transition: all 200ms ease-in-out;
+  border: 1px solid #045a0e;
+  background-color: #e0fae1;
+  box-shadow: 2px 3px 8px 4px hsla(0, 3%, 79%, 0.3);
+}
+
+.formAttentionWrapper:hover {
+  /* box-shadow: 2px 3px 8px 5px rgba(0, 0, 0, 0.6); */
+  box-shadow: 2px 3px 8px 5px hsla(0, 27%, 96%, 0.6);
+}
+
+.footerText{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #adb5ab;
+  color: #696e68;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.copyrightWrapper{
+display: flex;
+flex-direction: row;
+}
+
+.copyright{
+margin-right: 3px;
+}
+
+@media (min-width: 540px) {
+  .footerText{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .copyrightWrapper{
+    margin-right: 6px;
+  }
+}
+  
+  @media (min-width: 768px) {
+  .footerContentWrapper {
+    flex-direction: row;
+    /* padding-left: 0px; */
+    padding: 0px 0px 10px;
+    margin-bottom: 8px;
+  }
+
+  .footerWrapper {
+    margin-bottom: 10px;
+  }
+
+  .itemWrapper {
+    width: 200px;
+    margin-bottom: 0;
+  }
+
+  .itemTitle {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .addressListWrapper {
+    flex-basis: 28%;
+  }
+
+  .scheduleListWrapper {
+    flex-basis: 28%;
+  }
+
+  .contactsListWrapper {
+    flex-basis: 35%;
+  }
+
+  .socialListWrapper {
+    flex-basis: 20%;
+  }
+
+  .contactsList {
+    padding-left: 0px;
+  }
+
+  .addressTextWrapper {
+    padding: 0px 0px 0px 0px;
+  }
+
+  .addressText {
+    font-size: 15px;
+    line-height: 1.2;
+    padding-left: 0px;
+    margin-bottom: 10px;
+  }
+
+  .scheduleText {
+    max-width: 250px;
+    font-size: 15px;
+    line-height: 1.2;
+    padding-left: 30px;
+    margin-bottom: 6px;
+  }
+
+  .contactsTime {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .contactsSpan {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  
+  .contactsLink {
+    font-size: 15px;
+  }
+  
+  .socialNetworksWrapper {
+    padding-left: 0px;
+    margin-bottom: 0px;
+  }
+
+  .footerText{
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 980px) {
+  .footerContentWrapper {
+    flex-direction: row;
+    padding: 0px 20px 10px;
+    margin-bottom: 14px;
+  }
+
+  .footerWrapper {
+    margin-bottom: 14px;
+  }
+
+  .itemTitle {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .addressListWrapper {
+    flex-basis: 26%;
+  }
+
+  .scheduleListWrapper {
+    flex-basis: 34%;
+  }
+
+  .contactsListWrapper {
+    flex-basis: 32%;
+  }
+
+  .socialListWrapper {
+    flex-basis: 22%;
+  }
+
+  .contactsList {
+    padding-left: 0px;
+  }
+
+  .addressText {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  .scheduleText {
+    max-width: inherit;
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  .contactsTime {
+    font-size: 16px;
+  }
+
+  .contactsSpan {
+    font-size: 22px;
+    margin-right: 10px;
+  }
+
+  .contactsLink {
+    font-size: 16px;
+  }
+
+  /* .socialNetworksWrapper {
+    padding-left: 0px;
+  } */
+}
+
+@media (min-width: 1180px) {
+  .footerTitle {
+    font-size: 24px;
+    font-weight: 600;
+    padding-top: 14px;
+    margin-bottom: 26px;
+  }
+
+  .footerWrapper {
+    margin-bottom: 16px;
+  }
+
+  .footerContentWrapper {
+    padding: 0px 20px 10px;
+  }
+
+  .addressListWrapper {
+    flex-basis: 38%;
+  }
+
+  .scheduleListWrapper {
+    flex-basis: 32%;
+  }
+
+  .contactsListWrapper {
+    flex-basis: 30%;
+  }
+
+  .socialListWrapper {
+    flex-basis: 30%;
+  }
+
+}
+
+@media (min-width: 1380px) {
+  .footerTitle {
+    font-size: 28px;
+    padding-top: 16px;
+    margin-bottom: 30px;
+  }
+  .footerWrapper {
+    margin-bottom: 18px;
+  }
+
+  .footerText{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+margin-bottom: 0;
+
+  }
+  
+  .copyright{
+
+  }
+  
+  .year{
+
+  }
+  
+  .text{
+
+  }
+
+
+
+
+
+}

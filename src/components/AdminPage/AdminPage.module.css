@@ -1,0 +1,323 @@
+.adminPage {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  padding: 0px 0px 0px 0px;
+  min-height: 100vh;
+}
+
+.adminPageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 10px 20px;
+  margin-bottom: 30px;
+  background-color: rgb(243, 251, 247);
+}
+
+.adminPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #606060;
+}
+
+.adminPageTitle {
+  font-size: 24px;
+  text-align: center;
+  color: rgb(253, 7, 7);
+  margin-bottom: 32px;
+  padding-top: 36px;
+}
+
+.adminPageTitle::before {
+  content: "";
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  transform: translateY(30%);
+  background: url(../../images/images-png/folder_system_15426.png) center
+    no-repeat;
+  background-size: contain;
+  margin-right: 30px;
+}
+
+.adminPageList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  width: 80%;
+  margin-bottom: 40px;
+}
+
+.adminPageItem {
+  display: flex;
+  min-width: 220px;
+  max-height: 44px;
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: inherit;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #ffffff;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, box-shadow 0.3s, opacity 0.3s, color 0.3s;
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+
+.link {
+  padding: 10px 10px;
+  width: 100%;
+  max-height: 44px;
+  color: #222222;
+}
+
+.adminPageItem:last-child {
+  margin: 0px 0px 0px 0px;
+}
+
+.adminPageItem:hover {
+  background-color: #95eaf3;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.activelink {
+  color: #ffffff;
+  background-color: #2258f8;
+}
+
+.activelink:hover {
+  background-color: #2258f8;
+}
+
+.homeButtonWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding-right: 20px;
+}
+
+.linkHomeButtonWrapper {
+  display: flex;
+  align-items: center;
+  width: 37px;
+  height: 38px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  margin-bottom: 14px;
+  margin: 0px left;
+  transition: all 250ms ease-in-out;
+}
+
+.linkHomeButtonWrapper:hover {
+  background-color: #95eaf3;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.linkHome {
+  padding: 6px 8px;
+  width: 100%;
+  color: #222222;
+}
+
+.homeButton {
+  font-size: 26px;
+  line-height: 24px;
+  font-family: inherit;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #ffffff;
+  position: relative;
+  transition: all 250ms ease-in-out;
+}
+
+.linkHomeButtonWrapper:hover .homeButton {
+  background-color: #95eaf3;
+}
+
+.tooltipDiv {
+  font-size: 14px;
+  line-height: 14px;
+  font-family: inherit;
+  font-weight: normal;
+  text-align: center;
+  text-transform: none;
+  padding: 5px;
+  border-radius: 5px;
+  width: auto;
+  height: auto;
+  min-width: 150px;
+  transition: all 300ms ease-in-out;
+}
+
+.linkHomeButtonWrapper .tooltipDiv {
+  display: none;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.linkHomeButtonWrapper:hover .tooltipDiv {
+  display: inline;
+  position: absolute;
+  top: 6px;
+  right: 38px;
+  overflow: hidden;
+  background-color: #cce6e7;
+  z-index: 1000;
+  margin-left: 5px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 300ms ease-in-out;
+}
+
+@media (min-width: 540px) {
+  .adminPageList {
+    width: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .adminPage {
+    padding: 0px 0px 0px 20px;
+  }
+
+  .adminPageWrapper {
+    position: absolute;
+    top: 140px;
+    left: 10px;
+    width: 100vw;
+    min-height: 100vh;
+  }
+
+  .adminPageContainer {
+    width: 80%;
+    padding: 30px 10px 20px;
+    margin-bottom: 10px;
+  }
+
+  .adminPageTitle {
+    margin-bottom: 32px;
+    padding-top: 10px;
+  }
+
+  .adminPageList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    border-bottom: 1px solid rgb(57, 56, 56);
+    border-top: 1px solid rgb(57, 56, 56);
+    padding: 20px 30px;
+  }
+
+  .adminPageTitle {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .adminPageItem {
+    min-width: 140px;
+    max-width: 140px;
+    min-height: 40px;
+    margin: 0px;
+  }
+
+  .link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 0px 0px 0px;
+    line-height: 1.4;
+    min-height: 44px;
+  }
+}
+
+@media (min-width: 980px) {
+  .adminPageWrapper {
+    top: 156px;
+    left: 0px;
+    width: 100vw;
+  }
+
+  .adminPageContainer {
+    width: 70%;
+  }
+
+  .adminPageList {
+    padding: 20px 50px;
+  }
+
+  .adminPageTitle {
+    font-size: 26px;
+    margin-bottom: 22px;
+  }
+
+  .adminPageItem {
+    min-width: 160px;
+    max-width: 160px;
+    min-height: 40px;
+  }
+}
+
+@media (min-width: 1180px) {
+  .adminPageWrapper {
+    top: 156px;
+    left: 0px;
+    width: 100vw;
+  }
+
+  .adminPageContainer {
+    width: 60%;
+  }
+
+  .adminPageTitle {
+    font-size: 28px;
+    margin-bottom: 26px;
+  }
+
+  .adminPageItem {
+    min-width: 180px;
+    max-width: 180px;
+    min-height: 44px;
+  }
+
+  .link {
+    min-height: 50px;
+  }
+
+  .linkHomeButtonWrapper:hover .tooltipDiv {
+    top: 38px;
+    right: 8px;
+  }
+}
+
+@media (min-width: 1480px) {
+  .adminPageWrapper {
+    top: 160px;
+    left: 0px;
+    width: 100vw;
+  }
+
+  .adminPageContainer {
+    width: 50%;
+  }
+
+  .adminPageList {
+    padding: 20px 60px;
+  }
+
+  .adminPageTitle {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+}

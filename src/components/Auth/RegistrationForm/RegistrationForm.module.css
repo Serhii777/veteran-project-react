@@ -1,0 +1,203 @@
+.registrationFormWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(221, 236, 247);
+  font-family: Arial, sans-serif;
+  padding: 30px 10px 18px;
+}
+
+.loginFormWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(221, 236, 247);
+  font-family: Arial, sans-serif;
+  padding: 30px 10px 18px;
+}
+
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px rgb(255, 255, 255) inset;
+}
+
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.registerFormTitle {
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1.2;
+  text-align: center;
+  width: 90%;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.registerFormLabel {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 96%;
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.loginFormLabel {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 96%;
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.svgWrapper {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  fill: #666667;
+}
+
+.registerFormLabel:nth-last-child(3n-1) {
+  margin-bottom: 0px;
+}
+
+.loginFormLabel:nth-last-child(2n) {
+  margin-bottom: 0px;
+}
+
+.registerFormInput {
+  width: 100%;
+  border: 1px solid #c7c3c3;
+  padding: 8px;
+}
+
+.registerFormInput::placeholder {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #9b9faa;
+  vertical-align: middle;
+}
+
+.inputErrorText {
+  position: absolute;
+  min-width: 240px;
+  text-align: start;
+  bottom: -22px;
+  color: rgb(223, 71, 71);
+}
+
+:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #ffffff;
+  color: #fc842d;
+  border: 1px solid #fc842d;
+}
+
+:-webkit-autofill:focus {
+  background-color: aqua;
+}
+
+.registerFormInput:focus {
+  transition: padding 0.2s ease;
+}
+
+.registerFormInput:focus::placeholder {
+  opacity: 0;
+}
+
+.registrationForm {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 124px;
+  padding-top: 40px;
+}
+
+.buttonRegistrationWrapper {
+  margin-bottom: 20px;
+}
+
+.buttonLoginWrapper {
+  width: 100%;
+}
+
+.buttonLogin {
+}
+
+.red {
+  outline: 1px solid red;
+}
+
+.green {
+  outline: 1px solid green;
+}
+
+@media screen and (min-width: 768px) {
+  .registrationFormWrapper {
+    width: 80%;
+  }
+
+  .registerFormTitle {
+    padding: 0px 30px;
+  }
+
+  .buttonWrapper {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding: 34px 60px 20px;
+  }
+
+  .buttonRegistrationWrapper {
+    width: 150px;
+    height: 40px;
+    margin: 0px 40px 0px 0px;
+  }
+
+  .buttonLoginWrapper {
+    width: 150px;
+    height: 40px;
+    text-align: center;
+  }
+}
+
+@media (min-width: 980px) {
+  registrationFormWrapper {
+    width: 70%;
+  }
+
+  .registerFormInput {
+    width: 90%;
+  }
+
+  .buttonWrapper {
+    justify-content: space-around;
+  }
+}
+
+/* @media (min-width: 1180px) {
+} */
+
+@media (min-width: 1480px) {
+  .registrationFormWrapper {
+    width: 60%;
+  }
+}
