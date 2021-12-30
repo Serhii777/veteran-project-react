@@ -6,7 +6,7 @@
 
 .formDataWrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   text-align: left;
   margin-bottom: 10px;
@@ -14,13 +14,11 @@
 
 .formDataLabel {
   line-height: 1.4;
-  flex: 0 0 130px;
   margin-right: 10px;
 }
 
 .formDataLabelImage {
   line-height: 1.4;
-  flex: 0 0 130px;
   margin-right: 10px;
 }
 
@@ -77,4 +75,21 @@
 .imageContent {
   width: 500px;
   margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .formDataWrapper {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .formDataLabel {
+    flex: 0 0 130px;
+  }
+  
+  .formDataLabelImage {
+    flex: 0 0 130px;
+  }
 }

@@ -8,10 +8,12 @@
   margin: 0;
   border: 0;
   box-sizing: border-box;
+  /* outline: 1px solid red; */
 }
 
 html,
 body {
+  width: 100%;
   min-height: 100vh;
   font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,6 +24,7 @@ body {
   color: #000000;
   background-color: #ffffff;
   text-rendering: optimizeLegibility;
+  overflow-x:hidden;
 }
 
 h1,

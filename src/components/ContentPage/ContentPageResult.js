@@ -72,7 +72,8 @@ const ContentPageResult = ({
     const option = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5,
+      // threshold: [0.1, 0.5, 1.0],
+      threshold: 1.0,
     };
 
     const observer = new IntersectionObserver(handleObserver, option);
@@ -245,9 +246,9 @@ const ContentPageResult = ({
             )}
             {error && (
               <div className={styles.errorWrapper}>
-              <div className={styles.errorInfo}>Error!</div>
-              <p className={styles.errorText}>{errorText}</p>
-            </div>
+                <div className={styles.errorInfo}>Error!</div>
+                <p className={styles.errorText}>{errorText}</p>
+              </div>
             )}
             <div ref={loader} />
           </div>

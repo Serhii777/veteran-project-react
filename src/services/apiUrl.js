@@ -16,6 +16,7 @@ export const API_URL_WOMEN_CLUB = `${API_BASE_URL}/womenclubs`;
 export const API_URL_ANNOUNCEMENTS = `${API_BASE_URL}/announcements`;
 export const API_URL_NEWS = `${API_BASE_URL}/news`;
 
+// http://localhost:4001/images/upload
 export const UPLOAD_IMAGE_URL = `${API_BASE_URL}/images/upload`;
 export const IMAGES_URL = `${API_BASE_URL}/images`;
 export const IMAGES_URL_DB = `${API_BASE_URL}/images/photos`;

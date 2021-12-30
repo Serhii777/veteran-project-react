@@ -104,7 +104,7 @@ const ImagesPage = ({ URL_IMAGES, URL_IMAGES_DB, URL_UPLOAD_IMAGE }) => {
                               `${URL_IMAGES}/` +
                               `${item.imageUrl}`.split("").slice(14).join("")
                             }
-                            alt={`${item.imageFilename}`}
+                            alt={`${item.imageFilename}`} className={styles.image}
                           />
                           <div className={styles.imageDescriptionWrapper}>
                             <p className={styles.textDescription}>
