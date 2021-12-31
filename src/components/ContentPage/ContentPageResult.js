@@ -56,6 +56,10 @@ const ContentPageResult = ({
     URL
   );
 
+  // loading, error, errorText, list, count
+  // console.log("loading:", loading);
+  // console.log("error:", error);
+
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
@@ -239,7 +243,7 @@ const ContentPageResult = ({
                   ))
                 : null}
             </ul>
-            {loading && (
+            {loading && error === true && (
               <div className={styles.spinnerWrapper}>
                 <Spinner type="Bars" color="#076702" height={40} width={80} />
               </div>

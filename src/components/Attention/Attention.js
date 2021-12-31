@@ -147,7 +147,8 @@ const Attention = () => {
 
         {loading && (
           <div className={styles.spinnerWrapper}>
-            <Spinner type="Audio" color="#076702" height={34} width={80} />
+            {/* <Spinner type="Audio" color="#076702" height={34} width={80} /> */}
+            <Spinner type="Puff" color="#076702" height={40} width={80}  />
           </div>
         )}
         {error && (
