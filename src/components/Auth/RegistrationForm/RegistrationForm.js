@@ -16,10 +16,10 @@ import { FormErrors } from "../FormErrors";
 import { store } from "react-notifications-component";
 import styles from "./RegistrationForm.module.css";
 
-const override = css`
-  display: block;
-  margin: 13px auto 0;
-`;
+// const override = css`
+//   display: block;
+//   margin: 13px auto 0;
+// `;
 
 class RegistrationForm extends Component {
   state = {
@@ -60,20 +60,20 @@ class RegistrationForm extends Component {
           setTimeout(() => {
             this.props.history.push("/admin/login");
 
-            store.addNotification({
-              title: "Wonderful!",
-              type: "success",
-              message:
-                "Поздоровляємо, реєстрація пройшла успішно! Щоб зайти до адміністративної частини сайту, введіть Вашу електронну пошту і пароль та натисніть кнопку «Вхід»",
-              container: "center",
-              animationIn: ["animate__animated animate__zoomIn"],
-              animationOut: ["animate__animated animate__zoomOut"],
-              dismiss: {
-                duration: 0,
-                onScreen: true,
-                showIcon: true,
-              },
-            });
+            // store.addNotification({
+            //   title: "Wonderful!",
+            //   type: "success",
+            //   message:
+            //     "Поздоровляємо, реєстрація пройшла успішно! Щоб зайти до адміністративної частини сайту, введіть Вашу електронну пошту і пароль та натисніть кнопку «Вхід»",
+            //   container: "center",
+            //   animationIn: ["animate__animated animate__zoomIn"],
+            //   animationOut: ["animate__animated animate__zoomOut"],
+            //   dismiss: {
+            //     duration: 0,
+            //     onScreen: true,
+            //     showIcon: true,
+            //   },
+            // });
           }, 10000)
         );
       }
@@ -202,8 +202,17 @@ class RegistrationForm extends Component {
               <Button
                 title={
                   loading ? (
-                    <ScaleLoader color={"#fff"} loading={true} css={override} />
+                    <ScaleLoader
+                      color={"#fff"}
+                      loading={true}
+                      style={{ display: "block", margin: "13px auto 0" }}
+                      //  css={override}
+                    />
                   ) : (
+                    // const override = css`
+                    //   display: block;
+                    //   margin: 13px auto 0;
+                    // `;
                     "Реєстрація"
                   )
                 }
