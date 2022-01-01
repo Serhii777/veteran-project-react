@@ -19,4 +19,4 @@ export const UPLOAD_IMAGE_URL = `${API_BASE_URL}images/upload`;
 export const IMAGES_URL = `${API_BASE_URL}images`;
 export const IMAGES_URL_DB = `${API_BASE_URL}images/photos`;
 
-export const changeimagesUrl = `${API_BASE_URL}changeimages`;
+// export const changeimagesUrl = `${API_BASE_URL}changeimages`;
