@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { css } from "@emotion/core";
+// import { css } from "@emotion/core";
 import { ScaleLoader } from "react-spinners";
 import { loadingSelectors } from "../../../redux/loading";
 import { authOperations, authSelectors } from "../../../redux/auth";
@@ -13,7 +13,7 @@ import SvgKey from "../../SvgComponents/SvgKey";
 import SvgNameBlack from "../../SvgComponents/SvgNameBlack";
 
 import { FormErrors } from "../FormErrors";
-import { store } from "react-notifications-component";
+// import { store } from "react-notifications-component";
 import styles from "./RegistrationForm.module.css";
 
 // const override = css`
@@ -56,8 +56,8 @@ class RegistrationForm extends Component {
         throw new Error(`Реєстрація завершилась невдало: ${data}!`);
       } else {
         return (
-          this.setState({ name: "", email: "", password: "" }),
           setTimeout(() => {
+            this.setState({ name: "", email: "", password: "" })
             this.props.history.push("/admin/login");
 
             // store.addNotification({

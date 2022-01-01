@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { css } from "@emotion/core";
+// import { css } from "@emotion/core";
 import { ScaleLoader } from "react-spinners";
-// import { loadingSelectors } from '../../../redux/loading';
 import { authOperations } from "../../../redux/auth";
 import { loadingSelectors } from "../../../redux/loading";
 import Button from "../../Button/Button";
@@ -12,10 +10,10 @@ import SvgKey from "../../SvgComponents/SvgKey";
 import { FormErrors } from "../FormErrors";
 import styles from "../RegistrationForm/RegistrationForm.module.css";
 
-const override = css`
-  display: block;
-  margin: -13px auto 0;
-`;
+// const override = css`
+//   display: block;
+//   margin: -13px auto 0;
+// `;
 
 class LoginForm extends Component {
   state = {
@@ -133,7 +131,10 @@ class LoginForm extends Component {
                 className={styles.buttonLogin}
                 title={
                   loading ? (
-                    <ScaleLoader color={"#fff"} loading={true} css={override} />
+                    <ScaleLoader color={"#fff"} loading={true}
+                    style={{ display: "block", margin: "13px auto 0" }}
+                     /* css={override} */
+                      />
                   ) : (
                     "Вхід"
                   )
