@@ -15,6 +15,9 @@
 }
 
 .mainWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   background: url("../../images/background/main_down-part.svg") right 0px bottom -20px
     no-repeat;
@@ -26,9 +29,25 @@
   background-color: #181918;
 }
 
+@media (min-width: 380px) {
+  .mainWrapper,
+  .container {
+    /* width: 340px; */
+    width: 100%;
+  }
+}
+@media (min-width: 480px) {
+  .mainWrapper,
+  .container {
+    /* width: 440px; */
+    width: 100%;
+  }
+}
+
 @media (min-width: 540px) {
   .container {
-    width: 500px;
+    /* width: 500px; */
+    width: 100%;
   }
 }
 

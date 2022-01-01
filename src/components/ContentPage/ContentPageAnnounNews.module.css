@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   font-family: Arial, sans-serif;
   padding: 10px 6px 0px;
   margin-bottom: 10px;
@@ -268,7 +269,7 @@
   border: 2px solid #dc1313;
   border-radius: 5px;
   background-color: #fcefef;
-  padding: 2px 12px ;
+  padding: 2px 12px;
 }
 .errorInfo {
   width: 100%;

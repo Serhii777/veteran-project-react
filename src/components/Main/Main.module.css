@@ -4,12 +4,29 @@
   width: 100%;
 }
 
+.childrenWrapper {
+  width: 100%;
+}
+
 .buttonUpWrapper {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
   margin-right: 10px;
+}
+
+@media (min-width: 380px) {
+  .childrenWrapper {
+    /* width: 340px; */
+    width: 100%;
+  }
+}
+@media (min-width: 480px) {
+  .childrenWrapper {
+    /* width: 440px; */
+    width: 100%;
+  }
 }
 
 @media (min-width: 768px) {
