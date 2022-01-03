@@ -8,6 +8,10 @@ import styles from "./Navigation.module.css";
 
 const Navigation = ({ open, setOpen }) => {
   const [openSubMenu, setOpenSubMenu] = useState(false);
+  // const [itemIdClick, setItemIdClick] = useState("");
+
+  const [touch, setTouch] = useState(false);
+  // const [mouse, setMouse] = useState(false);
 
   const onHiddenSubMemu = useCallback(
     (event) => {
@@ -25,18 +29,13 @@ const Navigation = ({ open, setOpen }) => {
   );
 
   useEffect(() => {
-    let body = document.querySelector("body");
-    if (isMobile.any()) {
-      body.classList.add("touch");
-    } else {
-      body.classList.add("mouse");
-      setOpenSubMenu(true);
-    }
+    // let body = document.querySelector("body");
 
-    return () => {
-      // thisArrow.classList.remove("arrowActive");
-    };
-  }, []);
+    isMobile.any() ? setTouch(true) : setTouch(false);
+    !touch ? setOpenSubMenu(true) : setOpenSubMenu(false);
+
+    return () => {};
+  }, [touch]);
 
   let history = useHistory();
 
@@ -71,6 +70,8 @@ const Navigation = ({ open, setOpen }) => {
                       onClick={() => {
                         if (document.documentElement.clientWidth < 768) {
                           route.routes ? setOpen(open) : setOpen(!open);
+
+                          touch ? setOpenSubMenu(true) : setOpenSubMenu(false);
                         }
                         if (document.documentElement.clientWidth >= 768) {
                           setOpen(open);
@@ -92,13 +93,7 @@ const Navigation = ({ open, setOpen }) => {
                             ? `${styles.arrow}`
                             : `${styles.arrowRight}`
                         }
-                        //* onCLick={() => setOpenSubMenu(!openSubMenu)}
-                        onClick={(event) => {
-                          setOpenSubMenu(!openSubMenu);
-                        }}
-                        activeClassName={
-                          openSubMenu ? `${styles.arrowActiveMob}` : null
-                        }></span>
+                        onCLick={() => setOpenSubMenu(!openSubMenu)}></span>
                     ) : null}
 
                     {route.routes && openSubMenu ? (
