@@ -2,7 +2,7 @@ import React, { Fragment, useContext } from "react";
 import authContext from "../../../services/authContext";
 
 import {
-  API_URL_ANNOUNCEMENTS,
+  API_URL_ANNOUNCEMENTS, IMAGES_URL
 } from "../../../services/apiUrl";
 
 import {
@@ -32,6 +32,7 @@ const AnnouncementCont = (props) => {
         onTitle={titleNested}
         SvgContent={SvgBellBlackSound}
         URL={API_URL_ANNOUNCEMENTS}
+        URL_IMAGES={IMAGES_URL}
         onGetAllItems={getAllItems}
         onDeleteItem={deleteItem}
       />

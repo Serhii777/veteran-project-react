@@ -1,7 +1,11 @@
 import React, { Fragment, useContext } from "react";
 import authContext from "../../../services/authContext";
 
-import { API_URL_NEWS } from "../../../services/apiUrl";
+import {
+  API_URL_NEWS,
+  IMAGES_URL_DB,
+  IMAGES_URL,
+} from "../../../services/apiUrl";
 
 import {
   createItem,
@@ -29,12 +33,14 @@ const News = (props) => {
         onTitle={titleNested}
         SvgContent={SvgNews}
         URL={API_URL_NEWS}
+        // URL_IMAGES={IMAGES_URL_DB}
+        URL_IMAGES={IMAGES_URL}
         onGetAllItems={getAllItems}
         onDeleteItem={deleteItem}
       />
       {auth.isAuthenticated ? (
         <div className={styles.formResultsWorkWrapper}>
-          <FormContentAnnounNews onCreateItem={createItem} URL={API_URL_NEWS}/>
+          <FormContentAnnounNews onCreateItem={createItem} URL={API_URL_NEWS} />
         </div>
       ) : null}
     </Fragment>

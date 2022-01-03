@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from "react";
 import authContext from "../../services/authContext";
 
-import { API_URL_LEGALITEM } from "../../services/apiUrl";
+import { API_URL_LEGALITEM, IMAGES_URL } from "../../services/apiUrl";
 import {
   createItem,
   getAllItems,
@@ -25,6 +25,7 @@ const LegalDocuments = (props) => {
         onTitle={titleName}
         SvgContent={SvgLaws}
         URL={API_URL_LEGALITEM}
+        URL_IMAGES={IMAGES_URL}
         onGetAllItems={getAllItems}
         onDeleteItem={deleteItem}
       />

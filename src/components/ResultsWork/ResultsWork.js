@@ -16,7 +16,7 @@ import SvgResult from "../SvgComponents/SvgResult";
 import { CSSTransition } from "react-transition-group";
 import fadeItems from "../Animation/FadeItems.module.css";
 
-import { API_URL_RESULTWORK } from "../../services/apiUrl";
+import { API_URL_RESULTWORK, IMAGES_URL } from "../../services/apiUrl";
 
 import styles from "../ContentPage/ContentPageAnnounNews.module.css";
 
@@ -33,6 +33,7 @@ const ResultsWork = (props) => {
           SvgContent={SvgResult}
           onGetAllItems={getAllItems}
           URL={API_URL_RESULTWORK}
+          URL_IMAGES={IMAGES_URL}
           onDeleteItem={deleteItem}
         />
 
