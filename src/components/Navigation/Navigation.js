@@ -95,7 +95,10 @@ const Navigation = ({ open, setOpen }) => {
                         //* onCLick={() => setOpenSubMenu(!openSubMenu)}
                         onClick={(event) => {
                           setOpenSubMenu(!openSubMenu);
-                        }}></span>
+                        }}
+                        activeClassName={
+                          openSubMenu ? `${styles.arrowActiveMob}` : null
+                        }></span>
                     ) : null}
 
                     {route.routes && openSubMenu ? (

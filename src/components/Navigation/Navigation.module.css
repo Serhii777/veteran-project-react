@@ -129,6 +129,13 @@
   background-color: rgb(204, 123, 37);
 }
 
+.arrowActiveMob {
+  /* border-left: 0px solid #0f6003;
+  border-right: 9px solid #147f04; */
+  border-top: none;
+  border-bottom: 9px solid #37ff00;
+}
+
 /*! SubMenu ====== start =========================================*/
 .subListWrapper {
 }
