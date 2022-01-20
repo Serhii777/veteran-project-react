@@ -89,7 +89,10 @@ const login = (credentials) => (dispatch) => {
   return axios
     .put(`/auth/login`, useradmin)
     .then((response) => {
+      
+      console.log('response:', response);
       token.set(response.data.token); //* Пока все Ок
+
       dispatch(authActions.loginSuccess(response.data));
     })
     .catch((error) => {
