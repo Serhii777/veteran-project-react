@@ -93,7 +93,8 @@ const ContentPage = ({
 
   useEffect(() => {
     getItems();
-  }, [getItems, listItems]);
+  // }, [getItems, listItems]);
+  }, []);
 
   // console.log("listItems:", listItems);
   // console.log("error:", errorText);
