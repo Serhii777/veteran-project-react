@@ -1,14 +1,6 @@
 const API_URL = process.env.REACT_APP_API_URL;
-// export const API_BASE_URL = "http://localhost:4001/";
-// export const API_BASE_URL = "https://veteran-prostir.herokuapp.com/";
-export const API_BASE_URL = API_URL || process.env.REACT_APP_API_URL_DEFAULT;
 
-console.log("API_URL:", API_URL);
-console.log(
-  "REACT_APP_API_URL_DEFAULT:",
-  process.env.REACT_APP_API_URL_DEFAULT
-);
-console.log("REACT_APP_API_BASE_URL:", API_BASE_URL);
+export const API_BASE_URL = API_URL || process.env.REACT_APP_API_URL_DEFAULT;
 
 export const HOMEITEMS_URL = `${API_BASE_URL}homeitems`;
 export const API_URL_ATTENTIONITEM = `${API_BASE_URL}attentionitems`;
@@ -23,9 +15,7 @@ export const API_URL_WOMEN_CLUB = `${API_BASE_URL}womenclubs`;
 export const API_URL_ANNOUNCEMENTS = `${API_BASE_URL}announcements`;
 export const API_URL_NEWS = `${API_BASE_URL}news`;
 
-// http://localhost:4001/images/upload
 export const UPLOAD_IMAGE_URL = `${API_BASE_URL}images/upload`;
 export const IMAGES_URL = `${API_BASE_URL}images`;
 export const IMAGES_URL_DB = `${API_BASE_URL}images/photos`;
 
-// export const changeimagesUrl = `${API_BASE_URL}changeimages`;
