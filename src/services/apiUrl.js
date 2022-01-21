@@ -1,6 +1,7 @@
-const API_URL = process.env.REACT_APP_API_URL;
+// const API_URL = process.env.REACT_APP_API_URL;
 
-export const API_BASE_URL = API_URL || process.env.REACT_APP_API_URL_DEFAULT;
+export const API_BASE_URL =
+  process.env.REACT_APP_API_URL || process.env.REACT_APP_API_URL_DEFAULT;
 
 export const HOMEITEMS_URL = `${API_BASE_URL}homeitems`;
 export const API_URL_ATTENTIONITEM = `${API_BASE_URL}attentionitems`;
@@ -18,4 +19,3 @@ export const API_URL_NEWS = `${API_BASE_URL}news`;
 export const UPLOAD_IMAGE_URL = `${API_BASE_URL}images/upload`;
 export const IMAGES_URL = `${API_BASE_URL}images`;
 export const IMAGES_URL_DB = `${API_BASE_URL}images/photos`;
-
