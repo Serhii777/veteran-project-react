@@ -50,8 +50,6 @@ typings/
 # Optional npm cache directory
 .npm
 
-# Optional eslint cache
-.eslintcache
 
 # Microbundle cache
 .rpt2_cache/
@@ -128,3 +126,6 @@ yarn-error.log*
 
 # Local Netlify folder
 .netlify
+
+# Optional eslint cache
+.eslintcache
